@@ -1,0 +1,155 @@
+page-login {
+  .beego-background-overlay {
+    background-image: url('../assets/imgs/background1.png');
+  }
+  .beego-center-container{
+      .beego-color-pink{
+        font-size: 27px;
+        font-weight: 800;
+      }
+      span{
+        color: white;
+        font-size: 12px;
+        font-weight: 100;
+      }
+  }
+  form{
+      text-align: center;
+  }
+  .beego-circle-btn {
+    margin: 0 13px;
+  }
+  .forget{
+    width: 302px;
+    color: white;
+    font-weight: 100;
+    font-size: 8px;
+  }
+  .btn-login{
+      width: 192px;
+  }
+  .bee-margin1{
+    margin-top: 40px;
+    width: 294px;
+  }
+  .bee-margin2 {
+    margin-top: 12px;
+  }
+  .bee-margin3{
+    margin-top: 40px;
+  }
+  .bee-margin4{
+    margin-top: 12px;
+    padding-bottom: 16px;
+    font-size: 10px;
+    color: white;
+    font-weight: 100;
+  }
+//   .icon-forward {
+//     background: url('https://icons.simplesvg.com/ion-ios-arrow-forward.svg?color=white&width=21&height=21') no-repeat center center;
+//   } //les logos
+//   .logobeego {
+//     display: block;
+//     /* position: relative; */
+//     margin: auto;
+//     width: 80px;
+//     height: 100px;
+//     background: url('../assets/imgs/Logo1.png') center center no-repeat;
+//   }
+//   .logofb {
+//     background: url('../assets/imgs/fb.png') center center no-repeat;
+//   }
+//   .logogoogle {
+//     background: url('../assets/imgs/google.png') center center no-repeat;
+//   }
+//   .contenu {
+//     position: relative;
+//     top: 71px;
+//     /* left: 32px; */
+//     width: 305px;
+//     height: 100px;
+//     margin: auto;
+//   }
+//   .itemround {
+//     height: 10px !important;
+//     width: 250px;
+//     border-top-left-radius: 20px;
+//     border-top-right-radius: 20px;
+//     border-bottom-left-radius: 20px;
+//     border-bottom-right-radius: 20px;
+//     background-color: rgba(255, 255, 255, 0.4);
+//     margin-bottom: 1px;
+//     text-decoration-color: #FFFFFF;
+//     ::placeholder {
+//       color: white;
+//       font-size: 12px !important;
+//     }
+//   } // les texts
+//   .textblanc {
+//     color: #FFFFFF;
+//     font-size: x-small;
+//     line-height: 0.75cm;
+//   }
+//   .textblanccenter {
+//     color: #FFFFFF;
+//     font-size: 12px;
+//   }
+//   .textblanccenterreseau {
+//     color: #FFFFFF;
+//     margin-left: 50px;
+//     font-size: 10px;
+//   }
+//   .textrose {
+//     color: #FD7E93;
+//     line-height: 0.5cm;
+//     font-size: x-large;
+//   } // les boutons
+//   .boutonfacebook {
+//     background-color: transparent;
+//     margin-left: 80px;
+//   }
+//   .boutongoogle {
+//     background-color: transparent;
+//     margin-left: 15px;
+//   }
+//   .boutonmdp {
+//     background-color: transparent;
+//     margin-left: 120px;
+//     height: 17px;
+//     font-size: 12px;
+//   }
+//   .boutonrose {
+//     background-color: #FD7E93;
+//     left: 32px;
+//     height: 35px;
+//     width: 192px;
+//   }
+//   .ff {
+//     border-radius: 12px;
+//     height: 35px;
+//     width: 250px;
+//     background-color: rgba(0, 0, 0, 0.2);
+//     padding-left: 45px;
+//     border: none;
+//     color: white !important;
+//   }
+//   .ff::placeholder {
+//     color: white;
+//     font-size: 12px;
+//   }
+//   .ff-nom {
+//     background-image: url(../../assets/imgs/ff-nom.png);
+//     background-repeat: no-repeat;
+//     background-position: 12px;
+//   }
+//   .ff-mail {
+//     background-image: url(../../assets/imgs/ff-mail.png);
+//     background-repeat: no-repeat;
+//     background-position: 12px;
+//   }
+//   .ff-mdp {
+//     background-image: url(../../assets/imgs/ff-mdp.png);
+//     background-repeat: no-repeat;
+//     background-position: 12px;
+//   }
+}

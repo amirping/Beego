@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      About
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+
+
+   <ion-list>
+
+  <ion-item>
+    <ion-label floating>NAME</ion-label>
+    <ion-input type="text" [(ngModel)] = "name"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating>LAST NAME</ion-label>
+    <ion-input type="text"[(ngModel)] = "lname" ></ion-input>
+  </ion-item>
+
+  <ion-item>
+      <ion-label floating>DEPARTEMENT
+         </ion-label>
+      <ion-input type="text" [(ngModel)] = "dept"></ion-input>
+  </ion-item>
+
+  <ion-item>
+        <ion-label floating>AGE</ion-label>
+        <ion-input type="text" [(ngModel)] = "age"></ion-input>
+      </ion-item>
+</ion-list>
+
+    <button ion-button full (click)="createPerson(name,lname,dept,age)"> S'inscrire </button>
+
+</ion-content>

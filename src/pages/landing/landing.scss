@@ -1,0 +1,37 @@
+page-landing {
+  .max-width{
+    max-width:50%;
+  }
+  .beego-connexion-button{
+    width: 146px;
+  }
+  .btn-signup{
+    background-color: color($colors,pink);
+  }
+  .btn-login{
+    border: 1px solid white;
+  }
+  
+  // .Beego-Connexion-Screen01-button {
+  //   border-radius: 40px !important;
+  //   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  //   color: white;
+  //   margin-right: 10px;
+  //   width: 146px;
+  //   height: 35px;
+  //   font-size: 14px !important;
+  // }
+  // .Beego-Connexion-Screen01-button-color-insc {
+  //   background-color: #FB6B94;
+  // }
+  // .Beego-Connexion-Screen01-button-color-cnx {
+  //   background-color: transparent;
+  //   border: 1px solid #707070;
+  // }
+  // .Beego-Connexion-Screen01-button-color-insc:hover {
+  //   background-color: #2EE59D;
+  //   box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+  //   color: #fff;
+  //   transform: translateY(-7px);
+  // }
+}
