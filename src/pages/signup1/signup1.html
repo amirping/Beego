@@ -6,7 +6,7 @@
 -->
 <ion-header no-border>
 
-    <ion-navbar color="primary">
+    <ion-navbar color="transparent">
       <!-- S -->
       <ion-buttons end>
         <button ion-button icon-only (click) ="skip()" class="beego-skip-button beego-text-transform-none">Skip
@@ -19,7 +19,7 @@
 
 
 
-<ion-content class="beego-background-overlay" >
+<ion-content class="beego-background-overlay"  >
     <ion-grid>
         <ion-row>
           <ion-col text-center>
@@ -35,38 +35,62 @@
                   Bienvenu,
                 </div>
                 <span>Saisissez vos coordonnés pour vous connecter</span>
-                      
             </div>
           </ion-col>
         </ion-row>
         <ion-row>
-            <div class="bee-separator bee-separator-full"></div>
+            <div class="beego-separator"></div>
         </ion-row>
         <ion-row>
           <ion-col>
 
-            <form action="#" >
+            <form (submit)="next()" [formGroup]="signupForm" novalidate>
               <ion-row>
-                <input type="email" class="beego-input-transparent beego-icon-name bee-margin2" placeholder="Nom">
-
+                <input type="text" 
+                  class="beego-input-transparent beego-icon-name bee-margin2" 
+                  placeholder="Nom"
+                  formControlName="firstName">
               </ion-row>
               <ion-row>
-                <input type="email" class="beego-input-transparent beego-icon-name bee-margin2" placeholder="Prénom">
-
+                  <p *ngIf="!signupForm.controls.firstName.valid && signupForm.controls.firstName.touched" >invalid nom</p>
               </ion-row>
               <ion-row>
-                <input type="email" class="beego-input-transparent beego-icon-mail bee-margin2" placeholder="Adresse mail">
-
+                <input type="email" 
+                class="beego-input-transparent beego-icon-name bee-margin2" 
+                placeholder="Prénom"
+                formControlName="lastName">
+                
               </ion-row>
               <ion-row>
-                <input type="password" class="beego-input-transparent beego-icon-lock bee-margin2" placeholder="Mot de passe">
-
+                  <p *ngIf="!signupForm.controls.lastName.valid && signupForm.controls.lastName.touched" >invalid nom</p>
+              </ion-row>
+              <ion-row>
+                <input type="email" 
+                class="beego-input-transparent beego-icon-mail bee-margin2" 
+                placeholder="Adresse mail"
+                formControlName="email">
+                
+              </ion-row>
+              <ion-row>
+                  <p *ngIf="!signupForm.controls.email.valid && signupForm.controls.email.touched" >invalid nom</p>
+              </ion-row>
+              <ion-row>
+                <input type="password" 
+                class="beego-input-transparent beego-icon-lock bee-margin2" 
+                placeholder="Mot de passe"
+                formControlName="password">
+                
+              </ion-row>
+              <ion-row>
+                  <p *ngIf="!signupForm.controls.email.valid && signupForm.controls.email.touched" >invalid nom</p>
               </ion-row>
               
               <ion-row>
                 
                 <div class="beego-center-container">
-                  <button ion-button class="beego-background-pink bee-btn-next bee-margin3" (click)="next()">
+                  <button ion-button 
+                    class="beego-background-pink bee-btn-next bee-margin3"
+                    [disabled]="!signupForm.valid">
                   </button>
                 </div>
               </ion-row>
@@ -90,7 +114,7 @@
             <div class="beego-center-container">
               <button class="beego-circle-btn beego-icon-facebook" ></button>
 
-              <button class="beego-circle-btn beego-icon-google" ></button>
+              <button class="beego-circle-btn beego-icon-google" (click)="loginWithGoogle()" ></button>
             </div>
         </ion-row>
 
