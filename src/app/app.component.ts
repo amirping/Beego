@@ -1,13 +1,17 @@
-import { Component } from '@angular/core';
-import { Platform } from 'ionic-angular';
-import { StatusBar } from '@ionic-native/status-bar';
-import { SplashScreen } from '@ionic-native/splash-screen';
+import { Component } from "@angular/core";
+import { Platform } from "ionic-angular";
+import { StatusBar } from "@ionic-native/status-bar";
+import { SplashScreen } from "@ionic-native/splash-screen";
 
-import { LandingPage } from '../pages/landing/landing';
+
+import { LandingPage } from "../pages/landing/landing";
+import { ChilloutPage } from "../pages/chillout/chillout";
+
 import { HomePage } from '../pages/home/home';
 import { UserProvider } from '../providers/user/user';
+
 @Component({
-  templateUrl: 'app.html'
+  templateUrl: "app.html"
 })
 export class MyApp {
   rootPage:any; //= LandingPage;
@@ -43,4 +47,3 @@ export class MyApp {
     });
   }
 }
-

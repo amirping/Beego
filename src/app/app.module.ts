@@ -1,17 +1,24 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { ErrorHandler, NgModule } from '@angular/core';
-import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
-import { SplashScreen } from '@ionic-native/splash-screen';
-import { StatusBar } from '@ionic-native/status-bar';
+
+import { BrowserModule } from "@angular/platform-browser";
+import { ErrorHandler, NgModule, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
+import { IonicApp, IonicErrorHandler, IonicModule } from "ionic-angular";
+import { SplashScreen } from "@ionic-native/splash-screen";
+import { StatusBar } from "@ionic-native/status-bar";
+
+import { MyApp } from "./app.component";
+import { LandingPage } from "../pages/landing/landing";
+import { LoginPage } from "../pages/login/login";
+import { Signup1Page } from "../pages/signup1/signup1";
+import { Signup2Page } from "../pages/signup2/signup2";
+import { HomePage } from "../pages/home/home";
+import { ChilloutPage } from "../pages/chillout/chillout";
+import { Ionic2RatingModule } from 'ionic2-rating';
+
+
 
 import { HttpClient, HttpClientModule } from "@angular/common/http";
 
-import { MyApp } from './app.component';
-import { LandingPage } from '../pages/landing/landing';
-import { LoginPage } from '../pages/login/login';
-import { Signup1Page } from '../pages/signup1/signup1';
-import { Signup2Page } from '../pages/signup2/signup2';
-import { HomePage } from '../pages/home/home';
+
 
 import { AngularFireModule } from "angularfire2";
 import { AngularFireAuthModule } from "angularfire2/auth";
@@ -31,6 +38,7 @@ const firebaseConfig = {
   messagingSenderId: "812347008332"
 };
 
+
 @NgModule({
   declarations: [
     MyApp,
@@ -38,6 +46,7 @@ const firebaseConfig = {
     LoginPage,
     Signup1Page,
     Signup2Page,
+    ChilloutPage
     HomePage
   ],
   imports: [
@@ -47,7 +56,8 @@ const firebaseConfig = {
     AngularFireAuthModule,
     AngularFireDatabaseModule,
     AngularFireStorageModule,
-    HttpClientModule
+    HttpClientModule,
+    Ionic2RatingModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -56,11 +66,14 @@ const firebaseConfig = {
     LoginPage,
     Signup1Page,
     Signup2Page,
-    HomePage
+    HomePage,
+    ChilloutPage
   ],
   providers: [
     StatusBar,
-    SplashScreen,
+    SplashScreen,  
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     UserProvider
   ]
