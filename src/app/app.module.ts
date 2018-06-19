@@ -11,6 +11,7 @@ import { Signup1Page } from "../pages/signup1/signup1";
 import { Signup2Page } from "../pages/signup2/signup2";
 import { HomePage } from "../pages/home/home";
 import { ChilloutPage } from "../pages/chillout/chillout";
+import { Ionic2RatingModule } from 'ionic2-rating';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,7 @@ import { ChilloutPage } from "../pages/chillout/chillout";
     HomePage,
     ChilloutPage
   ],
-  imports: [BrowserModule, IonicModule.forRoot(MyApp)],
+  imports: [BrowserModule,Ionic2RatingModule, IonicModule.forRoot(MyApp)],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,

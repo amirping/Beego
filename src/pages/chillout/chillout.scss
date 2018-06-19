@@ -8,6 +8,7 @@ page-chillout {
     height: 187px;
   }
   .searchWrapper {
+    margin-top: 15px;
     display: flex;
     flex-direction: row;
     position: relative;
@@ -22,7 +23,7 @@ page-chillout {
   .search {
     padding: 0px;
     min-height: 0px;
-    width: 85vw;
+    width: 90vw;
     background: transparent;
     margin: auto;
     z-index: 999;
@@ -35,6 +36,7 @@ page-chillout {
     font-size: 16px;
     font-family: "Raleway";
     padding-right: 56px;
+    border-radius:5px;
   }
   .search .searchbar-input::placeholder {
     color: white;
@@ -126,6 +128,7 @@ page-chillout {
     justify-content: space-around;
   }
   .grid-viewr .card-ex {
+    margin-top: 21px;
     width: 100px;
     display: flex;
     flex-direction: column;
@@ -133,21 +136,43 @@ page-chillout {
   .grid-viewr .card-ex .img {
     height: 109px;
     width: 100%;
-    -webkit-clip-path: polygon(
-      50% 0%,
-      100% 25%,
-      100% 75%,
-      50% 100%,
-      0% 75%,
-      0% 25%
-    );
-    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    clip-path: url(#hexagonPath);
   }
   .grid-viewr .card-ex span.title {
+    margin-top: 8px;
     color: #5c6877;
     font-family: "Raleway";
     font-size: 12px;
     font-weight: 400;
+    text-align: center;
   }
+  .grid-viewr .card-ex span.sub-title {
+    color: #8093ab;
+    font-family: "Raleway";
+    font-size: 10px;
+    font-weight: 400;
+    text-align: center;
+  }
+  .rating-ex{
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+  }
+  .rating-ex ul {
+  padding: 0px;
+  text-align:center;
+  margin:0px;
+
+  &.rating li {
+    padding: 5px 0px !important;
+    background: none;
+    color: #ffb400;
+    text-align:center;
+
+    ion-icon {
+      font-size: 12px;
+    }
+  }
+}
   $searchbar-ios-input-search-icon-color: white;
 }
