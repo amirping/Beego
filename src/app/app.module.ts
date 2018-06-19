@@ -3,66 +3,48 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
-
-import { HttpClient, HttpClientModule } from "@angular/common/http";
-
+import { AngularFireModule } from 'angularfire2';
 import { MyApp } from './app.component';
-import { LandingPage } from '../pages/landing/landing';
-import { LoginPage } from '../pages/login/login';
-import { Signup1Page } from '../pages/signup1/signup1';
-import { Signup2Page } from '../pages/signup2/signup2';
-import { HomePage } from '../pages/home/home';
-
-import { AngularFireModule } from "angularfire2";
-import { AngularFireAuthModule } from "angularfire2/auth";
-import { AngularFireDatabaseModule } from "angularfire2/database";
-import { AngularFireStorageModule } from "angularfire2/storage";
-// import { AngularFirestoreModule } from "angularfire2/firestore";
-
-import { UserProvider } from '../providers/user/user';
-
-
-const firebaseConfig = {
-  apiKey: "AIzaSyCzVhpaEtjnl7CN6A5WqDe7f5yU324UWmk",
-  authDomain: "test-3cdd6.firebaseapp.com",
-  databaseURL: "https://test-3cdd6.firebaseio.com",
-  projectId: "test-3cdd6",
-  storageBucket: "test-3cdd6.appspot.com",
-  messagingSenderId: "812347008332"
-};
-
+import { ShoppingListPage } from '../pages/shopping-list/shopping-list';
+import { FIREBASE_CREDENTIALS } from './firebase.credentials';
+import { AddShoppingPage } from '../pages/add-shopping/add-shopping';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { EditShoppingItemPage } from '../pages/edit-shopping-item/edit-shopping-item';
+import { AcceuilPage } from '../pages/acceuil/acceuil';
+import { EspacesPage } from '../pages/espaces/espaces';
+import { EvenementPage } from '../pages/evenement/evenement';
 @NgModule({
   declarations: [
     MyApp,
-    LandingPage,
-    LoginPage,
-    Signup1Page,
-    Signup2Page,
-    HomePage
-  ],
+    ShoppingListPage,
+    AddShoppingPage,
+    EditShoppingItemPage,
+    AcceuilPage,
+    EspacesPage,
+    EvenementPage
+    ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    AngularFireModule.initializeApp(firebaseConfig),
-    AngularFireAuthModule,
-    AngularFireDatabaseModule,
-    AngularFireStorageModule,
-    HttpClientModule
+    //Initialize angularfire 
+    AngularFireModule.initializeApp(FIREBASE_CREDENTIALS),
+    // Import the angularfiredatabaseModule to use DB interactions
+    AngularFireDatabaseModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    LandingPage,
-    LoginPage,
-    Signup1Page,
-    Signup2Page,
-    HomePage
+    ShoppingListPage,
+    AddShoppingPage,
+    EditShoppingItemPage,
+    AcceuilPage,
+    EspacesPage,
+    EvenementPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
-    UserProvider
+    {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
 export class AppModule {}
