@@ -4,6 +4,8 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
+import { HttpClient, HttpClientModule } from "@angular/common/http";
+
 import { MyApp } from './app.component';
 import { LandingPage } from '../pages/landing/landing';
 import { LoginPage } from '../pages/login/login';
@@ -11,6 +13,23 @@ import { Signup1Page } from '../pages/signup1/signup1';
 import { Signup2Page } from '../pages/signup2/signup2';
 import { HomePage } from '../pages/home/home';
 
+import { AngularFireModule } from "angularfire2";
+import { AngularFireAuthModule } from "angularfire2/auth";
+import { AngularFireDatabaseModule } from "angularfire2/database";
+import { AngularFireStorageModule } from "angularfire2/storage";
+// import { AngularFirestoreModule } from "angularfire2/firestore";
+
+import { UserProvider } from '../providers/user/user';
+
+
+const firebaseConfig = {
+  apiKey: "AIzaSyCzVhpaEtjnl7CN6A5WqDe7f5yU324UWmk",
+  authDomain: "test-3cdd6.firebaseapp.com",
+  databaseURL: "https://test-3cdd6.firebaseio.com",
+  projectId: "test-3cdd6",
+  storageBucket: "test-3cdd6.appspot.com",
+  messagingSenderId: "812347008332"
+};
 
 @NgModule({
   declarations: [
@@ -23,7 +42,12 @@ import { HomePage } from '../pages/home/home';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireAuthModule,
+    AngularFireDatabaseModule,
+    AngularFireStorageModule,
+    HttpClientModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -37,7 +61,8 @@ import { HomePage } from '../pages/home/home';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    UserProvider
   ]
 })
 export class AppModule {}
