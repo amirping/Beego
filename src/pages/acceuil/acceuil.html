@@ -100,23 +100,18 @@
       </ion-col>
     </ion-row>
 
-    <ion-slides>
 
+    <ion-slides *ngFor="let item of espacesListRef$ |
+    async">
       <ion-slide class="sliderimage2">
+      <img src="../../assets/imgs/{{item.espaceImage}}" class="sliderimage2" >
         <div class="bottom-left">
-          <br>&nbsp;&nbsp;Cocktail Mojito
+          <br>&nbsp;&nbsp;{{item.espaceSpecialite}} 
           <br>
           <br> &nbsp;&nbsp;
-          <img src="../../assets/imgs/localisation.png">&nbsp; What's Up&nbsp;&nbsp;
-
+          <img src="../../assets/imgs/localisation.png">&nbsp; {{item.espaceName}}&nbsp;&nbsp;
         </div>
       </ion-slide>
-
-
-      <ion-slide class="sliderimage2">
-
-      </ion-slide>
-
     </ion-slides>
     <!--A la une-->
 
@@ -142,20 +137,27 @@
           <strong>Promotions</strong>
         </button>
       </ion-col>
-      <ion-slides>
-        <ion-slide class="sliderimage3">
+
+
+      <ion-slides *ngFor="let item of evenementListRef$ |
+      async">
+        <ion-slide  class="sliderimage3" >
+        <img src="../../assets/imgs/Yuma.png" style="background: left no-repeat;">
+
           <button class="top-right-alaune">
             <strong>Intéressé(e)</strong>
           </button>
 
 
+          
           <div class="bottom-left-alaune" align="left">
-            <br>&nbsp;&nbsp;YUMA - The winter tour
+            <br>&nbsp;&nbsp;{{item.evenementName}}
             <br>
             <br> &nbsp;&nbsp;
-            <img src="../../assets/imgs/localisation.png">&nbsp; Yuka&nbsp;&nbsp;
+            <img src="../../assets/imgs/localisation.png">&nbsp; {{item.evenementPlace}}&nbsp;&nbsp;
 
-            <ion-icon name="clock" style="font-size: small;">&nbsp; 19 Juin 2018</ion-icon>
+            <ion-icon name="clock" style="font-size: small;">&nbsp; {{item.evenementDate}}</ion-icon>
+
           </div>
 
         </ion-slide>
