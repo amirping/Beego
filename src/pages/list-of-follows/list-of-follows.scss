@@ -1,0 +1,79 @@
+page-list-of-follows {
+    
+    .beego-title-list-follows{
+        position: relative;
+        font-size: 14PX;
+        text-align: center;
+        color: white;
+    }
+    .back{
+        position: absolute;
+        top: 37%;
+        z-index: 99;
+    }
+    .back-button-followlist{
+        background-color: transparent;
+        width: 65px;
+        
+        
+     } 
+      .back-img{
+        width: 64%;
+          
+      }
+    .for-search-listfollows{
+        // padding-left: 0px;
+        
+         position: relative;
+        }
+        .text-search-listfollows{
+            background-color: rgba(0,0,0,0.1);
+            border-radius: 12px;
+           
+           height: 27px;
+           width: 100%;
+            border:none;
+            padding-left: 37px;
+            color:black !important;
+        }
+        .text-search-listfollows::placeholder {
+            color: rgb(59, 52, 52);
+            font-size: 13px;
+            }
+            .search-text-icon-listfollows{
+                position: absolute;
+                background-color: transparent;
+                top: 5px;
+            }
+            .search-text-icon-listfollows:active{
+                position: absolute;
+                background-color: transparent;
+                top: 6px;
+                
+            }
+            .clear-text{
+                position: absolute;
+                background-color: transparent;
+                top: 6px;
+                right: 6px;
+            }
+            .cleaner-listfollows{
+                width: 13px;
+                height: 13px;
+            }
+            .listOfFollows-part{
+                margin-top:7%;
+                margin-left: -2%;
+            }
+            .lieu-listfollows{
+                font-size: 10px;
+            }
+            .delete-follow-button{
+                position: absolute;
+                right:0%;
+                top:27%;
+                background-color: transparent;
+            }
+            
+
+}
