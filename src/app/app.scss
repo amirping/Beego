@@ -14,6 +14,9 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+button{
+    outline: none !important;
+}
 .beego-background-overlay {
     position: relative;
     width: 100%;
@@ -45,7 +48,6 @@
     padding-top: 150px;
     padding-bottom: 40px;
     font-size: 14px !important;
-    color:#B8B8B8;
 }
 .beego-left, .beego-center{
     margin-right: auto;
@@ -81,7 +83,19 @@
 .beego-right-container{
     width: max-content;
     margin: 0 17px 0 auto;
-
+}
+.beego-separator {
+    position: relative;
+    height: 16px;
+    width: 81px;
+    margin: 10px auto;
+    background-image: url(../assets/imgs/signup-step1.svg);
+    background-size: 76px 16px;
+    background-repeat: no-repeat;
+    background-position: 0;
+}
+.beego-separator-full{
+    background-image: url(../assets/imgs/signup-step2.svg);
 }
 
 .beego-background-pink{

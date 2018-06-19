@@ -6,7 +6,7 @@
 -->
 <ion-header no-border>
 
-  <ion-navbar color="primary">
+  <ion-navbar color="transparent">
     <!-- S -->
     <ion-buttons end>
       <button ion-button icon-only (click) ="skip()" class="beego-skip-button beego-text-transform-none">Skip
@@ -22,16 +22,16 @@
   <div class="beego-connexion-container text-center">
     
       <img src="../../assets/imgs/beegologo.png">
-    <p class="lead beego-connexion-p">Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.</p>
+    <p class="lead text-white beego-connexion-p">Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.</p>
     <ion-grid>
       <ion-row>
         <ion-col class="max-width">
-          <button (click) ="signup()" class="beego-connexion-button bee-text-transform-none btn-signup" ion-button float-right>
+          <button (click) ="signup()" class="beego-connexion-button beego-text-transform-none btn-signup" ion-button float-right>
             S'inscrire
           </button>
         </ion-col>
         <ion-col class="max-width">
-          <button (click)="login()" class="beego-connexion-button bee-text-transform-none btn-login" ion-button float-left>
+          <button (click)="login()" class="beego-connexion-button beego-text-transform-none btn-login" ion-button float-left>
             Se connecter
           </button>
         </ion-col>

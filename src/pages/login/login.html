@@ -6,7 +6,7 @@
 -->
 <ion-header no-border>
 
-    <ion-navbar color="primary">
+    <ion-navbar color="transparent">
       <!-- S -->
       <ion-buttons end>
         <button ion-button icon-only (click) ="skip()" class="beego-skip-button beego-text-transform-none">Skip
@@ -18,7 +18,7 @@
 
 
 <ion-content padding class="beego-background-overlay">
-    <ion-grid>
+    <ion-grid (swipe)="swipeTo($event)">
         <ion-row>
           <ion-col text-center>
 
@@ -27,32 +27,40 @@
         </ion-row>
         <ion-row>
           <ion-col>
-
             <div class="beego-center-container bee-margin1">
                 <div class="beego-color-pink">
                   Bienvenu,
                 </div>
-                <span>Saisissez vos coordonnés pour vous connecter</span>
-                      
+                <span>Saisissez vos coordonnés pour vous connecter</span>                      
             </div>
           </ion-col>
         </ion-row>
         <ion-row>
           <ion-col>
 
-            <form action="#" >
+            <form (submit)="signin()" [formGroup]="signinForm" novalidate >
               <ion-row>
-                <input type="email" class="beego-input-transparent beego-icon-mail bee-margin2" placeholder="Adresse mail">
-
+                <input type="email" 
+                  class="beego-input-transparent beego-icon-mail bee-margin2" 
+                  placeholder="Adresse mail"
+                  formControlName="email">
               </ion-row>
               <ion-row>
-                <input type="password" class="beego-input-transparent beego-icon-lock bee-margin2" placeholder="Mot de passe">
-
+                <p *ngIf="!signinForm.controls.email.valid && signinForm.controls.email.touched" >invalid email</p>
+              </ion-row>
+              <ion-row>
+                <input type="password" 
+                  class="beego-input-transparent beego-icon-lock bee-margin2" 
+                  placeholder="Mot de passe"
+                  formControlName="password">
+              </ion-row>
+              <ion-row>
+                <p *ngIf="!signinForm.controls.password.valid && signinForm.controls.password.touched" >invalid password</p>
               </ion-row>
               <ion-row>
                 <ion-col align-items-end>
                   <div class="beego-center-container forget">
-                    <div class="beego-right-container">
+                    <div class="beego-right-container" (click)="forgetPassword()">
                       Mot de passe oublié ?
                     </div>
                   </div>
@@ -62,7 +70,9 @@
               <ion-row>
                 
                 <div class="beego-center-container">
-                  <button ion-button class="beego-connexion-button beego-text-transform-none  beego-background-pink btn-login bee-margin3" round>
+                  <button ion-button 
+                    class="beego-connexion-button beego-text-transform-none  beego-background-pink btn-login bee-margin3" 
+                    [disabled]="!signinForm.valid">
                       Se connecter
                   </button>
                 </div>
@@ -85,9 +95,9 @@
         </ion-row>
         <ion-row>
             <div class="beego-center-container">
-              <button class="beego-circle-btn beego-icon-facebook" ></button>
+              <button class="beego-circle-btn beego-icon-facebook" (click)="signinWithFacebook()" ></button>
 
-              <button class="beego-circle-btn beego-icon-google" ></button>
+              <button class="beego-circle-btn beego-icon-google" (click)="signinWithGoogle()" ></button>
             </div>
         </ion-row>
 
