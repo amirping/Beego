@@ -13,17 +13,16 @@
 </ion-header> -->
 
 
-<ion-content>
-  <ion-grid class="grid">
+<ion-content no-padding>
+  <ion-grid no-padding>
     <ion-row align-items-center class="topCover">
-      <ion-col col-12 align-self-stretch>
+      <ion-col align-self-stretch>
         <div class="searchWrapper">
           <ion-searchbar class="search" [(ngModel)]="searchText" [showCancelButton]="false" (ionInput)="null" (ionCancel)="null">
           </ion-searchbar>
           <ion-icon class="searchbar-search-icon newIcon" name="search"></ion-icon>
-
         </div>
-        <ion-slides [pager]="true" [autoplay]="2000" [loop]="true" *ngIf="slides && slides.length" class="slider">
+        <ion-slides [pager]="true" [autoplay]="2000" [loop]="true" [zoom]="false" *ngIf="slides && slides.length" class="slider">
           <ion-slide *ngFor="let slide of slides">
             <img class="CoverSlider" src="{{slide}}" />
           </ion-slide>
@@ -31,8 +30,8 @@
       </ion-col>
     </ion-row>
     <ion-row class="fllow">
-      <ion-col col-12 class="no-padding">
-        <div class="tabs custom-padding">
+      <ion-col class="no-padding">
+        <div class="tabs-ex custom-padding">
           <div (click)="indexPage = 1" [ngClass]="{active: indexPage == 1}">All</div>
           <div (click)="indexPage = 2" [ngClass]="{active: indexPage == 2}">Café</div>
           <div (click)="indexPage = 3" [ngClass]="{active: indexPage == 3}">Bar & lounge</div>
@@ -50,7 +49,47 @@
         <div class="subPageContainer" [ngSwitch]="indexPage">
           <div class="subPage" *ngSwitchCase="1">
             <div class="grid-viewr">
-              <div class=card>
+              <div class=card-ex>
+                <div class=img>
+                  <img src="https://picsum.photos/100/109" alt="">
+                </div>
+                <span class="title">Nom de l'espace</span>
+                <span class="sub-title">Nom de l'espace</span>
+                <div class="rating"></div>
+              </div>
+              <div class=card-ex>
+                <div class=img>
+                  <img src="https://picsum.photos/100/109" alt="">
+                </div>
+                <span class="title">Nom de l'espace</span>
+                <span class="sub-title">Nom de l'espace</span>
+                <div class="rating"></div>
+              </div>
+              <div class=card-ex>
+                <div class=img>
+                  <img src="https://picsum.photos/100/109" alt="">
+                </div>
+                <span class="title">Nom de l'espace</span>
+                <span class="sub-title">Nom de l'espace</span>
+                <div class="rating"></div>
+              </div>
+              <div class=card-ex>
+                <div class=img>
+                  <img src="https://picsum.photos/100/109" alt="">
+                </div>
+                <span class="title">Nom de l'espace</span>
+                <span class="sub-title">Nom de l'espace</span>
+                <div class="rating"></div>
+              </div>
+              <div class=card-ex>
+                <div class=img>
+                  <img src="https://picsum.photos/100/109" alt="">
+                </div>
+                <span class="title">Nom de l'espace</span>
+                <span class="sub-title">Nom de l'espace</span>
+                <div class="rating"></div>
+              </div>
+              <div class=card-ex>
                 <div class=img>
                   <img src="https://picsum.photos/100/109" alt="">
                 </div>

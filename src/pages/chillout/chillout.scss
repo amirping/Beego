@@ -1,137 +1,153 @@
- @import url('https://fonts.googleapis.com/css?family=Raleway');
- page-chillout {
-   .topCover {
-     height: 187px;
-   }
-   .searchWrapper {
-     display: flex;
-     flex-direction: row;
-     position: relative;
-   }
-   .newIcon {
-     z-index: 999;
-     color: white;
-     position: absolute;
-     right: calc( 8% + 30px);
-     top: calc( 50% - 8px);
-   }
-   .search {
-     padding: 0px;
-     min-height: 0px;
-     width: 85vw;
-     background: transparent;
-     margin: auto;
-     z-index: 999;
-   }
-   .search .searchbar-input {
-     background: rgba($color: #000000, $alpha: 0.5);
-     color: white !important;
-     text-align: center;
-     font-weight: 700;
-     font-size: 16px;
-     font-family: 'Raleway';
-     padding-right: 56px;
-   }
-   .search .searchbar-input::placeholder {
-     color: white;
-     opacity: 1;
-   }
-   .slider {
-     position: absolute;
-     top: 0;
-     bottom: 0;
-   }
-   .slider .swiper-pagination-bullet-active {
-     background: #d20051 !important;
-   }
-   .slider .swiper-pagination-bullet {
-     background: rgba($color: white, $alpha: 1);
-   }
-   .searchbar-search-icon {
-     background-image: url("../../assets/imgs/chilloutPage_img/left-arrow.svg") !important;
-   }
-   .CoverSlider {
-     width: 100%;
-   }
-   .no-padding {
-     padding: 0px;
-   }
-   .tabs {
-     display: flex;
-     flex-direction: row;
-     flex-wrap: nowrap;
-     flex-flow: row;
-     justify-content: start;
-     background-image: linear-gradient(262deg, #fb6b94 0%, #fd8493 100%);
-     min-width: 100%;
-     overflow-x: auto;
-   }
-   .tabs::-webkit-scrollbar {
-     display: none;
-   }
-   .tabs div {
-     color: white;
-     font-family: 'Raleway';
-     opacity: 0.5;
-     font-size: 16px;
-     font-weight: 500;
-     white-space: nowrap;
-     margin-left: 19px;
-     margin-right: 19px;
-   }
-   .tabs .active {
-     opacity: 1;
-   }
-   .filter {
-     display: flex;
-     flex-direction: row;
-     flex-wrap: nowrap;
-     flex-flow: row;
-     justify-content: start;
-     min-width: 100%;
-     overflow-x: auto;
-   }
-   .filter::-webkit-scrollbar {
-     display: none;
-   }
-   .filter div {
-     color: #8e8e93;
-     font-family: 'Raleway';
-     font-size: 14px;
-     font-weight: 500;
-     white-space: nowrap;
-     margin-left: 19px;
-     margin-right: 19px;
-     text-transform: capitalize;
-   }
-   .custom-padding {
-     padding: 10px;
-   }
-   .padding-20 {
-     padding: 20px;
-   }
-   .grid-viewr {
-     display: flex;
-     flex-direction: row;
-     flex-wrap: wrap;
-     flex-flow: wrap;
-   }
-   .grid-viewr .card {
-     width: 100px;
-     display: flex;
-     flex-direction: column;
-   }
-   .grid-viewr .card .img {
-     height: 109px;
-     width: 100%;
-     -webkit-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-   }
-   .grid-viewr .card span.title {
-     color: #5c6877;
-     font-family: 'Raleway';
-     font-size: 12px;
-     font-weight: 400;
-   }
-   $searchbar-ios-input-search-icon-color:white;
- }
+@import url("https://fonts.googleapis.com/css?family=Raleway");
+page-chillout {
+  .row {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+  .topCover {
+    height: 187px;
+  }
+  .searchWrapper {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+  }
+  .newIcon {
+    z-index: 999;
+    color: white;
+    position: absolute;
+    right: calc(8% + 30px);
+    top: calc(50% - 8px);
+  }
+  .search {
+    padding: 0px;
+    min-height: 0px;
+    width: 85vw;
+    background: transparent;
+    margin: auto;
+    z-index: 999;
+  }
+  .search .searchbar-input {
+    background: rgba($color: #000000, $alpha: 0.5);
+    color: white !important;
+    text-align: center;
+    font-weight: 700;
+    font-size: 16px;
+    font-family: "Raleway";
+    padding-right: 56px;
+  }
+  .search .searchbar-input::placeholder {
+    color: white;
+    opacity: 1;
+  }
+  .slider {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+  }
+  .slider .swiper-pagination-bullet-active {
+    background: #d20051 !important;
+  }
+  .slider .swiper-pagination-bullet {
+    background: rgba($color: white, $alpha: 1);
+  }
+  .searchbar-search-icon {
+    background-image: url("../../assets/imgs/chilloutPage_img/left-arrow.svg") !important;
+  }
+  .CoverSlider {
+    width: 100%;
+    height: 100%;
+  }
+  .slide-zoom {
+    height: 100%;
+  }
+  .no-padding {
+    padding: 0px;
+  }
+  .tabs-ex {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    flex-flow: row;
+    justify-content: start;
+    background-image: linear-gradient(262deg, #fb6b94 0%, #fd8493 100%);
+    min-width: 100%;
+    overflow-x: auto;
+  }
+  .tabs-ex::-webkit-scrollbar {
+    display: none;
+  }
+  .tabs-ex div {
+    color: white;
+    font-family: "Raleway";
+    opacity: 0.5;
+    font-size: 16px;
+    font-weight: 500;
+    white-space: nowrap;
+    margin-left: 19px;
+    margin-right: 19px;
+  }
+  .tabs-ex .active {
+    opacity: 1;
+  }
+  .filter {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    flex-flow: row;
+    justify-content: start;
+    min-width: 100%;
+    overflow-x: auto;
+  }
+  .filter::-webkit-scrollbar {
+    display: none;
+  }
+  .filter div {
+    color: #8e8e93;
+    font-family: "Raleway";
+    font-size: 14px;
+    font-weight: 500;
+    white-space: nowrap;
+    margin-left: 19px;
+    margin-right: 19px;
+    text-transform: capitalize;
+  }
+  .custom-padding {
+    padding: 10px;
+  }
+  .padding-20 {
+    padding: 20px;
+  }
+  .grid-viewr {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    flex-flow: wrap;
+    justify-content: space-around;
+  }
+  .grid-viewr .card-ex {
+    width: 100px;
+    display: flex;
+    flex-direction: column;
+  }
+  .grid-viewr .card-ex .img {
+    height: 109px;
+    width: 100%;
+    -webkit-clip-path: polygon(
+      50% 0%,
+      100% 25%,
+      100% 75%,
+      50% 100%,
+      0% 75%,
+      0% 25%
+    );
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  }
+  .grid-viewr .card-ex span.title {
+    color: #5c6877;
+    font-family: "Raleway";
+    font-size: 12px;
+    font-weight: 400;
+  }
+  $searchbar-ios-input-search-icon-color: white;
+}
