@@ -33,13 +33,7 @@
       <ion-col class="no-padding">
         <div class="tabs-ex custom-padding">
           <div *ngFor="let page of pagesData" (click)="indexPage = page.index" [ngClass]="{active: indexPage == page.index}">{{page.name}}</div>
-          <!-- <div (click)="indexPage = 2" [ngClass]="{active: indexPage == 2}">Café</div>
-          <div (click)="indexPage = 3" [ngClass]="{active: indexPage == 3}">Bar & lounge</div>
-          <div (click)="indexPage = 4" [ngClass]="{active: indexPage == 4}">Restaurent</div>
-          <div (click)="indexPage = 5" [ngClass]="{active: indexPage == 5}">Restaurent</div>
-          <div (click)="indexPage = 6" [ngClass]="{active: indexPage == 6}">Boutiques</div>
-          <div (click)="indexPage = 7" [ngClass]="{active: indexPage == 7}">Espace Commerciale</div>
-          <div (click)="indexPage = 8" [ngClass]="{active: indexPage == 8}">Autre</div> -->
+
           <div>&nbsp;</div>
         </div>
         <div class="filter custom-padding">
