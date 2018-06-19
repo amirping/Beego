@@ -67,6 +67,12 @@ export class LoginPage {
     })
   }
   signinWithFacebook(){
+    this.userProvider.loginWithFacebook((user)=>{
+      console.log(user);
+      this.navCtrl.push(Signup2Page, {user, password:null});
+    },()=>{
+      this.navCtrl.setRoot(HomePage);
+    });
   }
   signinWithGoogle(){
     this.userProvider.loginWithGoogle((user)=>{
@@ -80,7 +86,27 @@ export class LoginPage {
     this.navCtrl.setRoot(HomePage);
   }
   forgetPassword(){
-    this.userProvider.resetPassword();
+    if(this.signinForm.get('email').invalid){
+      this.alerCtrl.create({
+        title:"enter valid email"
+      }).present();
+    }else{
+      const load = this.loadCtrl.create();
+      load.present();
+      this.userProvider.resetPassword(this.signinForm.get("email").value)
+      .then(()=>{
+        load.dismiss();
+        this.alerCtrl.create({
+          title:"a link was sent to your mail"
+        }).present();
+      }).catch((e)=>{
+        load.dismiss();
+        this.alerCtrl.create({
+          title:"something wrong",
+          subTitle:e
+        }).present();
+      });
+    }
   }
 
 }

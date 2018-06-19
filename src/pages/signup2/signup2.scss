@@ -36,6 +36,9 @@ page-signup2 {
         background-image: url(../../assets/imgs/homme.png);
         background-position: -3px -15px;
         height: 100%;
+        img{
+            min-width: 114px;
+        }
     }
     .bee-edit-icon {
         height: 25px;
