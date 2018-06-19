@@ -36,6 +36,9 @@ page-signup2 {
         background-image: url(../../assets/imgs/homme.png);
         background-position: -3px -15px;
         height: 100%;
+        img{
+            min-width: 114px;
+        }
     }
     .bee-edit-icon {
         height: 25px;
@@ -162,11 +165,15 @@ page-signup2 {
         }
      
      }
-     select.beego-input-transparent{
+     select.beego-input-transparent, .select.beego-input-transparent{
         -webkit-appearance: none;
         background-image: url(../assets/imgs/arrow_down.png);
         background-repeat: no-repeat;
         background-position: right 15px top 16px;
+     }
+     .select.beego-input-transparent{
+         padding: 8px;
+
      }
      .beego-input-transparent.beego-icon-gov{
         background-image: url(../assets/imgs/gov.png),url(../assets/imgs/arrow_down.png);

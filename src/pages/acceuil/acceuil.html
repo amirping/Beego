@@ -1,0 +1,340 @@
+<!--
+  Generated template for the AcceuilPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header no-border>
+
+  <ion-navbar class="navbarheader" color="rose">
+
+    <div class="textblanc">Acceuil</div>
+    <ion-buttons end>
+      <button ion-button icon-only>
+        <ion-icon name="search"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+  <ion-card class="itemround">
+    <ion-card-header>
+      <ion-grid>
+
+        <ion-row>
+          <ion-col col-10>
+            <label class="textlarge">
+              <strong>Bonjour, Amine</strong>
+            </label>
+          </ion-col>
+          <ion-col col-2 align="bottom">
+            <img src="../../assets/imgs/Meteo.png" align="bottom" alt="" style="width: 41px;height: 30px; margin: auto;">
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-12>
+            <label class="textxxsmall">Nous espérons que vous avez passé une bonne journée</label>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;18°</ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-header>
+  </ion-card>
+
+</ion-header>
+
+
+<ion-content padding-left>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-4>
+        <img src="../../assets/imgs/Beauty.png" class="center">
+      </ion-col>
+      <ion-col col-4>
+        <img src="../../assets/imgs/Shopping.png" class="center">
+      </ion-col>
+      <ion-col col-4>
+        <img src="../../assets/imgs/Chillout.png" class="center">
+      </ion-col>
+
+    </ion-row>
+
+    <!--Suggestion-->
+
+    <ion-row>
+      <ion-col col-8>
+        <ion-col col-3 class="titrebarreleft"></ion-col>
+        <ion-col col-9>
+          <strong>Suggestion</strong>
+        </ion-col>
+
+      </ion-col>
+
+      <ion-col col-4 align="right">
+        <a href=""></a>Tout afficher
+      </ion-col>
+    </ion-row>
+
+
+    <ion-slides>
+      <ion-slide class="sliderimage1">
+        <img src="../../assets/imgs/Suggestion1.png" style="background:  center no-repeat;  ">
+
+      </ion-slide>
+      <ion-slide class="sliderimage1">
+
+      </ion-slide>
+
+    </ion-slides>
+    <!--Spécialement pour vous-->
+
+    <ion-row>
+      <ion-col col-8>
+        <ion-col col-3 class="titrebarreleft"></ion-col>
+        <ion-col col-9>
+          <strong>Spécialement pour vous</strong>
+        </ion-col>
+
+      </ion-col>
+
+      <ion-col col-4 align="right">
+        <a href=""></a>Tout afficher
+      </ion-col>
+    </ion-row>
+
+
+    <ion-slides *ngFor="let item of espacesListRef$ |
+    async">
+      <ion-slide class="sliderimage2">
+      <img src="../../assets/imgs/{{item.espaceImage}}" class="sliderimage2" >
+        <div class="bottom-left">
+          <br>&nbsp;&nbsp;{{item.espaceSpecialite}} 
+          <br>
+          <br> &nbsp;&nbsp;
+          <img src="../../assets/imgs/localisation.png">&nbsp; {{item.espaceName}}&nbsp;&nbsp;
+        </div>
+      </ion-slide>
+    </ion-slides>
+    <!--A la une-->
+
+    <ion-row>
+      <ion-col col-8>
+        <ion-col col-3 class="titrebarreleft"></ion-col>
+        <ion-col col-9>
+          <strong>A la une</strong>
+        </ion-col>
+
+      </ion-col>
+
+      <ion-col col-4 align="right">
+        <a href=""></a>Tout afficher
+      </ion-col>
+      <ion-col col-6 align="middle">
+        <button class="boutonevent">
+          <strong>Evénements</strong>
+        </button>
+      </ion-col>
+      <ion-col col-6 align="middle">
+        <button class="boutonevent">
+          <strong>Promotions</strong>
+        </button>
+      </ion-col>
+
+
+      <ion-slides *ngFor="let item of evenementListRef$ |
+      async">
+        <ion-slide  class="sliderimage3" >
+        <img src="../../assets/imgs/Yuma.png" style="background: left no-repeat;">
+
+          <button class="top-right-alaune">
+            <strong>Intéressé(e)</strong>
+          </button>
+
+
+          
+          <div class="bottom-left-alaune" align="left">
+            <br>&nbsp;&nbsp;{{item.evenementName}}
+            <br>
+            <br> &nbsp;&nbsp;
+            <img src="../../assets/imgs/localisation.png">&nbsp; {{item.evenementPlace}}&nbsp;&nbsp;
+
+            <ion-icon name="clock" style="font-size: small;">&nbsp; {{item.evenementDate}}</ion-icon>
+
+          </div>
+
+        </ion-slide>
+
+      </ion-slides>
+
+    </ion-row>
+    <!--Connaissez vous-->
+    <ion-row>
+      <ion-col col-8>
+        <ion-col col-3 class="titrebarreleft"></ion-col>
+        <ion-col col-9>
+          <strong>Connaissez vous</strong>
+          <br>
+          <p style="font-size: xx-small"> &nbsp;&nbsp;&nbsp;&nbsp;Connectez vous et explorez les personnes de votre entourage</p>
+        </ion-col>
+
+      </ion-col>
+
+      <ion-col col-4 align="right">
+        <a href=""></a>Tout afficher
+      </ion-col>
+
+      <ion-scroll scrollX="true" style="white-space: nowrap; width: 100%; height: 200px;">
+        <div class="carte">
+          <ion-card style="border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;padding-right: 1%;">
+            <ion-item>
+              <img style="width: 80px;" class="center" src="../../assets/imgs/image (1).png">
+              <h2>Hatem Abbes</h2>
+              <p>Manar 2 , Tunis</p>
+              <button class="boutonrose">
+                <ion-icon name="person-add" align="left"></ion-icon>
+                &nbsp;
+                <strong>S'abonner</strong>
+              </button>
+            </ion-item>
+          </ion-card>
+          <ion-card style="border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;padding-right: 1%">
+            <ion-item>
+              <img style="width: 80px;" class="center" src="../../assets/imgs/image (1).png">
+              <h2>Hatem Abbes</h2>
+              <p>Manar 2 , Tunis</p>
+              <button class="boutonrose">
+                <ion-icon name="person-add" align="left"></ion-icon>
+                &nbsp;
+                <strong>S'abonner</strong>
+              </button>
+            </ion-item>
+          </ion-card>
+
+
+        </div>
+      </ion-scroll>
+
+
+
+
+
+
+
+
+
+    </ion-row>
+    <!--A proximité-->
+    <ion-row>
+      <ion-col col-8>
+        <ion-col col-3 class="titrebarreleft"></ion-col>
+        <ion-col col-9>
+          <strong>A proximité</strong>
+
+        </ion-col>
+
+      </ion-col>
+
+      <ion-col col-4 align="right">
+        <a href=""></a>Tout afficher
+      </ion-col>
+      <ion-scroll scrollX="true" style="white-space: nowrap; width: 90%; height: 200px;">
+        <div class="parent">
+          <img class="image1" src="../../assets/imgs/whats_up.png">
+          <img class="image2" src="../../assets/imgs/Groupe 346.png">
+          <br> What's Up Coffee
+          <br>
+          <div col-4 style="font-size: xx-small">
+            <img src="../../assets/imgs/trac--760.png"> &nbsp;Menzah 5 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <img src="../../assets/imgs/trac--2215.png">5KM
+
+          </div>
+
+
+
+        </div>
+
+
+
+      </ion-scroll>
+
+
+    </ion-row>
+    <!--Invitations-->
+    <ion-row>
+      <ion-col col-8>
+        <ion-col col-3 class="titrebarreleft"></ion-col>
+        <ion-col col-9>
+          <strong>Invitations</strong>
+
+        </ion-col>
+
+      </ion-col>
+
+      <ion-col col-4 align="right">
+        <a href=""></a>Tout afficher
+      </ion-col>
+
+      <ion-scroll scrollX="true" style="white-space: nowrap; width: 100%; height: 500px;">
+        <div class="carte-invitation">
+          <ion-card style="
+              border-bottom-left-radius: 10px;
+              border-bottom-right-radius: 10px;
+              border-top-left-radius: 10px;
+              border-top-right-radius: 10px;
+              padding-right: 1%;">
+            <ion-item>
+              <img style="width: 80px;" class="left" src="../../assets/imgs/image (1).png">
+              <h4>
+                <strong>Hatem Abbes</strong> vous invite à
+                <strong>What's
+
+                  <br> Up Coffee</strong>
+              </h4>
+              <ion-col col-6>
+                <button class="bouton-accepter"> Accepter </button>
+              </ion-col>
+              <ion-col col-6>
+                <button class="bouton-annuler">Annuler </button>
+              </ion-col>
+
+            </ion-item>
+
+          </ion-card>
+          
+          <ion-card style="
+              border-bottom-left-radius: 10px;
+              border-bottom-right-radius: 10px;
+              border-top-left-radius: 10px;
+              border-top-right-radius: 10px;
+              padding-right: 1%;">
+            <ion-item>
+              <img style="width: 80px;" class="left" src="../../assets/imgs/image (1).png">
+              <h4>
+                <strong>Hatem Abbes</strong> vous invite à
+                <strong>What's
+
+                  <br> Up Coffee</strong>
+              </h4>
+              <ion-col col-6>
+                <button class="bouton-accepter"> Accepter </button>
+              </ion-col>
+              <ion-col col-6>
+                <button class="bouton-annuler">Annuler </button>
+              </ion-col>
+
+            </ion-item>
+
+          </ion-card>
+        </div>
+
+      </ion-scroll>
+
+    </ion-row>
+  </ion-grid>
+
+
+</ion-content>
