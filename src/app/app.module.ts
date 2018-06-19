@@ -1,8 +1,13 @@
+
 import { BrowserModule } from "@angular/platform-browser";
 import { ErrorHandler, NgModule, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
 import { IonicApp, IonicErrorHandler, IonicModule } from "ionic-angular";
 import { SplashScreen } from "@ionic-native/splash-screen";
 import { StatusBar } from "@ionic-native/status-bar";
+import { Dialogs } from '@ionic-native/dialogs';
+import{ProfilPage} from '../pages/profil/profil';
+import{ListOfFollowsPage} from '../pages/list-of-follows/list-of-follows'
+import { ParametreDuComptePage } from '../pages/parametre-du-compte/parametre-du-compte';
 import { ShoppingListPage } from '../pages/shopping-list/shopping-list';
 import { FIREBASE_CREDENTIALS } from './firebase.credentials';
 import { AddShoppingPage } from '../pages/add-shopping/add-shopping';
@@ -28,6 +33,7 @@ import { AngularFireStorageModule } from "angularfire2/storage";
 import { UserProvider } from '../providers/user/user';
 
 
+
 @NgModule({
   declarations: [
     MyApp,
@@ -42,7 +48,10 @@ import { UserProvider } from '../providers/user/user';
     EditShoppingItemPage,
     AcceuilPage,
     EspacesPage,
-    EvenementPage
+    EvenementPage,
+    ProfilPage,
+    ListOfFollowsPage,
+    ParametreDuComptePage
   ],
   imports: [
     BrowserModule,
@@ -64,6 +73,11 @@ import { UserProvider } from '../providers/user/user';
     Signup1Page,
     Signup2Page,
     HomePage,
+
+    ProfilPage,
+    ListOfFollowsPage,
+    ParametreDuComptePage
+
     ChilloutPage,
     ShoppingListPage,
     AddShoppingPage,
@@ -71,10 +85,12 @@ import { UserProvider } from '../providers/user/user';
     AcceuilPage,
     EspacesPage,
     EvenementPage
+
   ],
   providers: [
     StatusBar,
     SplashScreen,
+    Dialogs,
     UserProvider
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ],
