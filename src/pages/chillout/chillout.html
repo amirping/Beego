@@ -1,0 +1,132 @@
+<!--
+  Generated template for the ChilloutPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<!-- <ion-header>
+
+  <ion-navbar>
+    <ion-title>chillout</ion-title>
+  </ion-navbar>
+
+</ion-header> -->
+
+
+<ion-content no-padding>
+  <ion-grid no-padding>
+    <ion-row align-items-center class="topCover">
+      <ion-col align-self-stretch>
+        <div class="searchWrapper">
+          <ion-searchbar class="search" [(ngModel)]="searchText" [showCancelButton]="false" (ionInput)="null" (ionCancel)="null">
+          </ion-searchbar>
+          <ion-icon class="searchbar-search-icon newIcon" name="search"></ion-icon>
+        </div>
+        <ion-slides [pager]="true" [autoplay]="2000" [loop]="true" [zoom]="false" *ngIf="slides && slides.length" class="slider">
+          <ion-slide *ngFor="let slide of slides">
+            <img class="CoverSlider" src="{{slide}}" />
+          </ion-slide>
+        </ion-slides>
+      </ion-col>
+    </ion-row>
+    <ion-row class="fllow">
+      <ion-col class="no-padding">
+        <div class="tabs-ex custom-padding">
+          <div *ngFor="let page of pagesData" (click)="indexPage = page.index" [ngClass]="{active: indexPage == page.index}">{{page.name}}</div>
+
+          <div>&nbsp;</div>
+        </div>
+        <div class="filter custom-padding">
+          <div *ngFor="let item of ['first','seconde','third','fourth'];let i = index"> {{item}} filter</div>
+          <div>&nbsp;</div>
+        </div>
+        <svg height="0" width="0" viewbox="0 0 500 500">
+          <defs>
+            <clipPath id="hexagonPath" transform="scale(0.9 0.9)">
+              <path id="sug1-2" data-name="sug1" class="cls-1" d="M98.434,37.981V68.895A22.732,22.732,0,0,1,87.045,88.419L60.2,103.875a22.032,22.032,0,0,1-22.371,0l-12.2-7.322L11.389,88.419h-.407A22.357,22.357,0,0,1,0,68.895V37.981A19.8,19.8,0,0,1,.407,33.1a20.822,20.822,0,0,1,4.068-8.542,20.247,20.247,0,0,1,6.915-6.1L38.235,3A22.032,22.032,0,0,1,60.606,3L87.452,18.457A22.851,22.851,0,0,1,98.434,37.981Z"
+                transform="translate(9 6.05)" />
+            </clipPath>
+          </defs>
+        </svg>
+        <div class="subPageContainer" [ngSwitch]="indexPage">
+          <!-- <ng-container *ngFor="let pageData of pagesData"> -->
+          <div class="subPage" *ngFor="let pageData of pagesData">
+            <ng-container *ngSwitchCase="pageData.index">
+              <div class="grid-viewr">
+                <div class="card-ex animated flipInX" *ngFor="let item of pageData.data">
+                  <div class="img">
+                    <img src="https://picsum.photos/100/109" alt="">
+                  </div>
+                  <span class="title">{{item.title}}</span>
+                  <span class="sub-title">{{item.subTitle}}</span>
+                  <div class="rating-ex">
+                    <rating [(ngModel)]="item.rating" emptyStarIconName="star-outline" halfStarIconName="star-half" starIconName="star" nullable="false"
+                      (ngModelChange)="null">
+                    </rating>
+                  </div>
+                </div>
+                <!-- <div class="card-ex">
+                                <div class=img>
+                                  <img src="https://picsum.photos/100/109" alt="">
+                                </div>
+                                <span class="title">Nom de l'espace</span>
+                                <span class="sub-title">Nom de l'espace</span>
+                                <div class="rating"></div>
+                              </div>
+                              <div class=card-ex>
+                                <div class=img>
+                                  <img src="https://picsum.photos/100/109" alt="">
+                                </div>
+                                <span class="title">Nom de l'espace</span>
+                                <span class="sub-title">Nom de l'espace</span>
+                                <div class="rating"></div>
+                              </div>
+                              <div class=card-ex>
+                                <div class=img>
+                                  <img src="https://picsum.photos/100/109" alt="">
+                                </div>
+                                <span class="title">Nom de l'espace</span>
+                                <span class="sub-title">Nom de l'espace</span>
+                                <div class="rating-ex">
+                                  <rating
+                                    [(ngModel)]="testrating"
+                                    emptyStarIconName="star-outline"
+                                    halfStarIconName="star-half"
+                                    starIconName="star"
+                                    nullable="false"
+                                    (ngModelChange)="null">
+                                  </rating>
+                                </div>
+                              </div>
+                              <div class=card-ex>
+                                <div class=img>
+                                  <img src="https://picsum.photos/100/109" alt="">
+                                </div>
+                                <span class="title">Nom de l'espace</span>
+                                <span class="sub-title">Nom de l'espace</span>
+                                <div class="rating"></div>
+                              </div>
+                              <div class=card-ex>
+                                <div class=img>
+                                  <img src="https://picsum.photos/100/109" alt="">
+                                </div>
+                                <span class="title">Nom de l'espace</span>
+                                <span class="sub-title">Nom de l'espace</span>
+                                <div class="rating"></div>
+                              </div> -->
+              </div>
+            </ng-container>
+
+
+          </div>
+          <!-- </ng-container> -->
+          <!-- <div padding class="subPage" *ngSwitchCase="2">Café sub page</div>
+          <div padding class="subPage" *ngSwitchCase="3">Bar & lounge sub page</div>
+          <div padding class="subPage" *ngSwitchCase="4">Restaurent sub page</div> -->
+          <div padding class="subPage" *ngSwitchDefault>This page still not created</div>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

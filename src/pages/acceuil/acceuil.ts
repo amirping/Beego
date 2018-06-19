@@ -6,6 +6,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 
+
 /**
  * Generated class for the AcceuilPage page.
  *
@@ -20,7 +21,6 @@ import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 })
 export class AcceuilPage {
   @ViewChild(Slides) slides: Slides;
-
   evenementListRef$: Observable<any[]>;
   espacesListRef$: Observable<any[]>;
 
@@ -46,6 +46,7 @@ export class AcceuilPage {
         })
       });
       
+
   }
 
   ionViewDidLoad() {

@@ -100,9 +100,9 @@
       </ion-col>
     </ion-row>
 
+
     <ion-slides *ngFor="let item of espacesListRef$ |
     async">
-
       <ion-slide class="sliderimage2">
       <img src="../../assets/imgs/{{item.espaceImage}}" class="sliderimage2" >
         <div class="bottom-left">
@@ -110,13 +110,8 @@
           <br>
           <br> &nbsp;&nbsp;
           <img src="../../assets/imgs/localisation.png">&nbsp; {{item.espaceName}}&nbsp;&nbsp;
-
         </div>
       </ion-slide>
-
-
-      
-
     </ion-slides>
     <!--A la une-->
 
@@ -143,13 +138,16 @@
         </button>
       </ion-col>
 
+
       <ion-slides *ngFor="let item of evenementListRef$ |
       async">
         <ion-slide  class="sliderimage3" >
         <img src="../../assets/imgs/Yuma.png" style="background: left no-repeat;">
+
           <button class="top-right-alaune">
             <strong>Intéressé(e)</strong>
           </button>
+
 
           
           <div class="bottom-left-alaune" align="left">
@@ -159,12 +157,12 @@
             <img src="../../assets/imgs/localisation.png">&nbsp; {{item.evenementPlace}}&nbsp;&nbsp;
 
             <ion-icon name="clock" style="font-size: small;">&nbsp; {{item.evenementDate}}</ion-icon>
+
           </div>
 
         </ion-slide>
 
       </ion-slides>
-      
 
     </ion-row>
     <!--Connaissez vous-->

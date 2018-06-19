@@ -1,14 +1,26 @@
-import { Component } from '@angular/core';
-import { Platform } from 'ionic-angular';
-import { StatusBar } from '@ionic-native/status-bar';
-import { SplashScreen } from '@ionic-native/splash-screen';
+
+
 import { AddShoppingPage } from '../pages/add-shopping/add-shopping';
 import { ShoppingListPage } from '../pages/shopping-list/shopping-list'; 
 import { AcceuilPage } from '../pages/acceuil/acceuil';
 import { EspacesPage } from '../pages/espaces/espaces';
 import { EvenementPage } from '../pages/evenement/evenement';
+
+import { Component } from "@angular/core";
+import { Platform } from "ionic-angular";
+import { StatusBar } from "@ionic-native/status-bar";
+import { SplashScreen } from "@ionic-native/splash-screen";
+
+
+import { LandingPage } from "../pages/landing/landing";
+import { ChilloutPage } from "../pages/chillout/chillout";
+
+import { HomePage } from '../pages/home/home';
+import { UserProvider } from '../providers/user/user';
+
+
 @Component({
-  templateUrl: 'app.html'
+  templateUrl: "app.html"
 })
 export class MyApp {
   rootPage:any = AcceuilPage;
@@ -22,4 +34,3 @@ export class MyApp {
     });
   }
 }
-
