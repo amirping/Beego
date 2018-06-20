@@ -55,7 +55,7 @@ import { UserProvider } from '../providers/user/user';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    //Initialize angularfire 
+    //Initialize angularfire
     AngularFireModule.initializeApp(FIREBASE_CREDENTIALS),
     AngularFireAuthModule,
     AngularFireDatabaseModule,
