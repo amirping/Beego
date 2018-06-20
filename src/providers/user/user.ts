@@ -85,8 +85,10 @@ export class UserProvider {
     });
   }
   loginWithGoogle(nextStep, success) {
+    alert("here")
     this.auth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider())
       .then(res => {
+        alert("and here")
         const af = res.additionalUserInfo;
         if (af.isNewUser) {
           const user = {

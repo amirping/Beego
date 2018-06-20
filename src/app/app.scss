@@ -14,3 +14,179 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+// http://ionicframework.com/docs/theming/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+button{
+    outline: none !important;
+}
+.beego-background-overlay {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-image: url(../assets/imgs/Background.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-image: linear-gradient(to top, #000000, #2b293a, #2f2c3d, #323040, #363343);
+      opacity: .69;
+    }
+}
+.beego-connexion-container{
+    padding-top: 130px;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.beego-connexion-p{
+    padding-top: 150px;
+    padding-bottom: 40px;
+    font-size: 14px !important;
+}
+.beego-left, .beego-center{
+    margin-right: auto;
+}
+.beego-right, .beego-center{
+    margin-left: auto;
+}
+.beego-skip-button{
+    background-image: url(../assets/imgs/arrow_right.png);
+    background-position: right;
+    background-repeat: no-repeat;
+    font-size: 14px;
+    padding-right: 10px !important;
+    margin-right: 19px;
+    font-weight: 100;
+    text-transform: none;
+}
+.beego-text-transform-none {
+    text-transform: none!important;
+}
+.beego-connexion-button{
+    //background-color:#FB6B94;
+    border-radius: 40px;;
+    color: white;
+    font-size: 14px;
+    width: 100%;
+    height: 35px;  
+}
+.beego-center-container{
+    width: max-content;
+    margin: auto;
+}
+.beego-right-container{
+    width: max-content;
+    margin: 0 17px 0 auto;
+}
+.beego-separator {
+    position: relative;
+    height: 16px;
+    width: 81px;
+    margin: 10px auto;
+    background-image: url(../assets/imgs/signup-step1.svg);
+    background-size: 76px 16px;
+    background-repeat: no-repeat;
+    background-position: 0;
+}
+.beego-separator-full{
+    background-image: url(../assets/imgs/signup-step2.svg);
+}
+
+.beego-background-pink{
+    background-color: color($colors,pink);
+}
+.beego-color-pink{
+    color: color($colors,pink);
+}
+.beego-input-transparent{
+    border-radius: 20px;
+    height: 35px;
+    width: 302px;
+    background-color: rgba(0,0,0,0.2);
+    padding-left: 45px;
+    border:none;
+    color:white;
+    margin: auto;
+    &::placeholder {
+       color: white;
+       font-size: 11px;
+    }
+}
+.beego-dash-text{
+    position: relative;
+    width: max-content;
+    padding: 0 22px;
+    margin: auto;
+    color:white;
+    &:before,&:after{
+        content: "";
+        display: block;
+        position: absolute;
+        top: 50%;
+        width: 107px;
+        border-bottom: 1px solid;
+    }
+    &:before{
+        right:100%;
+        
+    }
+    &:after{
+        left:100%;
+
+    }
+}
+.beego-icon-mail{
+    background-image: url(../assets/imgs/mail.png);
+    background-repeat: no-repeat;
+    background-position: 12px;
+}
+.beego-icon-lock{
+    background-image: url(../assets/imgs/lock.png);
+    background-repeat: no-repeat;
+    background-position: 12px;
+}
+.beego-icon-name{
+    background-image: url(../assets/imgs/name.png);
+    background-repeat: no-repeat;
+    background-position: 12px;
+
+}
+.beego-icon-facebook{
+    background-color: #3b5998;
+    background-image: url(../assets/imgs/facebook.png);
+    background-repeat: no-repeat;
+    background-position: left top;
+}
+.beego-icon-google{
+    background-color: #e63f40;
+    background-image: url(../assets/imgs/google.png);
+    background-repeat: no-repeat;
+    background-position: left top;
+}
+.beego-circle-btn{
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+}

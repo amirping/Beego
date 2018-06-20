@@ -4,7 +4,7 @@ import { ViewChild } from '@angular/core';
 import { Slides } from 'ionic-angular';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
-import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
+import { AngularFireDatabase } from 'angularfire2/database';
 
 
 /**
@@ -31,19 +31,11 @@ export class AcceuilPage {
     ) {
       /* Liste des espaces */
       this.espacesListRef$ = this.database.list('espace').snapshotChanges().map(changes => {
-        return changes.map( c => {
-          const data = c.payload.val();
-          data.key = c.payload.key;
-          return data;
-        })
+        return changes.map( c =>( {key: c.payload.key, ...c.payload.val()}))
       });
       /* Liste des événements */
       this.evenementListRef$ = this.database.list('evenement').snapshotChanges().map(changes => {
-        return changes.map( c => {
-          const data = c.payload.val();
-          data.key = c.payload.key;
-          return data;
-        })
+        return changes.map( c =>( {key: c.payload.key, ...c.payload.val()}))
       });
       
 

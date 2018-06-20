@@ -5,8 +5,8 @@ import { IonicApp, IonicErrorHandler, IonicModule } from "ionic-angular";
 import { SplashScreen } from "@ionic-native/splash-screen";
 import { StatusBar } from "@ionic-native/status-bar";
 import { Dialogs } from '@ionic-native/dialogs';
-import{ProfilPage} from '../pages/profil/profil';
-import{ListOfFollowsPage} from '../pages/list-of-follows/list-of-follows'
+import { ProfilPage } from '../pages/profil/profil';
+import { ListOfFollowsPage } from '../pages/list-of-follows/list-of-follows'
 import { ParametreDuComptePage } from '../pages/parametre-du-compte/parametre-du-compte';
 import { ShoppingListPage } from '../pages/shopping-list/shopping-list';
 import { FIREBASE_CREDENTIALS } from './firebase.credentials';
@@ -23,7 +23,6 @@ import { Signup2Page } from "../pages/signup2/signup2";
 import { HomePage } from "../pages/home/home";
 import { ChilloutPage } from "../pages/chillout/chillout";
 import { Ionic2RatingModule } from 'ionic2-rating';
-import { HttpClient, HttpClientModule } from "@angular/common/http";
 import { AngularFireModule } from "angularfire2";
 import { AngularFireAuthModule } from "angularfire2/auth";
 import { AngularFireDatabaseModule } from "angularfire2/database";
@@ -61,9 +60,7 @@ import { UserProvider } from '../providers/user/user';
     AngularFireAuthModule,
     AngularFireDatabaseModule,
     AngularFireStorageModule,
-    HttpClientModule,
     Ionic2RatingModule
-
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -73,11 +70,9 @@ import { UserProvider } from '../providers/user/user';
     Signup1Page,
     Signup2Page,
     HomePage,
-
     ProfilPage,
     ListOfFollowsPage,
     ParametreDuComptePage,
-
     ChilloutPage,
     ShoppingListPage,
     AddShoppingPage,
@@ -85,7 +80,6 @@ import { UserProvider } from '../providers/user/user';
     AcceuilPage,
     EspacesPage,
     EvenementPage
-
   ],
   providers: [
     StatusBar,
