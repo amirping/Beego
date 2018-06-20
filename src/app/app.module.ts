@@ -41,7 +41,7 @@ import { UserProvider } from '../providers/user/user';
     LoginPage,
     Signup1Page,
     Signup2Page,
-    ChilloutPage
+    ChilloutPage,
     HomePage,
     ShoppingListPage,
     AddShoppingPage,
@@ -56,7 +56,7 @@ import { UserProvider } from '../providers/user/user';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    //Initialize angularfire 
+    //Initialize angularfire
     AngularFireModule.initializeApp(FIREBASE_CREDENTIALS),
     AngularFireAuthModule,
     AngularFireDatabaseModule,
@@ -76,7 +76,7 @@ import { UserProvider } from '../providers/user/user';
 
     ProfilPage,
     ListOfFollowsPage,
-    ParametreDuComptePage
+    ParametreDuComptePage,
 
     ChilloutPage,
     ShoppingListPage,
@@ -91,7 +91,7 @@ import { UserProvider } from '../providers/user/user';
     StatusBar,
     SplashScreen,
     Dialogs,
-    UserProvider
+    UserProvider,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
