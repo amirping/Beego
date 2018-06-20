@@ -75,10 +75,13 @@ export class LoginPage {
     });
   }
   signinWithGoogle(){
+    alert("signup")
     this.userProvider.loginWithGoogle((user)=>{
+      alert("signup 2")
       console.log(user);
       this.navCtrl.push(Signup2Page, {user, password:null});
     },()=>{
+      alert("signup 3")
       this.navCtrl.setRoot(HomePage);
     });
   }
