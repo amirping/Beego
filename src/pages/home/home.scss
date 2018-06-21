@@ -1,3 +1,296 @@
-page-home {
-
+page-acceuil {
+    .textblanc {
+        color: #FFFFFF;
+        font-size:large;
+        
+        
+    }
+    .navbarheader{
+        position: relative ;
+        margin-left: 50px;
+        margin-right: 50px;
+        margin: auto;
+        color: #FFFFFF;
+        font-size:large; 
+        border: none;
+    }
+    .textxxsmall{
+        font-size:7.5px;    
+        color :rgb(177, 174, 174)
+    }
+    .textlarge{
+        font-size:large;
+    }
+    .itemround{
+        
+        
+        width: 80%; 
+        border-color: black;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        margin: auto;
+        margin-left: 10%;
+        height: 80px;
+        box-shadow: -1px 2px 5px 1px rgba(219, 219, 219, 0.7); 
+        line-height: 0cm;
+    }
+    .container{
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+    .contenu {
+        position: relative;
+        width: 100%;
+        height: 150px;
+       
+        
+      }
+      .titrebarreleft{
+        background: url('../assets/imgs/titre barre left.png') center center no-repeat ;
+      }
+      .sliderimage1{
+        position: relative;
+        display: flex;
+        min-width: 300px !important;
+        height: 150px !important;
+        width: 80%;
+       
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        //background: url('../assets/imgs/Suggestion1.png') center center no-repeat ;
+        &:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 1.5%;
+            bottom: 3%;
+            left: 2.2%;
+            background-image: linear-gradient(to bottom right,#002f4b,#dc4225);
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            opacity: .6;
+          }
+      }
+      
+      .sliderimage2{
+        position: relative;
+        
+        width: 165px !important;
+        height: 150px !important;
+        margin: 2%;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;   
+      }
+      .sliderimage3{
+        position: relative;
+        
+        width: 304px !important;
+        height: 444px !important;
+        margin-left: 5%;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+      }
+      
+      
+    
+    .center {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        
+    }
+    //boutons
+    .boutonrose {
+        background-color: #FD7E93;
+        
+        height: 30px;
+        width: 20%;
+        min-width: 120px;
+        color: #FFFFFF;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+    }
+    .boutonevent{
+        background-color: rgb(245, 245, 245);
+        width: 100%;
+        height: 100%;
+        padding: 10%;
+        color:#FD7E93;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+    //étiquettes
+    .bottom-left {
+        position: absolute;
+        bottom: 4%;
+        left:5.8%;
+        color: #FFFFFF;
+        height: 33%;
+        width: 11.5%;
+        min-width: 147px;
+        font-size: small;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        background: rgba(245, 245, 245, 0.308);
+        text-align: left;
+        line-height: 76%;
+    }
+    .bottom-left-general-alaune {
+        
+        margin: 20%;
+    }
+    .bottom-left-alaune {
+        position: absolute;
+        bottom: 7%;
+        left: 9%;
+        
+        color: #FFFFFF;
+        height: 14%;
+        
+        min-width: 241px;
+        font-size: small;
+        
+        
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        line-height: 95%;
+        background: rgba(245, 245, 245, 0.308);
+        
+    }
+    .bottom-left-alaune-margin{
+        margin: 15px !important;
+    }
+    .top-right-alaune {
+        position: absolute;
+        top: 7.8%;
+        right: 9%;
+        color: #FFFFFF;
+        height: 6%;
+        background-color: #FD7E93;
+        min-width: 98px;
+        font-size: small;
+        
+        
+        border-bottom-left-radius: 7px;
+        border-bottom-right-radius: 7px;
+        border-top-left-radius: 7px;
+        border-top-right-radius: 7px;
+        
+        
+        
+    }
+    .top-right-aproximite {
+        position: absolute;
+        top: 3%;
+        left: 37.5%;
+        width: auto;
+        
+    }
+    .slider-aproximite{
+        width: 50%;
+    }
+    .carte {
+        
+        width: 47%;
+       // position: relative;
+        
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        ion-card{
+            display: table-cell;
+            
+            
+        }
+        
+    }
+    .carte-invitation {
+        
+        width: 67%;
+       // position: relative;
+        
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        ion-card{
+            display: table-cell;
+            
+            
+        }
+        
+    }
+    .slider-connaisservous {
+        min-width: 100px;
+        width: 47%;
+        position: relative;
+        margin-left: 5%;
+        
+        
+    }
+    .parent {
+        position: relative;
+        top: 0;
+        left: 0;
+        width: 50%;
+      }
+      .image1 {
+        position: relative;
+        top: 0;
+        left: 0;
+      }
+      .image2 {
+        position: absolute;
+        top: 0%;
+        right:3.1%;
+      }
+      .bouton-accepter{
+        background-color: transparent;
+        
+        top: 10%;
+        width: 20%;
+        min-width: 120px;
+        color: #78da78;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        background: url('../assets/imgs/accepter.png') left no-repeat ;
+        
+      }
+      .bouton-annuler{
+        background-color: transparent;
+        
+        height: 30px;
+        width: 20%;
+        min-width: 120px;
+        color: #eb6262;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        background: url('../assets/imgs/accepter.png') left no-repeat ;
+      }
+    
+    
 }
