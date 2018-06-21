@@ -16,10 +16,10 @@ import { HomePage } from '../home/home';
 
 @IonicPage()
 @Component({
-  selector: 'page-signup2',
-  templateUrl: 'signup2.html',
+  selector: 'page-signup_step2',
+  templateUrl: 'signup_step2.html',
 })
-export class Signup2Page {
+export class SignupStep2Page {
   datePickerMin:string;
   datePicker: string;
   year:string = "Année";

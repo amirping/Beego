@@ -6,13 +6,15 @@ page-landing {
     width: 146px;
   }
   .btn-signup{
-    background-color: color($colors,pink);
+    background-color: color($colors,primary);
   }
   .btn-login{
     background-color: transparent;
     border: 1px solid white;
   }
-  
+  .text-center{
+    text-align: center;
+  }
   // .Beego-Connexion-Screen01-button {
   //   border-radius: 40px !important;
   //   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);

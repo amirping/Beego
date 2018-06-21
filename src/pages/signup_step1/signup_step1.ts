@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { Signup2Page } from '../signup2/signup2';
+import { SignupStep2Page } from '../signup_step2/signup_step2';
 import { HomePage } from '../home/home';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { UserProvider } from '../../providers/user/user';
@@ -14,10 +14,10 @@ import { UserProvider } from '../../providers/user/user';
 
 @IonicPage()
 @Component({
-  selector: 'page-signup1',
-  templateUrl: 'signup1.html',
+  selector: 'page-signup_step1',
+  templateUrl: 'signup_step1.html',
 })
-export class Signup1Page {
+export class SignupStep1Page {
   signupForm: FormGroup;
   constructor(public navCtrl: NavController,
     public userProvider: UserProvider,
@@ -32,7 +32,7 @@ export class Signup1Page {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad Signup1Page');
+    console.log('ionViewDidLoad SignupStep1Page');
   }
   next(){
     const user = {
@@ -41,12 +41,12 @@ export class Signup1Page {
       email: this.signupForm.get("email").value,
     };
     const password =  this.signupForm.get("password").value;
-    this.navCtrl.push(Signup2Page, {user, password});
+    this.navCtrl.push(SignupStep2Page, {user, password});
   }
   loginWithGoogle(){
     this.userProvider.loginWithGoogle((user)=>{
       console.log(user);
-      this.navCtrl.push(Signup2Page, {user, password:null});
+      this.navCtrl.push(SignupStep2Page, {user, password:null});
     },()=>{
       this.navCtrl.setRoot(HomePage);
     });

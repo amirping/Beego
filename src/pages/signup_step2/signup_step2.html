@@ -23,13 +23,13 @@
     </ion-row>
     <form action="#" class="bee-signup-form" (submit)="signup()" [formGroup]="signupForm" >
       <ion-row>
-        <div class="bee-row bee-margin1">
-          <div class="bee-col-half-left">
+        <div class="beego-row-center bee-margin1">
+          <div>
             <div class="bee-input-container">
               Gender :
             </div>
           </div>
-          <div class="bee-col-auto-center">
+          <div >
             <div class="bee-input-container">
                 <label class="bee-label">
                     Homme :
@@ -38,7 +38,7 @@
                   </label>
             </div>
           </div>
-          <div class="bee-col-half-right">
+          <div>
             <div class="bee-input-container">
                 <label class="bee-label">
                     Femme :
@@ -50,18 +50,18 @@
         </div>     
       </ion-row>
       <ion-row>
-          <div class="bee-row bee-margin2">
-              <div class="bee-col-half-left">
+          <div class="beego-row-center bee-margin2">
+              <div>
                 <div class="bee-input-container">
                   <div  class="beego-input-transparent select" (click)="setDate(picker)"> {{day}} </div>
+                </div>
               </div>
-              </div>
-              <div class="bee-col-auto-center">
-                <div class="bee-input-container">
+              <div>
+                <div class="bee-input-container bee-margin-around">
                   <div  class="beego-input-transparent select" (click)="setDate(picker)"> {{month}} </div>
+                </div>
               </div>
-              </div>
-              <div class="bee-col-half-right">
+              <div>
                 <div class="bee-input-container">
                     <div  class="beego-input-transparent select" (click)="setDate(picker)"> {{year}} </div>
                 </div>

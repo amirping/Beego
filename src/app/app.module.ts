@@ -8,19 +8,12 @@ import { Dialogs } from '@ionic-native/dialogs';
 import { ProfilPage } from '../pages/profil/profil';
 import { ListOfFollowsPage } from '../pages/list-of-follows/list-of-follows'
 import { ParametreDuComptePage } from '../pages/parametre-du-compte/parametre-du-compte';
-import { ShoppingListPage } from '../pages/shopping-list/shopping-list';
 import { FIREBASE_CREDENTIALS } from './firebase.credentials';
-import { AddShoppingPage } from '../pages/add-shopping/add-shopping';
-import { EditShoppingItemPage } from '../pages/edit-shopping-item/edit-shopping-item';
-import { AcceuilPage } from '../pages/acceuil/acceuil';
-import { EspacesPage } from '../pages/espaces/espaces';
-import { EvenementPage } from '../pages/evenement/evenement';
 import { MyApp } from "./app.component";
 import { LandingPage } from "../pages/landing/landing";
 import { LoginPage } from "../pages/login/login";
-import { Signup1Page } from "../pages/signup1/signup1";
-import { Signup2Page } from "../pages/signup2/signup2";
-import { HomePage } from "../pages/home/home";
+import { SignupStep1Page } from "../pages/signup_step1/signup_step1";
+import { SignupStep2Page } from "../pages/signup_step2/signup_step2";
 import { ChilloutPage } from "../pages/chillout/chillout";
 import { Ionic2RatingModule } from 'ionic2-rating';
 import { AngularFireModule } from "angularfire2";
@@ -30,6 +23,7 @@ import { AngularFireStorageModule } from "angularfire2/storage";
 // import { AngularFirestoreModule } from "angularfire2/firestore";
 
 import { UserProvider } from '../providers/user/user';
+import { HomePage } from "../pages/home/home";
 
 
 
@@ -38,19 +32,13 @@ import { UserProvider } from '../providers/user/user';
     MyApp,
     LandingPage,
     LoginPage,
-    Signup1Page,
-    Signup2Page,
+    SignupStep1Page,
+    SignupStep2Page,
     ChilloutPage,
-    HomePage,
-    ShoppingListPage,
-    AddShoppingPage,
-    EditShoppingItemPage,
-    AcceuilPage,
-    EspacesPage,
-    EvenementPage,
     ProfilPage,
     ListOfFollowsPage,
-    ParametreDuComptePage
+    ParametreDuComptePage,
+    HomePage
   ],
   imports: [
     BrowserModule,
@@ -67,19 +55,13 @@ import { UserProvider } from '../providers/user/user';
     MyApp,
     LandingPage,
     LoginPage,
-    Signup1Page,
-    Signup2Page,
-    HomePage,
+    SignupStep1Page,
+    SignupStep2Page,
     ProfilPage,
     ListOfFollowsPage,
     ParametreDuComptePage,
     ChilloutPage,
-    ShoppingListPage,
-    AddShoppingPage,
-    EditShoppingItemPage,
-    AcceuilPage,
-    EspacesPage,
-    EvenementPage
+    HomePage
   ],
   providers: [
     StatusBar,

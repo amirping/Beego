@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController, AlertController } from 'ionic-angular';
-import { Signup1Page } from '../signup1/signup1';
+import { SignupStep1Page } from '../signup_step1/signup_step1';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { UserProvider } from '../../providers/user/user';
 import { HomePage } from '../home/home';
-import { Signup2Page } from '../signup2/signup2';
+import { SignupStep2Page } from '../signup_step2/signup_step2';
 
 /**
  * Generated class for the LoginPage page.
@@ -39,7 +39,7 @@ export class LoginPage {
     console.log("hiiiiii");
     console.log(e);
     if(e.direction == 2){
-      this.navCtrl.push(Signup1Page);
+      this.navCtrl.push(SignupStep1Page);
     }
   }
   signin(){
@@ -69,7 +69,7 @@ export class LoginPage {
   signinWithFacebook(){
     this.userProvider.loginWithFacebook((user)=>{
       console.log(user);
-      this.navCtrl.push(Signup2Page, {user, password:null});
+      this.navCtrl.push(SignupStep2Page, {user, password:null});
     },()=>{
       this.navCtrl.setRoot(HomePage);
     });
@@ -79,7 +79,7 @@ export class LoginPage {
     this.userProvider.loginWithGoogle((user)=>{
       alert("signup 2")
       console.log(user);
-      this.navCtrl.push(Signup2Page, {user, password:null});
+      this.navCtrl.push(SignupStep2Page, {user, password:null});
     },()=>{
       alert("signup 3")
       this.navCtrl.setRoot(HomePage);

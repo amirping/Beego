@@ -1,4 +1,4 @@
-page-signup1 {
+page-signup_step1 {
   .bee-separator {
     position: relative;
     height: 1px;
@@ -45,7 +45,6 @@ page-signup1 {
       font-weight: 800;
     }
     span {
-      color: white;
       font-size: 12px;
       font-weight: 100;
     }
@@ -92,9 +91,12 @@ page-signup1 {
     margin-top: 12px;
     padding-bottom: 16px;
     font-size: 10px;
-    color: white;
     font-weight: 100;
-  } // .att{
+  }
+  .invalid {
+    border: 1px solid #a22d2d;
+  }
+  // .att{
   //     font-weight: 500;
   //     font-style: italic;
   // }

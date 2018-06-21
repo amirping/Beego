@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { LoginPage } from '../login/login';
-import { Signup1Page } from '../signup1/signup1';
+import { SignupStep1Page } from '../signup_step1/signup_step1';
 import { HomePage } from '../home/home';
 
 @Component({
@@ -17,7 +17,7 @@ export class LandingPage {
     this.navCtrl.push(LoginPage);
   }
   signup(){
-    this.navCtrl.push(Signup1Page);
+    this.navCtrl.push(SignupStep1Page);
   }
   skip(){
     this.navCtrl.push(HomePage);
