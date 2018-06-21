@@ -5,12 +5,10 @@
   Ionic pages and navigation.
 -->
 <ion-header no-border>
-
   <ion-navbar class="navbarheader" color="rose">
-
     <div class="textblanc">Acceuil</div>
     <ion-buttons end>
-      <button ion-button icon-only (click) ="logout()" class="beego-skip-button beego-text-transform-none">Skip
+      <button ion-button icon-only (click)="logout()" class="beego-skip-button beego-text-transform-none">Skip
       </button>
     </ion-buttons>
   </ion-navbar>
@@ -37,10 +35,7 @@
       </ion-grid>
     </ion-card-header>
   </ion-card>
-
 </ion-header>
-
-
 <ion-content padding-left>
   <ion-grid>
     <ion-row>
@@ -76,10 +71,10 @@
     <ion-slides *ngFor="let item of suggestionListRef$ |
     async">
       <ion-slide class="sliderimage1">
-        <img src="../../assets/imgs/{{item.suggestionCouverture}}" style="background:  center no-repeat;  "> 
+        <img src="../../assets/imgs/{{item.suggestionCouverture}}" style="background:  center no-repeat;  ">
 
       </ion-slide>
-      
+
 
     </ion-slides>
     <!--Spécialement pour vous-->
@@ -102,9 +97,9 @@
     <ion-slides *ngFor="let item of espacesListRef$ |
     async">
       <ion-slide class="sliderimage2">
-      <img src="../../assets/imgs/{{item.espaceImage}}" class="sliderimage2" >
+        <img src="../../assets/imgs/{{item.espaceImage}}" class="sliderimage2">
         <div class="bottom-left">
-          <br>&nbsp;&nbsp;{{item.espaceSpecialite}} 
+          <br>&nbsp;&nbsp;{{item.espaceSpecialite}}
           <br>
           <br> &nbsp;&nbsp;
           <img src="../../assets/imgs/localisation.png">&nbsp; {{item.espaceName}}&nbsp;&nbsp;
@@ -131,7 +126,7 @@
         </button>
       </ion-col>
       <ion-col col-6 align="middle">
-        <button class="boutonevent"  (click)="promotionClicked()">
+        <button class="boutonevent" (click)="promotionClicked()">
           <strong>Promotions</strong>
         </button>
       </ion-col>
@@ -139,15 +134,15 @@
 
       <ion-slides *ngFor="let item of evenementListRef$ |
       async">
-        <ion-slide  class="sliderimage3" >
-        <img src="../../assets/imgs/{{item.Couverture}}" class="sliderimage3" style="background: left no-repeat;">
+        <ion-slide class="sliderimage3">
+          <img src="../../assets/imgs/{{item.Couverture}}" class="sliderimage3" style="background: left no-repeat;">
 
           <button class="top-right-alaune">
             <strong>Intéressé(e)</strong>
           </button>
 
 
-          
+
           <div class="bottom-left-alaune" align="left">
             <br>&nbsp;&nbsp;{{item.Name}}
             <br>
@@ -161,7 +156,7 @@
         </ion-slide>
 
       </ion-slides>
-      
+
 
     </ion-row>
     <!--Connaissez vous-->
@@ -198,7 +193,7 @@
               </button>
             </ion-item>
           </ion-card>
-          
+
 
 
         </div>
@@ -229,7 +224,7 @@
       </ion-col>
       <ion-scroll scrollX="true" style="white-space: nowrap; width: 90%; height: 200px;">
         <div class="parent" *ngFor="let item of proximiteListRef$ |
-        async" >
+        async">
           <img class="image1" src="../../assets/imgs/{{item.placeCouverture}}">
           <img class="image2" src="../../assets/imgs/Groupe 346.png">
           <br> {{item.placeName}}
@@ -290,8 +285,8 @@
             </ion-item>
 
           </ion-card>
-          
-          
+
+
         </div>
 
       </ion-scroll>
