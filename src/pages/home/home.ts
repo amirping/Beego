@@ -5,6 +5,7 @@ import { Slides } from 'ionic-angular';
 import { Observable } from 'rxjs/Observable';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { UserProvider } from '../../providers/user/user';
+import { ChilloutPage } from '../chillout/chillout';
 
 
 /**
@@ -84,6 +85,15 @@ export class HomePage {
   }
   logout(){
     this.userProvider.logOut();
+  }
+  navigateToChilloutPage(){
+    this.navCtrl.push(ChilloutPage,{category : 'chillout'});
+  }
+  navigateToBeautyage(){
+    this.navCtrl.push(ChilloutPage , {category : 'beauty'});
+  }
+  navigateToShoppingPage(){
+    this.navCtrl.push(ChilloutPage , {category : 'shopping'});
   }
 
 
