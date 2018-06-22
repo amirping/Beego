@@ -3,8 +3,8 @@ import { AngularFireAuth } from "angularfire2/auth";
 import { User } from "../../models/user.interface";
 import { AngularFireDatabase } from "angularfire2/database";
 // import { AngularFireStorage } from 'angularfire2/storage';
-import * as firebase from "firebase/app";
-
+// import * as firebase from "firebase/app";
+import firebase from 'firebase';
 /*
   Generated class for the UserProvider provider.
 
@@ -57,6 +57,20 @@ export class UserProvider {
         .then(() => {
           const uid = this.auth.auth.currentUser.uid;
           if (file) {
+            const task = firebase.storage()
+            .ref(`/users/${uid}/${this.GUID}`)
+            .put(file,{contentType:file.type});
+            task.on(firebase.storage.TaskEvent.STATE_CHANGED,() =>{},reject, () =>{
+              task.snapshot.ref.getDownloadURL().then(downloadURL =>{
+                user.photoUrl = downloadURL;
+                this.db.list('uers').update(uid, user)
+                  .then(() => {
+                    resolve();
+                    this.auth.auth.currentUser.sendEmailVerification();
+                    this.logOut();
+                  }); 
+              });
+            });
             // this.storage.ref(`/users/${uid}/${this.GUID}`)
             //   .put(file, { contentType: file.type })
             //   .then(a => {
