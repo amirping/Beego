@@ -92,7 +92,7 @@ export class UserProvider {
         }
       })
       .catch(err => {
-        reject({ type: 3, err });
+        reject({ type: 3, err ,msg:"Cette adresse mail à ete déja utlisé"});
       });
     });
   }

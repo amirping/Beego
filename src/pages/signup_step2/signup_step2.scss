@@ -37,6 +37,7 @@ page-signup_step2 {
         background-position: -3px -15px;
         height: 100%;
         img{
+            min-height: 114px;
             min-width: 114px;
         }
     }
@@ -53,43 +54,7 @@ page-signup_step2 {
     .bee-edit-photo{
         background-image: url(../assets/imgs/change_pic.png);
     }
-    .bee-separator {
-        position: relative;
-        height: 1px;
-        width: 42px;
-        background-color: gray;
-        color: gray;
-        margin:auto;
-    }
-    .bee-separator::before,
-    .bee-separator::after{
-        content: ".";
-        text-align: center;
-        line-height: 1px;
-        font-size: 25px;
-        font-weight: 900;
-        display: block;
-        position: absolute;
-        height: 15px;
-        width: 15px;
-        border-radius: 50%;
-        top: -9px;
-    }
-    .bee-separator::before{
-        left: -24px;
-    }
-    .bee-separator::after{
-        right: -24px;
-    }
     
-    .bee-separator-full,{
-        background-color: #FB6B94;
-        color:#FB6B94;
-    }
-    .bee-separator.bee-separator-full::after, .bee-separator::before{
-        color: #FB6B94;
-        border: 1px solid;
-    }
     .bee-signup-form {
         margin-top: 67px;
         color: white;

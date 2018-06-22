@@ -83,8 +83,8 @@ export class SignupStep2Page {
       }).catch(err=>{
         load.dismiss();
         this.alertCtrl.create({
-          title:"somthing is wrong",
-          message:err,
+          title:"ERREUR",
+          message:err.msg,
           buttons:['ok']
         }).present();
         console.log(err);
@@ -106,7 +106,7 @@ export class SignupStep2Page {
       .catch(err=>{
         load.dismiss();
         this.alertCtrl.create({
-          title:"somthing is wrong",
+          title:"ERREUR",
           message:err,
           buttons:['ok']
         }).present();

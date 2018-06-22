@@ -58,7 +58,7 @@ export class SignupStep1Page {
       console.log(err);
       load.dismiss();
       this.alertCtrl.create({
-        title:"Somthing IS Wrong",
+        title:"ERREUR",
         subTitle:err
       }).present();
     });
@@ -76,7 +76,7 @@ export class SignupStep1Page {
       console.log(err);
       load.dismiss();
       this.alertCtrl.create({
-        title:"Somthing IS Wrong",
+        title:"ERREUR",
         subTitle:err
       }).present();
     });
