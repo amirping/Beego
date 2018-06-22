@@ -1,3 +1,23 @@
 page-setting-profil2 {
-
+    .beego-title-param{
+        position: relative;
+        font-size: 14PX;
+        text-align: center;
+        color: white;
+    }
+    .back{
+        position: absolute;
+        top: 40%;
+        z-index: 99;
+    }
+    .back-button-param{
+        background-color: transparent;
+        width: 65px;
+        
+        
+     } 
+      .back-img{
+        width: 64%;
+          
+      }
 }

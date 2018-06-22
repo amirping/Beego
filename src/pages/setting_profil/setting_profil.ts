@@ -2,7 +2,9 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {} from '../profil/profil';
 import { ListOfFollowsPage } from '../list-of-follows/list-of-follows';
-import {BlockPage} from '../block/block'
+import {BlockPage} from '../block/block';
+import {SettingProfil2Page } from '../setting-profil2/setting-profil2'
+
 
 /**
  * Generated class for the ParametreDuComptePage page.
@@ -26,6 +28,9 @@ export class SettingProfilPage {
 
   blockList(){
     this.navCtrl.push(BlockPage);
+  }
+  goToParam(){
+    this.navCtrl.push(SettingProfil2Page);
   }
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
