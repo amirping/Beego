@@ -4,9 +4,10 @@ import { ViewChild } from '@angular/core';
 import { Slides } from 'ionic-angular';
 import { Observable } from 'rxjs/Observable';
 import { AngularFireDatabase } from 'angularfire2/database';
-import{ProfilPage} from '../profil/profil';
-import { UserProvider } from '../../providers/user/user';
 import { LoginPage } from '../login/login';
+import { ProfilPage } from '../profil/profil';
+import { ChilloutPage } from '../chillout/chillout';
+import { UserProvider } from '../../providers/user/user';
 
 
 /**
@@ -38,6 +39,7 @@ export class HomePage {
 
   constructor(public navCtrl: NavController,
      public navParams: NavParams,
+     public userProvider: UserProvider,
      private database: AngularFireDatabase,
      private userpovider : UserProvider
     ) {
@@ -89,9 +91,16 @@ export class HomePage {
     })*/;
   }
   logout(){
-    this.userpovider.logOut();
     this.navCtrl.push(LoginPage);
+    this.userpovider.logOut();
   }
-  
-
+  navigateToChilloutPage(){
+    this.navCtrl.push(ChilloutPage,{category : 'chillout'});
+  }
+  navigateToBeautyage(){
+    this.navCtrl.push(ChilloutPage , {category : 'beauty'});
+  }
+  navigateToShoppingPage(){
+    this.navCtrl.push(ChilloutPage , {category : 'shopping'});
+  }
 }

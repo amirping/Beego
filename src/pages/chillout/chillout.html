@@ -18,9 +18,12 @@
     <ion-row align-items-center class="topCover">
       <ion-col align-self-stretch>
         <div class="searchWrapper">
-          <ion-searchbar class="search" [(ngModel)]="searchText" [showCancelButton]="false" (ionInput)="null" (ionCancel)="null">
+          <ion-searchbar (click)="showYourGod($event)" class="search" [(ngModel)]="searchText" [showCancelButton]="false" (ionInput)="null" (ionCancel)="null">
           </ion-searchbar>
-          <ion-icon class="searchbar-search-icon newIcon" name="search"></ion-icon>
+          
+            <button  >
+                <ion-icon class="searchbar-search-icon newIcon" name="search"> </ion-icon>
+            </button>
         </div>
         <ion-slides [pager]="true" [autoplay]="2000" [loop]="true" [zoom]="false" *ngIf="slides && slides.length" class="slider">
           <ion-slide *ngFor="let slide of slides">
@@ -32,7 +35,7 @@
     <ion-row class="fllow">
       <ion-col class="no-padding">
         <div class="tabs-ex custom-padding">
-          <div *ngFor="let page of pagesData" (click)="indexPage = page.index" [ngClass]="{active: indexPage == page.index}">{{page.name}}</div>
+          <div *ngFor="let page of pagesData | async" (click)="indexPage = page.index" [ngClass]="{active: indexPage == page.index}">{{page.name}}</div>
 
           <div>&nbsp;</div>
         </div>
@@ -50,15 +53,15 @@
         </svg>
         <div class="subPageContainer" [ngSwitch]="indexPage">
           <!-- <ng-container *ngFor="let pageData of pagesData"> -->
-          <div class="subPage" *ngFor="let pageData of pagesData">
+          <div class="subPage" *ngFor="let pageData of pagesData | async">
             <ng-container *ngSwitchCase="pageData.index">
               <div class="grid-viewr">
                 <div class="card-ex animated flipInX" *ngFor="let item of pageData.data">
                   <div class="img">
-                    <img src="https://picsum.photos/100/109" alt="">
+                    <img src="../../assets/imgs/{{item.photo}}" alt="">
                   </div>
                   <span class="title">{{item.title}}</span>
-                  <span class="sub-title">{{item.subTitle}}</span>
+                  <span class="sub-title">{{item.subtitle}}</span>
                   <div class="rating-ex">
                     <rating [(ngModel)]="item.rating" emptyStarIconName="star-outline" halfStarIconName="star-half" starIconName="star" nullable="false"
                       (ngModelChange)="null">
