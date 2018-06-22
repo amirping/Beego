@@ -4,7 +4,6 @@ import { LoginPage } from '../login/login';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { User } from '../../models/user.interface';
 import { UserProvider } from '../../providers/user/user';
-import { HttpClient } from "@angular/common/http";
 import { HomePage } from '../home/home';
 
 /**
@@ -52,15 +51,12 @@ export class SignupStep2Page {
   ionViewDidLoad() {
     const user = this.navParams.get("user");
     this.signupForm.controls["gender"].setValue(user.gender);
-    this.imgSrc = user.photoUrl;    
+    this.imgSrc = user.photoUrl;
   }
   swipeTo(e){
-    if(e.direction == 2){
       this.navCtrl.push(LoginPage);
-    }
   }
   setDate(picker){
-    console.log(this.datePickerMin);
     picker.open();
   }
   signup(){
@@ -68,7 +64,6 @@ export class SignupStep2Page {
     if(password){
       this.SignupWithMailPassword();
     }else{
-      console.log('continue with provider');
       this.SignupWithProvider();
     }
   }
@@ -89,27 +84,36 @@ export class SignupStep2Page {
         load.dismiss();
         this.alertCtrl.create({
           title:"somthing is wrong",
-          subTitle:err
+          message:err,
+          buttons:['ok']
         }).present();
         console.log(err);
       });
   }
   private SignupWithProvider(){
+    const load = this.loadCtrl.create();
+    load.present();
     const user : User = this.navParams.get("user");
       user.birthday = new Date( this.datePicker).getTime();
+      user.gender = this.signupForm.get("gender").value;
       user.gov = this.signupForm.get("gov").value;
       user.tel = this.signupForm.get("tel").value;
-      console.log(user);
       this.userProvider.signupWithProvider(user)
       .then(()=>{
+        load.dismiss();
         this.navCtrl.setRoot(HomePage);
       })
-      .catch((e)=>{
-        console.log(e);
-      })
+      .catch(err=>{
+        load.dismiss();
+        this.alertCtrl.create({
+          title:"somthing is wrong",
+          message:err,
+          buttons:['ok']
+        }).present();
+        console.log(err);
+      });
   }
   changeDate(){
-    console.log(this.datePicker);
     const date = new Date(this.datePicker);
     const d = date.getDate();
     this.day = d<10?"0"+d:d+"";
@@ -126,7 +130,6 @@ export class SignupStep2Page {
       this.file = e.target.files[0];
       reader.readAsDataURL(this.file);
     }
-    
   }
   
 }

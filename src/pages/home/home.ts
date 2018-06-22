@@ -4,6 +4,7 @@ import { ViewChild } from '@angular/core';
 import { Slides } from 'ionic-angular';
 import { Observable } from 'rxjs/Observable';
 import { AngularFireDatabase } from 'angularfire2/database';
+import { UserProvider } from '../../providers/user/user';
 
 
 /**
@@ -31,6 +32,7 @@ export class HomePage {
 
   constructor(public navCtrl: NavController,
      public navParams: NavParams,
+     public userProvider: UserProvider,
      private database: AngularFireDatabase,
     ) {
       /* Liste des espaces */
@@ -79,6 +81,9 @@ export class HomePage {
     this.evenementListRef$ = this.database.list('evenement').valueChanges()/*.map(changes => {
       return changes.map( c => ({key : c.payload.key,...c.payload.val()}))
     })*/;
+  }
+  logout(){
+    this.userProvider.logOut();
   }
 
 

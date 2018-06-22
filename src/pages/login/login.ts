@@ -24,7 +24,7 @@ export class LoginPage {
     public navParams: NavParams, 
     public userProvider: UserProvider,
     public loadCtrl: LoadingController,
-    public alerCtrl: AlertController,
+    public alertCtrl: AlertController,
     public formBuilder: FormBuilder) {
       this.signinForm = formBuilder.group({
         email: ['', Validators.compose([Validators.required, Validators.pattern(/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/)])],
@@ -36,53 +36,69 @@ export class LoginPage {
     console.log('ionViewDidLoad LoginPage');
   }
   swipeTo(e){
-    console.log("hiiiiii");
-    console.log(e);
-    if(e.direction == 2){
-      this.navCtrl.push(SignupStep1Page);
-    }
+    this.navCtrl.push(SignupStep1Page);
   }
   signin(){
     const load = this.loadCtrl.create();
     load.present();
     this.userProvider.login(this.signinForm.get("email").value,this.signinForm.get("password").value)
     .then((res)=>{
-      console.log(res);
       load.dismiss();
-      if(!res.user.emailVerified){
-        this.alerCtrl.create({
+      console.log(res);
+      if(!res.emailVerified){
+        this.alertCtrl.create({
           title:"Email IS Not Verified",
-          subTitle:"Check Your Email !!!"
+          message:"Check Your Email !!!",
+          buttons:['ok']
         }).present();
       }else{
         this.navCtrl.setRoot(HomePage);
       }
-    }).catch((err)=>{
-      console.log(err);
-      load.dismiss();
-      this.alerCtrl.create({
-        title:"Somthing IS Wrong",
-        subTitle:err
-      }).present();
     })
-  }
-  signinWithFacebook(){
-    this.userProvider.loginWithFacebook((user)=>{
-      console.log(user);
-      this.navCtrl.push(SignupStep2Page, {user, password:null});
-    },()=>{
-      this.navCtrl.setRoot(HomePage);
+    .catch((err)=>{
+      load.dismiss();
+      this.alertCtrl.create({
+        title:"Somthing IS Wrong",
+        message:err
+      }).present();
     });
   }
-  signinWithGoogle(){
-    alert("signup")
-    this.userProvider.loginWithGoogle((user)=>{
-      alert("signup 2")
-      console.log(user);
+  loginWithFacebook(){
+    const load = this.loadCtrl.create();
+    load.present();
+    this.userProvider.loginWithFacebook((user)=>{
+      load.dismiss();
       this.navCtrl.push(SignupStep2Page, {user, password:null});
     },()=>{
-      alert("signup 3")
+      load.dismiss();
       this.navCtrl.setRoot(HomePage);
+    },err=>{
+      console.log(err);
+      load.dismiss();
+      this.alertCtrl.create({
+        title:"Somthing IS Wrong",
+        message:err,
+        buttons:['ok']
+      }).present();
+    });
+  }
+  loginWithGoogle(){
+    const load = this.loadCtrl.create();
+    load.present();
+    this.userProvider.loginWithGoogle((user)=>{
+      load.dismiss();
+      this.navCtrl.push(SignupStep2Page, {user, password:null});
+    },()=>{
+      load.dismiss();
+      this.navCtrl.setRoot(HomePage);
+    },err=>{
+      console.log(err);
+      load.dismiss();
+      this.alertCtrl.create({
+        title:"Somthing IS Wrong",
+        message:err,
+        buttons:['ok']
+      }).present();
     });
   }
   skip(){
@@ -90,7 +106,7 @@ export class LoginPage {
   }
   forgetPassword(){
     if(this.signinForm.get('email').invalid){
-      this.alerCtrl.create({
+      this.alertCtrl.create({
         title:"enter valid email"
       }).present();
     }else{
@@ -99,14 +115,14 @@ export class LoginPage {
       this.userProvider.resetPassword(this.signinForm.get("email").value)
       .then(()=>{
         load.dismiss();
-        this.alerCtrl.create({
+        this.alertCtrl.create({
           title:"a link was sent to your mail"
         }).present();
       }).catch((e)=>{
         load.dismiss();
-        this.alerCtrl.create({
+        this.alertCtrl.create({
           title:"something wrong",
-          subTitle:e
+          message:e
         }).present();
       });
     }
