@@ -18,6 +18,7 @@ import { ListOfFollowsPage } from "../pages/list-of-follows/list-of-follows";
 import {SettingProfilPage } from "../pages/setting_profil/setting_profil";
 import { ChilloutPage } from "../pages/chillout/chillout";
 import { BlockPage} from '../pages/block/block'
+import {SettingProfil2Page } from '../pages/setting-profil2/setting-profil2'
 
 import { Ionic2RatingModule } from "ionic2-rating";
 import { AngularFireModule } from "angularfire2";
@@ -41,7 +42,8 @@ import { UserProvider } from "../providers/user/user";
     ListOfFollowsPage,
     SettingProfilPage,
     HomePage,
-    BlockPage
+    BlockPage,
+    SettingProfil2Page
   ],
   imports: [
     BrowserModule,
@@ -65,7 +67,8 @@ import { UserProvider } from "../providers/user/user";
     SettingProfilPage,
     ChilloutPage,
     HomePage,
-    BlockPage
+    BlockPage,
+    SettingProfil2Page
   ],
   providers: [
     StatusBar,
