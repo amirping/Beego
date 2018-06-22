@@ -31,10 +31,6 @@ export class LoginPage {
         password: ['', Validators.compose([Validators.required, Validators.minLength(6)])],
       });
   }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad LoginPage');
-  }
   swipeTo(e){
     this.navCtrl.push(SignupStep1Page);
   }
@@ -47,8 +43,8 @@ export class LoginPage {
       console.log(res);
       if(!res.emailVerified){
         this.alertCtrl.create({
-          title:"Email IS Not Verified",
-          message:"Check Your Email !!!",
+          title:"ERREUR",
+          message:"Verfier votre email",
           buttons:['ok']
         }).present();
       }else{
@@ -58,8 +54,9 @@ export class LoginPage {
     .catch((err)=>{
       load.dismiss();
       this.alertCtrl.create({
-        title:"Somthing IS Wrong",
-        message:err
+        title:"ERREUR",
+        message:err.msg,
+        buttons:['ok']
       }).present();
     });
   }
@@ -76,7 +73,7 @@ export class LoginPage {
       console.log(err);
       load.dismiss();
       this.alertCtrl.create({
-        title:"Somthing IS Wrong",
+        title:"ERREUR",
         message:err,
         buttons:['ok']
       }).present();
@@ -95,7 +92,7 @@ export class LoginPage {
       console.log(err);
       load.dismiss();
       this.alertCtrl.create({
-        title:"Somthing IS Wrong",
+        title:"ERREUR",
         message:err,
         buttons:['ok']
       }).present();
@@ -107,7 +104,9 @@ export class LoginPage {
   forgetPassword(){
     if(this.signinForm.get('email').invalid){
       this.alertCtrl.create({
-        title:"enter valid email"
+        title:"ERREUR",
+        message:"Enter un email valid",
+        buttons:['ok']
       }).present();
     }else{
       const load = this.loadCtrl.create();
@@ -116,16 +115,16 @@ export class LoginPage {
       .then(()=>{
         load.dismiss();
         this.alertCtrl.create({
-          title:"a link was sent to your mail"
+          title:"Consulter votre boite email pour creer un nouveau mot de passe",
+          buttons:["ok"]
         }).present();
       }).catch((e)=>{
         load.dismiss();
         this.alertCtrl.create({
-          title:"something wrong",
-          message:e
+          title:"ERROR",
+          message:e.msg
         }).present();
       });
     }
   }
-
 }

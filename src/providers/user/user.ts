@@ -21,7 +21,14 @@ export class UserProvider {
     return this.auth.authState;
   }
   login(email: string, password: string): Promise<any> {
-    return this.auth.auth.signInWithEmailAndPassword(email, password);
+    return new Promise((resolve, reject)=>{
+      this.auth.auth.signInWithEmailAndPassword(email, password).then(()=>{
+        resolve();
+      }).catch((e)=>{
+        const err = {error:e, msg :"Votre email ou votre mot de passe sont fausses"}
+        reject(err);
+      })
+    });
   }
   setUser() {
     return new Promise((resolve, reject) => {
@@ -178,7 +185,15 @@ export class UserProvider {
     });
   }
   resetPassword(email: string) {
-    return this.auth.auth.sendPasswordResetEmail(email);
+    return new Promise((resolve, reject)=>{
+      this.auth.auth.sendPasswordResetEmail(email).then(()=>{
+        resolve();
+      }).catch((e)=>{
+        const err={error:e,msg:"Ce email n'existe pas"};
+        reject(err);
+      })
+    });
+    
   }
   get GUID(): string {
     return (new Date().getTime().toString(36) +"_" + Math.random().toString(36).substring(2, 10));
