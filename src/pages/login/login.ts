@@ -49,7 +49,7 @@ export class LoginPage {
     .then((res)=>{
       console.log(res);
       load.dismiss();
-      if(!res.user.emailVerified){
+      if(!res.emailVerified){
         this.alerCtrl.create({
           title:"Email IS Not Verified",
           subTitle:"Check Your Email !!!"
