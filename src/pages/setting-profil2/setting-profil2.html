@@ -29,67 +29,87 @@ Parametre du compte</div>
     <ion-grid>
       <ion-row class="row-param">
         <ion-col >
-          Genre :
+          <span class="genrepara"> Genre :</span> 
         </ion-col>
         <ion-col>
-          Homme <input type="checkbox">
+            <label class="bee-label">
+                Homme :
+                <input type="radio" name="gender"  class="bee-input-hidden" value="male" >
+                <span class="bee-radio bee-radio-blue backblue"></span>
+              </label>
         </ion-col>
         <ion-col>
-          Femme <input type="checkbox">
-          
+          <label class="bee-label">
+              Femme :
+              <input type="radio" name="gender"  class="bee-input-hidden" value="female" >
+              <span class="bee-radio bee-radio-pink backpink"></span>
+            </label>
         </ion-col>
       </ion-row>
       <ion-row class="row-param">
         <ion-col >
             <input type="text" name="text_search" value="" placeholder="Nom" 
-            class="text-search"   >
+            class="text-search icon-name"   >
         </ion-col>
       </ion-row>
       <ion-row class="row-param">
           <ion-col >
               <input type="text" name="text_search" value="" placeholder="Prenom" 
-              class="text-search"   >
+              class="text-search icon-name"   >
           </ion-col>
         </ion-row>
         <ion-row class="row-param">
             <ion-col>
                 <input type="text" name="text_search" value="" placeholder="Email" 
-                class="text-search"   >
+                class="text-search icon-email"   >
             </ion-col>
           </ion-row>
-          <ion-row class="row-param">
+          <ion-row class="row-param ">
               <ion-col>
                   <input type="text" name="text_search" value="" placeholder="Email" 
-                  class="text-search"   >
+                  class="text-search icon-email"   >
               </ion-col>
             </ion-row >
             
-            <!-- <ion-row class="row-param">
-                <div class="beego-row-center bee-margin2">
-                    <div>
-                      <div class="bee-input-container">
-                        <div  class="beego-input-transparent select" (click)="setDate(picker)"> {{day}} </div>
-                      </div>
-                    </div>
-                    <div>
-                      <div class="bee-input-container bee-margin-around">
-                        <div  class="beego-input-transparent select" (click)="setDate(picker)"> {{month}} </div>
-                      </div>
-                    </div>
-                    <div>
-                      <div class="bee-input-container">
-                          <div  class="beego-input-transparent select" (click)="setDate(picker)"> {{year}} </div>
-                      </div>
-                    </div>
-                  </div>
-                  <ion-datetime #picker style="display: none;"
-                    pickerFormat="DD MMMM YYYY" 
-                    [max]="datePickerMin" 
-                    [(ngModel)]="datePicker" formControlName="birthday"
-                    name="birthday" 
-                    (ionChange)="changeDate()"></ion-datetime>
-                  <input type="file" #uploader (change)="upload($event)" style="display: none;">
-            </ion-row> -->
+            <ion-row class="row-param" >
+                      <ion-col class="bee-input-container" col-4>
+                        <div  class="beego-input-transparent color-row select" (click)="setDate(picker)"> {{day}} </div>
+                      </ion-col>
+                      <ion-col class="bee-input-container bee-margin-around" col-4>
+                        <div  class="beego-input-transparent color-row select" (click)="setDate(picker)"> {{month}} </div>
+                      </ion-col>
+                      <ion-col class="bee-input-container" col-4>
+                          <div  class="beego-input-transparent color-row select" (click)="setDate(picker)"> {{year}} </div>
+                      </ion-col>
+                
+            </ion-row>
+            <ion-row class="row-param space-cols">
+              
+                <div class="bee-left bee-input-container2">
+                  <input type="tel" class="beego-input-transparent color-row tel-decoration beego-icon-tel" 
+                   placeholder="Num tel">
+                </div>
+              
+                <div class="bee-right bee-input-container2">
+      
+                  <select name="" class="beego-input-transparent color-row Gouvernorat-decoration beego-icon-gov" >
+                    <option value="" selected>Gouvernorat</option>
+                    <option value="Tunis">Tunis</option>
+                    <option value="Gafsa">Gafsa</option>
+                  </select>
+                </div>
+              
+            </ion-row>
+            <ion-row class="row-param2 ">
+              <ion-col>
+                <textarea class="textarina-param beego-input-transparent "
+                 placeholder="Ajouter une bio" name="" id="" ></textarea>
+              </ion-col>
+            </ion-row>
+            <ion-row class="row-param space-cols">
+              <button ion-button class="valider" value="Valider" > Valider</button>
+              <button ion-button class="annuler" value="Annuler" > Annuler</button>
+            </ion-row>
         
     </ion-grid>
 
