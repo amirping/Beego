@@ -26,4 +26,50 @@ page-setting-profil2 {
         margin-bottom: 6%;
         color: rgb(105, 103, 103);
     }
+    .text-search{
+        background-color: rgba(196, 191, 191, 0.39);
+        border-radius: 20px;
+       
+       height: 35px;
+       width: 100%;
+        border:none;
+        padding-left: 37px;
+        color:black !important;
+    }
+    .text-search::placeholder {
+        color: rgb(59, 52, 52);
+        font-size: 13px;
+        }
+        .row-param{
+            padding-bottom: 6%;
+        }
+
+        .bee-margin1{
+            margin-top: -12px;
+        }
+        .bee-input-container{
+            width: 96px;
+            text-align: center;
+        }
+        .bee-input-container2{
+            width: 146px;
+            >.beego-input-transparent{
+                padding-left: 37px;
+            }
+        }
+        select.beego-input-transparent, .select.beego-input-transparent{
+            -webkit-appearance: none;
+            background-image: url(../assets/imgs/arrow_down.png);
+            background-repeat: no-repeat;
+            background-position: right 15px top 16px;
+         }
+         .select.beego-input-transparent{
+             padding: 8px;
+    
+         }
+         .beego-input-transparent.beego-icon-gov{
+            background-image: url(../assets/imgs/gov.png),url(../assets/imgs/arrow_down.png);
+            background-repeat: no-repeat;
+            background-position: 12px ,right 15px top 16px;
+        }
 }

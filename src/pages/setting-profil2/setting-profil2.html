@@ -27,8 +27,8 @@ Parametre du compte</div>
 <ion-content padding>
     <div class="paramGenerale"><h3>Parametre du profil</h3></div>
     <ion-grid>
-      <ion-row>
-        <ion-col>
+      <ion-row class="row-param">
+        <ion-col >
           Genre :
         </ion-col>
         <ion-col>
@@ -39,6 +39,58 @@ Parametre du compte</div>
           
         </ion-col>
       </ion-row>
+      <ion-row class="row-param">
+        <ion-col >
+            <input type="text" name="text_search" value="" placeholder="Nom" 
+            class="text-search"   >
+        </ion-col>
+      </ion-row>
+      <ion-row class="row-param">
+          <ion-col >
+              <input type="text" name="text_search" value="" placeholder="Prenom" 
+              class="text-search"   >
+          </ion-col>
+        </ion-row>
+        <ion-row class="row-param">
+            <ion-col>
+                <input type="text" name="text_search" value="" placeholder="Email" 
+                class="text-search"   >
+            </ion-col>
+          </ion-row>
+          <ion-row class="row-param">
+              <ion-col>
+                  <input type="text" name="text_search" value="" placeholder="Email" 
+                  class="text-search"   >
+              </ion-col>
+            </ion-row >
+            
+            <!-- <ion-row class="row-param">
+                <div class="beego-row-center bee-margin2">
+                    <div>
+                      <div class="bee-input-container">
+                        <div  class="beego-input-transparent select" (click)="setDate(picker)"> {{day}} </div>
+                      </div>
+                    </div>
+                    <div>
+                      <div class="bee-input-container bee-margin-around">
+                        <div  class="beego-input-transparent select" (click)="setDate(picker)"> {{month}} </div>
+                      </div>
+                    </div>
+                    <div>
+                      <div class="bee-input-container">
+                          <div  class="beego-input-transparent select" (click)="setDate(picker)"> {{year}} </div>
+                      </div>
+                    </div>
+                  </div>
+                  <ion-datetime #picker style="display: none;"
+                    pickerFormat="DD MMMM YYYY" 
+                    [max]="datePickerMin" 
+                    [(ngModel)]="datePicker" formControlName="birthday"
+                    name="birthday" 
+                    (ionChange)="changeDate()"></ion-datetime>
+                  <input type="file" #uploader (change)="upload($event)" style="display: none;">
+            </ion-row> -->
+        
     </ion-grid>
 
 </ion-content>

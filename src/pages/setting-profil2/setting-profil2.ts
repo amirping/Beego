@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams ,LoadingController, AlertController  } from 'ionic-angular';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 /**
  * Generated class for the SettingProfil2Page page.
@@ -14,8 +15,17 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'setting-profil2.html',
 })
 export class SettingProfil2Page {
+  datePickerMin:string;
+  datePicker: string;
+  year:string = "Année";
+  month:string = "Mois";
+  day:string = "Jours";
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+    public formBuilder: FormBuilder,
+    public loadCtrl: LoadingController,
+    public alertCtrl: AlertController,) {
+      
   }
   back(){
     this.navCtrl.pop();
