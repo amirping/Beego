@@ -6,13 +6,51 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>setting_security</ion-title>
+  <ion-navbar hideBackButton="true" color="bar-color">
+    <div class="back">
+        
+        
+      <button class="back-button-param" (click)="back()">
+        <img src="../../assets/imgs/arrow-back.png" alt="" 
+        class="back-img">
+      </button>
+
+</div>
+<div class="beego-title-param">
+Securite</div>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-
+    <div class="paramGenerale"><h3>Changer votre mot de passe </h3></div>
+    <div class="para-security">le lorem lpsum est simplement de faux texte employer dans la composition </div>
+    <ion-grid class="gird-security">
+      <ion-row class="para-row">
+        Ancien mot de passe :
+      </ion-row>
+      <ion-row class="input-row">
+          <input type="password" name="text_search" value="testtest" placeholder="" 
+          class="text-search"   >
+      </ion-row>
+      <ion-row class="para-row">
+          Nouveau mot de passe :
+        </ion-row>
+        <ion-row class="input-row">
+            <input type="password" name="text_search" value="testtest" placeholder="" 
+            class="text-search"   >
+        </ion-row>
+        <ion-row class="para-row">
+            Confirmer votre mot de passe :
+          </ion-row>
+          <ion-row class="input-row">
+              <input type="password" name="text_search" value="testtest" placeholder="" 
+              class="text-search"   >
+          </ion-row>
+          <ion-row class=" space-cols">
+              <button ion-button class="valider" value="Valider" > Valider</button>
+              <button ion-button class="annuler" value="Annuler" > Annuler</button>
+            </ion-row>
+    </ion-grid>
 </ion-content>

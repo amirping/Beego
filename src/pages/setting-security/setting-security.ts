@@ -14,6 +14,9 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'setting-security.html',
 })
 export class SettingSecurityPage {
+  back(){
+    this.navCtrl.pop();
+  }
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }

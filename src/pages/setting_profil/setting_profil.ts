@@ -3,7 +3,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {} from '../profil/profil';
 import { ListOfFollowsPage } from '../list-of-follows/list-of-follows';
 import {BlockPage} from '../block/block';
-import {SettingProfil2Page } from '../setting-profil2/setting-profil2'
+import {SettingProfil2Page } from '../setting-profil2/setting-profil2';
+import {SettingSecurityPage} from '../setting-security/setting-security'
 
 
 /**
@@ -31,6 +32,9 @@ export class SettingProfilPage {
   }
   goToParam(){
     this.navCtrl.push(SettingProfil2Page);
+  }
+  goTosecurity(){
+    this.navCtrl.push(SettingSecurityPage);
   }
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
