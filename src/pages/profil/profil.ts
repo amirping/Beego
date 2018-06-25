@@ -22,6 +22,9 @@ export class ProfilPage {
   paramPage(){
     this.navCtrl.push(SettingProfilPage);
   }
+  back(){
+    this.navCtrl.pop();
+  }
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }

@@ -18,7 +18,7 @@ import { SettingProfilPage } from "../pages/setting_profil/setting_profil";
   templateUrl: "app.html"
 })
 export class MyApp {
-  rootPage:any=SettingProfilPage ;
+  rootPage:any=ProfilPage ;
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,public userProvider: UserProvider) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
