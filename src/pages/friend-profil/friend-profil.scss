@@ -1,0 +1,168 @@
+page-friend-profil {
+    .profil-friend-part{
+        position: fixed;
+        background-image: url(../../assets/imgs/friend-profil/friendPhoto.png) ;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+        width:100%;
+        padding: 20%;
+        height: 470px;
+      }
+      .x-friend-profil{
+        position: absolute;
+        top:28px;
+        right: 14px; 
+      }
+      .x-friend-button{
+        background-color: transparent;
+    }
+    .x-friend-img{
+        width: 38px;
+        height: 39px;
+      }
+      .position-info{
+        margin-top: 427px;
+      }
+      .info-friend{
+        width: 100%;
+        left: 0px;
+        
+        background-color: whitesmoke;
+        border-top-right-radius: 47px;
+        border-top-left-radius: 47px;
+      }
+      .bee-hexagon {
+        clip-path: url(#hexagonPath);
+        background-repeat: no-repeat;
+        background-position: -3px -15px;
+        background-color:transparent;
+        height: 100%;
+      }
+      .bee-profile-image {
+        top: 10%;
+       left:0%;
+      height: 120px;
+      width: 120px;
+      
+      transform: scale(0.6);
+      }
+      .photo-col{
+        top:0px;
+        padding: 0px !important;
+       }
+       .take-photo-2{
+         position: relative;
+         margin-top: -32%;
+         margin-left: 57%;
+       }
+       .take-photo{
+        position: absolute;
+        top:23px;
+        
+        right: 44px; 
+      }
+      .take-photo-button{
+        background-color: transparent;
+      }
+      .take-photo-img{
+        width: 29px;
+        height: 29;
+      }
+      .take-photo-img:active{
+        transform: scale(0.8);
+      }
+      .name-lname{
+        position: absolute;
+        bottom:55%;
+        margin-left: -9px;
+       
+      }
+      .nom{
+        font-weight:bolder;
+        font-size: 12px;
+      }
+      .lieu-class{
+        position: absolute;
+        bottom:38%;
+        margin-left: -9px;
+        
+      }
+      .lieu-img{
+        width: 11px;
+        height: 12px;
+      }
+      .lieu{
+        font-size: 10px;
+        
+      }
+      .abonne{
+      
+        border-radius: 23px;
+        background-color: rgb(242,40,118);
+        width:85PX;
+        height: 28px;
+        position: absolute;
+        bottom:43%;
+      }
+      
+      .abonne-button{
+        background-color: transparent;
+        padding-top: 10%;
+        padding-left: 18%;
+        font-size: 12px;
+      }
+      .para{
+        margin-left: 27px;
+        background-color: transparent;
+        padding-bottom: 2%;
+        }
+        .para-style{
+          margin-top: 2%;
+          font-size: 12px;
+        }
+        .nomprenom{
+            font-size: 9px;
+             bottom: 28%;
+             position: absolute;
+             padding-left: 16px;
+          }
+          .fb-icon{
+            position: absolute;
+            margin-left: 32%;
+            bottom: 1%;
+      
+    
+            
+          }
+          .img-fb{
+            width:15px ;
+            height: 15px ;
+    
+          }
+          .insta-icon{
+            position: absolute;
+            bottom: 1%;
+            margin-left: 16%;
+          }
+          .img-insta{
+            width:15px;
+            height: 16px;
+          }
+          .snap-icon{
+            bottom: 1%;
+            position: absolute;
+            margin-left: 0%;
+          }
+          .img-snap{
+            width:16px ;
+            height: 16px ;
+          }
+          .ligne{
+             position: absolute;
+             left: 10%;
+             right: 13%;
+            margin-top: 1%;
+          }
+    
+}

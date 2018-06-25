@@ -11,6 +11,7 @@ import {SettingProfil2Page } from '../pages/setting-profil2/setting-profil2'
 import {SettingSecurityPage} from '../pages/setting-security/setting-security'
 import {ProfilPage} from '../pages/profil/profil';
 import {PersonalHistoryPage} from '../pages/personal-history/personal-history';
+import {FriendProfilPage } from '../pages/friend-profil/friend-profil';
 
 import { UserProvider } from '../providers/user/user';
 import { SettingProfilPage } from "../pages/setting_profil/setting_profil";
@@ -19,7 +20,7 @@ import { SettingProfilPage } from "../pages/setting_profil/setting_profil";
   templateUrl: "app.html"
 })
 export class MyApp {
-  rootPage:any=PersonalHistoryPage ;
+  rootPage:any=FriendProfilPage ;
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,public userProvider: UserProvider) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.

@@ -21,6 +21,7 @@ import { BlockPage} from '../pages/block/block'
 import {SettingProfil2Page } from '../pages/setting-profil2/setting-profil2';
 import {SettingSecurityPage} from '../pages/setting-security/setting-security'
 import {PersonalHistoryPage} from '../pages/personal-history/personal-history';
+import {FriendProfilPage } from '../pages/friend-profil/friend-profil';
 
 import { Ionic2RatingModule } from "ionic2-rating";
 import { AngularFireModule } from "angularfire2";
@@ -47,7 +48,8 @@ import { UserProvider } from "../providers/user/user";
     BlockPage,
     SettingProfil2Page,
     SettingSecurityPage,
-    PersonalHistoryPage
+    PersonalHistoryPage,
+    FriendProfilPage
   ],
   imports: [
     BrowserModule,
@@ -74,7 +76,8 @@ import { UserProvider } from "../providers/user/user";
     BlockPage,
     SettingProfil2Page,
     SettingSecurityPage,
-    PersonalHistoryPage
+    PersonalHistoryPage,
+    FriendProfilPage
   ],
   providers: [
     StatusBar,
