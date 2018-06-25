@@ -20,6 +20,7 @@ import { ChilloutPage } from "../pages/chillout/chillout";
 import { BlockPage} from '../pages/block/block'
 import {SettingProfil2Page } from '../pages/setting-profil2/setting-profil2';
 import {SettingSecurityPage} from '../pages/setting-security/setting-security'
+import {PersonalHistoryPage} from '../pages/personal-history/personal-history';
 
 import { Ionic2RatingModule } from "ionic2-rating";
 import { AngularFireModule } from "angularfire2";
@@ -45,7 +46,8 @@ import { UserProvider } from "../providers/user/user";
     HomePage,
     BlockPage,
     SettingProfil2Page,
-    SettingSecurityPage
+    SettingSecurityPage,
+    PersonalHistoryPage
   ],
   imports: [
     BrowserModule,
@@ -71,7 +73,8 @@ import { UserProvider } from "../providers/user/user";
     HomePage,
     BlockPage,
     SettingProfil2Page,
-    SettingSecurityPage
+    SettingSecurityPage,
+    PersonalHistoryPage
   ],
   providers: [
     StatusBar,
