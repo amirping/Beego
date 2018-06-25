@@ -10,7 +10,8 @@ import { BlockPage} from '../pages/block/block'
 import {SettingProfil2Page } from '../pages/setting-profil2/setting-profil2'
 import {SettingSecurityPage} from '../pages/setting-security/setting-security'
 import {ProfilPage} from '../pages/profil/profil'
-
+import { TabsPage } from "../pages/tabs/tabs";
+import { ChilloutPage } from "../pages/chillout/chillout";
 import { UserProvider } from '../providers/user/user';
 import { SettingProfilPage } from "../pages/setting_profil/setting_profil";
 
@@ -26,28 +27,28 @@ export class MyApp {
       statusBar.styleDefault();
       splashScreen.hide();
     });
-    // const sub = this.userProvider.isConnect().subscribe(state=>{
-    //   console.log(state);
-    //   if(state){
-    //     if(state.emailVerified){
-    //       console.log("set user");
-    //       this.userProvider.setUser().then(()=>{
-    //         this.rootPage = HomePage;
-    //       }).catch(e=>{
-    //         if(e.userIsNotSet){
-    //           this.rootPage = LandingPage;
-    //           this.userProvider.logOut()
-    //         }
-    //       });
-    //     }else{
-    //       this.rootPage = LandingPage;
-    //       this.userProvider.logOut();
-    //    }
-    //   }else{
-    //     console.log("disconect");
-    //     this.rootPage = LandingPage;
-    //   }
-    //   sub.unsubscribe();
-    // });
+    const sub = this.userProvider.isConnect().subscribe(state=>{
+      console.log(state);
+      if(state){
+        if(state.emailVerified){
+          console.log("set user");
+          this.userProvider.setUser().then(()=>{
+            this.rootPage =TabsPage;
+          }).catch(e=>{
+            if(e.userIsNotSet){
+              this.rootPage = LandingPage;
+              this.userProvider.logOut()
+            }
+          });
+        }else{
+          this.rootPage = LandingPage;
+          this.userProvider.logOut();
+       }
+      }else{
+        console.log("disconect");
+        this.rootPage = LandingPage;
+      }
+      sub.unsubscribe();
+    });
   }
 }
