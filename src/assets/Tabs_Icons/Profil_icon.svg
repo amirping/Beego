@@ -1,0 +1,11 @@
+<svg id="User_profil" data-name="User profil" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 22.422">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #d1d1d1;
+      }
+    </style>
+  </defs>
+  <path id="Tracé_1704" data-name="Tracé 1704" class="cls-1" d="M20,48.094V50.2c0,.277-20,.277-20,0V48.094A5.316,5.316,0,0,1,5.294,42.8h9.412A5.339,5.339,0,0,1,20,48.094Z" transform="translate(0 -27.99)"/>
+  <path id="Tracé_1705" data-name="Tracé 1705" class="cls-1" d="M23.3,6.3A6.3,6.3,0,1,1,17,0,6.3,6.3,0,0,1,23.3,6.3Z" transform="translate(-6.998)"/>
+</svg>
