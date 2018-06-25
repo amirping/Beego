@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14.479 9.068">
+  <defs>
+    <style>
+      .cls-1 {
+        opacity: 0.8;
+      }
+
+      .cls-2 {
+        fill: none;
+        stroke: #535353;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-miterlimit: 10;
+        stroke-width: 1.5px;
+      }
+    </style>
+  </defs>
+  <g id="Icon_Champ" data-name="Icon Champ" class="cls-1" transform="translate(-57.771 -298.99)">
+    <line id="Ligne_6" data-name="Ligne 6" class="cls-2" x2="4.979" transform="translate(58.521 307.308)"/>
+    <line id="Ligne_7" data-name="Ligne 7" class="cls-2" x2="10.979" transform="translate(58.521 303.524)"/>
+    <line id="Ligne_8" data-name="Ligne 8" class="cls-2" x2="12.979" transform="translate(58.521 299.74)"/>
+  </g>
+</svg>
