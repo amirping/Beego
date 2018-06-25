@@ -25,7 +25,7 @@ import { Ionic2RatingModule } from "ionic2-rating";
 import { AngularFireModule } from "angularfire2";
 import { AngularFireAuthModule } from "angularfire2/auth";
 import { AngularFireDatabaseModule } from "angularfire2/database";
-
+import {TabsPage } from '../pages/tabs/tabs';
 // import { AngularFireStorageModule } from "angularfire2/storage";
 // import { AngularFirestoreModule } from "angularfire2/firestore";
 
@@ -45,7 +45,8 @@ import { UserProvider } from "../providers/user/user";
     HomePage,
     BlockPage,
     SettingProfil2Page,
-    SettingSecurityPage
+    SettingSecurityPage,
+    TabsPage
   ],
   imports: [
     BrowserModule,
@@ -71,7 +72,8 @@ import { UserProvider } from "../providers/user/user";
     HomePage,
     BlockPage,
     SettingProfil2Page,
-    SettingSecurityPage
+    SettingSecurityPage,
+    TabsPage
   ],
   providers: [
     StatusBar,
