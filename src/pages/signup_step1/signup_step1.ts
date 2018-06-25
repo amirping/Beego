@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController, AlertController } from 'ionic-angular';
 import { SignupStep2Page } from '../signup_step2/signup_step2';
 import { HomePage } from '../home/home';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
@@ -22,6 +22,8 @@ export class SignupStep1Page {
   constructor(public navCtrl: NavController,
     public userProvider: UserProvider,
     public formBuilder: FormBuilder,
+    public loadCtrl: LoadingController,
+    public alertCtrl: AlertController,
     public navParams: NavParams) {
       this.signupForm = formBuilder.group({
         firstName:["",Validators.compose( [Validators.required, Validators.minLength(3)])],
@@ -43,12 +45,40 @@ export class SignupStep1Page {
     const password =  this.signupForm.get("password").value;
     this.navCtrl.push(SignupStep2Page, {user, password});
   }
-  loginWithGoogle(){
+  singupWithGoogle(){
+    const load = this.loadCtrl.create();
+    load.present();
     this.userProvider.loginWithGoogle((user)=>{
-      console.log(user);
+      load.dismiss();
       this.navCtrl.push(SignupStep2Page, {user, password:null});
     },()=>{
+      load.dismiss();
       this.navCtrl.setRoot(HomePage);
+    },err=>{
+      console.log(err);
+      load.dismiss();
+      this.alertCtrl.create({
+        title:"ERREUR",
+        subTitle:err
+      }).present();
+    });
+  }
+  singupWithFacebook(){
+    const load = this.loadCtrl.create();
+    load.present();
+    this.userProvider.loginWithFacebook((user)=>{
+      load.dismiss();
+      this.navCtrl.push(SignupStep2Page, {user, password:null});
+    },()=>{
+      load.dismiss();
+      this.navCtrl.setRoot(HomePage);
+    },err=>{
+      console.log(err);
+      load.dismiss();
+      this.alertCtrl.create({
+        title:"ERREUR",
+        subTitle:err
+      }).present();
     });
   }
   skip(){

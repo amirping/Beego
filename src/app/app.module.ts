@@ -15,13 +15,17 @@ import { SignupStep2Page } from "../pages/signup_step2/signup_step2";
 import { HomePage } from "../pages/home/home";
 import { ProfilPage } from "../pages/profil/profil";
 import { ListOfFollowsPage } from "../pages/list-of-follows/list-of-follows";
-import { ParametreDuComptePage } from "../pages/parametre-du-compte/parametre-du-compte";
+import {SettingProfilPage } from "../pages/setting_profil/setting_profil";
 import { ChilloutPage } from "../pages/chillout/chillout";
+import { BlockPage} from '../pages/block/block'
+import {SettingProfil2Page } from '../pages/setting-profil2/setting-profil2';
+import {SettingSecurityPage} from '../pages/setting-security/setting-security'
 
 import { Ionic2RatingModule } from "ionic2-rating";
 import { AngularFireModule } from "angularfire2";
 import { AngularFireAuthModule } from "angularfire2/auth";
 import { AngularFireDatabaseModule } from "angularfire2/database";
+import {TabsPage } from '../pages/tabs/tabs';
 // import { AngularFireStorageModule } from "angularfire2/storage";
 // import { AngularFirestoreModule } from "angularfire2/firestore";
 
@@ -37,8 +41,12 @@ import { UserProvider } from "../providers/user/user";
     ChilloutPage,
     ProfilPage,
     ListOfFollowsPage,
-    ParametreDuComptePage,
-    HomePage
+    SettingProfilPage,
+    HomePage,
+    BlockPage,
+    SettingProfil2Page,
+    SettingSecurityPage,
+    TabsPage
   ],
   imports: [
     BrowserModule,
@@ -59,9 +67,13 @@ import { UserProvider } from "../providers/user/user";
     SignupStep2Page,
     ProfilPage,
     ListOfFollowsPage,
-    ParametreDuComptePage,
+    SettingProfilPage,
     ChilloutPage,
-    HomePage
+    HomePage,
+    BlockPage,
+    SettingProfil2Page,
+    SettingSecurityPage,
+    TabsPage
   ],
   providers: [
     StatusBar,

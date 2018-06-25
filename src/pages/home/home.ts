@@ -1,9 +1,14 @@
-import { Component } from "@angular/core";
-import { IonicPage, NavController, NavParams } from "ionic-angular";
-import { ViewChild } from "@angular/core";
-import { Slides } from "ionic-angular";
-import { Observable } from "rxjs/Observable";
-import { AngularFireDatabase } from "angularfire2/database";
+import { Component } from '@angular/core';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { ViewChild } from '@angular/core';
+import { Slides } from 'ionic-angular';
+import { Observable } from 'rxjs/Observable';
+import { AngularFireDatabase } from 'angularfire2/database';
+import { LoginPage } from '../login/login';
+import { ProfilPage } from '../profil/profil';
+import { ChilloutPage } from '../chillout/chillout';
+import { UserProvider } from '../../providers/user/user';
+
 
 /**
  * Generated class for the HomePage page.
@@ -18,6 +23,10 @@ import { AngularFireDatabase } from "angularfire2/database";
   templateUrl: "home.html"
 })
 export class HomePage {
+  profil(){
+    this.navCtrl.push(ProfilPage);
+  }
+
   @ViewChild(Slides) slides: Slides;
 
   evenementListRef$: Observable<any[]>;
@@ -217,5 +226,19 @@ export class HomePage {
       }
     }
     console.log(Event);
+  }
+
+  logout(){
+    this.navCtrl.push(LoginPage);
+    this.userpovider.logOut();
+  }
+  navigateToChilloutPage(){
+    this.navCtrl.push(ChilloutPage,{category : 'chillout'});
+  }
+  navigateToBeautyage(){
+    this.navCtrl.push(ChilloutPage , {category : 'beauty'});
+  }
+  navigateToShoppingPage(){
+    this.navCtrl.push(ChilloutPage , {category : 'shopping'});
   }
 }

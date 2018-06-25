@@ -3,6 +3,7 @@ import { NavController } from 'ionic-angular';
 import { LoginPage } from '../login/login';
 import { SignupStep1Page } from '../signup_step1/signup_step1';
 import { HomePage } from '../home/home';
+import { TabsPage } from '../tabs/tabs';
 
 @Component({
   selector: 'page-landing',
@@ -20,7 +21,7 @@ export class LandingPage {
     this.navCtrl.push(SignupStep1Page);
   }
   skip(){
-    this.navCtrl.push(HomePage);
+    this.navCtrl.push(TabsPage);
   }
 
 }

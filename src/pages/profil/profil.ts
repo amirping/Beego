@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {ListOfFollowsPage} from '../list-of-follows/list-of-follows'
-import { ParametreDuComptePage } from '../parametre-du-compte/parametre-du-compte';
+import { SettingProfilPage } from '../setting_profil/setting_profil';
 
 /**
  * Generated class for the PrfilPage page.
@@ -20,7 +20,10 @@ export class ProfilPage {
     this.navCtrl.push(ListOfFollowsPage);
   }
   paramPage(){
-    this.navCtrl.push(ParametreDuComptePage);
+    this.navCtrl.push(SettingProfilPage);
+  }
+  back(){
+    this.navCtrl.pop();
   }
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {

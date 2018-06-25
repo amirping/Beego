@@ -2,8 +2,6 @@ import { Injectable } from "@angular/core";
 import { AngularFireAuth } from "angularfire2/auth";
 import { User } from "../../models/user.interface";
 import { AngularFireDatabase } from "angularfire2/database";
-// import { AngularFireStorage } from 'angularfire2/storage';
-// import * as firebase from "firebase/app";
 import firebase from 'firebase';
 /*
   Generated class for the UserProvider provider.
@@ -16,16 +14,21 @@ export class UserProvider {
   user = {} as User;
   constructor(
     public auth: AngularFireAuth,
-    // public storage: AngularFireStorage,
     public db: AngularFireDatabase
   ) {
-    console.log("Hello UserProvider Provider");
   }
   isConnect() {
     return this.auth.authState;
   }
   login(email: string, password: string): Promise<any> {
-    return this.auth.auth.signInWithEmailAndPassword(email, password);
+    return new Promise((resolve, reject)=>{
+      this.auth.auth.signInWithEmailAndPassword(email, password).then(()=>{
+        resolve();
+      }).catch((e)=>{
+        const err = {error:e, msg :"Votre email ou votre mot de passe sont fausses"}
+        reject(err);
+      })
+    });
   }
   setUser() {
     return new Promise((resolve, reject) => {
@@ -52,107 +55,89 @@ export class UserProvider {
   }
   signup(user: User, password: string, file: File) {
     return new Promise((resolve, reject) => {
-      this.auth.auth
-        .createUserWithEmailAndPassword(user.email, password)
-        .then(() => {
-          const uid = this.auth.auth.currentUser.uid;
-          if (file) {
-            const task = firebase.storage()
+      this.auth.auth.createUserWithEmailAndPassword(user.email, password)
+      .then(() => {
+        const uid = this.auth.auth.currentUser.uid;
+        if (file) {
+          const task = firebase.storage()
             .ref(`/users/${uid}/${this.GUID}`)
-            .put(file,{contentType:file.type});
-            task.on(firebase.storage.TaskEvent.STATE_CHANGED,() =>{},reject, () =>{
-              task.snapshot.ref.getDownloadURL().then(downloadURL =>{
+            .put(file, { contentType: file.type });
+          task.on(firebase.storage.TaskEvent.STATE_CHANGED,
+            () => { },
+            err => {
+              reject({ type: 0, err });
+            },
+            () => {
+              task.snapshot.ref.getDownloadURL().then(downloadURL => {
                 user.photoUrl = downloadURL;
                 this.db.list('uers').update(uid, user)
                   .then(() => {
                     resolve();
                     this.auth.auth.currentUser.sendEmailVerification();
                     this.logOut();
-                  }); 
+                  }).catch(err => {
+                    reject({ type: 1, err });
+                  })
               });
             });
-            // this.storage.ref(`/users/${uid}/${this.GUID}`)
-            //   .put(file, { contentType: file.type })
-            //   .then(a => {
-            //     a.ref.getDownloadURL()
-            //       .then(url => {
-            //         user.photoUrl = url;
-            //         this.db.list('uers').update(uid, user)
-            //           .then(() => {
-            //             resolve();
-            //             this.auth.auth.currentUser.sendEmailVerification();
-            //             this.logOut();
-            //           });
-            //       });
-            //   }, err => {
-            //     reject({ type: 0, err });
-            //   }).catch(err => {
-            //     reject({ type: 1, err });
-            //   });
-          } else {
-            this.db
-              .list("uers")
-              .update(uid, user)
-              .then(() => {
-                resolve();
-                this.auth.auth.currentUser.sendEmailVerification();
-                this.logOut();
-              });
-          }
-        })
-        .catch(err => {
-          reject({ type: 2, err });
-        });
-    });
-  }
-  loginWithGoogle(nextStep, success) {
-    alert("here");
-    this.auth.auth
-      .signInWithPopup(new firebase.auth.GoogleAuthProvider())
-      .then(res => {
-        alert("and here");
-        const af = res.additionalUserInfo;
-        if (af.isNewUser) {
-          const user = {
-            email: af.profile.email,
-            gender: af.profile.gender,
-            photoUrl: af.profile.picture,
-            firstName: af.profile.given_name,
-            lastName: af.profile.family_name
-          };
-          nextStep(user);
         } else {
-          console.log("is not new");
-          this.setUser()
-            .then(() => {
-              console.log("is allready regsitred");
-              success();
-            })
-            .catch(e => {
-              console.log("err", e);
-              if (e.userIsNotSet) {
-                const user = {
-                  email: af.profile.email,
-                  gender: af.profile.gender,
-                  photoUrl: af.profile.picture,
-                  firstName: af.profile.given_name,
-                  lastName: af.profile.family_name
-                };
-                nextStep(user);
-              }
-            });
+          this.db.list("uers").update(uid, user)
+          .then(() => {
+            resolve();
+            this.auth.auth.currentUser.sendEmailVerification();
+            this.logOut();
+          }).catch(err => {
+            reject({ type: 2, err });
+          });
         }
       })
-      .catch(e => console.log(e));
+      .catch(err => {
+        reject({ type: 3, err ,msg:"Cette adresse mail à ete déja utlisé"});
+      });
+    });
   }
-  loginWithFacebook(nextStep, success) {
-    this.auth.auth
-      .signInWithPopup(new firebase.auth.FacebookAuthProvider())
-      .then(res => {
-        console.log(res);
-        const kf = res.additionalUserInfo;
-        console.log(kf);
-        if (kf.isNewUser) {
+  loginWithGoogle(nextStep, success, reject) {
+    this.auth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider())
+    .then(res => {
+      const af = res.additionalUserInfo;
+      if (af.isNewUser) {
+        const user = {
+          email: af.profile.email,
+          gender: af.profile.gender,
+          photoUrl: af.profile.picture,
+          firstName: af.profile.given_name,
+          lastName: af.profile.family_name
+        };
+        nextStep(user);
+      } else {
+        this.setUser()
+        .then(() => {
+          success();
+        })
+        .catch(e => {
+          if (e.userIsNotSet) {
+            const user = {
+              email: af.profile.email,
+              gender: af.profile.gender,
+              photoUrl: af.profile.picture,
+              firstName: af.profile.given_name,
+              lastName: af.profile.family_name
+            };
+            nextStep(user);
+          }
+        });
+      }
+    })
+    .catch(err => {
+      reject(err);
+    });
+  }
+  loginWithFacebook(nextStep, success, reject) {
+    this.auth.auth.signInWithPopup(new firebase.auth.FacebookAuthProvider())
+    .then(res => {
+      const kf = res.additionalUserInfo;
+      console.log(kf);
+      if (kf.isNewUser) {
           const user = {
             email: kf.profile.email,
             gender: kf.profile.gender,
@@ -161,29 +146,28 @@ export class UserProvider {
             lastName: kf.profile.last_name
           };
           nextStep(user);
-        } else {
-          console.log("is not new");
-          this.setUser()
-            .then(() => {
-              console.log("is allready regsitred");
-              success();
-            })
-            .catch(e => {
-              console.log("err", e);
-              if (e.userIsNotSet) {
-                const user = {
-                  email: kf.profile.email,
-                  gender: kf.profile.gender,
-                  photoUrl: kf.profile.picture.data.url,
-                  firstName: kf.profile.first_name,
-                  lastName: kf.profile.last_name
-                };
-                nextStep(user);
-              }
-            });
-        }
-      })
-      .catch(e => console.log(e));
+      } else {
+        this.setUser()
+        .then(() => {
+          success();
+        })
+        .catch(e => {
+          if (e.userIsNotSet) {
+            const user = {
+              email: kf.profile.email,
+              gender: kf.profile.gender,
+              photoUrl: kf.profile.picture.data.url,
+              firstName: kf.profile.first_name,
+              lastName: kf.profile.last_name
+            };
+            nextStep(user);
+          }
+        });
+      }
+    })
+    .catch(err =>{
+      reject(err);
+    });
   }
   signupWithProvider(user) {
     console.log(user);
@@ -201,15 +185,17 @@ export class UserProvider {
     });
   }
   resetPassword(email: string) {
-    return this.auth.auth.sendPasswordResetEmail(email);
+    return new Promise((resolve, reject)=>{
+      this.auth.auth.sendPasswordResetEmail(email).then(()=>{
+        resolve();
+      }).catch((e)=>{
+        const err={error:e,msg:"Ce email n'existe pas"};
+        reject(err);
+      })
+    });
+    
   }
   get GUID(): string {
-    return (
-      new Date().getTime().toString(36) +
-      "_" +
-      Math.random()
-        .toString(36)
-        .substring(2, 10)
-    );
+    return (new Date().getTime().toString(36) +"_" + Math.random().toString(36).substring(2, 10));
   }
 }

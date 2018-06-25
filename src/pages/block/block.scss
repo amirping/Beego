@@ -1,0 +1,93 @@
+page-block {
+    .beego-title-block{
+        position: absolute;
+        font-size: 14PX;
+        text-align: center;
+        color: white;
+        top:24%;
+        width: 100%;
+    }
+    .back{
+        position: absolute;
+        top: 26%;
+        z-index: 99;
+    }
+    .back-button-block{
+        background-color: transparent;
+        width: 65px;
+        
+        
+     } 
+      .back-img{
+        width: 64%;
+          
+      }
+      .toolbar-block{
+          height: 119px !important;
+      }
+      .segment-block{
+          position: absolute;
+          top: 65%;
+      }
+      .segment-white{
+        font-size: 0.9rem !important;
+          color: white !important;
+      }
+      .segment-activated{
+          font-size: 13px !important;
+      }
+      //search input
+      .for-search-block{
+        position: relative;
+       }
+       .text-search-block{
+           background-color: rgba(0,0,0,0.1);
+           border-radius: 12px;
+          
+          height: 27px;
+          width: 100%;
+           border:none;
+           padding-left: 37px;
+           color:black !important;
+       }
+       .text-search-block::placeholder {
+           color: rgb(59, 52, 52);
+           font-size: 13px;
+           }
+           .search-text-icon-block{
+               position: absolute;
+               background-color: transparent;
+               top: 5px;
+           }
+           .search-text-icon-block:active{
+               position: absolute;
+               background-color: transparent;
+               top: 6px;
+               
+           }
+           .clear-text{
+               position: absolute;
+               background-color: transparent;
+               top: 6px;
+               right: 6px;
+           }
+           .cleaner-block{
+               width: 13px;
+               height: 13px;
+           }
+           //lists part
+          .unblock-part{
+                margin-top:7%;
+                margin-left: -2%;
+            }
+            .lieu-block{
+                font-size: 10px;
+            }
+            .delete-block-button{
+                position: absolute;
+                right:0%;
+                top:27%;
+                background-color: transparent;
+            }
+
+}
