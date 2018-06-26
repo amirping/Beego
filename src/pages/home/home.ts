@@ -1,14 +1,14 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { ViewChild } from '@angular/core';
-import { Slides } from 'ionic-angular';
-import { Observable } from 'rxjs/Observable';
-import { AngularFireDatabase } from 'angularfire2/database';
-import { LoginPage } from '../login/login';
-import { ProfilPage } from '../profil/profil';
-import { ChilloutPage } from '../chillout/chillout';
-import { UserProvider } from '../../providers/user/user';
-
+import { UserProvider } from "./../../providers/user/user";
+import { Component } from "@angular/core";
+import { IonicPage, NavController, NavParams } from "ionic-angular";
+import { ViewChild } from "@angular/core";
+import { Slides } from "ionic-angular";
+import { Observable } from "rxjs/Observable";
+import { AngularFireDatabase } from "angularfire2/database";
+import { LoginPage } from "../login/login";
+import { ProfilPage } from "../profil/profil";
+import { ChilloutPage } from "../chillout/chillout";
+import { UserProvider } from "../../providers/user/user";
 
 /**
  * Generated class for the HomePage page.
@@ -23,7 +23,7 @@ import { UserProvider } from '../../providers/user/user';
   templateUrl: "home.html"
 })
 export class HomePage {
-  profil(){
+  profil() {
     this.navCtrl.push(ProfilPage);
   }
 
@@ -100,7 +100,8 @@ export class HomePage {
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    private database: AngularFireDatabase
+    private database: AngularFireDatabase,
+    private userpovider: UserProvider
   ) {
     /* Liste des espaces */
     this.espacesListRef$ = this.database
@@ -219,26 +220,26 @@ export class HomePage {
         this.newSlider_indicators.next_index_show + 1;
     }
   }
-  swipeEvent(Event){
-    if(Event.type=="swipe"){
-      if(Event.offsetDirection == 2){
-        this.nextSlide()
+  swipeEvent(Event) {
+    if (Event.type == "swipe") {
+      if (Event.offsetDirection == 2) {
+        this.nextSlide();
       }
     }
     console.log(Event);
   }
 
-  logout(){
+  logout() {
     this.navCtrl.push(LoginPage);
     this.userpovider.logOut();
   }
-  navigateToChilloutPage(){
-    this.navCtrl.push(ChilloutPage,{category : 'chillout'});
+  navigateToChilloutPage() {
+    this.navCtrl.push(ChilloutPage, { category: "chillout" });
   }
-  navigateToBeautyage(){
-    this.navCtrl.push(ChilloutPage , {category : 'beauty'});
+  navigateToBeautyage() {
+    this.navCtrl.push(ChilloutPage, { category: "beauty" });
   }
-  navigateToShoppingPage(){
-    this.navCtrl.push(ChilloutPage , {category : 'shopping'});
+  navigateToShoppingPage() {
+    this.navCtrl.push(ChilloutPage, { category: "shopping" });
   }
 }
