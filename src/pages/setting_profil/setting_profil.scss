@@ -20,12 +20,6 @@ page-setting_profil {
         width: 64%;
           
       }
-    //   .goTo-button{
-    //     position: absolute;
-    //     right:0%;
-    //     top:33%;
-    //     background-color: transparent;
-    // }
   
     .param_icon{
         
@@ -34,7 +28,6 @@ page-setting_profil {
         width: 29px;
         height: 29px ;
         border-radius: 6pt;
-        // position: absolute;
        
     }
     .param-img{
@@ -111,22 +104,12 @@ page-setting_profil {
             
             margin-right: 10%;
             margin-bottom: 3%;
-            background-image: url(../../assets/imgs/param/fb-shape.svg);
+            background-image: url(../../assets/imgs/param/Facebook.svg);
             background-repeat: no-repeat;
             background-size: 27px 26px ;
             background-position: 2px center  ;
         }
-        .icon-fb{
-            position: absolute;
-            background-color: transparent;
-            width: 27px;
-            height: 26px;
-            top:25%;
-            background-image: url(../../assets/imgs/param/fb-icon.svg);
-            background-repeat: no-repeat;
-            background-position: 12px top  ;
-            background-size: 7px 13px;
-        }
+       
 
 
         .instatext{
@@ -147,17 +130,6 @@ page-setting_profil {
             color: rgb(59, 52, 52);
             font-size: 13px;
             }
-            // .icon-insta{
-            //     position: absolute;
-            //     background-color: transparent;
-            //     width: 27px;
-            //     height: 26px;
-            //     top:25%;
-            //     background-image: url(../../assets/imgs/param/insta-icon.svg);
-            //     background-repeat: no-repeat;
-            //     background-position: 12px 4px  ;
-            //     background-size: 7px 7px;
-            // }
             .instadiv{
                 margin-top: 2%;
                 position: relative;
@@ -191,23 +163,10 @@ page-setting_profil {
                     margin-top: 2%;
                     position: relative;
                     margin-right: 10%;
-                    background-image: url(../../assets/imgs/param/snap-shape.svg);
+                    background-image: url(../../assets/imgs/param/snap.svg);
                     background-repeat: no-repeat;
                     background-size: 27px 26px ;
                     background-position: 2px center  ;
                 }
-                .icon-snap{
-                    
-                position: absolute;
-                background-color: balck;
-                width:25px;
-                height:20px;
-                top:25%;
-                background-image: url(../../assets/imgs/param/snap-icon.png) ;
-                background-repeat: no-repeat;
-                background-position: 8px -1px  ;
-                background-size: 16px 16px;
-                
-
-                }
+               
 }

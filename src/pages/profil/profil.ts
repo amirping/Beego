@@ -37,6 +37,9 @@ export class ProfilPage {
   paramPage(){
     this.navCtrl.push(SettingProfilPage);
   }
+  back(){
+    this.navCtrl.pop();
+  }
 
   logout(){
     this.userProvider.logOut();
