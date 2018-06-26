@@ -34,7 +34,7 @@ export class LoginPage {
   swipeTo(e){
     this.navCtrl.push(SignupStep1Page);
   }
-  signin(){
+  login(){
     const load = this.loadCtrl.create();
     load.present();
     this.userProvider.login(this.signinForm.get("email").value,this.signinForm.get("password").value)
@@ -83,6 +83,7 @@ export class LoginPage {
     const load = this.loadCtrl.create();
     load.present();
     this.userProvider.loginWithGoogle((user)=>{
+      console.log(user);
       load.dismiss();
       this.navCtrl.push(SignupStep2Page, {user, password:null});
     },()=>{
