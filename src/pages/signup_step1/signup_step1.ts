@@ -4,6 +4,7 @@ import { SignupStep2Page } from '../signup_step2/signup_step2';
 import { HomePage } from '../home/home';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { UserProvider } from '../../providers/user/user';
+import { User } from '../../models/user.interface';
 
 /**
  * Generated class for the Singup1Page page.
@@ -37,7 +38,7 @@ export class SignupStep1Page {
     console.log('ionViewDidLoad SignupStep1Page');
   }
   next(){
-    const user = {
+    const user:User = {
       firstName: this.signupForm.get("firstName").value,
       lastName: this.signupForm.get("lastName").value,
       email: this.signupForm.get("email").value,
@@ -49,6 +50,7 @@ export class SignupStep1Page {
     const load = this.loadCtrl.create();
     load.present();
     this.userProvider.loginWithGoogle((user)=>{
+      console.log(user);
       load.dismiss();
       this.navCtrl.push(SignupStep2Page, {user, password:null});
     },()=>{

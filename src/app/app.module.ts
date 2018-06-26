@@ -43,7 +43,7 @@ import { UserProvider } from "../providers/user/user";
     SettingProfilPage,
     HomePage,
     BlockPage,
-    SettingProfil2Page
+    SettingProfil2Page,
   ],
   imports: [
     BrowserModule,
@@ -68,7 +68,7 @@ import { UserProvider } from "../providers/user/user";
     ChilloutPage,
     HomePage,
     BlockPage,
-    SettingProfil2Page
+    SettingProfil2Page,
   ],
   providers: [
     StatusBar,

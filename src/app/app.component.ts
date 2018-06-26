@@ -10,6 +10,7 @@ import {SettingProfil2Page } from '../pages/setting-profil2/setting-profil2'
 
 
 import { UserProvider } from '../providers/user/user';
+import { ProfilPage } from "../pages/profil/profil";
 
 @Component({
   templateUrl: "app.html"
@@ -29,7 +30,7 @@ export class MyApp {
         if(state.emailVerified){
           console.log("set user");
           this.userProvider.setUser().then(()=>{
-            this.rootPage = HomePage;
+            this.rootPage = ProfilPage;
           }).catch(e=>{
             if(e.userIsNotSet){
               this.rootPage = LandingPage;

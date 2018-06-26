@@ -49,9 +49,9 @@ export class SignupStep2Page {
   }
 
   ionViewDidLoad() {
-    const user = this.navParams.get("user");
+    const user: User = this.navParams.get("user");
     this.signupForm.controls["gender"].setValue(user.gender);
-    this.imgSrc = user.photoUrl;
+    this.imgSrc = user.photoURL;
   }
   swipeTo(e){
       this.navCtrl.push(LoginPage);

@@ -4,126 +4,152 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-content  class="back-color">
- 
-  <ion-grid  no-padding >
+<ion-content class="back-color">
+
+  <ion-grid no-padding>
     <ion-row>
-      <ion-col >
-        <div class="profil-photo-part no-padding">
+      <ion-col>
+        <div class="profil-photo-part no-padding" [class.cover-unset]="!user.coverURL">
+          <div class="bee-cover-blur">
+            <div class="bee-inner-cover">
+              <img [src]="user.coverURL" alt="">
+            </div>
+          </div>
+          <div class="bee-cover">
+            <div class="bee-inner-cover">
+              <img [src]="user.coverURL" alt="">
+            </div>
+          </div>
           <div class="arrow-right">
-              <button class="back-button-right" >
-                <img src="../../assets/imgs/arrow-back.png" alt="" class="img-right">
-              </button>
-            </div>
-            <div class="take-photo">
-                <button class="take-photo-button">
-                    <img src="../../assets/imgs/profil/takePhoto.svg" alt="" 
-                    class="take-photo-img">
-                </button>
-              </div>
-              <div class="param-profil">
-                <button class="button-param"
-                (click)="paramPage()" >
-                  <img src="../../assets/imgs/profil/Parametre.svg"
-                   alt="" class="img-param">
-                </button>
-              </div>
-              
-              <div class="abonnés">
-                <label class="abonnés-number" for="">16K abonés </label>
-              </div>
-              <div class="suivis">
-                <label class="suivis-number" for="">1,2K suivis </label>
-              </div>
-            </div>
-            
-            </ion-col>
-            </ion-row>
-            <ion-row  ><ion-col class="position-info">
-            <div class="info-profil">
-             
-                  <ion-row class="first-row">
-                    
-                 <ion-col class="photo-col">
-                      <div class="bee-profile-image">
-                        <div class="bee-hexagon">
-                          <img src="../../assets/imgs/photoDeProfil.png" alt="">
-                        </div>
-                        <div class="take-photo-2">
-                          <button class="take-photo-button">
-                              <img src="../../assets/imgs/profil/takePhoto.svg" alt="" 
-                              class="take-photo-img">
-                          </button>
-                        </div>
-                          <div class="bee-edit-icon bee-edit-photo"></div>
-                        </div>
-                        
-                      </ion-col>
-              
-              <ion-col>
-                <div class="name-lname">
-                    <label class="nom" for="">Nom prenom </label> 
-                   </div>
-                   <div class="lieu-class">
-                     <img class="lieu-img" src="../../assets/imgs/profil/Tracé.svg" alt="">
-                     <label class="lieu" for="">
-                       Tunis, le bardo</label> 
-                   </div>
-                  </ion-col>
-                  <ion-col>
-                   <div class="follows">
-                      <button  class="follows-button" (click)="folowsPage()">
-                        Follows <img class="follows-img" 
-                        src="../../assets/imgs/profil/icon-user.svg" alt="">
-                      </button>
-                    </div></ion-col></ion-row>
-                    <ion-row><ion-col>
-                    <div class="para">
-                        <p class="para-style">Welcom to my world .. Tunisian Girl .. mom of  baby baya </p>
-                      </div></ion-col></ion-row>
-                    <ion-row><ion-col>
-                      <div class="fb-icon">
-                          <img class="img-fb"
-                           src="../../assets/imgs/profil/fb-icon.svg" alt="">
-                          <label class="nomprenom" for="">NomPrenom</label>
-                        </div></ion-col> <ion-col>
-                        <div class="insta-icon">
-                            <img class="img-insta"
-                             src="../../assets/imgs/profil/insta.svg" alt="">
-                            <label class="nomprenom" for="">NomPrenom</label>
-                          </div></ion-col><ion-col>
-                          <div class="snap-icon">
-                              <img class="img-snap"
-                               src="../../assets/imgs/profil/snap-icon.svg" alt="">
-                              <label class="nomprenom" for="">NomPrenom</label>
-                            </div></ion-col></ion-row>
-                            <ion-row><ion-col>
-                            <div class="ligne">
-                              <hr>
-                             </div></ion-col></ion-row>
-                             <ion-row><ion-col>
-                             <div class="mesfavoris">
-                                Mes favoris
-                              </div></ion-col></ion-row>
-                              <ion-row><ion-col>
-                              <div class="first-photo">
-              
-                                </div>
-                                <div class="second-photo">
-                                    
-                                  </div>
-                                  <div class="third-photo">
-                                      
-                                    </div>
-                                    <div class="fourth-photo">
-                                      
-                                      </div>
-                                      <div class="fifth-photo">
-                                      
-                                        </div>
-                                      
-                                    </ion-col></ion-row>
-                                  </div>
+            <button class="back-button-right">
+              <img src="../../assets/imgs/arrow-back.png" alt="" class="img-right">
+            </button>
+          </div>
+          <div class="take-photo">
+            <button class="take-photo-button" (click)="uploadImage('cover',uploader)">
+              <img src="../../assets/imgs/profil/takePhoto.svg" alt="" class="take-photo-img">
+            </button>
+          </div>
+          <div class="param-profil">
+            <button class="button-param" (click)="paramPage()">
+              <img src="../../assets/imgs/profil/Parametre.svg" alt="" class="img-param">
+            </button>
+          </div>
+
+          <div class="abonnés">
+            <label class="abonnés-number" for="">{{formatFollows(user.follower)}} abonés </label>
+          </div>
+          <div class="suivis">
+            <label class="suivis-number" for="">{{formatFollows(user.follower)}} suivis </label>
+          </div>
+        </div>
+
       </ion-col>
-      </ion-row>
- 
+    </ion-row>
+    <ion-row>
+      <ion-col class="position-info">
+        <div class="info-profil">
+
+          <ion-row class="first-row">
+            <div class="first-row">
+              <div class="bee-profile-image-holder">
+                <div class="bee-profile-image">
+                  <div class="bee-hexagon">
+                    <img [src]="user.photoURL" alt="">
+                  </div>
+                  <div class="take-photo-2">
+                    <button class="take-photo-button" (click)="uploadImage('photo',uploader)">
+                      <img src="../../assets/imgs/profil/takePhoto.svg" alt="" class="take-photo-img">
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div class="name-lname">
+                  <span class="nom" for="">{{user.firstName}} {{user.lastName}} </span>
+                </div>
+                <div class="lieu-class">
+                  <img class="lieu-img" src="../../assets/imgs/profil/Tracé.svg" alt="">
+                  <span class="lieu" for="">
+                    {{user.gov}}</span>
+                </div>
+              </div>
+              <div>
+                <div class="follows">
+                  
+                  <button class="follows-button" (click)="folowsPage()">
+                    Follows
+                    <img class="follows-img" src="../../assets/imgs/profil/icon-user.svg" alt="">
+                  </button>
+                </div>
+              </div>
+            </div>
+
+
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <div class="para">
+                <p class="para-style">{{user.bio?user.bio:'Welcom to my world...'}}</p>
+              </div>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col *ngIf="user.fbLink">
+              <div class="fb-icon">
+                <img class="img-fb" src="../../assets/imgs/profil/fb-icon.svg" alt="">
+                <a href="user.fbLink" class="nomprenom" target="_blank"> Facebook</a>
+              </div>
+            </ion-col>
+            <ion-col *ngIf="user.instaLink">
+              <div class="insta-icon">
+                <img class="img-insta" src="../../assets/imgs/profil/insta.svg" alt="">
+                <a href="user.instaLink" target="_new" class="nomprenom" for=""> Instagram</a>
+              </div>
+            </ion-col>
+            <ion-col *ngIf="user.snapLink">
+              <div class="snap-icon">
+                <img class="img-snap" src="../../assets/imgs/profil/snap-icon.svg" alt="">
+                <a href="user.snapLink" class="nomprenom" target="_new" for=""> Snapchat</a>
+              </div>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <div class="ligne">
+                <hr>
+              </div>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <div class="mesfavoris">
+                Mes favoris
+              </div>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <div class="first-photo">
+
+              </div>
+              <div class="second-photo">
+
+              </div>
+              <div class="third-photo">
+
+              </div>
+              <div class="fourth-photo">
+
+              </div>
+              <div class="fifth-photo">
+
+              </div>
+
+            </ion-col>
+          </ion-row>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <input type="file" #uploader (change)="updateImage($event)" style="display: none;">
