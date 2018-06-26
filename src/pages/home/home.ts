@@ -1,3 +1,4 @@
+import { FindFriendPage } from "./../find-friend/find-friend";
 import { UserProvider } from "./../../providers/user/user";
 import { Component } from "@angular/core";
 import { IonicPage, NavController, NavParams } from "ionic-angular";
@@ -8,7 +9,6 @@ import { AngularFireDatabase } from "angularfire2/database";
 import { LoginPage } from "../login/login";
 import { ProfilPage } from "../profil/profil";
 import { ChilloutPage } from "../chillout/chillout";
-import { UserProvider } from "../../providers/user/user";
 
 /**
  * Generated class for the HomePage page.
@@ -241,5 +241,15 @@ export class HomePage {
   }
   navigateToShoppingPage() {
     this.navCtrl.push(ChilloutPage, { category: "shopping" });
+  }
+  navigateTo(page) {
+    switch (page) {
+      case "FindFriendPage":
+        this.navCtrl.push(FindFriendPage);
+        break;
+
+      default:
+        break;
+    }
   }
 }
