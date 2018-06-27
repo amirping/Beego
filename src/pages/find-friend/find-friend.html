@@ -7,7 +7,7 @@
 <ion-header no-border>
   <ion-navbar [hideBackButton]="true" class="tool-bar" align-title="left">
     <div class="toolbar-title">
-      Accueil
+      Trouvez vous amis
     </div>
     <ion-buttons end>
       <button ion-button icon-only color="light">
@@ -18,6 +18,30 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
+  <ion-grid>
+    <ion-row class="beego-row-center">
+      <div class="holder">
+        <div *ngFor="let item of friends;let i= index" class="col friends" [class.active]="i == activeFriend" [class.slide-left]="item.stat == '1'" [class.slide-right]="item.stat == '-1'">
+          <div class="row">
+            <img src="{{item.pic}}" alt="" class="cover">
+            <div class="row content">
+              <img src="{{item.pic}}" alt="" class="profile">
+              <div>
+                <h2>{{item.name}}</h2>
+                <span class="location">
+                  <ion-icon name="pin"></ion-icon>
+                  {{item.location}} ,
+                  <strong>{{item.age}}</strong>
+                </span>
+                <button (click)="acceptFriend(i)">accept</button>
+                <button (click)="rejectFriend(i)">reject</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
+    </ion-row>
+  </ion-grid>
 </ion-content>
