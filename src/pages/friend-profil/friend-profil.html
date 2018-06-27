@@ -8,10 +8,17 @@
 
 
 <ion-content class="back-color">
-    <ion-grid  no-padding >
-        <ion-row>
+    <ion-grid  no-padding class="grid-size" >
+        <ion-row class="photo-row">
           <ion-col>
-            <div class="profil-friend-part " >
+              <!-- (load)="dosomething(img,imgbgcolor)" -->
+              <!-- <div class="testt">
+                  <img class="img-friend" 
+                  src="../../assets/imgs/friend-profil/friendPhoto.png" alt="">
+              </div> -->
+            <div class="profil-friend-part " #imgbgcolor   >
+              <img class="img-friend" #img (load)="dosomething(img,imgbgcolor)"
+              src="../../assets/imgs/friend-profil/friendPhoto.png" alt="">
                 <div class="x-friend-profil">
                     <button class="x-friend-button"
                     (click)="paramPage()" >
@@ -19,16 +26,22 @@
                        alt="" class="x-friend-img">
                     </button>
                   </div>
-
+                 
             </div>
           </ion-col>
         </ion-row>
-        <ion-row  >
-          <ion-col class="position-info">
+        <ion-row class="position-info" >
+          <ion-col >
+              <div class="abonnes">
+                  <label class="abonnes-number" for="">16K abonés </label>
+                </div>
+                <div class="suivis">
+                <label class="suivis-number" for="">1,2K suivis </label>
+              </div>
             <div class="info-friend">
-                <ion-row class="first-row">
-                    
-                    <ion-col class="photo-col">
+                <ion-row  >
+                    <div class="flex-row">
+                    <div class="photo-col">
                          <div class="bee-profile-image">
                            <div class="bee-hexagon">
                              <img src="../../assets/imgs/photoDeProfil.png" alt="">
@@ -42,45 +55,57 @@
                              <div class="bee-edit-icon bee-edit-photo"></div>
                            </div>
                            
-                         </ion-col>
-                         <ion-col>
-                            <div class="name-lname">
+                    </div>
+                         <!-- <ion-col> -->
+                           <div class="name-lname">
+                            <div >
                                 <label class="nom" for="">Nom prenom </label> 
                                </div>
-                               <div class="lieu-class">
+                               <div >
                                  <img class="lieu-img" src="../../assets/imgs/profil/Tracé.svg" alt="">
                                  <label class="lieu" for="">
                                    le bardo , 24 ans</label> 
                                </div>
-                              </ion-col>
-                              <ion-col>
+                              </div>
+                              <!-- </ion-col> -->
+                              <!-- <ion-col> -->
                                   <div class="abonne">
                                      <button  class="abonne-button" (click)="folowsPage()">
                                        S'abonner
                                      </button>
-                                   </div></ion-col>
+                                   </div>
+                                  <!-- </ion-col> -->
+                                  </div>
                     </ion-row>
                     <ion-row>
                       <ion-col>
                     <div class="para">
                         <p class="para-style">Welcom to my world .. Tunisian Girl .. mom of  baby baya </p>
                       </div></ion-col></ion-row>
-                      <ion-row><ion-col>
+                      <ion-row>
+                        <!-- <ion-col> -->
+                          <div class="class-icons">
                           <div class="fb-icon">
                               <img class="img-fb"
                                src="../../assets/imgs/profil/fb-icon.svg" alt="">
-                              <label class="nomprenom" for="">NomPrenom</label>
-                            </div></ion-col> <ion-col>
+                              <span class="nomprenom" for="">NomPrenom</span>
+                            </div>
+                          <!-- </ion-col> -->
+                          <!-- <ion-col> -->
                             <div class="insta-icon">
                                 <img class="img-insta"
                                  src="../../assets/imgs/profil/insta.svg" alt="">
-                                <label class="nomprenom" for="">NomPrenom</label>
-                              </div></ion-col><ion-col>
+                                <span class="nomprenom" for="">NomPrenom</span>
+                              </div>
+                            <!-- </ion-col><ion-col> -->
                               <div class="snap-icon">
                                   <img class="img-snap"
                                    src="../../assets/imgs/profil/snap-icon.svg" alt="">
-                                  <label class="nomprenom" for="">NomPrenom</label>
-                                </div></ion-col></ion-row>
+                                  <span class="nomprenom" for="">NomPrenom</span>
+                                </div>
+                              </div>
+                              <!-- </ion-col> -->
+                            </ion-row>
                                
             </div>
           </ion-col>
