@@ -1,4 +1,8 @@
-page-friend-profil {
+page-friend-follow {
+    .opacityNon{
+        opacity:0;
+    }
+    
   .grid-size{
     height: 100%;
     flex-grow: 1;
@@ -25,7 +29,7 @@ page-friend-profil {
         position: relative;
       }
       .img-friend{
-        max-width: 532px;
+        max-width: 632px;
         background-repeat: no-repeat;
         // width: 100%;
         height: 100%;
@@ -43,19 +47,14 @@ page-friend-profil {
         width: 38px;
         height: 39px;
       }
-      .abonnes{
-        margin-top: -32px;
-        position: absolute;
-        margin-left: 11%;
-      }
+  
       .suivis{
         position: absolute;
         margin-top: -32px;
         right: 11%; 
+        text-shadow: 3px;
       }
-      .abonnes-number{
-        color: white;
-      }
+  
       .suivis-number{
         color: white;
       }
@@ -136,9 +135,9 @@ page-friend-profil {
       .abonne{
       
         border-radius: 23px;
-        background-color: rgb(242,40,118);
-        width:85PX;
-        height: 28px;
+        background-color: rgb(209,209,209);
+        width:90PX;
+        height: 32px;
         margin-top: 42px;
         margin-right: 6%;      }
       
@@ -167,7 +166,7 @@ page-friend-profil {
             font-size: 9px;
             position: absolute;
             padding-left: 16px;
-            margin-top: -18px;
+            margin-top: -16px;
           }
           .fb-icon{
             bottom: 1%;
@@ -193,4 +192,22 @@ page-friend-profil {
             height: 16px ;
           }
         
+          .demander{
+            background-color: #1f9ed5;
+        }
+        .partager{
+           
+            background-color:   rgb(242,40,118);
+        }
+        .loacalisation{
+            height: 41px;
+            font-size: 10px;
+            padding: 0 12px;
+            margin: 3px 0;
+        }
+        .space-cols{
+            justify-content: space-around;
+            padding-bottom: 10%;//modifiable 
+        }
+
 }
