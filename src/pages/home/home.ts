@@ -97,7 +97,7 @@ export class HomePage {
   navigateToChilloutPage(){
     this.navCtrl.push(ChilloutPage,{category : 'chillout'});
   }
-  navigateToBeautyage(){
+  navigateToBeautyPage(){
     this.navCtrl.push(ChilloutPage , {category : 'beauty'});
   }
   navigateToShoppingPage(){
