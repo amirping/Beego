@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 6.84 4.127">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #535353;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-miterlimit: 10;
+      }
+    </style>
+  </defs>
+  <g id="Flesh_droite" data-name="Flesh droite" transform="translate(48.905 -335.679) rotate(90)">
+    <line id="XMLID_4_" class="cls-1" y1="2.713" x2="2.713" transform="translate(339.099 48.198) rotate(180)"/>
+    <line id="XMLID_3_" class="cls-1" x2="2.713" y2="2.713" transform="translate(339.099 45.485) rotate(180)"/>
+  </g>
+</svg>

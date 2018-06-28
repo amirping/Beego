@@ -1,0 +1,116 @@
+<ion-header no-border>
+  <ion-navbar color="transparent">
+    <ion-buttons end>
+      <button ion-button icon-only class="beego-skip-button beego-text-normal">Skip</button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content no-padding class="beego-background-overlay">
+  <ion-grid (swipe)="swipeTo($event)">
+    <ion-row>
+      <ion-col col-6 offset-3 no-padding text-center>
+          <div class="bee-profile-image">
+            <div class="bee-hexagon">
+              <img [src]="imgSrc" alt="">
+            </div>
+            <div class="bee-edit-icon bee-edit-photo" (click)="uploader.click()" ></div>
+          </div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+        <div class="beego-separator beego-separator-full"></div>
+    </ion-row>
+    <form action="#" class="bee-signup-form" (submit)="signup()" [formGroup]="signupForm" >
+      <ion-row>
+        <div class="beego-row-center bee-margin1">
+          <div>
+            <div class="bee-input-container">
+              Gender :
+            </div>
+          </div>
+          <div >
+            <div class="bee-input-container">
+                <label class="bee-label">
+                    Homme :
+                    <input type="radio" name="gender"  class="bee-input-hidden" value="male"  formControlName="gender">
+                    <span class="bee-radio bee-radio-blue"></span>
+                  </label>
+            </div>
+          </div>
+          <div>
+            <div class="bee-input-container">
+                <label class="bee-label">
+                    Femme :
+                    <input type="radio" name="gender"  class="bee-input-hidden" value="female" formControlName="gender">
+                    <span class="bee-radio bee-radio-pink"></span>
+                  </label>
+            </div>
+          </div>
+        </div>     
+      </ion-row>
+      <ion-row>
+          <div class="beego-row-center bee-margin2">
+              <div>
+                <div class="bee-input-container">
+                  <div  class="beego-input-transparent select" (click)="setDate(picker)"> {{day}} </div>
+                </div>
+              </div>
+              <div>
+                <div class="bee-input-container bee-margin-around">
+                  <div  class="beego-input-transparent select" (click)="setDate(picker)"> {{month}} </div>
+                </div>
+              </div>
+              <div>
+                <div class="bee-input-container">
+                    <div  class="beego-input-transparent select" (click)="setDate(picker)"> {{year}} </div>
+                </div>
+              </div>
+            </div>
+            <ion-datetime #picker style="display: none;"
+              pickerFormat="DD MMMM YYYY" 
+              [max]="datePickerMin" 
+              [(ngModel)]="datePicker" formControlName="birthday"
+              name="birthday" 
+              (ionChange)="changeDate()"></ion-datetime>
+            <input type="file" #uploader (change)="upload($event)" style="display: none;">
+      </ion-row>
+      <ion-row class="bee-margin3">
+        <ion-col>
+          <div class="bee-left bee-input-container2">
+            <input type="tel" class="beego-input-transparent beego-icon-tel" formControlName="tel" placeholder="Num tel">
+          </div>
+        </ion-col>
+        <ion-col>
+          <div class="bee-right bee-input-container2">
+
+            <select name="" class="beego-input-transparent beego-icon-gov" formControlName="gov">
+              <option value="" selected>Gouvernorat</option>
+              <option value="Tunis">Tunis</option>
+              <option value="Gafsa">Gafsa</option>
+            </select>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+            <div class="bee-signup-btn bee-margin4">
+
+              <button 
+                ion-button full 
+                class="beego-connexion-button beego-background-pink"
+                [disabled]="!signupForm.valid" 
+                type="submit">C'est Parti !</button>
+            </div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <div class="bee-text-center bee-text-spacement">
+            YOU ARE IN THE RIGHT PLACE
+          </div>
+        </ion-col>
+      </ion-row>
+    </form>
+  </ion-grid>
+</ion-content>

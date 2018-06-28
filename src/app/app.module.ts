@@ -1,82 +1,93 @@
+import { FindFriendPage } from "./../pages/find-friend/find-friend";
 import { BrowserModule } from "@angular/platform-browser";
 import { ErrorHandler, NgModule, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
 import { IonicApp, IonicErrorHandler, IonicModule } from "ionic-angular";
 import { SplashScreen } from "@ionic-native/splash-screen";
 import { StatusBar } from "@ionic-native/status-bar";
-import { ShoppingListPage } from '../pages/shopping-list/shopping-list';
-import { FIREBASE_CREDENTIALS } from './firebase.credentials';
-import { AddShoppingPage } from '../pages/add-shopping/add-shopping';
-import { EditShoppingItemPage } from '../pages/edit-shopping-item/edit-shopping-item';
-import { AcceuilPage } from '../pages/acceuil/acceuil';
-import { EspacesPage } from '../pages/espaces/espaces';
-import { EvenementPage } from '../pages/evenement/evenement';
+import { Dialogs } from "@ionic-native/dialogs";
+
 import { MyApp } from "./app.component";
+import { FIREBASE_CREDENTIALS } from "./firebase.credentials";
+
 import { LandingPage } from "../pages/landing/landing";
 import { LoginPage } from "../pages/login/login";
-import { Signup1Page } from "../pages/signup1/signup1";
-import { Signup2Page } from "../pages/signup2/signup2";
+import { SignupStep1Page } from "../pages/signup_step1/signup_step1";
+import { SignupStep2Page } from "../pages/signup_step2/signup_step2";
 import { HomePage } from "../pages/home/home";
+import { ProfilPage } from "../pages/profil/profil";
+import { ListOfFollowsPage } from "../pages/list-of-follows/list-of-follows";
+import { SettingProfilPage } from "../pages/setting_profil/setting_profil";
 import { ChilloutPage } from "../pages/chillout/chillout";
-import { Ionic2RatingModule } from 'ionic2-rating';
-import { HttpClient, HttpClientModule } from "@angular/common/http";
+import { BlockPage } from "../pages/block/block";
+import { SettingProfil2Page } from "../pages/setting-profil2/setting-profil2";
+import { SettingSecurityPage } from "../pages/setting-security/setting-security";
+
+import { Ionic2RatingModule } from "ionic2-rating";
 import { AngularFireModule } from "angularfire2";
 import { AngularFireAuthModule } from "angularfire2/auth";
 import { AngularFireDatabaseModule } from "angularfire2/database";
-import { AngularFireStorageModule } from "angularfire2/storage";
+import { SearchRadioPipe } from '../providers/user/pipe_search'
+
+import { TabsPage } from "../pages/tabs/tabs";
+// import { AngularFireStorageModule } from "angularfire2/storage";
 // import { AngularFirestoreModule } from "angularfire2/firestore";
 
-import { UserProvider } from '../providers/user/user';
-
+import { UserProvider } from "../providers/user/user";
 
 @NgModule({
   declarations: [
     MyApp,
     LandingPage,
     LoginPage,
-    Signup1Page,
-    Signup2Page,
-    ChilloutPage
+    SignupStep1Page,
+    SignupStep2Page,
+    ChilloutPage,
+    ProfilPage,
+    ListOfFollowsPage,
+    SettingProfilPage,
     HomePage,
-    ShoppingListPage,
-    AddShoppingPage,
-    EditShoppingItemPage,
-    AcceuilPage,
-    EspacesPage,
-    EvenementPage
+    BlockPage,
+    SettingProfil2Page,
+    SearchRadioPipe,
+    SettingSecurityPage,
+    TabsPage,
+    FindFriendPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    //Initialize angularfire 
+    //Initialize angularfire
     AngularFireModule.initializeApp(FIREBASE_CREDENTIALS),
     AngularFireAuthModule,
     AngularFireDatabaseModule,
-    AngularFireStorageModule,
-    HttpClientModule,
+    // AngularFireStorageModule,
     Ionic2RatingModule
-
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     LandingPage,
     LoginPage,
-    Signup1Page,
-    Signup2Page,
-    HomePage,
+    SignupStep1Page,
+    SignupStep2Page,
+    ProfilPage,
+    ListOfFollowsPage,
+    SettingProfilPage,
     ChilloutPage,
-    ShoppingListPage,
-    AddShoppingPage,
-    EditShoppingItemPage,
-    AcceuilPage,
-    EspacesPage,
-    EvenementPage
+    HomePage,
+    BlockPage,
+    SettingProfil2Page,
+    SettingSecurityPage,
+    TabsPage,
+    FindFriendPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    UserProvider
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    Dialogs,
+    UserProvider,
+    SearchRadioPipe,
+    { provide: ErrorHandler, useClass: IonicErrorHandler }
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

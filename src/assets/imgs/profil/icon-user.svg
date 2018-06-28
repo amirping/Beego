@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9.518 10.72">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #8e8e93;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-miterlimit: 10;
+        stroke-width: 0.9px;
+      }
+    </style>
+  </defs>
+  <g id="icon_user" data-name="icon user" transform="translate(-4.982 -2.45)">
+    <path id="Tracé_1116" data-name="Tracé 1116" class="cls-1" d="M22.217,24.04v-.969A2.167,2.167,0,0,0,20.046,20.9H15.771A2.167,2.167,0,0,0,13.6,23.071v.969" transform="translate(-8.168 -11.32)"/>
+    <circle id="Ellipse_2539" data-name="Ellipse 2539" class="cls-1" cx="2.605" cy="2.605" r="2.605" transform="translate(7.136 2.9)"/>
+  </g>
+</svg>

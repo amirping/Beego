@@ -1,0 +1,64 @@
+<!--
+  Generated template for the ListOfFollowsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header no-border >
+
+  <ion-navbar hideBackButton="true" color="bar-color">
+   
+    <div class="back">
+        
+        
+            <button class="back-button-followlist" (click)="back()">
+              <img src="../../assets/imgs/arrow-back.png" alt="" 
+              class="back-img">
+            </button>
+
+    </div>
+    <div class="beego-title-list-follows">
+     Liste de follows</div>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding >
+    <div class="for-search-listfollows">
+        <input type="text" name="text_search" value="" placeholder="Recherche" 
+        class="text-search-listfollows"
+         id="text_search" [(ngModel)]="text_search">
+         
+         <button class="search-text-icon-listfollows" >
+          <img src="../../assets/imgs/Search-listfollows.png" alt=""
+           ></button>
+         <button class="clear-text" (click)="text_search=''">
+           <img class="cleaner-listfollows" 
+           src="../../assets/imgs/clean-listfollows.png" alt=""
+           *ngIf="text_search !=null && text_search.length>0" 
+            ></button>
+  
+      </div>
+      <div class="listOfFollows-part">
+          <ion-list>
+                <ion-item>
+                  <ion-avatar item-start>
+                    <img src="../../assets/imgs/photoDeProfil.png">
+                  </ion-avatar>
+                  <h3>nom prenom</h3>
+                  <p class="lieu-listfollows">Bardo, Tunis</p>
+                  <button (click)="confirmDelete()"
+                   class="delete-follow-button">
+                    <img 
+                     src="../../assets/imgs/listOfFollows/delete.svg"
+                     
+                     alt="">
+                  </button>
+                </ion-item>
+             
+            </ion-list>
+      </div>
+
+</ion-content>
+

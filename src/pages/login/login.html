@@ -38,25 +38,21 @@
         <ion-row>
           <ion-col>
 
-            <form (submit)="signin()" [formGroup]="signinForm" novalidate >
+            <form (submit)="login()" [formGroup]="signinForm" novalidate >
               <ion-row>
                 <input type="email" 
                   class="beego-input-transparent beego-icon-mail bee-margin2" 
                   placeholder="Adresse mail"
+                  [class.invalid]="!signinForm.controls.email.valid && signinForm.controls.email.touched"
                   formControlName="email">
-              </ion-row>
-              <ion-row>
-                <p *ngIf="!signinForm.controls.email.valid && signinForm.controls.email.touched" >invalid email</p>
               </ion-row>
               <ion-row>
                 <input type="password" 
                   class="beego-input-transparent beego-icon-lock bee-margin2" 
                   placeholder="Mot de passe"
+                  [class.invalid]="!signinForm.controls.password.valid && signinForm.controls.password.touched"
                   formControlName="password">
-              </ion-row>
-              <ion-row>
-                <p *ngIf="!signinForm.controls.password.valid && signinForm.controls.password.touched" >invalid password</p>
-              </ion-row>
+              </ion-row>              
               <ion-row>
                 <ion-col align-items-end>
                   <div class="beego-center-container forget">
@@ -95,9 +91,9 @@
         </ion-row>
         <ion-row>
             <div class="beego-center-container">
-              <button class="beego-circle-btn beego-icon-facebook" (click)="signinWithFacebook()" ></button>
+              <button class="beego-circle-btn beego-icon-facebook" (click)="loginWithFacebook()" ></button>
 
-              <button class="beego-circle-btn beego-icon-google" (click)="signinWithGoogle()" ></button>
+              <button class="beego-circle-btn beego-icon-google" (click)="loginWithGoogle()" ></button>
             </div>
         </ion-row>
 
