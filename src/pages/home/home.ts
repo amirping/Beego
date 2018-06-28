@@ -26,11 +26,13 @@ export class HomePage {
   profil() {
     this.navCtrl.push(ProfilPage);
   }
+
   search = false;
  
  searching(){
    this.search = !this.search;
  }
+
 
   @ViewChild(Slides) slides: Slides;
 
@@ -60,6 +62,7 @@ export class HomePage {
     private database: AngularFireDatabase,
     private userpovider: UserProvider
   ) {
+
     /* Liste des espaces */
     this.espacesListRef$ = this.database
       .list("espace")
@@ -111,6 +114,7 @@ export class HomePage {
         return changes.map( c => ({key : c.payload.key,...c.payload.val()}))
       })*/;
     this.allNewsData = this.evenementListRef$;
+
   }
 
   ionViewDidLoad() {
