@@ -1,0 +1,131 @@
+page-find-friend {
+  .back-stylesh {
+    background: url(../../assets/imgs/findfriend/intersection\2svg) top left no-repeat;
+  }
+  .grid {
+    padding: 0px;
+  }
+  .row {
+    padding: 0px;
+  }
+  .col {
+    padding: 0px;
+  }
+  .toolbar-background {
+    background-image: linear-gradient(180deg, #fb6b94 0%, #fd8493 100%);
+  }
+  .tool-bar {
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.16);
+    border: 1px solid rgba(0, 0, 0, 0);
+    background-image: linear-gradient( 98deg, #fb4b7d 0%, #fe757b 100%) !important;
+  }
+  .toolbar-title {
+    color: #ffffff;
+    font-family: "Raleway";
+    font-size: 21px;
+    font-weight: 500;
+    padding-left: 17px;
+  }
+  .holder {
+    position: relative;
+    height: 540px;
+    width: 340px;
+    .active {
+      z-index: 3 !important;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16) !important;
+    }
+    .active+div {
+      transform: scale(0.9);
+      z-index: 2;
+      top: 25px;
+      transform-origin: 50% 100%;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16) !important;
+    }
+    .active+div+div {
+      transform: scale(0.8);
+      z-index: 1;
+      top: 50px;
+      transform-origin: 50% 100%;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16) !important;
+    }
+    .active+div+div div {
+      z-index: -1;
+      opacity: 0;
+    }
+    .slide-left {
+      animation: left-sliding 0.9s linear;
+    }
+    .slide-right {
+      animation: right-sliding 0.9s linear;
+    }
+    .friends {
+      position: absolute;
+      left: 10px;
+      overflow: hidden;
+      position: absolute;
+      height: 480px;
+      width: 330px;
+      border-radius: 20px;
+      background: white;
+    }
+    h2 {
+      margin: 0px;
+      color: #333333;
+      font-family: "Raleway";
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 0.19px;
+      padding-top: 11px;
+    }
+    .location {
+      color: #8e8e93;
+      font-family: "Raleway";
+      font-size: 12px;
+      letter-spacing: 0.14px;
+      font-weight: 500;
+    }
+    .cover {
+      height: 100%;
+      margin-bottom: 7px;
+    }
+    .profile {
+      width: 56px;
+      height: 62px;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+      margin-right: 23px;
+    }
+    .content {
+      padding: 0px 17px 24px 17px;
+    }
+    @keyframes left-sliding {
+      0% {
+        left: 10px;
+      }
+      50% {
+        left: -50%;
+        transform: scale(1.1);
+        opacity: 0.4;
+      }
+      100% {
+        left: -100%;
+        transform: scale(1.2);
+        opacity: 0;
+      }
+    }
+    @keyframes right-sliding {
+      0% {
+        left: 10px;
+      }
+      50% {
+        right: -50%;
+        transform: scale(1.1);
+        opacity: 0.4;
+      }
+      100% {
+        right: -100%;
+        transform: scale(1.2);
+        opacity: 0;
+      }
+    }
+  }
+}
