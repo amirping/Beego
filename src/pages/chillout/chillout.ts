@@ -3,6 +3,8 @@ import { IonicPage, NavController, NavParams, Slides } from "ionic-angular";
 import { Ionic2RatingModule } from 'ionic2-rating';
 import { Observable } from 'rxjs/Observable';
 import { AngularFireDatabase } from 'angularfire2/database';
+import { SearchRadioPipe } from '../../providers/user/pipe_search'
+
 
 /**
  * Generated class for the ChilloutPage page.
@@ -29,10 +31,11 @@ export class ChilloutPage {
 
 
   chilloutListRef$: Observable<any[]>;
+  rechercher$: Observable<any[]>;
   
 
-
-  pagesData : Observable<any[]>;;
+  pageData : Observable<any[]>;
+  pagesData : Observable<any[]>;
   testrating = 4 ;//testing
   
   constructor(
@@ -50,6 +53,10 @@ export class ChilloutPage {
      * 
      */
     const category = this.navParams.get('category'); 
+    /*this.pagesData = this.database.list(category, ref => ref.child('data').orderByChild('title').equalTo('jobi')).snapshotChanges().map(changes => {
+      return changes.map( c => ({key : c.payload.key,...c.payload.val()}))
+    });*/
+   
 
     this.pagesData = this.database.list(category).snapshotChanges().map(changes => {
       return changes.map( c => ({key : c.payload.key,...c.payload.val()}))
@@ -65,252 +72,7 @@ export class ChilloutPage {
           subTitle:'Nom de l\'espace',
           rating:4
         },
-        {
-          title:'Nom de l\'espace',
-          subTitle:'Nom de l\'espace',
-          rating:4
-        },
-        {
-          title:'Nom de l\'espace',
-          subTitle:'Nom de l\'espace',
-          rating:4
-        },
-        {
-          title:'Nom de l\'espace',
-          subTitle:'Nom de l\'espace',
-          rating:4
-        },
-        {
-          title:'Nom de l\'espace',
-          subTitle:'Nom de l\'espace',
-          rating:4
-        },
-        {
-          title:'Nom de l\'espace',
-          subTitle:'Nom de l\'espace',
-          rating:4
-        },
-        ]
-      },
-      {
-        index:2,
-        name:'Café',
-        data:[
-        {
-          title:'Nom de l\'espace',
-          subTitle:'Nom de l\'espace',
-          rating:4
-        },
-        {
-          title:'Nom de l\'espace',
-          subTitle:'Nom de l\'espace',
-          rating:4
-        },
-        {
-          title:'Nom de l\'espace',
-          subTitle:'Nom de l\'espace',
-          rating:4
-        },
-        {
-          title:'Nom de l\'espace',
-          subTitle:'Nom de l\'espace',
-          rating:4
-        },
-        {
-          title:'Nom de l\'espace',
-          subTitle:'Nom de l\'espace',
-          rating:4
-        },
-        {
-          title:'Nom de l\'espace',
-          subTitle:'Nom de l\'espace',
-          rating:4
-        },
-        ]
-      },
-      {
-        index:3,
-        name:'Bar & lounge',
-        data:[
-        {
-          title:'Nom de l\'espace',
-          subTitle:'Nom de l\'espace',
-          rating:4
-        },
-        {
-          title:'Nom de l\'espace',
-          subTitle:'Nom de l\'espace',
-          rating:4
-        },
-        {
-          title:'Nom de l\'espace',
-          subTitle:'Nom de l\'espace',
-          rating:4
-        },
-        {
-          title:'Nom de l\'espace',
-          subTitle:'Nom de l\'espace',
-          rating:4
-        },
-        {
-          title:'Nom de l\'espace',
-          subTitle:'Nom de l\'espace',
-          rating:4
-        },
-        {
-          title:'Nom de l\'espace',
-          subTitle:'Nom de l\'espace',
-          rating:4
-        },
-        ]
-      },
-      {
-        index:4,
-        name:'Restaurent',
-        data:[
-        {
-          title:'Nom de l\'espace',
-          subTitle:'Nom de l\'espace',
-          rating:4
-        },
-        {
-          title:'Nom de l\'espace',
-          subTitle:'Nom de l\'espace',
-          rating:4
-        },
-        {
-          title:'Nom de l\'espace',
-          subTitle:'Nom de l\'espace',
-          rating:4
-        },
-        {
-          title:'Nom de l\'espace',
-          subTitle:'Nom de l\'espace',
-          rating:4
-        },
-        {
-          title:'Nom de l\'espace',
-          subTitle:'Nom de l\'espace',
-          rating:4
-        },
-        {
-          title:'Nom de l\'espace',
-          subTitle:'Nom de l\'espace',
-          rating:4
-        },
-        ]
-      },
-      {
-        index:5,
-        name:'Boutiques',
-        data:[
-        {
-          title:'Nom de l\'espace',
-          subTitle:'Nom de l\'espace',
-          rating:4
-        },
-        {
-          title:'Nom de l\'espace',
-          subTitle:'Nom de l\'espace',
-          rating:4
-        },
-        {
-          title:'Nom de l\'espace',
-          subTitle:'Nom de l\'espace',
-          rating:4
-        },
-        {
-          title:'Nom de l\'espace',
-          subTitle:'Nom de l\'espace',
-          rating:4
-        },
-        {
-          title:'Nom de l\'espace',
-          subTitle:'Nom de l\'espace',
-          rating:4
-        },
-        {
-          title:'Nom de l\'espace',
-          subTitle:'Nom de l\'espace',
-          rating:4
-        },
-        ]
-      },
-      {
-        index:6,
-        name:'Espaces Commerciale',
-        data:[
-        {
-          title:'Nom de l\'espace',
-          subTitle:'Nom de l\'espace',
-          rating:4
-        },
-        {
-          title:'Nom de l\'espace',
-          subTitle:'Nom de l\'espace',
-          rating:4
-        },
-        {
-          title:'Nom de l\'espace',
-          subTitle:'Nom de l\'espace',
-          rating:4
-        },
-        {
-          title:'Nom de l\'espace',
-          subTitle:'Nom de l\'espace',
-          rating:4
-        },
-        {
-          title:'Nom de l\'espace',
-          subTitle:'Nom de l\'espace',
-          rating:4
-        },
-        {
-          title:'Nom de l\'espace',
-          subTitle:'Nom de l\'espace',
-          rating:4
-        },
-        ]
-      },
-      {
-        index:7,
-        name:'Autre',
-        data:[
-        {
-          title:'Nom de l\'espace',
-          subTitle:'Nom de l\'espace',
-          rating:4
-        },
-        {
-          title:'Nom de l\'espace',
-          subTitle:'Nom de l\'espace',
-          rating:4
-        },
-        {
-          title:'Nom de l\'espace',
-          subTitle:'Nom de l\'espace',
-          rating:4
-        },
-        {
-          title:'Nom de l\'espace',
-          subTitle:'Nom de l\'espace',
-          rating:4
-        },
-        {
-          title:'Nom de l\'espace',
-          subTitle:'Nom de l\'espace',
-          rating:4
-        },
-        {
-          title:'Nom de l\'espace',
-          subTitle:'Nom de l\'espace',
-          rating:4
-        },
-        ]
-      }
-    ];
-*/
-    
+        */
     
   }
 
@@ -323,4 +85,15 @@ export class ChilloutPage {
       this.navCtrl.pop();
     }
   }
+
+  // Méthode rechercher
+  search(searchText: string) {
+    console.log(searchText);
+    //const category = this.navParams.get('category');
+ 
+    //this.rechercher$ = this.searchpipe.transform(this.pagesData,searchText);
+    
+    
+  }
 }
+

@@ -77,7 +77,7 @@
     <ion-row>
       <ion-col class="beego-row-center">
         <div class="catego-wrapper">
-          <div>
+          <div  (click)="navigateToChilloutPage()" >
             <span>
               chill'out
             </span>
@@ -86,18 +86,18 @@
           <img src="../../assets/imgs/homePage_img/chillout.png" class="catego">
         </div>
         <div class="catego-wrapper">
-          <div>
+          <div (click)="navigateToBeautyPage()">
             <span>beauty</span>
             <div class=overlay></div>
           </div>
-          <img src="../../assets/imgs/homePage_img/beauty.png" class="catego">
+          <img src="../../assets/imgs/homePage_img/beauty.png" class="catego"  >
         </div>
         <div class="catego-wrapper">
-          <div>
-            <span>shoping</span>
+          <div (click)="navigateToShoppingPage()">
+            <span>shopping</span>
             <div class="overlay"></div>
           </div>
-          <img src="../../assets/imgs/homePage_img/beauty.png" class="catego">
+          <img src="../../assets/imgs/homePage_img/beauty.png" class="catego" >
         </div>
       </ion-col>
     </ion-row>
@@ -267,19 +267,19 @@
               </div>
             </div> -->
             <!-- dynamique things -->
-            <div class="slider not-yet" *ngFor="let item of news; let i=index" [class.active]="i==newSlider_indicators.show_index_slide"
+            <div class="slider not-yet" *ngFor="let item of news ; let i=index" [class.active]="i==newSlider_indicators.show_index_slide"
               [class.next]="i==newSlider_indicators.next_index_show" [class.after-next]="i==newSlider_indicators.after_index_show">
-              <img src="{{item.pic}}" alt="">
+              <img src="{{item.Couverture}}" alt="">
               <div class="content">
                 <div class="row row-right">
                   <button ion-button small>Intéressé(e)</button>
                 </div>
                 <div>
-                  <span class="date">27 dec 2017</span>
+                  <span class="date">{{item.Date}}</span>
                   <div class="bottom-content">
-                    <h2>{{item.name}}</h2>
+                    <h2>{{item.Name}}</h2>
                     <span class="location">
-                      <ion-icon name="pin"></ion-icon> {{item.place}}</span>
+                      <ion-icon name="pin"></ion-icon> {{item.Place}}</span>
                   </div>
                 </div>
               </div>
@@ -321,47 +321,18 @@
           <span class="title">Connaissez vous</span>
           <span class="more" (click)="navigateTo('FindFriendPage')">Tout afficher</span>
         </div>
-        <div class="row row-scroller">
-          <div class="person-card">
+        <div class="row row-scroller" >
+          <div class="person-card" *ngFor="let item of connaissanceListRef$ |
+          async">
             <img src="http://i.pravatar.cc/60" alt="">
-            <span class="name">Amine Sammary</span>
-            <span class="location">Ghazela, Ariena</span>
+            
+            <span class="name">{{item.Prenom}}  {{item.Nom}} </span>
+            <span class="location">{{item.Place}}, {{item.Region}}</span>
             <button ion-button small round icon-start>
               <ion-icon name="person-add"></ion-icon>
-              s'abboner</button>
+              S'abonner</button>
           </div>
-          <div class="person-card">
-            <img src="http://i.pravatar.cc/60" alt="">
-            <span class="name">Amine Sammary</span>
-            <span class="location">Ghazela, Ariena</span>
-            <button ion-button small round icon-start>
-              <ion-icon name="person-add"></ion-icon>
-              s'abboner</button>
-          </div>
-          <div class="person-card">
-            <img src="http://i.pravatar.cc/60" alt="">
-            <span class="name">Amine Sammary</span>
-            <span class="location">Ghazela, Ariena</span>
-            <button ion-button small round icon-start>
-              <ion-icon name="person-add"></ion-icon>
-              s'abboner</button>
-          </div>
-          <div class="person-card">
-            <img src="http://i.pravatar.cc/60" alt="">
-            <span class="name">Amine Sammary</span>
-            <span class="location">Ghazela, Ariena</span>
-            <button ion-button small round icon-start>
-              <ion-icon name="person-add"></ion-icon>
-              s'abboner</button>
-          </div>
-          <div class="person-card">
-            <img src="http://i.pravatar.cc/60" alt="">
-            <span class="name">Amine Sammary</span>
-            <span class="location">Ghazela, Ariena</span>
-            <button ion-button small round icon-start>
-              <ion-icon name="person-add"></ion-icon>
-              s'abboner</button>
-          </div>
+          
         </div>
       </ion-col>
 
@@ -408,62 +379,22 @@
           <span class="more">Tout afficher</span>
         </div>
         <div class="row row-scroller">
-          <div class="proximite-card">
+          <div class="proximite-card" *ngFor="let item of proximiteListRef$ |
+        async">
             <img src="http://lorempixel.com/400/200/sports" alt="">
-            <h2>Some thing is near</h2>
+            <h2>{{item.placeName}}</h2>
             <div class="row-style row-space-between">
               <span class="location">
                 <ion-icon name="pin"></ion-icon>
-                Manzeh 7
+                {{item.placeLocation}}
               </span>
               <span class="distance">
                 <ion-icon name="paper-plane"></ion-icon>
-                6km
+                {{item.placeDistance}} KM
               </span>
             </div>
           </div>
-          <div class="proximite-card">
-            <img src="http://lorempixel.com/400/200/sports" alt="">
-            <h2>Some thing is near</h2>
-            <div class="row-style row-space-between">
-              <span class="location">
-                <ion-icon name="pin"></ion-icon>
-                Manzeh 7
-              </span>
-              <span class="distance">
-                <ion-icon name="paper-plane"></ion-icon>
-                6km
-              </span>
-            </div>
-          </div>
-          <div class="proximite-card">
-            <img src="http://lorempixel.com/400/200/sports" alt="">
-            <h2>Some thing is near</h2>
-            <div class="row-style row-space-between">
-              <span class="location">
-                <ion-icon name="pin"></ion-icon>
-                Manzeh 7
-              </span>
-              <span class="distance">
-                <ion-icon name="paper-plane"></ion-icon>
-                6km
-              </span>
-            </div>
-          </div>
-          <div class="proximite-card">
-            <img src="http://lorempixel.com/400/200/sports" alt="">
-            <h2>Some thing is near</h2>
-            <div class="row-style row-space-between">
-              <span class="location">
-                <ion-icon name="pin"></ion-icon>
-                Manzeh 7
-              </span>
-              <span class="distance">
-                <ion-icon name="paper-plane"></ion-icon>
-                6km
-              </span>
-            </div>
-          </div>
+          
         </div>
       </ion-col>
 
@@ -501,17 +432,18 @@
           <span class="more">Tout afficher</span>
         </div>
         <div class="row row-scroller">
-          <div class="invit-card">
+          <div class="invit-card" *ngFor="let item of invitationListRef$ |
+          async">
             <div class="row">
               <img src="http://i.pravatar.cc/60" alt="">
               <div class="col mx-auto">
-                <h2>What's UP Coffée !</h2>
+                <h2>{{item.invitationTo}} !</h2>
                 <span class="date">Samedi 17 Dec - 6:00 PM</span>
               </div>
             </div>
             <p>
-              <strong>Mohamed Limayma</strong> vous invitez a
-              <strong>What's up coffée</strong>
+              <strong>{{item.invitationFrom}}</strong> vous invitez a
+              <strong>{{item.invitationTo}}</strong>
             </p>
             <div class="row buttons row-space-around">
               <button ion-button clear small icon-start color="secondary">
@@ -523,72 +455,8 @@
                 Annuler</button>
             </div>
           </div>
-          <div class="invit-card">
-            <div class="row">
-              <img src="http://i.pravatar.cc/60" alt="">
-              <div class="col mx-auto">
-                <h2>What's UP Coffée !</h2>
-                <span class="date">Samedi 17 Dec - 6:00 PM</span>
-              </div>
-            </div>
-            <p>
-              <strong>Mohamed Limayma</strong> vous invitez a
-              <strong>What's up coffée</strong>
-            </p>
-            <div class="row buttons row-space-around">
-              <button ion-button clear small icon-start color="secondary">
-                <ion-icon name="checkmark"></ion-icon>
-                Accepter</button>
-              <div class="hr"></div>
-              <button ion-button clear small icon-start>
-                <ion-icon name="close"></ion-icon>
-                Annuler</button>
-            </div>
-          </div>
-          <div class="invit-card">
-            <div class="row">
-              <img src="http://i.pravatar.cc/60" alt="">
-              <div class="col mx-auto">
-                <h2>What's UP Coffée !</h2>
-                <span class="date">Samedi 17 Dec - 6:00 PM</span>
-              </div>
-            </div>
-            <p>
-              <strong>Mohamed Limayma</strong> vous invitez a
-              <strong>What's up coffée</strong>
-            </p>
-            <div class="row buttons row-space-around">
-              <button ion-button clear small icon-start color="secondary">
-                <ion-icon name="checkmark"></ion-icon>
-                Accepter</button>
-              <div class="hr"></div>
-              <button ion-button clear small icon-start>
-                <ion-icon name="close"></ion-icon>
-                Annuler</button>
-            </div>
-          </div>
-          <div class="invit-card">
-            <div class="row">
-              <img src="http://i.pravatar.cc/60" alt="">
-              <div class="col mx-auto">
-                <h2>What's UP Coffée !</h2>
-                <span class="date">Samedi 17 Dec - 6:00 PM</span>
-              </div>
-            </div>
-            <p>
-              <strong>Mohamed Limayma</strong> vous invitez a
-              <strong>What's up coffée</strong>
-            </p>
-            <div class="row buttons row-space-around">
-              <button ion-button clear small icon-start color="secondary">
-                <ion-icon name="checkmark"></ion-icon>
-                Accepter</button>
-              <div class="hr"></div>
-              <button ion-button clear small icon-start>
-                <ion-icon name="close"></ion-icon>
-                Annuler</button>
-            </div>
-          </div>
+          
+          
         </div>
       </ion-col>
       <!-- <ion-col col-8>

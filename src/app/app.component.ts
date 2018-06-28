@@ -13,7 +13,7 @@ import { UserProvider } from '../providers/user/user';
   templateUrl: "app.html"
 })
 export class MyApp {
-  rootPage:any=ProfilPage ;
+  rootPage:any ;
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,public userProvider: UserProvider) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.

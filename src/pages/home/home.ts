@@ -53,55 +53,7 @@ export class HomePage {
     after_index_show: 2
   };
 
-  news = [
-    {
-      id: 1,
-      name: "EVENT - some names",
-      place: "Yuka, KEF",
-      pic:
-        "https://i.pinimg.com/originals/fd/5d/8e/fd5d8e333fcccbc366f390902e69ddd7.jpg"
-    },
-    {
-      id: 2,
-      name: "EVENT - some names",
-      place: "Yuka, KEF",
-      pic: "https://blog.spoongraphics.co.uk/wp-content/uploads/2016/05/25.jpg"
-    },
-    {
-      id: 3,
-      name: "EVENT - some names",
-      place: "Yuka, KEF",
-      pic: "https://piktochart.com/wp-content/uploads/2018/01/4.jpg"
-    },
-    {
-      id: 4,
-      name: "EVENT - some names",
-      place: "Yuka, KEF",
-      pic:
-        "https://st2.depositphotos.com/4312111/7742/v/950/depositphotos_77425808-stock-illustration-retro-poster-summer-party-and.jpg"
-    },
-    {
-      id: 5,
-      name: "EVENT - some names",
-      place: "Yuka, KEF",
-      pic:
-        "https://st2.depositphotos.com/3391779/10821/v/950/depositphotos_108216990-stock-illustration-beach-party-flyer-or-poster.jpg"
-    },
-    {
-      id: 5,
-      name: "EVENT - some names",
-      place: "Yuka, KEF",
-      pic:
-        "https://st2.depositphotos.com/3608591/11258/v/950/depositphotos_112589986-stock-illustration-tropic-summer-beach-party-tropic.jpg"
-    },
-    {
-      id: 6,
-      name: "EVENT - some names",
-      place: "Yuka, KEF",
-      pic:
-        "https://st2.depositphotos.com/4813335/11049/v/950/depositphotos_110494828-stock-illustration-club-party-flyer-hello-summer.jpg"
-    }
-  ];
+  news = [] as any;
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -144,11 +96,15 @@ export class HomePage {
       });*/
 
     /* Liste des evenements */
-    this.evenementListRef$ = this.database
+     this.database
       .list("evenement")
-      .valueChanges() /*.map(changes => {
+      .valueChanges().subscribe(news => {
+        this.news = news;
+        console.log(this.news);
+      }) /*.map(changes => {
         return changes.map( c => ({key : c.payload.key,...c.payload.val()}))
       })*/;
+     // this.news = this.evenementListRef$;
     this.promotionListRef$ = this.database
       .list("promotion")
       .valueChanges() /*.map(changes => {
@@ -239,12 +195,15 @@ export class HomePage {
     this.userpovider.logOut();
   }
   navigateToChilloutPage() {
+    console.log('545')
     this.navCtrl.push(ChilloutPage, { category: "chillout" });
   }
-  navigateToBeautyage() {
-    this.navCtrl.push(ChilloutPage, { category: "beauty" });
+  navigateToBeautyPage(){
+    console.log('545')
+    this.navCtrl.push(ChilloutPage , {category : 'beauty'});
   }
   navigateToShoppingPage() {
+    console.log('545')
     this.navCtrl.push(ChilloutPage, { category: "shopping" });
   }
   navigateTo(page) {

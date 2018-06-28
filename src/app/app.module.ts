@@ -26,6 +26,8 @@ import { Ionic2RatingModule } from "ionic2-rating";
 import { AngularFireModule } from "angularfire2";
 import { AngularFireAuthModule } from "angularfire2/auth";
 import { AngularFireDatabaseModule } from "angularfire2/database";
+import { SearchRadioPipe } from '../providers/user/pipe_search'
+
 import { TabsPage } from "../pages/tabs/tabs";
 // import { AngularFireStorageModule } from "angularfire2/storage";
 // import { AngularFirestoreModule } from "angularfire2/firestore";
@@ -46,6 +48,7 @@ import { UserProvider } from "../providers/user/user";
     HomePage,
     BlockPage,
     SettingProfil2Page,
+    SearchRadioPipe,
     SettingSecurityPage,
     TabsPage,
     FindFriendPage
@@ -83,6 +86,7 @@ import { UserProvider } from "../providers/user/user";
     SplashScreen,
     Dialogs,
     UserProvider,
+    SearchRadioPipe,
     { provide: ErrorHandler, useClass: IonicErrorHandler }
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
