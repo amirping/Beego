@@ -4,8 +4,8 @@ import { StatusBar } from "@ionic-native/status-bar";
 import { SplashScreen } from "@ionic-native/splash-screen";
 
 import { LandingPage } from "../pages/landing/landing";
-import {ProfilPage} from '../pages/profil/profil'
 import { TabsPage } from "../pages/tabs/tabs";
+
 import { UserProvider } from '../providers/user/user';
 
 
@@ -13,7 +13,7 @@ import { UserProvider } from '../providers/user/user';
   templateUrl: "app.html"
 })
 export class MyApp {
-  rootPage:any=ProfilPage ;
+  rootPage:any ;
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,public userProvider: UserProvider) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
@@ -22,7 +22,6 @@ export class MyApp {
       splashScreen.hide();
     });
     const sub = this.userProvider.isConnect().subscribe(state=>{
-      console.log(state);
       if(state){
         if(state.emailVerified){
           console.log("set user");
@@ -39,7 +38,6 @@ export class MyApp {
           this.userProvider.logOut();
        }
       }else{
-        console.log("disconect");
         this.rootPage = LandingPage;
       }
       sub.unsubscribe();

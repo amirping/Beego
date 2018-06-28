@@ -26,7 +26,18 @@ export class ProfilPage {
   }
   
   ionViewDidLoad() {
+    console.log(" profile");
     this.user = this.userProvider.getCurrentUser();
+  }
+  ionViewDidEnter(){
+    this.userProvider.observeUser(user=>{
+      this.user = user;
+      console.log("seen");
+    });
+  }
+  ionViewWillLeave(){
+    console.log("fffffff");
+    this.userProvider.unobserveUser();
   }
   formatFollows(nbr:number):string{
     return nbr+"";
@@ -35,7 +46,7 @@ export class ProfilPage {
     this.navCtrl.push(ListOfFollowsPage);
   }
   paramPage(){
-    this.navCtrl.push(SettingProfilPage);
+    this.navCtrl.push(SettingProfilPage, {fb:this.user.fbLink, insta:this.user.instaLink, snap:this.user.snapLink});
   }
   back(){
     this.navCtrl.pop();

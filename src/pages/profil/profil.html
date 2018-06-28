@@ -77,7 +77,7 @@
               <div>
                 <div class="follows">
                   
-                  <button class="follows-button" (click)="folowsPage()">
+                  <button class="follows-button" (click)="logout()">
                     Follows
                     <img class="follows-img" src="../../assets/imgs/profil/icon-user.svg" alt="">
                   </button>
@@ -99,19 +99,19 @@
             <ion-col *ngIf="user.fbLink">
               <div class="fb-icon">
                 <img class="img-fb" src="../../assets/imgs/profil/fb-icon.svg" alt="">
-                <a href="user.fbLink" class="nomprenom" target="_blank"> Facebook</a>
+                <a [href]="'https://'+user.fbLink" class="nomprenom" target="_blank"> Facebook</a>
               </div>
             </ion-col>
             <ion-col *ngIf="user.instaLink">
               <div class="insta-icon">
                 <img class="img-insta" src="../../assets/imgs/profil/insta.svg" alt="">
-                <a href="user.instaLink" target="_new" class="nomprenom" for=""> Instagram</a>
+                <a [href]="'https://'+user.instaLink" target="_new" class="nomprenom" for=""> Instagram</a>
               </div>
             </ion-col>
             <ion-col *ngIf="user.snapLink">
               <div class="snap-icon">
                 <img class="img-snap" src="../../assets/imgs/profil/snap-icon.svg" alt="">
-                <a href="user.snapLink" class="nomprenom" target="_new" for=""> Snapchat</a>
+                <a [href]="'https://'+user.snapLink" class="nomprenom" target="_new" for=""> Snapchat</a>
               </div>
             </ion-col>
           </ion-row>

@@ -12,4 +12,7 @@ export interface User{
     following?: number;
     coverURL?: string;
     bio?: string;
+    fbLink?: string;
+    instaLink?: string;
+    snapLink?: string;
 }
