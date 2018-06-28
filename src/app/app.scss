@@ -86,19 +86,19 @@ a[aria-selected=true] {
 .tabs-md {
 a[aria-selected=false]{
   .tab-button-icon[ng-reflect-name=Acceuil], .tab-button-icon[aria-label=Acceuil] {
-      background-image: url(../assets/img/categories_inactive.png);
+    background-image: url(../assets/Tabs_Icons/Acceuil_icon.svg);
   }
   .tab-button-icon[ng-reflect-name=Explore], .tab-button-icon[aria-label=Explore] {
-      background-image: url(../assets/img/explore_inactive.png);
+    background-image: url(../assets/Tabs_Icons/Explore_icon.svg);
   }
   .tab-button-icon[ng-reflect-name=Navigation], .tab-button-icon[aria-label=Navigation] {
-      background-image: url(../assets/img/hot_inactive.png);
+    background-image: url(../assets/Tabs_Icons/Navigation_icon.svg);
   }
   .tab-button-icon[ng-reflect-name=Notification], .tab-button-icon[aria-label=Notification] {
-      background-image: url(../assets/Tabs_Icons/Notif_icon_S.svg);
+      background-image: url(../assets/Tabs_Icons/Notif_icon.svg);
   }
-.tab-button-icon[ng-reflect-name=Profile], .tab-button-icon[aria-label=Profile] {
-      background-image: url(../assets/Tabs_Icons/Profil_icon_S.svg);
+  .tab-button-icon[ng-reflect-name=Profile], .tab-button-icon[aria-label=Profile] {
+      background-image: url(../assets/Tabs_Icons/Profil_icon.svg);
   }
 }
 
@@ -108,39 +108,39 @@ a[aria-selected=true] {
     //color: #f00; //whatever colour you want to use for the text
   //}
   .tab-button-icon[ng-reflect-name=Acceuil], .tab-button-icon[aria-label=Acceuil] {
-      background-image: url(../assets/img/categories_inactive.png);
-  }
-  .tab-button-icon[ng-reflect-name=Explore], .tab-button-icon[aria-label=Explore] {
-      background-image: url(../assets/img/explore_inactive.png);
-  }
-  .tab-button-icon[ng-reflect-name=Navigation], .tab-button-icon[aria-label=Navigation] {
-      background-image: url(../assets/img/hot_inactive.png);
-  }
-  .tab-button-icon[ng-reflect-name=Notification], .tab-button-icon[aria-label=Notification] {
-        background-image: url(../assets/img/explore_inactive.png);
-  }
-  .tab-button-icon[ng-reflect-name=Profile], .tab-button-icon[aria-label=Profile] {
-        background-image: url(../assets/img/hot_inactive.png);
-  }
+    background-image: url(../assets/Tabs_Icons/Acceuil_icon_S.svg);
+}
+.tab-button-icon[ng-reflect-name=Explore], .tab-button-icon[aria-label=Explore] {
+    background-image: url(../assets/Tabs_Icons/Explore_icon_S1.svg);
+}
+.tab-button-icon[ng-reflect-name=Navigation], .tab-button-icon[aria-label=Navigation] {
+    background-image: url(../assets/Tabs_Icons/Navigation_icon.svg);
+}
+.tab-button-icon[ng-reflect-name=Notification], .tab-button-icon[aria-label=Notification] {
+      background-image: url(../assets/Tabs_Icons/Notif_icon_S.svg);
+}
+.tab-button-icon[ng-reflect-name=Profile], .tab-button-icon[aria-label=Profile] {
+      background-image: url(../assets/Tabs_Icons/Profil_icon_S.svg);
+}
 }
 }
 
 .tabs-wp {
 a[aria-selected=false]{
   .tab-button-icon[ng-reflect-name=Acceuil], .tab-button-icon[aria-label=Acceuil] {
-      background-image: url(../assets/img/categories_inactive.png);
+    background-image: url(../assets/Tabs_Icons/Acceuil_icon.svg);
   }
   .tab-button-icon[ng-reflect-name=Explore], .tab-button-icon[aria-label=Explore] {
-      background-image: url(../assets/img/explore_inactive.png);
+    background-image: url(../assets/Tabs_Icons/Explore_icon.svg);
   }
   .tab-button-icon[ng-reflect-name=Navigation], .tab-button-icon[aria-label=Navigation] {
-      background-image: url(../assets/img/hot_inactive.png);
+    background-image: url(../assets/Tabs_Icons/Navigation_icon.svg);
   }
   .tab-button-icon[ng-reflect-name=Notification], .tab-button-icon[aria-label=Notification] {
-        background-image: url(../assets/img/explore_inactive.png);
+      background-image: url(../assets/Tabs_Icons/Notif_icon.svg);
   }
   .tab-button-icon[ng-reflect-name=Profile], .tab-button-icon[aria-label=Profile] {
-        background-image: url(../assets/img/hot_inactive.png);
+      background-image: url(../assets/Tabs_Icons/Profil_icon.svg);
   }
 }
 
@@ -150,20 +150,20 @@ a[aria-selected=true] {
     //color: #f00; //whatever colour you want to use for the text
   //}
   .tab-button-icon[ng-reflect-name=Acceuil], .tab-button-icon[aria-label=Acceuil] {
-      background-image: url(../assets/img/categories_inactive.png);
-  }
-  .tab-button-icon[ng-reflect-name=Explore], .tab-button-icon[aria-label=Explore] {
-      background-image: url(../assets/img/explore_inactive.png);
-  }
-  .tab-button-icon[ng-reflect-name=Navigation], .tab-button-icon[aria-label=Navigation] {
-      background-image: url(../assets/img/hot_inactive.png);
-  }
-  .tab-button-icon[ng-reflect-name=Notification], .tab-button-icon[aria-label=Notification] {
-        background-image: url(../assets/img/explore_inactive.png);
-  }
-  .tab-button-icon[ng-reflect-name=Profile], .tab-button-icon[aria-label=Profile] {
-        background-image: url(../assets/img/hot_inactive.png);
-  }
+    background-image: url(../assets/Tabs_Icons/Acceuil_icon_S.svg);
+}
+.tab-button-icon[ng-reflect-name=Explore], .tab-button-icon[aria-label=Explore] {
+    background-image: url(../assets/Tabs_Icons/Explore_icon_S1.svg);
+}
+.tab-button-icon[ng-reflect-name=Navigation], .tab-button-icon[aria-label=Navigation] {
+    background-image: url(../assets/Tabs_Icons/Navigation_icon.svg);
+}
+.tab-button-icon[ng-reflect-name=Notification], .tab-button-icon[aria-label=Notification] {
+      background-image: url(../assets/Tabs_Icons/Notif_icon_S.svg);
+}
+.tab-button-icon[ng-reflect-name=Profile], .tab-button-icon[aria-label=Profile] {
+      background-image: url(../assets/Tabs_Icons/Profil_icon_S.svg);
+}
 }
 }
 button {
