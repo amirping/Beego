@@ -820,4 +820,129 @@ page-home {
   .mx-auto {
     margin: auto;
   }
+  header-acceuil-container{
+    display: flex ;
+    width: 100%;
+    height: 43px;
+    flex-direction: row;
+    padding-top: 9px;
+    
+    background-color: rgb(255, 102, 153) !important;
+    
+ }
+ .space{
+    justify-content: space-between;
+ }
+ .onsearch .hide-onserach,
+ .show-onserach{
+    display: none;
+ }
+ .onsearch .show-onserach{
+    display: flex;
+ }
+ 
+ .cleaner .hide-cleaner{
+    display: none;
+    
+    padding-top: 3px;
+
+ }
+ .cleaner .showcleaner{
+    display: flex;
+ }
+ 
+ .burger_menu{
+    
+    background-color: transparent;
+    background-repeat: no-repeat;
+ }
+ .titre{
+    text-align: center;
+    color:white;
+    position: relative;
+    width:50%;
+    font-size: 16px;
+ }
+    
+ 
+ .search{
+    background-color: transparent;
+    background-repeat: no-repeat;
+    float: right;
+   }
+  
+   .search:hover{
+    background-color: transparent;
+    background-repeat: no-repeat;
+     transform: scale(1.1);
+     }
+     .search:active{
+        background-color: transparent;
+        background-repeat: no-repeat;
+        transform: scale(1);
+        
+         }
+ 
+ .text-search{
+    background-color: rgb(243, 150, 166);
+    border-radius: 12px;
+  
+   height: 27px;
+   width: 100%;
+    border:none;
+    padding-left: 37px;
+    color:white !important;
+ }
+ .text-search::placeholder {
+    color: white;
+    font-size: 14px;
+    }
+ .for-search{
+    padding-left: 10px;
+     position: relative;
+     width: 240px;
+    
+ }
+ 
+ .cancel-search{
+    color: white;
+    margin-top: 3px;
+    font-size: 13px;
+    margin-left: 10px;
+ }
+ .cancel-search:hover{
+    color: white;
+    margin-top: 3px;
+    transform: scale(1.1);
+    margin-left: 10px;
+ }
+ .cancel-search:active{
+    color: white;
+    margin-top: 3px;
+    transform: scale(1);
+    margin-left: 10px;
+ }
+ .cancel-search-action{
+    background-color: transparent;
+    color: white;
+    float: right;
+ }
+ .clear-text{
+    position: absolute;
+    background-color: transparent;
+    top: 2px;
+    right: 6px;
+ }
+ .search-text-icon{
+    position: absolute;
+    background-color: transparent;
+    top: 3px;   
+    padding-top: 3px;
+ }
+ .search-text-icon:active{
+    position: absolute;
+    background-color: transparent;
+    top: 4px;
+    
+ }
 }

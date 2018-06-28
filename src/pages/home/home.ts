@@ -26,6 +26,11 @@ export class HomePage {
   profil() {
     this.navCtrl.push(ProfilPage);
   }
+  search = false;
+ 
+ searching(){
+   this.search = !this.search;
+ }
 
   @ViewChild(Slides) slides: Slides;
 
