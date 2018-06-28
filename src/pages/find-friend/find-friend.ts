@@ -15,6 +15,7 @@ import { IonicPage, NavController, NavParams } from "ionic-angular";
 })
 export class FindFriendPage {
   friends: any = [];
+  traited: any = [];
   activeFriend = 0;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.friends.push({
@@ -63,11 +64,23 @@ export class FindFriendPage {
   }
   acceptFriend(id) {
     this.friends[id].stat = 1;
-    this.activeFriend = id+1
+    //
+    this.traited.push(this.friends[id]);
+    //this.friends.shift();
+    this.activeFriend = id + 1;
   }
   rejectFriend(id) {
     this.friends[id].stat = -1;
-    this.activeFriend = id+1
+    this.traited.push(this.friends[id]);
+    //this.friends.shift();
+    this.activeFriend = id + 1;
   }
-  swiperHandler(Event) {}
+  swiperHandler(Event,id) {
+    if(Event.offsetDirection == 2 ){
+      this.acceptFriend(id)
+    }
+    else if(Event.offsetDirection == 4){
+      this.rejectFriend(id)
+    }
+  }
 }

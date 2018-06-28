@@ -16,17 +16,20 @@
     </ion-buttons>
   </ion-navbar>
 </ion-header>
-
-
 <ion-content>
-  <ion-grid>
+  <ion-grid class="back-stylesh">
     <ion-row class="beego-row-center">
-      <div class="holder">
-        <div *ngFor="let item of friends;let i= index" class="col friends" [class.active]="i == activeFriend" [class.slide-left]="item.stat == '1'" [class.slide-right]="item.stat == '-1'">
-          <div class="row">
-            <img src="{{item.pic}}" alt="" class="cover">
+      <div class="holder" *ngIf="friends.length > 0 && traited.length != friends.length">
+        <div *ngFor="let item of friends;let i= index;let first = first" class="col friends" [class.active]="i == activeFriend" [class.slide-left]="item.stat == '1'"
+          [class.slide-right]="item.stat == '-1'" (swipe)="swiperHandler($event,i)">
+          <div class="col main-wrap">
+            <div class="cover-holder">
+              <img src="https://images.unsplash.com/photo-1514904215020-2f15586b250e?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=895fd4bf73de899cfeda62d48a982820&dpr=1&auto=format&fit=crop&w=1000&q=80&cs=tinysrgb"
+                alt="" class="cover">
+            </div>
             <div class="row content">
-              <img src="{{item.pic}}" alt="" class="profile">
+              <img src="https://images.unsplash.com/photo-1514904215020-2f15586b250e?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=895fd4bf73de899cfeda62d48a982820&dpr=1&auto=format&fit=crop&w=1000&q=80&cs=tinysrgb"
+                alt="" class="profile">
               <div>
                 <h2>{{item.name}}</h2>
                 <span class="location">
@@ -34,14 +37,27 @@
                   {{item.location}} ,
                   <strong>{{item.age}}</strong>
                 </span>
-                <button (click)="acceptFriend(i)">accept</button>
-                <button (click)="rejectFriend(i)">reject</button>
               </div>
+            </div>
+            <div class="center-row-childes">
+              <button class="button-profile" ion-button round>Voir profil</button>
             </div>
           </div>
         </div>
       </div>
-
+      <ion-col *ngIf="!friends || friends.length == 0 || traited.length == friends.length">
+        <p>
+          no Friends for now dude back later
+        </p>
+      </ion-col>
     </ion-row>
   </ion-grid>
 </ion-content>
+<svg height="0" width="0" viewbox="0 0 500 500">
+  <defs>
+    <clipPath id="hexagonPathFind" transform="scale(0.56 0.56)">
+      <path id="sug1-2Find" data-name="sug1" class="cls-1" d="M98.434,37.981V68.895A22.732,22.732,0,0,1,87.045,88.419L60.2,103.875a22.032,22.032,0,0,1-22.371,0l-12.2-7.322L11.389,88.419h-.407A22.357,22.357,0,0,1,0,68.895V37.981A19.8,19.8,0,0,1,.407,33.1a20.822,20.822,0,0,1,4.068-8.542,20.247,20.247,0,0,1,6.915-6.1L38.235,3A22.032,22.032,0,0,1,60.606,3L87.452,18.457A22.851,22.851,0,0,1,98.434,37.981Z"
+        transform="translate(0 0)" />
+    </clipPath>
+  </defs>
+</svg>
