@@ -4,7 +4,14 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-
+<ion-menu [content]="mycontent" type="push" (swipe)="handelChange($event)" (ionClose)="animateMenu = false" (ionOpen)="animateMenu = true" (ionDrag)="collectSwiper($event)">
+  <ion-content>
+    <ion-list>
+      <p>some menu content, could be list items</p>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+<div #mycontent class="home-wrapper"  [class.animateMenu]="animateMenu == true" [class.animateMenuClose]="animateMenuClose == true">
 <ion-header>
 <ion-navbar color="trans" [class.onsearch]="search"
  [class.cleaner]="hide_cleaner_button">
@@ -21,14 +28,14 @@
      </div>
      </ion-col>
     </ion-row>
-    </ion-grid>  
-   
-   
+    </ion-grid>
+
+
 
    </div>
-   
-   
- 
+
+
+
  <div class="header-acceuil-container show-onserach">
     <ion-grid>
         <ion-row>
@@ -37,7 +44,7 @@
      <input type="text" name="text_search" value="" placeholder="Recherche"
      class="text-search"
       id="text_search" [(ngModel)]="text_search">
-     
+
       <button class="search-text-icon"
        >
        <img src="../../assets/imgs/Search-Glyph.png" alt=""
@@ -49,16 +56,16 @@
 
    </div>
   </ion-col>
-   
+
         <ion-col>
-    
+
    <div class="cancel-search " >
      <button class="cancel-search-action" style="padding-top: 5px;"
       (click)="searching()">Annuler</button>
    </div>
   </ion-col>
 </ion-row>
-</ion-grid>  
+</ion-grid>
  </div>
 
  </ion-navbar>
@@ -327,14 +334,14 @@
           <div class="person-card" *ngFor="let item of connaissanceListRef$ |
           async">
             <img src="http://i.pravatar.cc/60" alt="">
-            
+
             <span class="name">{{item.Prenom}}  {{item.Nom}} </span>
             <span class="location">{{item.Place}}, {{item.Region}}</span>
             <button ion-button small round icon-start>
               <ion-icon name="person-add"></ion-icon>
               S'abonner</button>
           </div>
-          
+
         </div>
       </ion-col>
 
@@ -396,7 +403,7 @@
               </span>
             </div>
           </div>
-          
+
         </div>
       </ion-col>
 
@@ -457,8 +464,8 @@
                 Annuler</button>
             </div>
           </div>
-          
-          
+
+
         </div>
       </ion-col>
       <!-- <ion-col col-8>
@@ -524,3 +531,4 @@
   </button>
 
 </ion-content>
+</div>

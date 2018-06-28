@@ -9,7 +9,7 @@ import { AngularFireDatabase } from "angularfire2/database";
 import { LoginPage } from "../login/login";
 import { ProfilPage } from "../profil/profil";
 import { ChilloutPage } from "../chillout/chillout";
-
+import { MenuController } from "ionic-angular";
 /**
  * Generated class for the HomePage page.
  *
@@ -28,14 +28,14 @@ export class HomePage {
   }
 
   search = false;
- 
+
  searching(){
    this.search = !this.search;
  }
 
 
   @ViewChild(Slides) slides: Slides;
-
+  animateMenu = false;
   evenementListRef$: Observable<any[]>;
   espacesListRef$: Observable<any[]>;
   promotionListRef$: Observable<any[]>;
@@ -60,7 +60,8 @@ export class HomePage {
     public navCtrl: NavController,
     public navParams: NavParams,
     private database: AngularFireDatabase,
-    private userpovider: UserProvider
+    private userpovider: UserProvider,
+    public menuCtrl: MenuController
   ) {
 
     /* Liste des espaces */
@@ -219,5 +220,24 @@ export class HomePage {
       default:
         break;
     }
+  }
+  handelChange(Event) {
+    console.log(Event);
+    if (this.menuCtrl.isAnimating) {
+      console.log("animation there ");
+    }
+    if (Event.offsetDirection == 4) {
+      if (!this.menuCtrl.isOpen()) {
+        this.animateMenu = true;
+        this.menuCtrl.open();
+      }
+    } else if (Event.offsetDirection == 2) {
+      this.animateMenu = false;
+      this.menuCtrl.close();
+    }
+  }
+  collectSwiper(ev) {
+    console.log("collecting to drag");
+    console.log(ev);
   }
 }
