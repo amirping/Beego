@@ -11,24 +11,16 @@ page-friend-profil {
     overflow: hidden;
     text-align: center;
   }
-  // .testt{
-  //   width:100%;
-  //       height: 100%;
-  //       position: absolute;
-  //       top: 0;
-  //       right: 0;
-  //       filter: blur(8px);
-  // }
     .profil-friend-part{
         width:100%;
         height: 100%;
         position: relative;
       }
       .img-friend{
-        max-width: 532px;
         background-repeat: no-repeat;
-        // width: 100%;
+        width: 100%;
         height: 100%;
+        object-fit: cover;
 
       }
       .x-friend-profil{
@@ -44,13 +36,13 @@ page-friend-profil {
         height: 39px;
       }
       .abonnes{
-        margin-top: -32px;
+        margin-top: -28px;
         position: absolute;
         margin-left: 11%;
       }
       .suivis{
         position: absolute;
-        margin-top: -32px;
+        margin-top: -28px;
         right: 11%; 
       }
       .abonnes-number{
@@ -94,20 +86,7 @@ page-friend-profil {
         top:0px;
         padding: 0px !important;
        }
-       .take-photo-2{
-         position: relative;
-         margin-top: -32%;
-         margin-left: 57%;
-       }
-       .take-photo{
-        position: absolute;
-        top:23px;
-        
-        right: 44px; 
-      }
-      .take-photo-button{
-        background-color: transparent;
-      }
+     
       .take-photo-img{
         width: 29px;
         height: 29;
@@ -116,13 +95,16 @@ page-friend-profil {
         transform: scale(0.8);
       }
       .name-lname{
-        margin-top: 39px;
+        margin-top: 40px;
         margin-left: -8%;
        
       }
       .nom{
         font-weight:bolder;
-        font-size: 12px;
+        font-size: 13px;
+      }
+      .lieuclass{
+        margin-top: 4px;
       }
    
       .lieu-img{
@@ -130,23 +112,19 @@ page-friend-profil {
         height: 12px;
       }
       .lieu{
-        font-size: 10px;
-        
+        font-size: 11px;
       }
       .abonne{
       
-        border-radius: 23px;
-        background-color: rgb(242,40,118);
         width:85PX;
         height: 28px;
         margin-top: 42px;
         margin-right: 6%;      }
       
       .abonne-button{
-        background-color: transparent;
-        padding-top: 10%;
-        padding-left: 18%;
-        font-size: 12px;
+        background-color: rgb(242,40,118);
+        margin-top: 40px;
+        margin-right: 6%;  
       }
       .para{
         margin-left: 27px;

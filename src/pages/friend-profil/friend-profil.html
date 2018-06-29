@@ -11,13 +11,8 @@
     <ion-grid  no-padding class="grid-size" >
         <ion-row class="photo-row">
           <ion-col>
-              <!-- (load)="dosomething(img,imgbgcolor)" -->
-              <!-- <div class="testt">
-                  <img class="img-friend" 
-                  src="../../assets/imgs/friend-profil/friendPhoto.png" alt="">
-              </div> -->
-            <div class="profil-friend-part " #imgbgcolor   >
-              <img class="img-friend" #img (load)="dosomething(img,imgbgcolor)"
+           
+              <img class="img-friend" 
               src="../../assets/imgs/friend-profil/friendPhoto.png" alt="">
                 <div class="x-friend-profil">
                     <button class="x-friend-button"
@@ -25,7 +20,6 @@
                       <img src="../../assets/imgs/friend-profil/xmlid.svg"
                        alt="" class="x-friend-img">
                     </button>
-                  </div>
                  
             </div>
           </ion-col>
@@ -33,7 +27,7 @@
         <ion-row class="position-info" >
           <ion-col >
               <div class="abonnes">
-                  <label class="abonnes-number" for="">16K abonés </label>
+                  <label class="abonnes-number" for="">16K abonnés </label>
                 </div>
                 <div class="suivis">
                 <label class="suivis-number" for="">1,2K suivis </label>
@@ -46,34 +40,26 @@
                            <div class="bee-hexagon">
                              <img src="../../assets/imgs/photoDeProfil.png" alt="">
                            </div>
-                           <div class="take-photo-2">
-                             <button class="take-photo-button">
-                                 <img src="../../assets/imgs/profil/takePhoto.svg" alt="" 
-                                 class="take-photo-img">
-                             </button>
-                           </div>
+                           
                              <div class="bee-edit-icon bee-edit-photo"></div>
                            </div>
                            
                     </div>
-                         <!-- <ion-col> -->
                            <div class="name-lname">
                             <div >
                                 <label class="nom" for="">Nom prenom </label> 
                                </div>
-                               <div >
+                               <div class="lieuclass">
                                  <img class="lieu-img" src="../../assets/imgs/profil/Tracé.svg" alt="">
                                  <label class="lieu" for="">
                                    le bardo , 24 ans</label> 
                                </div>
                               </div>
-                              <!-- </ion-col> -->
-                              <!-- <ion-col> -->
-                                  <div class="abonne">
-                                     <button  class="abonne-button" (click)="folowsPage()">
+                                  <!-- <div class="abonne"> -->
+                                     <button ion-button round class="abonne-button">
                                        S'abonner
                                      </button>
-                                   </div>
+                                   <!-- </div> -->
                                   <!-- </ion-col> -->
                                   </div>
                     </ion-row>
