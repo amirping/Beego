@@ -12,7 +12,9 @@ import {SettingSecurityPage} from '../pages/setting-security/setting-security'
 import {ProfilPage} from '../pages/profil/profil';
 import {PersonalHistoryPage} from '../pages/personal-history/personal-history';
 import {FriendProfilPage } from '../pages/friend-profil/friend-profil';
-import {FriendFollowPage} from '../pages/friend-follow/friend-follow'
+import {FriendFollowPage} from '../pages/friend-follow/friend-follow';
+import { PopupPage} from '../pages/popup/popup';
+
 
 
 import { UserProvider } from '../providers/user/user';

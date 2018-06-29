@@ -1,9 +1,8 @@
 page-friend-follow {
-    .opacityNon{
-        opacity:0;
-    }
-    
-  .grid-size{
+  .blur{
+    filter: blur(4px);
+  }
+   .grid-size{
     height: 100%;
     flex-grow: 1;
 

@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { ActionSheetController } from 'ionic-angular';
+import { Dialogs } from '@ionic-native/dialogs';
+import { AlertController } from 'ionic-angular';
+import { PopupPage } from '../popup/popup';
 
 /**
  * Generated class for the FriendFollowPage page.
@@ -15,30 +18,60 @@ import { ActionSheetController } from 'ionic-angular';
   templateUrl: 'friend-follow.html',
 })
 export class FriendFollowPage {
-    hideRow=false;
+  
+   disabled=false;
+    
   constructor(public navCtrl: NavController, public navParams: NavParams,
-    public actionSheetCtrl: ActionSheetController) {
+    public actionSheetCtrl: ActionSheetController,
+    private dialogs: Dialogs,
+    private modalCtrl : ModalController,
+    private alertCtrl: AlertController) {
+      // this.modalCtrl.create(PopupPage, null, { cssClass: 'popup-modal' }).present();
   }
   show(){
-    this.hideRow = true;
+    
       this.presentActionSheet();
   }
   presentActionSheet() {
     let actionSheet = this.actionSheetCtrl.create({
-      title: 'Modify your album',
+      // title: 'Modify your album',
       buttons: [
         {
           text: 'supprimer',
           role: 'destructive',
           handler: () => {
-            this.hideRow=false;
+            
             console.log('Destructive clicked');
           }
         },
         {
-          text: 'Archive',
+          text: 'signaler',
+        
           handler: () => {
-            this.hideRow=false;
+            this.disabled=true;
+          const modal1= this.modalCtrl.create(PopupPage, null, { cssClass: 'popup-modal' });
+          modal1.present();
+          modal1.onDidDismiss(()=>{
+            this.disabled=false;
+          });
+            
+            console.log('Destructive tttt');
+          }
+        },
+        {
+          text: 'bloquer',
+          
+          handler: () => {
+            this.dialogs.confirm("Si vous le débloquer ... "
+            , "Voulez vous bloqué prenom ?", ['Bloquer','Annuler']);
+            
+            console.log('Destructive clicked');
+          }
+        },
+        {
+          text: 'bloquer les notifications',
+          handler: () => {
+            
             console.log('Archive clicked');
           }
         },
@@ -46,7 +79,7 @@ export class FriendFollowPage {
           text: 'Cancel',
           role: 'cancel',
           handler: () => {
-              this.hideRow=false;
+              
             console.log('Cancel clicked');
           }
         }
