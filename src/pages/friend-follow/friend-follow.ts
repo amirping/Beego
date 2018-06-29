@@ -40,8 +40,8 @@ export class FriendFollowPage {
           text: 'supprimer',
           role: 'destructive',
           handler: () => {
-            
-            console.log('Destructive clicked');
+            this.dialogs.confirm("Si vous le supprimer   ... "
+            , "Voulez vous supprimer prenom ?", ['Supprimer','Annuler']);
           }
         },
         {
@@ -55,7 +55,6 @@ export class FriendFollowPage {
             this.disabled=false;
           });
             
-            console.log('Destructive tttt');
           }
         },
         {
@@ -65,14 +64,14 @@ export class FriendFollowPage {
             this.dialogs.confirm("Si vous le débloquer ... "
             , "Voulez vous bloqué prenom ?", ['Bloquer','Annuler']);
             
-            console.log('Destructive clicked');
           }
         },
         {
           text: 'bloquer les notifications',
           handler: () => {
+            this.dialogs.confirm("Si vous les débloquer les notification  ... "
+            , "Voulez vous bloqué les notification du prenom ?", ['Bloquer','Annuler']);
             
-            console.log('Archive clicked');
           }
         },
         {
@@ -89,57 +88,57 @@ export class FriendFollowPage {
     actionSheet.present();
   }
 
-  dosomething(img,imgbgcolor){
+  // dosomething(img,imgbgcolor){
     
-    var rgb = getAverageRGB(img);
-    imgbgcolor.style.backgroundColor = 'rgb('+rgb.r+','+rgb.g+','+rgb.b+')';
-    function getAverageRGB(imgEl) {
+  //   var rgb = getAverageRGB(img);
+  //   imgbgcolor.style.backgroundColor = 'rgb('+rgb.r+','+rgb.g+','+rgb.b+')';
+  //   function getAverageRGB(imgEl) {
     
-      var blockSize = 5, // only visit every 5 pixels
-          defaultRGB = {r:0,g:0,b:0}, // for non-supporting envs
-          canvas = document.createElement('canvas'),
-          context = canvas.getContext && canvas.getContext('2d'),
-          data, width, height,
-          i = -4,
-          length,
-          rgb = {r:0,g:0,b:0},
-          count = 0;
+  //     var blockSize = 5, // only visit every 5 pixels
+  //         defaultRGB = {r:0,g:0,b:0}, // for non-supporting envs
+  //         canvas = document.createElement('canvas'),
+  //         context = canvas.getContext && canvas.getContext('2d'),
+  //         data, width, height,
+  //         i = -4,
+  //         length,
+  //         rgb = {r:0,g:0,b:0},
+  //         count = 0;
           
-      if (!context) {
-          return defaultRGB;
-      }
+  //     if (!context) {
+  //         return defaultRGB;
+  //     }
       
-      height = canvas.height = imgEl.naturalHeight || imgEl.offsetHeight || imgEl.height;
-      width = canvas.width = imgEl.naturalWidth || imgEl.offsetWidth || imgEl.width;
+  //     height = canvas.height = imgEl.naturalHeight || imgEl.offsetHeight || imgEl.height;
+  //     width = canvas.width = imgEl.naturalWidth || imgEl.offsetWidth || imgEl.width;
       
-      context.drawImage(imgEl, 0, 0);
+  //     context.drawImage(imgEl, 0, 0);
       
-      try {
-          data = context.getImageData(0, 0, width, height);
-      } catch(e) {
-          /* security error, img on diff domain */alert('x');
-          return defaultRGB;
-      }
+  //     try {
+  //         data = context.getImageData(0, 0, width, height);
+  //     } catch(e) {
+  //         /* security error, img on diff domain */alert('x');
+  //         return defaultRGB;
+  //     }
       
-      length = data.data.length;
+  //     length = data.data.length;
       
-      while ( (i += blockSize * 4) < length ) {
-          ++count;
-          rgb.r += data.data[i];
-          rgb.g += data.data[i+1];
-          rgb.b += data.data[i+2];
-      }
+  //     while ( (i += blockSize * 4) < length ) {
+  //         ++count;
+  //         rgb.r += data.data[i];
+  //         rgb.g += data.data[i+1];
+  //         rgb.b += data.data[i+2];
+  //     }
       
-      // ~~ used to floor values
-      rgb.r = ~~(rgb.r/count);
-      rgb.g = ~~(rgb.g/count);
-      rgb.b = ~~(rgb.b/count);
+  //     // ~~ used to floor values
+  //     rgb.r = ~~(rgb.r/count);
+  //     rgb.g = ~~(rgb.g/count);
+  //     rgb.b = ~~(rgb.b/count);
       
-      return rgb;
+  //     return rgb;
       
-  }
+  // }
 
-  }
+  // }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad FriendFollowPage');

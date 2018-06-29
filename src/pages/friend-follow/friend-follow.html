@@ -13,8 +13,9 @@
                   <img class="img-friend" 
                   src="../../assets/imgs/friend-profil/friendPhoto.png" alt="">
               </div> -->
-            <div class="profil-friend-part " #imgbgcolor   >
-              <img class="img-friend" #img (load)="dosomething(img,imgbgcolor)"
+              <!-- #img (load)="dosomething(img,imgbgcolor)"  #imgbgcolor-->
+            <!-- <div class="profil-friend-part "    > -->
+              <img class="img-friend" 
               src="../../assets/imgs/friend-follow/coverPhoto.png" alt="">
                 <div class="x-friend-profil">
                     <button class="x-friend-button"
@@ -24,13 +25,17 @@
                     </button>
                   </div>
                  
-            </div>
+            <!-- </div> -->
           </ion-col>
         </ion-row>
         <ion-row class="position-info"  >
           <ion-col >
+            <div class="hideclass">
+              <img class="hideimg"
+               src="../../assets/imgs/friend-follow/hide.svg" alt="">
+            </div>
                 <div class="suivis">
-                <label class="suivis-number" for="">1,2K suivis </label>
+                <span class="suivis-number" for="">1,2K abonnés </span>
               </div>
             <div class="info-friend">
                 <ion-row  >
@@ -40,17 +45,11 @@
                            <div class="bee-hexagon">
                              <img src="../../assets/imgs/photoDeProfil.png" alt="">
                            </div>
-                           <div class="take-photo-2">
-                             <button class="take-photo-button">
-                                 <img src="../../assets/imgs/profil/takePhoto.svg" alt="" 
-                                 class="take-photo-img">
-                             </button>
-                           </div>
+                           
                              <div class="bee-edit-icon bee-edit-photo"></div>
                            </div>
                            
                     </div>
-                         <!-- <ion-col> -->
                            <div class="name-lname">
                             <div >
                                 <label class="nom" for="">Nom prenom </label> 
@@ -61,14 +60,11 @@
                                    le bardo , 24 ans</label> 
                                </div>
                               </div>
-                              <!-- </ion-col> -->
-                              <!-- <ion-col> -->
-                                  <div class="abonne">
-                                     <button   class="abonne-button" (click)="show()">
-                                       abonné(e)
+                                  
+                                     <button ion-button round class="abonne-button" (click)="show()">
+                                       Abonné(e)
                                      </button>
-                                   </div>
-                                  <!-- </ion-col> -->
+                                   
                                   </div>
                     </ion-row>
                     <ion-row>
@@ -77,28 +73,23 @@
                         <p class="para-style">Welcom to my world .. Tunisian Girl .. mom of  baby baya </p>
                       </div></ion-col></ion-row>
                       <ion-row>
-                        <!-- <ion-col> -->
                           <div class="class-icons">
                           <div class="fb-icon">
                               <img class="img-fb"
                                src="../../assets/imgs/profil/fb-icon.svg" alt="">
                               <span class="nomprenom" for="">NomPrenom</span>
                             </div>
-                          <!-- </ion-col> -->
-                          <!-- <ion-col> -->
                             <div class="insta-icon">
                                 <img class="img-insta"
                                  src="../../assets/imgs/profil/insta.svg" alt="">
                                 <span class="nomprenom" for="">NomPrenom</span>
                               </div>
-                            <!-- </ion-col><ion-col> -->
                               <div class="snap-icon">
                                   <img class="img-snap"
                                    src="../../assets/imgs/profil/snap-icon.svg" alt="">
                                   <span class="nomprenom" for="">NomPrenom</span>
                                 </div>
                               </div>
-                              <!-- </ion-col> -->
                             </ion-row>
                             <ion-row class=" space-cols">
                                 <button round  ion-button class="demander loacalisation" value="Demander son localisation" > Demander son localisation</button>
