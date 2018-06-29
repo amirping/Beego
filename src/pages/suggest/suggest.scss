@@ -1,0 +1,104 @@
+page-suggest {
+  font-family: "Raleway";
+  .full-height {
+    min-height: 100%;
+    padding: 0px;
+    margin: 0px;
+  }
+  .banner {
+    background: url(../../assets/imgs/suggest_img/degrad-.svg) left top no-repeat, url(../../assets/imgs/suggest_img/cover.jpg) center center no-repeat, ;
+    background-size: cover, cover;
+    padding: 16px;
+    padding-bottom: 0px;
+    .banner-top {
+      margin-bottom: 28px;
+      color: white;
+      justify-content: space-between;
+      .temp {
+        font-weight: 700;
+        font-size: 24px;
+      }
+      ion-icon {
+        font-weight: 700;
+        font-size: 24px;
+      }
+    }
+    .banner-bottom {
+      h2 {
+        margin: 0px;
+        color: white;
+        font-weight: 700;
+        font-size: 24px;
+      }
+      p {
+        color: white;
+        font-size: 11px;
+      }
+    }
+  }
+  rating ul {
+    padding: 0px;
+    text-align: start;
+    margin: 0px;
+    &.rating li {
+      padding: 5px 0px !important;
+      background: none;
+      color: #ffb400;
+      text-align: center;
+      ion-icon {
+        font-size: 16px;
+      }
+    }
+  }
+  .grid-viewr {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  .grid-viewr .card-suggest {
+    margin-top: 21px;
+    width: 100px;
+    display: flex;
+    flex-direction: column;
+  }
+  .grid-viewr .card-suggest .img {
+    height: 109px;
+    width: 100%;
+    clip-path: url(#hexagonPathSuggest);
+  }
+  .grid-viewr .card-suggest span.title {
+    margin-top: 8px;
+    color: #5c6877;
+    font-family: "Raleway";
+    font-size: 12px;
+    font-weight: 400;
+    text-align: center;
+  }
+  .grid-viewr .card-suggest span.sub-title {
+    color: #8093ab;
+    font-family: "Raleway";
+    font-size: 10px;
+    font-weight: 400;
+    text-align: center;
+  }
+  .rating-suggest {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  .rating-suggest ul {
+    padding: 0px;
+    text-align: center;
+    margin: 0px;
+    &.rating li {
+      padding: 5px 0px !important;
+      background: none;
+      color: #ffb400;
+      text-align: center;
+      ion-icon {
+        font-size: 12px;
+      }
+    }
+  }
+}
