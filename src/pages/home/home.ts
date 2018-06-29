@@ -1,3 +1,4 @@
+import { SuggestPage } from "./../suggest/suggest";
 import { FindFriendPage } from "./../find-friend/find-friend";
 import { UserProvider } from "./../../providers/user/user";
 import { Component } from "@angular/core";
@@ -29,10 +30,9 @@ export class HomePage {
 
   search = false;
 
- searching(){
-   this.search = !this.search;
- }
-
+  searching() {
+    this.search = !this.search;
+  }
 
   @ViewChild(Slides) slides: Slides;
   animateMenu = false;
@@ -63,7 +63,6 @@ export class HomePage {
     private userpovider: UserProvider,
     public menuCtrl: MenuController
   ) {
-
     /* Liste des espaces */
     this.espacesListRef$ = this.database
       .list("espace")
@@ -100,22 +99,22 @@ export class HomePage {
       });*/
 
     /* Liste des evenements */
-     this.database
+    this.database
       .list("evenement")
-      .valueChanges().subscribe(news => {
+      .valueChanges()
+      .subscribe(news => {
         this.news = news;
         console.log(this.news);
       }) /*.map(changes => {
         return changes.map( c => ({key : c.payload.key,...c.payload.val()}))
       })*/;
-     // this.news = this.evenementListRef$;
+    // this.news = this.evenementListRef$;
     this.promotionListRef$ = this.database
       .list("promotion")
       .valueChanges() /*.map(changes => {
         return changes.map( c => ({key : c.payload.key,...c.payload.val()}))
       })*/;
     this.allNewsData = this.evenementListRef$;
-
   }
 
   ionViewDidLoad() {
@@ -200,15 +199,15 @@ export class HomePage {
     this.userpovider.logOut();
   }
   navigateToChilloutPage() {
-    console.log('545')
+    console.log("545");
     this.navCtrl.push(ChilloutPage, { category: "chillout" });
   }
-  navigateToBeautyPage(){
-    console.log('545')
-    this.navCtrl.push(ChilloutPage , {category : 'beauty'});
+  navigateToBeautyPage() {
+    console.log("545");
+    this.navCtrl.push(ChilloutPage, { category: "beauty" });
   }
   navigateToShoppingPage() {
-    console.log('545')
+    console.log("545");
     this.navCtrl.push(ChilloutPage, { category: "shopping" });
   }
   navigateTo(page) {
@@ -216,7 +215,9 @@ export class HomePage {
       case "FindFriendPage":
         this.navCtrl.push(FindFriendPage);
         break;
-
+      case "suggest":
+        this.navCtrl.push(SuggestPage);
+        break;
       default:
         break;
     }
