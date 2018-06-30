@@ -30,8 +30,8 @@
         <span class="titre-item"> Parametre du profil </span>
       </div>
     </ion-item>
-    <ion-item detail-push (click)="goTosecurity()">
-      <button ionic-start class="mdp_icon">
+    <ion-item detail-push (click)="goTosecurity()" [class.disabled]="!passwordUpdatable">
+      <button ionic-start class="mdp_icon" [disabled]="!passwordUpdatable">
         <img src="../../assets/imgs/param/mdp-icon.svg">
       </button>
       <span class="titre-item"> Changer le mot de passe</span>

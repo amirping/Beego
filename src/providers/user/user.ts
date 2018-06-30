@@ -3,7 +3,7 @@ import { AngularFireAuth } from "angularfire2/auth";
 import { User } from "../../models/user.interface";
 import { AngularFireDatabase } from "angularfire2/database";
 import firebase from 'firebase';
-import { Subscription } from "rxjs/Subscription";
+import { Observable } from "rxjs/Observable";
 /*
   Generated class for the UserProvider provider.
 
@@ -13,7 +13,7 @@ import { Subscription } from "rxjs/Subscription";
 @Injectable()
 export class UserProvider {
   user = {} as User;
-  userSubscription : Subscription;
+  
   constructor(
     public auth: AngularFireAuth,
     public db: AngularFireDatabase
@@ -51,24 +51,18 @@ export class UserProvider {
         });
     });
   }
-  observeUser(clbk){
-    const uid = this.auth.auth.currentUser.uid;
-    this.userSubscription  = this.db
-      .object(`users/${uid}`)
-      .valueChanges()
-      .subscribe((user: any) => {
-          this.user = user;
-          this.user.uid = uid;
-        clbk(this.user);
-      });
-  }
-  unobserveUser(){
-    this.userSubscription.unsubscribe();
+  observeUser():Observable<any>{
+    return this.db
+      .object(`users/${this.auth.auth.currentUser.uid}`)
+      .valueChanges();
   }
   logOut() {
     this.auth.auth.signOut();
   }
-  getCurrentUser() {
+  getCurrentUser(user=null) {
+    if(user){
+      this.user ={...this.user,...user};
+    }
     return this.user;
   }
   signup(user: User, password: string, file: File) {
@@ -103,7 +97,7 @@ export class UserProvider {
           this.db.list("users").update(uid, user)
           .then(() => {
             resolve();
-            this.auth.auth.currentUser.sendEmailVerification();
+            this.sendEmailVerification();
             this.logOut();
           }).catch(err => {
             reject({ type: 2, err });
@@ -115,7 +109,16 @@ export class UserProvider {
       });
     });
   }
-  loginWithGoogle(nextStep, success, reject) {
+  sendEmailVerification(){
+    return new Promise((resolve, reject)=>{
+      this.auth.auth.currentUser.sendEmailVerification().then(()=>{
+        resolve()
+      }).catch(err=>{
+        reject(err);
+      });
+    })
+  }
+  loginWithGoogle(nextStep, success, reject) {    
     this.auth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider())
     .then(res => {
       const af = res.additionalUserInfo;
@@ -127,7 +130,6 @@ export class UserProvider {
           firstName: af.profile.given_name,
           lastName: af.profile.family_name
         };
-        console.log(user);
         nextStep(user);
       } else {
         this.setUser()
@@ -254,6 +256,71 @@ export class UserProvider {
     instaLink = instaLink||"";
     snapLink = snapLink||"";
     return this.db.list('users').update(this.auth.auth.currentUser.uid, {fbLink, instaLink, snapLink});
+  }
+  updatePassWord(oldPassword: string, newPassword: string): Promise<any>{
+    const user = this.auth.auth.currentUser;
+    return new Promise((resolve, reject)=>{
+      user.reauthenticateWithCredential(firebase.auth.EmailAuthProvider.credential(this.user.email, oldPassword))
+      .then(()=>{
+        user.updatePassword(newPassword).then(()=> {
+          resolve();
+        }).catch(function(err) {
+          reject(err);
+        });
+      })
+      .catch(err=>{
+        reject(err);
+      });
+    })
+  }
+  canCahngePassword():boolean{
+    const providerData = this.auth.auth.currentUser.providerData;
+    for (const p of providerData) {
+      if(p.providerId == "password"){
+        return true;
+      }
+    }
+    return false;
+  }
+  updateProfile(user: User){
+    delete user.email;
+    return new Promise((resolve, reject)=>{
+      const lastModif = new Date().getTime();
+      this.db.list('users').update(this.auth.auth.currentUser.uid, {...user,lastModif})
+      .then(()=>{
+        resolve();
+      }).catch(err=>{
+        err.invalidPassword = true;
+        reject(err);
+      });
+    })
+  }
+  updateEmail(email, password){
+    const user = this.auth.auth.currentUser;
+    return new Promise((resolve, reject)=>{
+      user.reauthenticateWithCredential(firebase.auth.EmailAuthProvider.credential(this.user.email, password))
+      .then(()=>{
+        console.log("we will try to update mail");
+        console.log(email);
+        user.updateEmail(email)
+        .then(()=> {
+          this.db.list('users').update(this.auth.auth.currentUser.uid, {email}).then(()=>{
+            resolve();
+          }).catch(err=>{
+            console.log(err);
+            reject(err);
+          });
+        }).catch(function(err) {
+          console.log(err);
+          reject(err);
+        });
+      })
+      .catch(err=>{
+        console.log(err);
+        reject(err);
+      });
+      
+    });
   }
   get GUID(): string {
     return (new Date().getTime().toString(36) +"_" + Math.random().toString(36).substring(2, 10));

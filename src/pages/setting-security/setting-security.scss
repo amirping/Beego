@@ -1,79 +1,77 @@
 page-setting-security {
-   
-        .beego-title-param{
-            position: relative;
-            font-size: 14PX;
-            text-align: center;
-            color: white;
-        }
-        .back{
-            position: absolute;
-            top: 40%;
-            z-index: 99;
-        }
-        .back-button-param{
-            background-color: transparent;
-            width: 65px;
-            
-            
-         } 
-          .back-img{
-            width: 64%;
-             
-          }
-          .paramGenerale{
-            position: relative;
-            margin-top: 3%;
-            margin-bottom: 6%;
-            color: rgb(105, 103, 103);
-        }
-        .para-security{
-            position: relative;
-            margin-top: -1%;
-            margin-bottom: 6%;
-            color: rgb(105, 103, 103);
-        }
-        .gird-security{
-            padding-top: 2%;
-            padding-left: 6%;
-            padding-right: 10%;
-        }
-        .text-search{
-            background-color: rgba(196, 191, 191, 0.39);
-            border-radius: 20px;
-           
-           height: 30px;
-           width: 100%;
-            border:none;
-            padding-left: 5%;
-            color:black !important;
-        }
-        .text-search::placeholder {
-            color: rgb(59, 52, 52);
-            font-size: 13px;
-            }
-            .para-row{
-                padding-bottom: 2%;
-                font-size: 13px;
-            }
-            .input-row{
-                padding-bottom: 7%;
-            }
-            .valider{
-                width: 126px;
-                height: 41px;
-                border-radius: 30px;
-                background-color: rgb(31,158,213);
-            }
-            .annuler{
-                width: 126px;
-                height: 41px;
-                border-radius: 30px;
-                background-color: transparent;
-                color: black;
-            }
-            .space-cols{
-                justify-content: space-around;
-                padding-top: 20%;
-            }
+  .beego-title-param {
+    position: relative;
+    font-size: 14PX;
+    text-align: center;
+    color: white;
+  }
+  .back {
+    position: absolute;
+    top: 40%;
+    z-index: 99;
+  }
+  .back-button-param {
+    background-color: transparent;
+    width: 65px;
+  }
+  .back-img {
+    width: 64%;
+  }
+  .paramGenerale {
+    position: relative;
+    margin-top: 3%;
+    margin-bottom: 6%;
+    color: rgb(105, 103, 103);
+  }
+  .para-security {
+    position: relative;
+    margin-top: -1%;
+    margin-bottom: 6%;
+    color: rgb(105, 103, 103);
+  }
+  .gird-security {
+    padding-top: 2%;
+    padding-left: 6%;
+    padding-right: 10%;
+  }
+  .text-search {
+    background-color: rgba(196, 191, 191, 0.39);
+    border-radius: 20px;
+    height: 30px;
+    width: 100%;
+    border: none;
+    padding-left: 5%;
+    color: black !important;
+    &.invalid {
+        border: solid 1px #a22d2d;
+    }
+  }
+  .text-search::placeholder {
+    color: rgb(59, 52, 52);
+    font-size: 13px;
+  }
+  .para-row {
+    padding-bottom: 2%;
+    font-size: 13px;
+  }
+  .input-row {
+    padding-bottom: 7%;
+  }
+  .valider {
+    width: 126px;
+    height: 41px;
+    border-radius: 30px;
+    background-color: rgb(31, 158, 213);
+  }
+  .annuler {
+    width: 126px;
+    height: 41px;
+    border-radius: 30px;
+    background-color: transparent;
+    color: black;
+  }
+  .space-cols {
+    justify-content: space-around;
+    padding-top: 20%;
+  }
 }

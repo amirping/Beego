@@ -29,6 +29,7 @@ export class SettingProfilPage {
   fbLinkTemp: string;
   instaLinkTemp: string;
   snapLinkTemp: string;
+  passwordUpdatable: boolean;
   constructor(public navCtrl: NavController,
     public userProvider: UserProvider,
     public loadCtrl: LoadingController,
@@ -42,6 +43,7 @@ export class SettingProfilPage {
     this.fbLinkTemp = this.fbLink;
     this.instaLinkTemp = this.instaLink;
     this.snapLinkTemp = this.snapLink;
+    this.passwordUpdatable = this.userProvider.canCahngePassword();
   }
   updateSocialLink(idx){
     switch (idx) {
@@ -77,6 +79,7 @@ export class SettingProfilPage {
           this.fbValidLink = false;
           load.dismiss();
         }).catch((err)=>{
+          load.dismiss();
           console.log(err);
         })
         break;
@@ -87,6 +90,7 @@ export class SettingProfilPage {
           this.instaValidLink = false;
           load.dismiss();
         }).catch((err)=>{
+          load.dismiss();
           console.log(err);
         })
         break;
@@ -122,6 +126,7 @@ export class SettingProfilPage {
     this.navCtrl.push(SettingProfil2Page);
   }
   goTosecurity(){
+    if(!this.passwordUpdatable)return;
     this.navCtrl.push(SettingSecurityPage);
   }
 }

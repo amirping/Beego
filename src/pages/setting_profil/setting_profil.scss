@@ -168,4 +168,12 @@ page-setting_profil {
         transform: scale(1);
       }
   }
+  ion-item{
+    &.disabled{
+      background-color: #e5e5e5;
+      .titre-item{
+        color:#afaaaa;
+      }
+    }
+  }
 }
