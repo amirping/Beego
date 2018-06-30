@@ -4,131 +4,295 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header no-border>
-  <ion-navbar class="navbarheader" color="rose">
-    <div class="textblanc">Acceuil</div>
-    <ion-buttons end>
-      <button ion-button icon-only (click)="logout()" class="beego-skip-button beego-text-transform-none">Skip
-      </button>
-    </ion-buttons>
-  </ion-navbar>
-  <ion-card class="itemround">
-    <ion-card-header>
-      <ion-grid>
+<ion-menu [content]="mycontent" type="push" (swipe)="handelChange($event)" (ionClose)="animateMenu = false" (ionOpen)="animateMenu = true"
+  (ionDrag)="collectSwiper($event)">
+  <ion-content>
+    <ion-list>
+      <p>some menu content, could be list items</p>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+<div #mycontent class="home-wrapper" [class.animateMenu]="animateMenu == true" [class.animateMenuClose]="animateMenuClose == true">
+  <ion-header>
+    <ion-navbar color="trans" [class.onsearch]="search" [class.cleaner]="hide_cleaner_button">
+      <div class="header-acceuil-container space hide-onserach">
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <div class="toolbar-title">Acceuil</div>
+            </ion-col>
+            <ion-col>
+              <div>
+                <button class="search" end>
+                  <img src="../../assets/imgs/Search.png" alt="" (click)="searching()">
+                </button>
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
 
-        <ion-row>
-          <ion-col col-10>
-            <label class="textlarge">
-              <strong>Bonjour, Amine</strong>
-            </label>
-          </ion-col>
-          <ion-col col-2 align="bottom">
-            <img src="../../assets/imgs/Meteo.png" align="bottom" alt="" style="width: 41px;height: 30px; margin: auto;">
-          </ion-col>
-        </ion-row>
-        <ion-row>
-          <ion-col col-12>
-            <label class="textxxsmall">Nous espérons que vous avez passé une bonne journée</label>
 
-            &nbsp;&nbsp;&nbsp;&nbsp;18°</ion-col>
-        </ion-row>
-      </ion-grid>
-    </ion-card-header>
-  </ion-card>
-</ion-header>
-<ion-content padding-left>
-  <ion-grid>
-    <ion-row>
-      <ion-col col-4>
-          <button (click) ="navigateToBeautyPage()" >
-              <img src="../../assets/imgs/Beauty.png" class="center">
-            </button>
-        
-      </ion-col>
-      <ion-col col-4>
-          <button (click) ="navigateToShoppingPage()" >
-              <img src="../../assets/imgs/Shopping.png" class="center">
-            </button>
-       
-      </ion-col>
-      <ion-col col-4>
-        <button (click) ="navigateToChilloutPage()" >
-          <img src="../../assets/imgs/Chillout.png" class="center">
-        </button>
-      </ion-col>
 
-    </ion-row>
+      </div>
 
-    <!--Suggestion-->
 
-    <ion-row>
-      <ion-col col-8>
-        <ion-col col-3 class="titrebarreleft"></ion-col>
-        <ion-col col-9>
-          <strong>Suggestion</strong>
+
+      <div class="header-acceuil-container show-onserach">
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <div class="for-search">
+                <input type="text" name="text_search" value="" placeholder="Recherche" class="text-search" id="text_search" [(ngModel)]="text_search">
+
+                <button class="search-text-icon">
+                  <img src="../../assets/imgs/Search-Glyph.png" alt="">
+                </button>
+                <button class="clear-text" (click)="text_search=''">
+                  <img class="hide-cleaner" src="../../assets/imgs/Clear_button.png" alt="" *ngIf="text_search !=null && text_search.length>0">
+                </button>
+
+              </div>
+            </ion-col>
+
+            <ion-col>
+
+              <div class="cancel-search ">
+                <button class="cancel-search-action" style="padding-top: 5px;" (click)="searching()">Annuler</button>
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+
+    </ion-navbar>
+
+  </ion-header>
+  <ion-content>
+    <ion-grid>
+      <ion-row>
+        <ion-col class="motd">
+          <div>
+            <h2>Bonjour, Amine</h2>
+            <p>Nous espérons que vous passé une bonne journée.
+              <span text-right>18°</span>
+            </p>
+          </div>
         </ion-col>
-
-      </ion-col>
-
-      <ion-col col-4 align="right">
-        <a href=""></a>Tout afficher
-      </ion-col>
-    </ion-row>
-
-
-    <ion-slides *ngFor="let item of suggestionListRef$ |
-    async">
-      <ion-slide class="sliderimage1">
-        <img src="../../assets/imgs/{{item.suggestionCouverture}}" style="background:  center no-repeat;  ">
-
-      </ion-slide>
-
-
-    </ion-slides>
-    <!--Spécialement pour vous-->
-
-    <ion-row>
-      <ion-col col-8>
-        <ion-col col-3 class="titrebarreleft"></ion-col>
-        <ion-col col-9>
-          <strong>Spécialement pour vous</strong>
+      </ion-row>
+      <ion-row>
+        <ion-col class="beego-row-center">
+          <div class="catego-wrapper">
+            <div (click)="navigateToChilloutPage()">
+              <span>
+                chill'out
+              </span>
+              <div class=overlay></div>
+            </div>
+            <img src="../../assets/imgs/homePage_img/chillout.png" class="catego">
+          </div>
+          <div class="catego-wrapper">
+            <div (click)="navigateToBeautyPage()">
+              <span>beauty</span>
+              <div class=overlay></div>
+            </div>
+            <img src="../../assets/imgs/homePage_img/beauty.png" class="catego">
+          </div>
+          <div class="catego-wrapper">
+            <div (click)="navigateToShoppingPage()">
+              <span>shopping</span>
+              <div class="overlay"></div>
+            </div>
+            <img src="../../assets/imgs/homePage_img/beauty.png" class="catego">
+          </div>
         </ion-col>
-
-      </ion-col>
-
-      <ion-col col-4 align="right">
-        <a href=""></a>Tout afficher
-      </ion-col>
-    </ion-row>
-
-
-    <ion-slides *ngFor="let item of espacesListRef$ |
-    async">
-      <ion-slide class="sliderimage2">
-        <img src="../../assets/imgs/{{item.espaceImage}}" class="sliderimage2">
-        <div class="bottom-left">
-          <br>&nbsp;&nbsp;{{item.espaceSpecialite}}
-          <br>
-          <br> &nbsp;&nbsp;
-          <img src="../../assets/imgs/localisation.png">&nbsp; {{item.espaceName}}&nbsp;&nbsp;
-        </div>
-      </ion-slide>
-    </ion-slides>
-    <!--A la une-->
-
-    <ion-row>
-      <ion-col col-8>
-        <ion-col col-3 class="titrebarreleft"></ion-col>
-        <ion-col col-9>
-          <strong>A la une</strong>
+      </ion-row>
+      <!--Suggestion section -->
+      <ion-row>
+        <ion-col>
+          <div class="section-title">
+            <span class="title">Suggestion</span>
+            <span class="more" (click)="navigateTo('suggest')">Tout afficher</span>
+          </div>
+          <ion-slides [pager]="true" class="slide-home" [spaceBetween]="5" [slidesPerView]="1" [initialSlide]="1">
+            <ion-slide *ngFor="let item of suggestionListRef$ | async" class="slider-suggest">
+              <div class="data-content">
+                <div class="temp">23</div>
+                <h1>{{item.suggestionName}}</h1>
+                <div class="rating-ex">
+                  <rating [(ngModel)]="ratingStatic" emptyStarIconName="star-outline" halfStarIconName="star-half" starIconName="star" nullable="true">
+                  </rating>
+                </div>
+                <p>
+                  Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.
+                </p>
+              </div>
+              <div class="overlay"></div>
+              <img src="../../assets/imgs/homePage_img/suggestion.jpg">
+            </ion-slide>
+            <ion-slide *ngFor="let item of suggestionListRef$ | async" class="slider-suggest">
+              <div class="data-content">
+                <div class="temp">23</div>
+                <h1>{{item.suggestionName}}</h1>
+                <div class="rating-ex">
+                  <rating [(ngModel)]="ratingStatic" emptyStarIconName="star-outline" halfStarIconName="star-half" starIconName="star" nullable="true">
+                  </rating>
+                </div>
+                <p>
+                  Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.
+                </p>
+              </div>
+              <div class="overlay"></div>
+              <img src="../../assets/imgs/homePage_img/suggestion.jpg">
+            </ion-slide>
+            <ion-slide *ngFor="let item of suggestionListRef$ | async" class="slider-suggest">
+              <div class="data-content">
+                <div class="temp">23</div>
+                <h1>{{item.suggestionName}}</h1>
+                <div class="rating-ex">
+                  <rating [(ngModel)]="ratingStatic" emptyStarIconName="star-outline" halfStarIconName="star-half" starIconName="star" nullable="true">
+                  </rating>
+                </div>
+                <p>
+                  Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.
+                </p>
+              </div>
+              <div class="overlay"></div>
+              <img src="../../assets/imgs/homePage_img/suggestion.jpg">
+            </ion-slide>
+            <!-- below code is only for test don't delet it coz only god and me know how it work -->
+            <!-- <ion-slide class="slider-suggest">
+            <div class="overlay"></div>
+            <img src="../../assets/imgs/homePage_img/suggest_slides.png">
+          </ion-slide>
+          <ion-slide class="slider-suggest">
+            <div class="overlay"></div>
+            <img src="../../assets/imgs/homePage_img/suggest_slides.png">
+          </ion-slide> -->
+          </ion-slides>
         </ion-col>
-
-      </ion-col>
-
-      <ion-col col-4 align="right">
-        <a href=""></a>Tout afficher
-      </ion-col>
-      <ion-col col-6 align="middle">
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <div class="section-title">
+            <span class="title">Spécialement pour vous </span>
+            <span class="more">Tout afficher</span>
+          </div>
+          <ion-slides class="slide-home" [slidesPerView]="2" [pager]="true" [spaceBetween]="10">
+            <ion-slide *ngFor="let item of espacesListRef$ | async" class="slider-specialement">
+              <img src="https://loremflickr.com/900/900/dinner,food">
+              <div class="content">
+                <div class="layer"></div>
+                <span class="title" text-left>{{item.espaceSpecialite}}</span>
+                <span class="location" text-left>
+                  <ion-icon name="pin"></ion-icon> {{item.espaceName}}</span>
+              </div>
+            </ion-slide>
+          </ion-slides>
+        </ion-col>
+      </ion-row>
+      <!--A la une-->
+      <ion-row>
+        <ion-col>
+          <div class="section-title">
+            <span class="title">A la une </span>
+            <span class="more">Tout afficher</span>
+          </div>
+          <div class="row-style row-space-around">
+            <button ion-button clear class="filter_btn" (click)="changeNewsTo('events')" [ngClass]="{'activated_filter' : index_news=='events'}">Evénements</button>
+            <button ion-button clear class="filter_btn" (click)="changeNewsTo('promotion')" [ngClass]="{'activated_filter' : index_news=='promotion'}">Promotions</button>
+          </div>
+          <!-- SLider removed by personal slider but even this solution still in test // plz keep the ion slide commented code there  -->
+          <!-- <ion-slides class="slide-news" [zoom]="false">
+          <ion-slide *ngFor="let item of allNewsData | async" class="slider-news">
+            <img src="{{item.Couverture}}">
+            <div class="content">
+              <button>
+                <strong>Intéressé(e)</strong>
+              </button>
+              <div>
+                <br>&nbsp;&nbsp;{{item.Name}}
+                <br>
+                <br> &nbsp;&nbsp;
+                <img src="../../assets/imgs/localisation.png">&nbsp; {{item.Place}}&nbsp;&nbsp;
+                <ion-icon name="clock" style="font-size: small;">&nbsp; {{item.Date}}</ion-icon>
+              </div>
+            </div>
+          </ion-slide>
+        </ion-slides> -->
+          <button (click)="nextSlide()">we will add swipe to make next </button>
+          <div class="wrap-holder row row-space-around" (swipe)="swipeEvent($event)">
+            <div class="holder">
+              <!-- static try -->
+              <!-- <div class="slider active">
+              <img src="https://i.pinimg.com/originals/fd/5d/8e/fd5d8e333fcccbc366f390902e69ddd7.jpg" alt="">
+              <div class="content">
+                <div class="row row-right">
+                  <button ion-button small>Intéressé(e)</button>
+                </div>
+                <div>
+                  <span class="date">27 dec 2017</span>
+                  <div class="bottom-content">
+                    <h2>YUMA - Hell Yeah Bitches</h2>
+                    <span class="location">
+                      <ion-icon name="pin"></ion-icon> Yuka, KEF</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="slider next">
+              <img src="https://blog.spoongraphics.co.uk/wp-content/uploads/2016/05/25.jpg" alt="">
+              <div class="content">
+                <div class="row row-right">
+                  <button ion-button small>Intéressé(e)</button>
+                </div>
+                <div>
+                  <span class="date">27 dec 2017</span>
+                  <div class="bottom-content">
+                    <h2>YUMA - Hell Yeah Bitches</h2>
+                    <span class="location">
+                      <ion-icon name="pin"></ion-icon> Yuka, KEF</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="slider after-next">
+              <img src="https://piktochart.com/wp-content/uploads/2018/01/4.jpg" alt="">
+              <div class="content">
+                <div class="row row-right">
+                  <button ion-button small>Intéressé(e)</button>
+                </div>
+                <div>
+                  <span class="date">27 dec 2017</span>
+                  <div class="bottom-content">
+                    <h2>YUMA - Hell Yeah Bitches</h2>
+                    <span class="location">
+                      <ion-icon name="pin"></ion-icon> Yuka, KEF</span>
+                  </div>
+                </div>
+              </div>
+            </div> -->
+              <!-- dynamique things -->
+              <div class="slider not-yet" *ngFor="let item of news ; let i=index" [class.active]="i==newSlider_indicators.show_index_slide"
+                [class.next]="i==newSlider_indicators.next_index_show" [class.after-next]="i==newSlider_indicators.after_index_show">
+                <img src="{{item.Couverture}}" alt="">
+                <div class="content">
+                  <div class="row row-right">
+                    <button ion-button small>Intéressé(e)</button>
+                  </div>
+                  <div>
+                    <span class="date">{{item.Date}}</span>
+                    <div class="bottom-content">
+                      <h2>{{item.Name}}</h2>
+                      <span class="location">
+                        <ion-icon name="pin"></ion-icon> {{item.Place}}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </ion-col>
+        <!-- <ion-col col-6 align="middle">
         <button class="boutonevent" (click)="evenementClicked()">
           <strong>Evénements</strong>
         </button>
@@ -138,38 +302,46 @@
           <strong>Promotions</strong>
         </button>
       </ion-col>
-
-
       <ion-slides *ngFor="let item of evenementListRef$ |
       async">
         <ion-slide class="sliderimage3">
           <img src="../../assets/imgs/{{item.Couverture}}" class="sliderimage3" style="background: left no-repeat;">
-
           <button class="top-right-alaune">
             <strong>Intéressé(e)</strong>
           </button>
-
-
-
           <div class="bottom-left-alaune" align="left">
             <br>&nbsp;&nbsp;{{item.Name}}
             <br>
             <br> &nbsp;&nbsp;
             <img src="../../assets/imgs/localisation.png">&nbsp; {{item.Place}}&nbsp;&nbsp;
-
             <ion-icon name="clock" style="font-size: small;">&nbsp; {{item.Date}}</ion-icon>
+          </div>
+        </ion-slide>
+      </ion-slides> -->
+      </ion-row>
+      <!--Connaissez vous-->
+      <ion-row>
+        <ion-col>
+          <div class="section-title">
+            <span class="title">Connaissez vous</span>
+            <span class="more" (click)="navigateTo('FindFriendPage')">Tout afficher</span>
+          </div>
+          <div class="row row-scroller">
+            <div class="person-card" *ngFor="let item of connaissanceListRef$ |
+          async">
+              <img src="http://i.pravatar.cc/60" alt="">
+
+              <span class="name">{{item.Prenom}} {{item.Nom}} </span>
+              <span class="location">{{item.Place}}, {{item.Region}}</span>
+              <button ion-button small round icon-start>
+                <ion-icon name="person-add"></ion-icon>
+                S'abonner</button>
+            </div>
 
           </div>
+        </ion-col>
 
-        </ion-slide>
-
-      </ion-slides>
-
-
-    </ion-row>
-    <!--Connaissez vous-->
-    <ion-row>
-      <ion-col col-8>
+        <!-- <ion-col col-8>
         <ion-col col-3 class="titrebarreleft"></ion-col>
         <ion-col col-9>
           <strong>Connaissez vous</strong>
@@ -201,33 +373,37 @@
               </button>
             </ion-item>
           </ion-card>
-
-
-
         </div>
-      </ion-scroll>
+      </ion-scroll> -->
+      </ion-row>
+      <!--A proximité-->
+      <ion-row>
+        <ion-col>
+          <div class="section-title">
+            <span class="title">A proximité</span>
+            <span class="more">Tout afficher</span>
+          </div>
+          <div class="row row-scroller">
+            <div class="proximite-card" *ngFor="let item of proximiteListRef$ |
+        async">
+              <img src="http://lorempixel.com/400/200/sports" alt="">
+              <h2>{{item.placeName}}</h2>
+              <div class="row-style row-space-between">
+                <span class="location">
+                  <ion-icon name="pin"></ion-icon>
+                  {{item.placeLocation}}
+                </span>
+                <span class="distance">
+                  <ion-icon name="paper-plane"></ion-icon>
+                  {{item.placeDistance}} KM
+                </span>
+              </div>
+            </div>
 
-
-
-
-
-
-
-
-
-    </ion-row>
-    <!--A proximité-->
-    <ion-row>
-      <ion-col col-8>
-        <ion-col col-3 class="titrebarreleft"></ion-col>
-        <ion-col col-9>
-          <strong>A proximité</strong>
-
+          </div>
         </ion-col>
 
-      </ion-col>
-
-      <ion-col col-4 align="right">
+        <!-- <ion-col col-4 align="right">
         <a href=""></a>Tout afficher
       </ion-col>
       <ion-scroll scrollX="true" style="white-space: nowrap; width: 90%; height: 200px;">
@@ -249,13 +425,47 @@
 
 
 
-      </ion-scroll>
+      </ion-scroll> -->
 
 
-    </ion-row>
-    <!--Invitations-->
-    <ion-row>
-      <ion-col col-8>
+      </ion-row>
+      <!--Invitations-->
+      <ion-row>
+        <ion-col>
+          <div class="section-title">
+            <span class="title">Invitations</span>
+            <span class="more">Tout afficher</span>
+          </div>
+          <div class="row row-scroller">
+            <div class="invit-card" *ngFor="let item of invitationListRef$ |
+          async">
+              <div class="row">
+                <img src="http://i.pravatar.cc/60" alt="">
+                <div class="col mx-auto">
+                  <h2>{{item.invitationTo}} !</h2>
+                  <span class="date">Samedi 17 Dec - 6:00 PM</span>
+                </div>
+              </div>
+              <p>
+                <strong>{{item.invitationFrom}}</strong> vous invitez a
+                <strong>{{item.invitationTo}}</strong>
+              </p>
+              <div class="row buttons row-space-around">
+                <button ion-button clear small icon-start color="secondary">
+                  <ion-icon name="checkmark"></ion-icon>
+                  Accepter</button>
+                <div class="hr"></div>
+                <button ion-button clear small icon-start>
+                  <ion-icon name="close"></ion-icon>
+                  Annuler</button>
+              </div>
+            </div>
+
+
+          </div>
+        </ion-col>
+        <!-- <ion-col col-8>
+
         <ion-col col-3 class="titrebarreleft"></ion-col>
         <ion-col col-9>
           <strong>Invitations</strong>
@@ -289,20 +499,32 @@
               <ion-col col-6>
                 <button class="bouton-annuler">Annuler </button>
               </ion-col>
-
             </ion-item>
-
           </ion-card>
-
-
         </div>
+      </ion-scroll> -->
+      </ion-row>
+    </ion-grid>
+    <svg height="0" width="0" viewbox="0 0 500 500">
+      <defs>
+        <clipPath id="hexagonPathHome" transform="scale(0.9 0.9)">
+          <path id="sug1-2Home" data-name="sug1" class="cls-1" d="M98.434,37.981V68.895A22.732,22.732,0,0,1,87.045,88.419L60.2,103.875a22.032,22.032,0,0,1-22.371,0l-12.2-7.322L11.389,88.419h-.407A22.357,22.357,0,0,1,0,68.895V37.981A19.8,19.8,0,0,1,.407,33.1a20.822,20.822,0,0,1,4.068-8.542,20.247,20.247,0,0,1,6.915-6.1L38.235,3A22.032,22.032,0,0,1,60.606,3L87.452,18.457A22.851,22.851,0,0,1,98.434,37.981Z"
+            transform="translate(9 6.05)" />
+        </clipPath>
+      </defs>
+    </svg>
+    <!-- <div class="catego-wrapper">
+    <div>
+      <span>
+        chill'out
+      </span>
+      <div class=overlay></div>
+    </div>
+    <img src="../../assets/imgs/homePage_img/chillout.png" class="catego">
+  </div> -->
+    <button (click)="profil()">
+      profil
+    </button>
 
-      </ion-scroll>
-
-    </ion-row>
-  </ion-grid>
-<button (click)="profil()" >
-profil
-</button>
-
-</ion-content>
+  </ion-content>
+</div>
