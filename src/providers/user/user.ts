@@ -306,6 +306,7 @@ export class UserProvider {
         .then(()=> {
           this.db.list('users').update(this.auth.auth.currentUser.uid, {email}).then(()=>{
             resolve();
+            this.sendEmailVerification();
           }).catch(err=>{
             console.log(err);
             reject(err);

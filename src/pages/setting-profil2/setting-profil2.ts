@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams ,LoadingController, AlertController  } from 'ionic-angular';
+import { IonicPage, NavController, NavParams ,LoadingController, AlertController, App  } from 'ionic-angular';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { User } from '../../models/user.interface';
 import { UserProvider } from '../../providers/user/user';
+import { LandingPage } from '../landing/landing';
 
 /**
  * Generated class for the SettingProfil2Page page.
@@ -28,6 +29,7 @@ export class SettingProfil2Page {
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public formBuilder: FormBuilder,
     public loadCtrl: LoadingController,
+    public app: App,
     public userProvider: UserProvider,
     public alertCtrl: AlertController) {
       this.user = this.userProvider.getCurrentUser();
@@ -114,6 +116,18 @@ export class SettingProfil2Page {
                   console.log("doneeeeeeeeeee");
                   load.dismiss();
                   aleretCtrl.dismiss();
+                  this.alertCtrl.create({
+                    title:"Succés",
+                    subTitle:"Votre profile et votre email ont été changés avec succés ",
+                    message:"vérifiez votre email et reconnectez",
+                    enableBackdropDismiss: false,
+                    buttons:[{
+                      text: 'Ok',
+                      handler: ()=>{
+                        this.app.getRootNav().setRoot(LandingPage);
+                      }
+                    }]
+                  }).present();
                   console.log("doneeeeeeeeeee2222");
                 }).catch(err=>{
                   console.log(err);
