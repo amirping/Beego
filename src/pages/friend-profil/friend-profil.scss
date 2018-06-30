@@ -1,0 +1,174 @@
+page-friend-profil {
+  .grid-size{
+    height: 100%;
+    flex-grow: 1;
+
+  }
+  .photo-row{
+    height: auto;
+    flex-grow: 1;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+  }
+    .profil-friend-part{
+        width:100%;
+        height: 100%;
+        position: relative;
+      }
+      .img-friend{
+        background-repeat: no-repeat;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+
+      }
+      .x-friend-profil{
+        position: absolute;
+        top:28px;
+        right: 14px; 
+      }
+      .x-friend-button{
+        background-color: transparent;
+    }
+    .x-friend-img{
+        width: 38px;
+        height: 39px;
+      }
+      .abonnes{
+        margin-top: -28px;
+        position: absolute;
+        margin-left: 11%;
+      }
+      .suivis{
+        position: absolute;
+        margin-top: -28px;
+        right: 11%; 
+      }
+      .abonnes-number{
+        color: white;
+      }
+      .suivis-number{
+        color: white;
+      }
+      .position-info{
+        margin-top: -47px;
+      }
+      .info-friend{
+        width: 100%;
+        left: 0px;
+        height: 45%;
+        height: auto;
+        background-color: whitesmoke;
+        border-top-right-radius: 47px;
+        border-top-left-radius: 47px;
+      }
+      .flex-row{
+        justify-content: space-between;
+        display:flex;
+        width: 100%;
+
+      }
+      .bee-hexagon {
+        clip-path: url(#hexagonPath);
+        background-repeat: no-repeat;
+        background-position: -3px -15px;
+        background-color:transparent;
+        height: 100%;
+      }
+      .bee-profile-image {
+      height: 120px;
+      width: 120px;
+      
+      transform: scale(0.6);
+      }
+      .photo-col{
+        top:0px;
+        padding: 0px !important;
+       }
+     
+      .take-photo-img{
+        width: 29px;
+        height: 29;
+      }
+      .take-photo-img:active{
+        transform: scale(0.8);
+      }
+      .name-lname{
+        margin-top: 40px;
+        margin-left: -8%;
+       
+      }
+      .nom{
+        font-weight:bolder;
+        font-size: 13px;
+      }
+      .lieuclass{
+        margin-top: 4px;
+      }
+   
+      .lieu-img{
+        width: 11px;
+        height: 12px;
+      }
+      .lieu{
+        font-size: 11px;
+      }
+      .abonne{
+      
+        width:85PX;
+        height: 28px;
+        margin-top: 42px;
+        margin-right: 6%;      }
+      
+      .abonne-button{
+        background-color: rgb(242,40,118);
+        margin-top: 40px;
+        margin-right: 6%;  
+      }
+      .para{
+        margin-left: 27px;
+        background-color: transparent;
+        padding-bottom: 2%;
+        }
+        .para-style{
+          margin-top: 2%;
+          font-size: 12px;
+        }
+        .class-icons{
+          padding-bottom:10%; // modifiable
+          justify-content: space-around;
+          display:flex;
+          width: 100%;
+        }
+        .nomprenom{
+            font-size: 9px;
+            position: absolute;
+            padding-left: 16px;
+            margin-top: -18px;
+          }
+          .fb-icon{
+            bottom: 1%;
+           }
+          .img-fb{
+            width:15px ;
+            height: 15px ;
+    
+          }
+          .insta-icon{
+            bottom: 1%;
+          }
+          .img-insta{
+            width:15px;
+            height: 16px;
+          }
+          .snap-icon{
+            bottom: 1%;
+            margin-right: 44px;
+          }
+          .img-snap{
+            width:16px ;
+            height: 16px ;
+          }
+        
+}
