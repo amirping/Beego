@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController, AlertController, App } from 'ionic-angular';
 import { SignupStep1Page } from '../signup_step1/signup_step1';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { UserProvider } from '../../providers/user/user';
 import { HomePage } from '../home/home';
 import { SignupStep2Page } from '../signup_step2/signup_step2';
+import { TabsPage } from '../tabs/tabs';
 
 /**
  * Generated class for the LoginPage page.
@@ -20,7 +21,8 @@ import { SignupStep2Page } from '../signup_step2/signup_step2';
 })
 export class LoginPage {
   signinForm: FormGroup;
-  constructor(public navCtrl: NavController, 
+  constructor(public navCtrl: NavController,
+    private appCtrl: App, 
     public navParams: NavParams, 
     public userProvider: UserProvider,
     public loadCtrl: LoadingController,
@@ -34,7 +36,10 @@ export class LoginPage {
   swipeTo(e){
     this.navCtrl.push(SignupStep1Page);
   }
-  signin(){
+  skip(){
+    this.navCtrl.push(HomePage);
+  }
+  login(){
     const load = this.loadCtrl.create();
     load.present();
     this.userProvider.login(this.signinForm.get("email").value,this.signinForm.get("password").value)
@@ -45,10 +50,23 @@ export class LoginPage {
         this.alertCtrl.create({
           title:"ERREUR",
           message:"Verfier votre email",
-          buttons:['ok']
+          buttons:[{
+            text:"Envoyer Mail",
+            handler: ()=>{
+              const load = this.loadCtrl.create();
+              load.present();
+              this.userProvider.sendEmailVerification().then(()=>{
+                load.dismiss();
+              });
+              return false;
+            }
+          },{
+            text:'Ok'
+          }
+        ]
         }).present();
       }else{
-        this.navCtrl.setRoot(HomePage);
+        this.appCtrl.getRootNav().setRoot(TabsPage);
       }
     })
     .catch((err)=>{
@@ -68,7 +86,7 @@ export class LoginPage {
       this.navCtrl.push(SignupStep2Page, {user, password:null});
     },()=>{
       load.dismiss();
-      this.navCtrl.setRoot(HomePage);
+      this.appCtrl.getRootNav().setRoot(TabsPage);
     },err=>{
       console.log(err);
       load.dismiss();
@@ -83,11 +101,12 @@ export class LoginPage {
     const load = this.loadCtrl.create();
     load.present();
     this.userProvider.loginWithGoogle((user)=>{
+      console.log(user);
       load.dismiss();
       this.navCtrl.push(SignupStep2Page, {user, password:null});
     },()=>{
       load.dismiss();
-      this.navCtrl.setRoot(HomePage);
+      this.appCtrl.getRootNav().setRoot(TabsPage);
     },err=>{
       console.log(err);
       load.dismiss();
@@ -97,9 +116,6 @@ export class LoginPage {
         buttons:['ok']
       }).present();
     });
-  }
-  skip(){
-    this.navCtrl.setRoot(HomePage);
   }
   forgetPassword(){
     if(this.signinForm.get('email').invalid){

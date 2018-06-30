@@ -4,6 +4,8 @@ import { StatusBar } from "@ionic-native/status-bar";
 import { SplashScreen } from "@ionic-native/splash-screen";
 
 import { LandingPage } from "../pages/landing/landing";
+import { TabsPage } from "../pages/tabs/tabs";
+
 import { HomePage } from '../pages/home/home';
 
 import { BlockPage} from '../pages/block/block'
@@ -18,13 +20,14 @@ import { PopupPage} from '../pages/popup/popup';
 
 
 import { UserProvider } from '../providers/user/user';
-import { SettingProfilPage } from "../pages/setting_profil/setting_profil";
+
 
 @Component({
   templateUrl: "app.html"
 })
 export class MyApp {
-  rootPage:any=FriendFollowPage ;
+  rootPage:any ;
+
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,public userProvider: UserProvider) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
@@ -32,28 +35,26 @@ export class MyApp {
       statusBar.styleDefault();
       splashScreen.hide();
     });
-    // const sub = this.userProvider.isConnect().subscribe(state=>{
-    //   console.log(state);
-    //   if(state){
-    //     if(state.emailVerified){
-    //       console.log("set user");
-    //       this.userProvider.setUser().then(()=>{
-    //         this.rootPage = HomePage;
-    //       }).catch(e=>{
-    //         if(e.userIsNotSet){
-    //           this.rootPage = LandingPage;
-    //           this.userProvider.logOut()
-    //         }
-    //       });
-    //     }else{
-    //       this.rootPage = LandingPage;
-    //       this.userProvider.logOut();
-    //    }
-    //   }else{
-    //     console.log("disconect");
-    //     this.rootPage = LandingPage;
-    //   }
-    //   sub.unsubscribe();
-    // });
+    const sub = this.userProvider.isConnect().subscribe(state=>{
+      if(state){
+        if(state.emailVerified){
+          console.log("set user");
+          this.userProvider.setUser().then(()=>{
+            this.rootPage =TabsPage;
+          }).catch(e=>{
+            if(e.userIsNotSet){
+              this.rootPage = LandingPage;
+              this.userProvider.logOut()
+            }
+          });
+        }else{
+          this.rootPage = LandingPage;
+          this.userProvider.logOut();
+       }
+      }else{
+        this.rootPage = LandingPage;
+      }
+      sub.unsubscribe();
+    });
   }
 }

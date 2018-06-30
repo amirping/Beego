@@ -26,31 +26,46 @@ Securite</div>
 <ion-content padding>
     <div class="paramGenerale"><h3>Changer votre mot de passe </h3></div>
     <div class="para-security">le lorem lpsum est simplement de faux texte employer dans la composition </div>
-    <ion-grid class="gird-security">
-      <ion-row class="para-row">
-        Ancien mot de passe :
-      </ion-row>
-      <ion-row class="input-row">
-          <input type="password" name="text_search" value="testtest" placeholder="" 
-          class="text-search"   >
-      </ion-row>
-      <ion-row class="para-row">
-          Nouveau mot de passe :
+    <form (submit)="updatePassword()" [formGroup]="updateForm">
+      <ion-grid class="gird-security">
+        <ion-row class="para-row">
+          Ancien mot de passe :
         </ion-row>
         <ion-row class="input-row">
-            <input type="password" name="text_search" value="testtest" placeholder="" 
-            class="text-search"   >
+            <input type="password" 
+              name="text_search" 
+              class="text-search"
+              placeholder="******"
+              [class.invalid]="!updateForm.controls.oldPassword.valid && updateForm.controls.oldPassword.touched"
+              formControlName="oldPassword">
         </ion-row>
         <ion-row class="para-row">
-            Confirmer votre mot de passe :
+            Nouveau mot de passe :
           </ion-row>
           <ion-row class="input-row">
-              <input type="password" name="text_search" value="testtest" placeholder="" 
-              class="text-search"   >
+              <input type="password" 
+                name="text_search" 
+                class="text-search"
+                placeholder="******"
+                [class.invalid]="!updateForm.controls.newPassword.valid && updateForm.controls.newPassword.touched"
+                formControlName="newPassword">
           </ion-row>
-          <ion-row class=" space-cols">
-              <button ion-button class="valider" value="Valider" > Valider</button>
-              <button ion-button class="annuler" value="Annuler" > Annuler</button>
+          <ion-row class="para-row">
+              Confirmer votre mot de passe :
             </ion-row>
-    </ion-grid>
+            <ion-row class="input-row">
+                <input type="password" 
+                  name="text_search" 
+                  class="text-search"
+                  placeholder="******"
+                  [class.invalid]="!updateForm.controls.reNewPassword.valid && updateForm.controls.reNewPassword.touched" 
+                  formControlName="reNewPassword">
+            </ion-row>
+            <ion-row class=" space-cols">
+                <button ion-button class="valider" type="submit" [disabled]="!updateForm.valid"> Valider</button>
+                <button ion-button class="annuler" type="reset" > Annuler</button>
+              </ion-row>
+      </ion-grid>
+    </form>
+
 </ion-content>

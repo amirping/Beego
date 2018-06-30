@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, LoadingController } from 'ionic-angular';
 import {ListOfFollowsPage} from '../list-of-follows/list-of-follows'
 import { SettingProfilPage } from '../setting_profil/setting_profil';
+import { User } from '../../models/user.interface';
+import { UserProvider } from '../../providers/user/user';
+import { Subscription } from 'rxjs/Subscription';
 
 /**
  * Generated class for the PrfilPage page.
@@ -16,21 +19,71 @@ import { SettingProfilPage } from '../setting_profil/setting_profil';
   templateUrl: 'profil.html',
 })
 export class ProfilPage {
+  user = {} as User;
+  updateImageType: string;
+  userSubscription : Subscription;
+  constructor(public navCtrl: NavController,
+    public userProvider: UserProvider,
+    public loadCtrl: LoadingController) {
+  }
+  
+  ionViewDidLoad() {
+    console.log(" profile");
+    this.user = this.userProvider.getCurrentUser();
+  }
+  ionViewDidEnter(){
+    this.userSubscription  = this.userProvider.observeUser().subscribe(user=>{
+      this.user = {uid:this.user.uid,...user};
+    });
+  }
+  ionViewWillLeave(){
+    console.log("fffffff");
+    this.userSubscription.unsubscribe();
+  }
+  formatFollows(nbr:number):string{
+    return nbr+"";
+  }
   folowsPage(){
     this.navCtrl.push(ListOfFollowsPage);
   }
   paramPage(){
-    this.navCtrl.push(SettingProfilPage);
+    this.navCtrl.push(SettingProfilPage, {fb:this.user.fbLink, insta:this.user.instaLink, snap:this.user.snapLink});
   }
   back(){
     this.navCtrl.pop();
   }
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  logout(){
+    this.userProvider.logOut();
+    console.log("eeeee");
   }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad PrfilPage');
+  uploadImage(sourceType, input){
+    this.updateImageType = sourceType;
+    input.click();
+  }
+  updateImage(e){
+    const reader = new FileReader();
+    let file;
+    reader.onload = (e:any)=> {
+      const load = this.loadCtrl.create();
+      load.present();
+      this.userProvider.upadateImage(this.updateImageType, file)
+      .then(url=>{
+        if(this.updateImageType=="photo"){
+          this.user.photoURL = url;
+        }else{
+          this.user.coverURL = url;
+        }
+        load.dismiss();
+      })
+      .catch(err=>{
+        console.log(err);
+      });
+    }
+    if(e.target.files.length){
+      file = e.target.files[0];
+      reader.readAsDataURL(file);
+    }
   }
 
 }

@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController, AlertController, App } from 'ionic-angular';
 import { LoginPage } from '../login/login';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { User } from '../../models/user.interface';
 import { UserProvider } from '../../providers/user/user';
 import { HomePage } from '../home/home';
+import { TabsPage } from '../tabs/tabs';
 
 /**
  * Generated class for the Singup2Page page.
@@ -32,6 +33,7 @@ export class SignupStep2Page {
     public loadCtrl: LoadingController,
     public alertCtrl: AlertController,
     public userProvider: UserProvider,
+    private appCtrl:App,
     public navParams: NavParams){
       this.signupForm = formBuilder.group({
         gender:["",Validators.required],
@@ -49,12 +51,15 @@ export class SignupStep2Page {
   }
 
   ionViewDidLoad() {
-    const user = this.navParams.get("user");
+    const user: User = this.navParams.get("user");
     this.signupForm.controls["gender"].setValue(user.gender);
-    this.imgSrc = user.photoUrl;
+    this.imgSrc = user.photoURL;
   }
   swipeTo(e){
       this.navCtrl.push(LoginPage);
+  }
+  skip(){
+    this.navCtrl.push(HomePage);
   }
   setDate(picker){
     picker.open();
@@ -101,7 +106,7 @@ export class SignupStep2Page {
       this.userProvider.signupWithProvider(user)
       .then(()=>{
         load.dismiss();
-        this.navCtrl.setRoot(HomePage);
+        this.appCtrl.getRootNav().setRoot(TabsPage);
       })
       .catch(err=>{
         load.dismiss();
