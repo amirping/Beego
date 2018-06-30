@@ -4,8 +4,24 @@ import { StatusBar } from "@ionic-native/status-bar";
 import { SplashScreen } from "@ionic-native/splash-screen";
 
 import { LandingPage } from "../pages/landing/landing";
-import {ProfilPage} from '../pages/profil/profil'
+
+import { HomePage } from '../pages/home/home';
+
+import { BlockPage} from '../pages/block/block'
+import {SettingProfil2Page } from '../pages/setting-profil2/setting-profil2'
+import {SettingSecurityPage} from '../pages/setting-security/setting-security'
+import {ProfilPage} from '../pages/profil/profil';
+import {PersonalHistoryPage} from '../pages/personal-history/personal-history';
+import {FriendProfilPage } from '../pages/friend-profil/friend-profil';
+import {FriendFollowPage} from '../pages/friend-follow/friend-follow';
+import { PopupPage} from '../pages/popup/popup';
+
+
+
+
+
 import { TabsPage } from "../pages/tabs/tabs";
+
 import { UserProvider } from '../providers/user/user';
 
 
