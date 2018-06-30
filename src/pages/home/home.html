@@ -175,7 +175,7 @@
         <ion-col>
           <div class="section-title">
             <span class="title">Spécialement pour vous </span>
-            <span class="more">Tout afficher</span>
+            <span class="more" (click)="navigateTo('specialForYou')">Tout afficher</span>
           </div>
           <ion-slides class="slide-home" [slidesPerView]="2" [pager]="true" [spaceBetween]="10">
             <ion-slide *ngFor="let item of espacesListRef$ | async" class="slider-specialement">

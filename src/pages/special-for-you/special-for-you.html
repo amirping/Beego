@@ -1,0 +1,45 @@
+<!--
+  Generated template for the SpecialForYouPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+
+<ion-content>
+  <ion-grid class="our-grid">
+    <ion-row class="top">
+      <img src="https://source.unsplash.com/900x900/?restaurant,bar,hotel" alt="">
+      <div class="searchWrapper">
+        <ion-searchbar (click)="null" class="search" [(ngModel)]="searchText" [showCancelButton]="false" (ionCancel)="onCancel($event)">
+        </ion-searchbar>
+        <!-- <button>
+          <ion-icon class="searchbar-search-icon newIcon" name="search"> </ion-icon>
+        </button> -->
+      </div>
+    </ion-row>
+    <ion-row class="bottom">
+      <ion-col>
+        <span class="result"> 69 Resultats</span>
+        <p>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odit atque nihil facilis,
+        </p>
+        <div class="masonry">
+          <div class="item" *ngFor="let item of data">
+            <img src="{{item.pic}}" alt="">
+            <div class="data">
+              <span class="name">
+                {{item.name}}
+              </span>
+              <span class="location">
+                <ion-icon name="pin"></ion-icon>
+                {{item.location}}
+              </span>
+            </div>
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>
