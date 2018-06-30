@@ -14,7 +14,7 @@ import {PersonalHistoryPage} from '../pages/personal-history/personal-history';
 import {FriendProfilPage } from '../pages/friend-profil/friend-profil';
 import {FriendFollowPage} from '../pages/friend-follow/friend-follow';
 import { PopupPage} from '../pages/popup/popup';
-
+import {EventPage} from '../pages/event/event';
 
 
 import { UserProvider } from '../providers/user/user';
@@ -24,7 +24,7 @@ import { SettingProfilPage } from "../pages/setting_profil/setting_profil";
   templateUrl: "app.html"
 })
 export class MyApp {
-  rootPage:any=FriendFollowPage ;
+  rootPage:any=EventPage ;
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,public userProvider: UserProvider) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.

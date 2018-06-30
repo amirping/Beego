@@ -1,0 +1,89 @@
+page-event {
+  // .grid-size{
+  //   height: 100%;
+  //   flex-grow: 1;
+
+  // }
+  .col{
+    padding: 0;
+    margin: 0;
+  }
+    .photo-row{
+        height: auto;
+        flex-grow: 1;
+        position: relative;
+        overflow: hidden;
+        text-align: center;
+      }
+      .img-event{
+        background-repeat: no-repeat;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .eventitle{
+        display: flex;
+        justify-content: space-between;
+        width: 100%; 
+        position: absolute;
+        top :27px;
+        color: white;
+      }
+      .back{
+        color: white;
+        }
+      .buttn{
+        background-color: transparent;
+        width: 65px;
+         } 
+      .back-img{
+        width: 64%;
+         }
+      .title{
+        color: white;
+        font-size: 16px;
+      }
+      .searchevent{
+        widows: 18px;
+      }
+      .position-info{
+        margin-top: -47px;
+      }
+      .info-event{
+        width: 100%;
+        left: 0px;
+        height: auto;
+        background-color: whitesmoke;
+        border-top-right-radius: 47px;
+        border-top-left-radius: 47px;
+      }
+      .head-list-button{
+        display: flex;
+        justify-content: space-around;
+        width: 100%; 
+        .btn-behavior{
+          background-color: transparent;
+          color: black;
+          margin-top: 35px;
+          font-size: 10px;
+         
+        }
+     
+      }
+      .segment-activated{
+        font-size: 15px !important;
+        color: rgb(242,40,118)!important;
+    }
+      .eventlist-part{
+        margin-top:7%;
+    }
+    .lieu-event{
+      font-size: 10px;
+  }
+  .delete-block-button{
+    position: absolute;
+    right:0%;
+    top:27%;
+    background-color: rgb(242,40,118);
+}
+}
