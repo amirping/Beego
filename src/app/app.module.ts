@@ -53,7 +53,7 @@ import { UserProvider } from "../providers/user/user";
     SettingProfil2Page,
     SettingSecurityPage,
     TabsPage,
-    FindFriendPage
+    FindFriendPage,
 
     PersonalHistoryPage,
     FriendProfilPage,
@@ -87,7 +87,7 @@ import { UserProvider } from "../providers/user/user";
     SettingProfil2Page,
     SettingSecurityPage,
     TabsPage,
-    FindFriendPage
+    FindFriendPage,
 
     PersonalHistoryPage,
     FriendProfilPage,
