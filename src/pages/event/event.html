@@ -44,31 +44,72 @@
         <ion-row>
           <ion-col>
               <div class="eventlist-part" [ngSwitch]="index">
-                  <ion-list *ngSwitchCase="1">
-                      <ion-item-sliding #item>
-                      <ion-item>
-                          <ion-avatar item-start>
-                            <img src="../../assets/imgs/param/block/photoDeProfil.png">
-                          </ion-avatar>
-                          <h3>nom prenom</h3>
-                          <p class="lieu-event">Bardo, Tunis</p>
-                          <button  ion-button round
-                           class="delete-block-button">
-                            Accepter
-                          </button>
-                        </ion-item>
-                          <ion-item-options side="right">
-                              <button ion-button round (click)="unread(item)">Supprimer</button>
-                            </ion-item-options>
-                        
-                      </ion-item-sliding>
+                  <ion-list *ngSwitchCase="1" >
+                  
+
+                    
+                       
+                          <ion-item-sliding #item>
+                            <ion-item class="listInvitation">
+                                <ion-avatar item-start>
+                                  <img src="../../assets/imgs/param/block/photoDeProfil.png">
+                                </ion-avatar>
+                                <h3>nom prenom</h3>
+                                <p class="lieu-event">Bardo, Tunis</p>
+                                <button  ion-button round
+                                 class="accept-event-button">
+                                  Accepter
+                                </button>
+                              </ion-item>
+                                <ion-item-options slide="right">
+                                    <button  class="delete-invitation-button">Supprimer</button>
+                                  </ion-item-options>
+                              
+                            </ion-item-sliding>
+                            
                   </ion-list>
                   <ion-list *ngSwitchCase="2">
-                     test4
+                    <ion-item>
+                      <ion-avatar item-start>
+                        <img src="../../assets/imgs/param/block/photoDeProfil.png">
+                      </ion-avatar>
+                      <h3>nom prenom</h3>
+                      <p class="lieu-event">Bardo, Tunis</p>
+                      <button ion-button item-end>
+                        
+                      </button>
+                    </ion-item>
                     </ion-list>
-                    <ion-list *ngSwitchCase="3">
-                        test3
-                       </ion-list>
+                    <ion-grid class="programs-and-invitaion" *ngSwitchCase="3">
+                        <ion-row>
+                          <ion-col>
+                            <span class="title-row">Vos programme</span>
+                          </ion-col>
+                        </ion-row>
+                        <ion-row>
+                          <ion-col>
+                            
+                            <div class="programs">
+                              <div class="bee-profile-image">
+                                <div class="bee-hexagon">
+                                  <img src="../../assets/imgs/photoDeProfil.png" alt="">
+                                </div>
+                               
+                                  <div class="bee-edit-icon bee-edit-photo"></div>
+                                </div>
+                                <div class="cofeeTitle">
+                                    What's Up Coffée !
+                                </div>
+                                <div class="time">
+                                    Semdi 17 Dec - 6:00 PM
+                                </div>
+                                <div class="requestProg">
+                                    Mohamed Limayma vous invitez à What's up coffée avec 2 autres amis.
+                                </div>
+                            </div>
+                          </ion-col>
+                        </ion-row>
+                       </ion-grid>
                 </div>
           </ion-col>
         </ion-row>

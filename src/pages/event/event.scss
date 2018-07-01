@@ -73,17 +73,103 @@ page-event {
       .segment-activated{
         font-size: 15px !important;
         color: rgb(242,40,118)!important;
+        background-color: transparent !important;
+    }
+    .segment-ios .segment-button{
+      border: none !important;
+    }
+    .listInvitation{
+      background-color: #f5f5f5 !important;
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 10px;
     }
       .eventlist-part{
         margin-top:7%;
     }
+    ion-item-sliding.active-slide ion-item-options{
+      background-color: rgb(231,231,231) !important;
+      padding-left: 25px;
+      padding-right: 17px;
+    }
     .lieu-event{
       font-size: 10px;
   }
-  .delete-block-button{
+  .accept-event-button{
     position: absolute;
     right:0%;
     top:27%;
+    right: 3%;
+    top: 16%;
+    width: 76px;
+    height: 30px !important;
     background-color: rgb(242,40,118);
+}
+.delete-invitation-button{
+  background-color: rgb(221,221,221);
+  color: black;
+  border: 1px rgb(70, 69, 69) solid;
+  width: 65px;
+  height: 28px;
+  margin-top: 14px;
+  border-radius: 18px;
+  font-size: 11px;
+
+}
+.delete-invitation-button:active{
+  background-color: rgb(242,40,118);
+}
+.title-row{
+  font-size: 16px;
+  
+}
+.programs-and-invitaion{
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 0px !important;
+  
+}
+.programs{
+  margin-top: 10px;
+  webkit-box-shadow: 5px 5px 5px 5px rgba(200,200,200,1);
+  box-shadow: 1px 1px 1px 1px rgba(200,200,200,1);
+  border-radius: 10px;
+  position: relative;
+  width: 100%;
+  height: 131px;
+
+
+}
+.bee-hexagon {
+  clip-path: url(#hexagonPath);
+  background-repeat: no-repeat;
+  background-position: -3px -15px;
+  background-color:transparent;
+  height: 100%;
+}
+.bee-profile-image {
+  position: absolute;
+  top: -12px;
+ left:0%;
+height: 120px;
+width: 120px;
+
+transform: scale(0.6);
+}
+.cofeeTitle{
+  position: absolute;
+  top: 30px;
+  left: 120px;
+}
+.time{
+  position: absolute;
+  top: 52px;
+  left: 120px;
+  font-size: 10px;
+}
+.requestProg{
+  position: absolute;
+  top: 92px;
+  left: 0px;
+  font-size: 10px;
 }
 }
