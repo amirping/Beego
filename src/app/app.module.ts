@@ -1,3 +1,4 @@
+import { HeadlinesPage } from "./../pages/headlines/headlines";
 import { SpecialForYouPage } from "./../pages/special-for-you/special-for-you";
 import { SuggestPage } from "./../pages/suggest/suggest";
 import { FindFriendPage } from "./../pages/find-friend/find-friend";
@@ -55,7 +56,8 @@ import { UserProvider } from "../providers/user/user";
     TabsPage,
     FindFriendPage,
     SuggestPage,
-    SpecialForYouPage
+    SpecialForYouPage,
+    HeadlinesPage
   ],
   imports: [
     BrowserModule,
@@ -85,7 +87,8 @@ import { UserProvider } from "../providers/user/user";
     TabsPage,
     FindFriendPage,
     SuggestPage,
-    SpecialForYouPage
+    SpecialForYouPage,
+    HeadlinesPage
   ],
   providers: [
     StatusBar,

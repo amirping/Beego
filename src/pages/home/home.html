@@ -195,7 +195,7 @@
         <ion-col>
           <div class="section-title">
             <span class="title">A la une </span>
-            <span class="more">Tout afficher</span>
+            <span class="more" (click)="navigateTo('headlines')">Tout afficher</span>
           </div>
           <div class="row-style row-space-around">
             <button ion-button clear class="filter_btn" (click)="changeNewsTo('events')" [ngClass]="{'activated_filter' : index_news=='events'}">Evénements</button>
