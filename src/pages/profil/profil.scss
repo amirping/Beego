@@ -112,6 +112,7 @@ page-profil {
       img{
         width: 100%;
       }
+
     }
   }
   .bee-cover-blur {
@@ -130,6 +131,7 @@ page-profil {
         width: 100%;
         min-height: 270px;
       }
+
     }
   }
   .bee-hexagon {
@@ -138,6 +140,10 @@ page-profil {
     background-position: -3px -15px;
     background-color: transparent;
     height: 100%;
+    img{
+      min-height: 100%;
+      min-width: 100%;
+    }
   }
   .bee-profile-image {
     height: 120px;

@@ -1,0 +1,212 @@
+page-event {
+  .add-btn{
+    position: fixed;
+    bottom: 3%;
+    right: 2%;
+  }
+  .col{
+    padding: 0;
+    margin: 0;
+  }
+    .photo-row{
+        height: auto;
+        flex-grow: 1;
+        position: relative;
+        overflow: hidden;
+        text-align: center;
+      }
+      .img-event{
+        background-repeat: no-repeat;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .eventitle{
+        display: flex;
+        justify-content: space-between;
+        width: 100%; 
+        position: absolute;
+        top :27px;
+        color: white;
+      }
+      .back{
+        color: white;
+        }
+      .buttn{
+        background-color: transparent;
+        width: 65px;
+         } 
+      .back-img{
+        width: 64%;
+         }
+      .title{
+        color: white;
+        font-size: 16px;
+      }
+      .searchevent{
+        widows: 18px;
+      }
+      .position-info{
+        margin-top: -47px;
+      }
+      .info-event{
+        width: 100%;
+        left: 0px;
+        height: auto;
+        background-color: whitesmoke;
+        border-top-right-radius: 47px;
+        border-top-left-radius: 47px;
+      }
+      .head-list-button{
+        display: flex;
+        justify-content: space-around;
+        width: 100%; 
+        .btn-behavior{
+          background-color: transparent;
+          color: black;
+          margin-top: 35px;
+          font-size: 10px;
+         
+        }
+     
+      }
+      .segment-activated{
+        font-size: 15px !important;
+        color: rgb(242,40,118)!important;
+        background-color: transparent !important;
+    }
+    .segment-ios .segment-button{
+      border: none !important;
+    }
+    .listInvitation{
+      background-color: #f5f5f5 !important;
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 10px;
+    }
+      .eventlist-part{
+        margin-top:7%;
+    }
+    ion-item-sliding.active-slide ion-item-options{
+      background-color: rgb(231,231,231) !important;
+      padding-left: 25px;
+      padding-right: 17px;
+    }
+    .lieu-event{
+      font-size: 10px;
+  }
+  .accept-event-button{
+    position: absolute;
+    right:0%;
+    top:27%;
+    right: 3%;
+    top: 16%;
+    width: 76px;
+    height: 30px !important;
+    background-color: rgb(242,40,118);
+}
+.delete-invitation-button{
+  background-color: rgb(221,221,221);
+  color: black;
+  border: 1px rgb(70, 69, 69) solid;
+  width: 65px;
+  height: 28px;
+  margin-top: 14px;
+  border-radius: 18px;
+  font-size: 11px;
+
+}
+.delete-invitation-button:active{
+  background-color: rgb(242,40,118);
+}
+.title-row{
+  font-size: 16px;
+  
+}
+.programs-and-invitaion{
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 0px !important;
+  
+}
+.slides-programs{
+  margin-top: 10px;
+  width: 99%;
+  height: 131px;
+}
+.programs{
+  -webkit-box-shadow: 0px 0px 5px 1px rgba(128, 124, 124, 0.45);
+  -moz-box-shadow: 0px 0px 5px 1px rgba(128, 124, 124, 0.45);
+  box-shadow: 0px 0px 2px 1px rgba(128, 124, 124, 0.45);
+  border-radius: 10px;
+  position: relative;
+  width: 96% !important;
+  height: 98% !important;
+  margin-top: 1px;
+  margin-left: 3%;
+  z-index: 1;
+  background-color: whitesmoke;
+
+}
+.bee-hexagon {
+  clip-path: url(#hexagonPath);
+  background-repeat: no-repeat;
+  background-position: -3px -15px;
+  background-color:transparent;
+  height: 100%;
+}
+.bee-profile-image {
+  position: absolute;
+  top: -12px;
+ left:0%;
+height: 120px;
+width: 120px;
+
+transform: scale(0.6);
+}
+.cofeeTitle{
+  position: absolute;
+  top: 30px;
+  left: 110px;
+}
+.time{
+  position: absolute;
+  top: 52px;
+  left: 110px;
+  font-size: 10px;
+}
+.requestProg{
+  position: absolute;
+  top: 92px;
+  left: 29px;
+  font-size: 10px;
+  padding-right: 22px;
+}
+.btn-programs{
+  position: relative;
+  overflow: hidden;
+  height: 40px;
+  width: 200px;
+  margin-left: calc(100% - 160px);
+  margin-top: -6px;
+  border-radius: 10px;
+  -webkit-box-shadow: 0px 0px 5px 1px rgba(128, 124, 124, 0.45);
+  -moz-box-shadow: 0px 0px 5px 1px rgba(128, 124, 124, 0.45);
+  box-shadow: 0px 0px 2px 1px rgba(128, 124, 124, 0.45);
+}
+.btn-style{
+  height: 98%;
+  width: 99px;
+  background-color: transparent;
+  
+}
+.cancelbtn{
+  position: absolute;
+  left: 100px;
+}
+.updatebtn{
+  position: absolute;
+  left: 1px;
+  border-right: 1px solid rgba(128, 124, 124, 0.45);
+ 
+}
+}

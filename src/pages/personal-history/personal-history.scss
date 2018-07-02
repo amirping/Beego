@@ -1,0 +1,90 @@
+page-personal-history {
+    .beego-title-historic{
+        position: relative;
+        font-size: 14PX;
+        text-align: center;
+        color: white;
+    }
+    .back{
+        position: absolute;
+        top: 37%;
+        z-index: 99;
+    }
+    .back-button-historic{
+        background-color: transparent;
+        width: 65px;
+        
+        
+     } 
+      .back-img{
+        width: 64%;
+          
+      }
+      .grid{
+          padding-top: 0 ;
+
+      }
+      .motd {
+        margin-left: 20px;
+        margin-right: 20px;
+        background: url("../../assets/imgs/homePage_img/2-layers.svg") right top
+          no-repeat; // not sure about it let's try it later
+        background-size: contain;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.13);
+        border-radius: 0 0 15px 15px;
+        h2 {
+          color: #333333;
+          font-family: "Raleway";
+          font-size: 21px;
+          font-weight: 400;
+          letter-spacing: 1.25px;
+        }
+        p {
+          color: black;
+          font-family: "Raleway";
+          font-size: 14px;
+          font-weight: 400;
+          letter-spacing: 0.12px;
+        }
+        span {
+          color: #333333;
+          font-family: "Raleway";
+          font-size: 14px;
+          font-weight: 600;
+          letter-spacing: 0.17px;
+          
+        }
+      }
+    .delete-historic-button{
+        position: absolute;
+        right:5%;
+        top:27%;
+        background-color: transparent;
+    }
+    .historic{
+      width: 75%;
+      .gray-text{
+      
+        font-size: 11px;
+        color: rgb(142,142, 147);
+        
+      }
+      .dark-text{
+        font-size: 13px;
+        font-weight: 600;
+        color: black;
+      }
+
+    }
+    .timing-historic{
+      margin-top: 3%;
+      float: right;
+      margin-right: 7%;
+      font-size: 9px;
+    }
+    .avatar-height{
+      margin-top: -3% !important;
+    }
+   
+
+}

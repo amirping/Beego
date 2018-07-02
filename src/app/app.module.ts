@@ -21,9 +21,15 @@ import { ProfilPage } from "../pages/profil/profil";
 import { ListOfFollowsPage } from "../pages/list-of-follows/list-of-follows";
 import { SettingProfilPage } from "../pages/setting_profil/setting_profil";
 import { ChilloutPage } from "../pages/chillout/chillout";
-import { BlockPage } from "../pages/block/block";
-import { SettingProfil2Page } from "../pages/setting-profil2/setting-profil2";
-import { SettingSecurityPage } from "../pages/setting-security/setting-security";
+
+import { BlockPage} from '../pages/block/block'
+import {SettingProfil2Page } from '../pages/setting-profil2/setting-profil2';
+import {SettingSecurityPage} from '../pages/setting-security/setting-security'
+import {PersonalHistoryPage} from '../pages/personal-history/personal-history';
+import {FriendProfilPage } from '../pages/friend-profil/friend-profil';
+import {FriendFollowPage} from '../pages/friend-follow/friend-follow';
+import { PopupPage} from '../pages/popup/popup';
+import {EventPage} from '../pages/event/event';
 
 import { Ionic2RatingModule } from "ionic2-rating";
 import { AngularFireModule } from "angularfire2";
@@ -55,9 +61,19 @@ import { UserProvider } from "../providers/user/user";
     SettingSecurityPage,
     TabsPage,
     FindFriendPage,
+
     SuggestPage,
     SpecialForYouPage,
-    HeadlinesPage
+    HeadlinesPage,
+
+
+    PersonalHistoryPage,
+    FriendProfilPage,
+    FriendFollowPage,
+    PopupPage,
+    EventPage
+
+
   ],
   imports: [
     BrowserModule,
@@ -86,9 +102,18 @@ import { UserProvider } from "../providers/user/user";
     SettingSecurityPage,
     TabsPage,
     FindFriendPage,
+
     SuggestPage,
     SpecialForYouPage,
-    HeadlinesPage
+    HeadlinesPage,
+
+
+    PersonalHistoryPage,
+    FriendProfilPage,
+    FriendFollowPage,
+    PopupPage,
+    EventPage
+
   ],
   providers: [
     StatusBar,

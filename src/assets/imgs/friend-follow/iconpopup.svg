@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 74.404 79.299">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fecc42;
+      }
+
+      .cls-2 {
+        fill: #fff;
+      }
+
+      .cls-3 {
+        filter: url(#photo-1449614115178-cb924f730780);
+      }
+    </style>
+    <filter id="photo-1449614115178-cb924f730780" x="0" y="0" width="74.404" height="79.299" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Groupe_865" data-name="Groupe 865" transform="translate(-97.472 81.573)">
+    <g class="cls-3" transform="matrix(1, 0, 0, 1, 97.47, -81.57)">
+      <path id="photo-1449614115178-cb924f730780-2" data-name="photo-1449614115178-cb924f730780" class="cls-1" d="M56.4,21.743V39.456a13.026,13.026,0,0,1-6.526,11.188L34.5,59.5a12.625,12.625,0,0,1-12.819,0l-6.992-4.2L6.526,50.644H6.293A12.811,12.811,0,0,1,0,39.456V21.743a11.348,11.348,0,0,1,.233-2.8,11.931,11.931,0,0,1,2.331-4.895,11.6,11.6,0,0,1,3.962-3.5L21.909,1.7a12.625,12.625,0,0,1,12.819,0l15.383,8.857A13.094,13.094,0,0,1,56.4,21.743Z" transform="translate(9 6.05)"/>
+    </g>
+    <g id="danger" transform="translate(126 -55.999)">
+      <g id="Alert" transform="translate(-3 -2)">
+        <path id="Tracé_2131" data-name="Tracé 2131" class="cls-2" d="M22.342,52.238l-9.284-15.4a2.033,2.033,0,0,0-3.483,0L.291,52.238a2.033,2.033,0,0,0,1.741,3.083H20.6a2.033,2.033,0,0,0,1.741-3.083Zm-1.254,1.325a.561.561,0,0,1-.487.285H2.032A.56.56,0,0,1,1.553,53l9.284-15.4a.56.56,0,0,1,.959,0L21.08,53A.56.56,0,0,1,21.088,53.563Z" transform="translate(0 -35.857)"/>
+        <path id="Tracé_2132" data-name="Tracé 2132" class="cls-2" d="M234.576,173c-.561,0-1,.3-1,.834,0,1.627.191,3.965.191,5.592,0,.424.369.6.807.6.328,0,.793-.178.793-.6,0-1.627.191-3.965.191-5.592A.879.879,0,0,0,234.576,173Z" transform="translate(-223.252 -166.942)"/>
+        <path id="Tracé_2133" data-name="Tracé 2133" class="cls-2" d="M233.7,353.306a1.053,1.053,0,1,0,0,2.106,1.053,1.053,0,0,0,0-2.106Z" transform="translate(-222.366 -339.272)"/>
+      </g>
+    </g>
+  </g>
+</svg>
