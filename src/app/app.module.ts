@@ -1,3 +1,5 @@
+import { HeadlinesPage } from "./../pages/headlines/headlines";
+import { SpecialForYouPage } from "./../pages/special-for-you/special-for-you";
 import { SuggestPage } from "./../pages/suggest/suggest";
 import { FindFriendPage } from "./../pages/find-friend/find-friend";
 import { BrowserModule } from "@angular/platform-browser";
@@ -27,6 +29,7 @@ import {PersonalHistoryPage} from '../pages/personal-history/personal-history';
 import {FriendProfilPage } from '../pages/friend-profil/friend-profil';
 import {FriendFollowPage} from '../pages/friend-follow/friend-follow';
 import { PopupPage} from '../pages/popup/popup';
+import {EventPage} from '../pages/event/event';
 
 import { Ionic2RatingModule } from "ionic2-rating";
 import { AngularFireModule } from "angularfire2";
@@ -54,18 +57,22 @@ import { UserProvider } from "../providers/user/user";
     HomePage,
     BlockPage,
     SettingProfil2Page,
-
+    SearchRadioPipe,
     SettingSecurityPage,
+    TabsPage,
+    FindFriendPage,
+
+    SuggestPage,
+    SpecialForYouPage,
+    HeadlinesPage,
+
+
     PersonalHistoryPage,
     FriendProfilPage,
     FriendFollowPage,
     PopupPage,
+    EventPage
 
-    SearchRadioPipe,
- 
-    TabsPage,
-    FindFriendPage,
-    SuggestPage
 
   ],
   imports: [
@@ -93,15 +100,19 @@ import { UserProvider } from "../providers/user/user";
     BlockPage,
     SettingProfil2Page,
     SettingSecurityPage,
+    TabsPage,
+    FindFriendPage,
+
+    SuggestPage,
+    SpecialForYouPage,
+    HeadlinesPage,
+
 
     PersonalHistoryPage,
     FriendProfilPage,
     FriendFollowPage,
     PopupPage,
-
-    TabsPage,
-    FindFriendPage,
-    SuggestPage
+    EventPage
 
   ],
   providers: [

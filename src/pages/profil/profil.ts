@@ -4,6 +4,7 @@ import {ListOfFollowsPage} from '../list-of-follows/list-of-follows'
 import { SettingProfilPage } from '../setting_profil/setting_profil';
 import { User } from '../../models/user.interface';
 import { UserProvider } from '../../providers/user/user';
+import { Subscription } from 'rxjs/Subscription';
 
 /**
  * Generated class for the PrfilPage page.
@@ -20,13 +21,24 @@ import { UserProvider } from '../../providers/user/user';
 export class ProfilPage {
   user = {} as User;
   updateImageType: string;
+  userSubscription : Subscription;
   constructor(public navCtrl: NavController,
     public userProvider: UserProvider,
     public loadCtrl: LoadingController) {
   }
   
   ionViewDidLoad() {
+    console.log(" profile");
     this.user = this.userProvider.getCurrentUser();
+  }
+  ionViewDidEnter(){
+    this.userSubscription  = this.userProvider.observeUser().subscribe(user=>{
+      this.user = {uid:this.user.uid,...user};
+    });
+  }
+  ionViewWillLeave(){
+    console.log("fffffff");
+    this.userSubscription.unsubscribe();
   }
   formatFollows(nbr:number):string{
     return nbr+"";
@@ -35,7 +47,7 @@ export class ProfilPage {
     this.navCtrl.push(ListOfFollowsPage);
   }
   paramPage(){
-    this.navCtrl.push(SettingProfilPage);
+    this.navCtrl.push(SettingProfilPage, {fb:this.user.fbLink, insta:this.user.instaLink, snap:this.user.snapLink});
   }
   back(){
     this.navCtrl.pop();

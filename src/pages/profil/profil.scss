@@ -2,71 +2,6 @@ page-profil {
   ::-webkit-scrollbar {
     display: none;
   }
-
-  .beego-container-profil{
-      position: relative;
-      width: 100%;
-      height:100%;
-    }
-    .arrow-right{
-      position: absolute;
-      top:30px;
-      left: 4px;
-    }
-    
-    .back-button-right{
-      background-color: transparent;
-    }
-    .img-right{
-      width: 63%;
-    }
-    .take-photo{
-      position: absolute;
-      top:23px;
-      
-      right: 44px; 
-    }
-    .take-photo-button{
-      background-color: transparent;
-    }
-    .take-photo-img{
-      width: 29px;
-      height: 29;
-    }
-    .take-photo-img:active{
-      transform: scale(0.8);
-    }
-    .param-profil{
-      position: absolute;
-      top:28px;
-      right: 14px; 
-    }
-    .button-param{
-      background-color: transparent;
-  }
-    .img-param{
-      width: 20px;
-      height: 19px;
-    }
-    .abonnés{
-      position: absolute;
-      top:75%;
-      left: 10%; 
-    }
-    .suivis{
-      position: absolute;
-      top:75%;
-      left: 73%; 
-    }
-    .abonnés-number{
-      color: white;
-    }
-    .suivis-number{
-      color: white;
-    }
-    .position-info{
-      margin-top: 227px;
-
   .beego-container-profil {
     position: relative;
     width: 100%;
@@ -192,32 +127,10 @@ page-profil {
     overflow: hidden;
     .bee-inner-cover {
       width: 100%;
-
-      left: 0px;
-      
-      background-color: whitesmoke;
-      border-top-right-radius: 47px;
-      border-top-left-radius: 47px;
-    }
-    
-    .profil-photo-part{
-      position: fixed;
-      background-image: url(../../assets/imgs/photoDeProfil.png) ;
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: center bottom;
-      width:100%;
-      padding: 30%;
-      height: 270px;
-     
-     
-    }
-    .bee-hexagon {
-      clip-path: url(#hexagonPath);
-      background-repeat: no-repeat;
-      background-position: -3px -15px;
-      background-color:transparent;
-      height: 100%;
+      img{
+        width: 100%;
+        min-height: 270px;
+      }
 
     }
   }
@@ -227,6 +140,10 @@ page-profil {
     background-position: -3px -15px;
     background-color: transparent;
     height: 100%;
+    img{
+      min-height: 100%;
+      min-width: 100%;
+    }
   }
   .bee-profile-image {
     height: 120px;
@@ -346,5 +263,4 @@ page-profil {
     height: 72px;
     margin: 10px 0px 0 19px;
   }
-}
 }

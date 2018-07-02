@@ -1,3 +1,5 @@
+import { HeadlinesPage } from "./../headlines/headlines";
+import { SpecialForYouPage } from "./../special-for-you/special-for-you";
 import { SuggestPage } from "./../suggest/suggest";
 import { FindFriendPage } from "./../find-friend/find-friend";
 import { UserProvider } from "./../../providers/user/user";
@@ -217,6 +219,12 @@ export class HomePage {
         break;
       case "suggest":
         this.navCtrl.push(SuggestPage);
+        break;
+      case "specialForYou":
+        this.navCtrl.push(SpecialForYouPage);
+        break;
+      case "headlines":
+        this.navCtrl.push(HeadlinesPage);
         break;
       default:
         break;
