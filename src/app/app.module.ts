@@ -26,6 +26,7 @@ import {PersonalHistoryPage} from '../pages/personal-history/personal-history';
 import {FriendProfilPage } from '../pages/friend-profil/friend-profil';
 import {FriendFollowPage} from '../pages/friend-follow/friend-follow';
 import { PopupPage} from '../pages/popup/popup';
+import {EventPage} from '../pages/event/event';
 
 import { Ionic2RatingModule } from "ionic2-rating";
 import { AngularFireModule } from "angularfire2";
@@ -58,7 +59,8 @@ import { UserProvider } from "../providers/user/user";
     PersonalHistoryPage,
     FriendProfilPage,
     FriendFollowPage,
-    PopupPage
+    PopupPage,
+    EventPage
 
   ],
   imports: [
@@ -92,7 +94,8 @@ import { UserProvider } from "../providers/user/user";
     PersonalHistoryPage,
     FriendProfilPage,
     FriendFollowPage,
-    PopupPage
+    PopupPage,
+    EventPage
   ],
   providers: [
     StatusBar,

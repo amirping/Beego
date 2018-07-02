@@ -16,7 +16,7 @@ import {PersonalHistoryPage} from '../pages/personal-history/personal-history';
 import {FriendProfilPage } from '../pages/friend-profil/friend-profil';
 import {FriendFollowPage} from '../pages/friend-follow/friend-follow';
 import { PopupPage} from '../pages/popup/popup';
-
+import {EventPage} from '../pages/event/event';
 
 
 import { UserProvider } from '../providers/user/user';
@@ -26,6 +26,7 @@ import { UserProvider } from '../providers/user/user';
   templateUrl: "app.html"
 })
 export class MyApp {
+
   rootPage:any ;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,public userProvider: UserProvider) {
