@@ -5,113 +5,116 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
   <ion-navbar hideBackButton="true" color="bar-color">
     <div class="back">
-        
-        
       <button class="back-button-param" (click)="back()">
-        <img src="../../assets/imgs/arrow-back.png" alt="" 
-        class="back-img">
+        <img src="../../assets/imgs/arrow-back.png" alt="" class="back-img">
       </button>
-
-</div>
-<div class="beego-title-param">
-Parametre du compte</div>
+    </div>
+    <div class="beego-title-param">
+      Parametre du compte</div>
   </ion-navbar>
-
 </ion-header>
 
 
 <ion-content padding>
-  <div class="paramGenerale"><h3>Parametre Generale</h3></div>
-  
-
-    <ion-list>
-       
-          <ion-item detail-push (click)="goToParam()" >
-            <div class="param-div">
-            
-              <button  ionic-start  class="param_icon" >
-                  <img class="param-img"
-                  src="../../assets/imgs/param/icon-param.svg">
-                </button>
-              
-        
-           <span class="titre-item"> Parametre du profil </span>
-          </div>
-        </ion-item>
-        <ion-item detail-push (click)="goTosecurity()">
-            <button  ionic-start  class="mdp_icon" >
-                <img src="../../assets/imgs/param/mdp-icon.svg">
-              </button>
-      
-              <span class="titre-item">  Changer le mot de passe</span>
-      </ion-item>
-      <ion-item detail-push (click)="blockList()">
-          <button  ionic-start  class="bloqué_icon" >
-              <img src="../../assets/imgs/param/bloqué-icon.svg">
-            </button>
-    
-            <span class="titre-item">  Amis bloqués </span>
-    </ion-item>
-    <ion-item >
-        <button ionic-start  class="param_icon" >
-            <img src="../../assets/imgs/insta.png" >
-           
+  <div class="paramGenerale">
+    <h3>Parametre Generale</h3>
+  </div>
+  <ion-list>
+    <ion-item detail-push (click)="goToParam()">
+      <div class="param-div">
+        <button ionic-start class="param_icon">
+          <img class="param-img" src="../../assets/imgs/param/icon-param.svg">
         </button>
-        
-        <ion-label class="titre-item">
-            <button ionic-start  class="gps_icon" >
-                <img src="../../assets/imgs/param/gps-icon.svg" >
-               
-            </button> 
-            Activer le GPS 
-       </ion-label>
-          <ion-toggle color="secondary" checked="true"></ion-toggle>
-          
-        
+        <span class="titre-item"> Parametre du profil </span>
+      </div>
+    </ion-item>
+    <ion-item detail-push (click)="goTosecurity()" [class.disabled]="!passwordUpdatable">
+      <button ionic-start class="mdp_icon" [disabled]="!passwordUpdatable">
+        <img src="../../assets/imgs/param/mdp-icon.svg">
+      </button>
+      <span class="titre-item"> Changer le mot de passe</span>
+    </ion-item>
+    <ion-item detail-push (click)="blockList()">
+      <button ionic-start class="bloque_icon">
+        <img src="../../assets/imgs/param/bloque-icon.svg">
+      </button>
+
+      <span class="titre-item"> Amis bloqués </span>
     </ion-item>
     <ion-item>
-       
-        <ion-label class="titre-item">
-            <button ionic-start  class="push_icon" >
-                <img src="../../assets/imgs/param/push-icon.svg" >
-               
-            </button> 
-            Push notification 
-       </ion-label>
+      <button ionic-start class="param_icon">
+        <img src="../../assets/imgs/insta.png">
 
-          <ion-toggle color="secondary" checked="true"></ion-toggle>
+      </button>
+
+      <ion-label class="titre-item">
+        <button ionic-start class="gps_icon">
+          <img src="../../assets/imgs/param/gps-icon.svg">
+
+        </button>
+        Activer le GPS
+      </ion-label>
+      <ion-toggle color="secondary" checked="true"></ion-toggle>
+
+
     </ion-item>
-      </ion-list>
-      
-      <div class="reseauxsociaux">
-        <h3>Réseaux sociaux</h3>
-      </div>
-      <div>
-        <span class="facebooktext"> Facebook :</span>
-      </div>
-      <div class="fbdiv">
-        <input  class="facebookinput" placeholder="facebook.com/exemple"
-        type="text" name="facebook" id="facebook">
-      </div>
-      <div>
-          <span class="instatext"> Instagram :</span>
-        </div>
-        <div class="instadiv">
-          <input  class="instainput" placeholder="instagram.com/exemple"
-          type="text" name="insta" id="insta">
-        </div>
-        <div>
-        <span class="snaptext"> SnapChat :</span>
-      </div>
-      <div class="snapdiv">
-        <input  class="snapinput" placeholder="snapchat.com/exemple"
-        type="text" name="snap" id="snap">
-        <div class="icon-snap">
-         
-          </div>
-      </div>
+    <ion-item>
+
+      <ion-label class="titre-item">
+        <button ionic-start class="push_icon">
+          <img src="../../assets/imgs/param/push-icon.svg">
+
+        </button>
+        Push notification
+      </ion-label>
+
+      <ion-toggle color="secondary" checked="true"></ion-toggle>
+    </ion-item>
+  </ion-list>
+
+  <div class="reseauxsociaux">
+    <h3>Réseaux sociaux</h3>
+  </div>
+  <div>
+    <span class="facebooktext"> Facebook :</span>
+  </div>
+  <div class="fbdiv" [class.to-save]="fbValidLink" >
+    <input 
+    class="facebookinput" 
+    placeholder="facebook.com/exemple" 
+    type="url"
+    [(ngModel)]="fbLinkTemp"
+    (keyup)="updateSocialLink(0)">
+    <div class="btn-save" (click)="saveSocialLink(0)">save</div>
+  </div>
+  <div>
+    <span class="instatext"> Instagram :</span>
+  </div>
+  <div class="instadiv" [class.to-save]="instaValidLink" >
+    <input 
+      class="instainput" 
+      placeholder="instagram.com/exemple" 
+      type="url"
+      [(ngModel)]="instaLinkTemp"
+      (keyup)="updateSocialLink(1)">
+    <div class="btn-save" (click)="saveSocialLink(1)">save</div>
+  </div>
+  <div>
+    <span class="snaptext"> SnapChat :</span>
+  </div>
+  <div class="snapdiv" [class.to-save]="snapValidLink" >
+    <input 
+    class="snapinput"
+    placeholder="snapchat.com/exemple" 
+    type="url"
+    [(ngModel)]="snapLinkTemp"
+    (keyup)="updateSocialLink(2)">
+    <div class="btn-save" (click)="saveSocialLink(2)" >save</div>
+    <div class="icon-snap">
+
+    </div>
+  </div>
 
 </ion-content>

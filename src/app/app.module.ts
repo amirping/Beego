@@ -1,3 +1,4 @@
+import { FindFriendPage } from "./../pages/find-friend/find-friend";
 import { BrowserModule } from "@angular/platform-browser";
 import { ErrorHandler, NgModule, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
 import { IonicApp, IonicErrorHandler, IonicModule } from "ionic-angular";
@@ -15,8 +16,9 @@ import { SignupStep2Page } from "../pages/signup_step2/signup_step2";
 import { HomePage } from "../pages/home/home";
 import { ProfilPage } from "../pages/profil/profil";
 import { ListOfFollowsPage } from "../pages/list-of-follows/list-of-follows";
-import {SettingProfilPage } from "../pages/setting_profil/setting_profil";
+import { SettingProfilPage } from "../pages/setting_profil/setting_profil";
 import { ChilloutPage } from "../pages/chillout/chillout";
+
 import { BlockPage} from '../pages/block/block'
 import {SettingProfil2Page } from '../pages/setting-profil2/setting-profil2';
 import {SettingSecurityPage} from '../pages/setting-security/setting-security'
@@ -30,7 +32,7 @@ import { Ionic2RatingModule } from "ionic2-rating";
 import { AngularFireModule } from "angularfire2";
 import { AngularFireAuthModule } from "angularfire2/auth";
 import { AngularFireDatabaseModule } from "angularfire2/database";
-
+import { TabsPage } from "../pages/tabs/tabs";
 // import { AngularFireStorageModule } from "angularfire2/storage";
 // import { AngularFirestoreModule } from "angularfire2/firestore";
 
@@ -51,11 +53,15 @@ import { UserProvider } from "../providers/user/user";
     BlockPage,
     SettingProfil2Page,
     SettingSecurityPage,
+    TabsPage,
+    FindFriendPage,
+
     PersonalHistoryPage,
     FriendProfilPage,
     FriendFollowPage,
     PopupPage,
     EventPage
+
   ],
   imports: [
     BrowserModule,
@@ -82,6 +88,9 @@ import { UserProvider } from "../providers/user/user";
     BlockPage,
     SettingProfil2Page,
     SettingSecurityPage,
+    TabsPage,
+    FindFriendPage,
+
     PersonalHistoryPage,
     FriendProfilPage,
     FriendFollowPage,

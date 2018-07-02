@@ -38,14 +38,14 @@
         <ion-row>
           <ion-col>
 
-            <form (submit)="signin()" [formGroup]="signinForm" novalidate >
+            <form (submit)="login()" [formGroup]="signinForm" novalidate >
               <ion-row>
                 <input type="email" 
                   class="beego-input-transparent beego-icon-mail bee-margin2" 
                   placeholder="Adresse mail"
                   [class.invalid]="!signinForm.controls.email.valid && signinForm.controls.email.touched"
                   formControlName="email">
-              </ion-row>              
+              </ion-row>
               <ion-row>
                 <input type="password" 
                   class="beego-input-transparent beego-icon-lock bee-margin2" 
