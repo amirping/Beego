@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
 import { IonicPage, NavController, NavParams } from "ionic-angular";
+import { AngularFireDatabase } from "angularfire2/database";
 
 /**
  * Generated class for the FindFriendPage page.
@@ -14,11 +15,29 @@ import { IonicPage, NavController, NavParams } from "ionic-angular";
   templateUrl: "find-friend.html"
 })
 export class FindFriendPage {
+  
   friends: any = [];
   traited: any = [];
   activeFriend = 0;
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.friends.push({
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams, 
+    private database : AngularFireDatabase
+  ) {
+    const friends$ = this.database.list('connaissance').valueChanges().subscribe(friends => {
+     this.friends = friends.map((friend,index)=>{
+       const f = friend as any ;
+        f.id = index;
+
+        return f;
+      })
+     // this.friends= friends;
+      console.log(this.friends)
+      friends$.unsubscribe();
+        });
+
+    /**
+     * this.friends.push({
       id: 1,
       pic: "http://lorempixel.com/900/900/people",
       name: "Lamine ben zekri",
@@ -57,6 +76,7 @@ export class FindFriendPage {
       age: "24 ans",
       stat: 0
     });
+     */
   }
 
   ionViewDidLoad() {

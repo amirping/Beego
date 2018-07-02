@@ -7,9 +7,9 @@
 <ion-content>
   <ion-grid class="full-height">
     <ion-row class="banner">
-      <ion-col>
+      <ion-col *ngFor="let pageData of pagesData | async">
         <div class="banner-top row">
-          <ion-icon name="arrow-round-back"></ion-icon>
+          <ion-icon name="arrow-round-back" (click)="getBack()"></ion-icon>
           <span class="temp">{{pageData.temp}}°</span>
         </div>
         <div class="banner-bottom">
@@ -25,15 +25,16 @@
     </ion-row>
     <ion-row>
       <ion-col>
-        <div class="grid-viewr">
-          <div class="card-suggest animated flipInX" *ngFor="let item of pageData.collection">
+        <div class="grid-viewr" *ngFor="let pageData of pagesData | async">
+          <div class="card-suggest animated flipInX" *ngFor="let i of pageData.data">
             <div class="img">
               <img src="https://source.unsplash.com/900x900/?food,romantic,dinner" alt="">
             </div>
-            <span class="title">{{item.name}}</span>
-            <span class="sub-title">{{item.location}}</span>
+            
+            <span class="title">{{i.name}}</span>
+            <span class="sub-title">{{i.location}}</span>
             <div class="rating-suggest">
-              <rating [(ngModel)]="item.rating" emptyStarIconName="star-outline" halfStarIconName="star-half" starIconName="star" nullable="false"
+              <rating [(ngModel)]="i.rating" emptyStarIconName="star-outline" halfStarIconName="star-half" starIconName="star" nullable="false"
                 (ngModelChange)="null">
               </rating>
             </div>

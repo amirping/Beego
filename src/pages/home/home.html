@@ -1,3 +1,4 @@
+
 <!--
   Generated template for the AcceuilPage page.
 
@@ -21,13 +22,16 @@
             <ion-col>
               <div class="toolbar-title">Acceuil</div>
             </ion-col>
-            <ion-col>
+            <!--
+              <ion-col>
               <div>
                 <button class="search" end>
                   <img src="../../assets/imgs/Search.png" alt="" (click)="searching()">
                 </button>
               </div>
             </ion-col>
+            -->
+            
           </ion-row>
         </ion-grid>
 
@@ -117,48 +121,19 @@
             <ion-slide *ngFor="let item of suggestionListRef$ | async" class="slider-suggest">
               <div class="data-content">
                 <div class="temp">23</div>
-                <h1>{{item.suggestionName}}</h1>
+                <h1>{{item.name}}</h1>
                 <div class="rating-ex">
                   <rating [(ngModel)]="ratingStatic" emptyStarIconName="star-outline" halfStarIconName="star-half" starIconName="star" nullable="true">
                   </rating>
                 </div>
                 <p>
-                  Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.
+                {{item.dscrp}}
                 </p>
               </div>
               <div class="overlay"></div>
               <img src="../../assets/imgs/homePage_img/suggestion.jpg">
             </ion-slide>
-            <ion-slide *ngFor="let item of suggestionListRef$ | async" class="slider-suggest">
-              <div class="data-content">
-                <div class="temp">23</div>
-                <h1>{{item.suggestionName}}</h1>
-                <div class="rating-ex">
-                  <rating [(ngModel)]="ratingStatic" emptyStarIconName="star-outline" halfStarIconName="star-half" starIconName="star" nullable="true">
-                  </rating>
-                </div>
-                <p>
-                  Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.
-                </p>
-              </div>
-              <div class="overlay"></div>
-              <img src="../../assets/imgs/homePage_img/suggestion.jpg">
-            </ion-slide>
-            <ion-slide *ngFor="let item of suggestionListRef$ | async" class="slider-suggest">
-              <div class="data-content">
-                <div class="temp">23</div>
-                <h1>{{item.suggestionName}}</h1>
-                <div class="rating-ex">
-                  <rating [(ngModel)]="ratingStatic" emptyStarIconName="star-outline" halfStarIconName="star-half" starIconName="star" nullable="true">
-                  </rating>
-                </div>
-                <p>
-                  Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.
-                </p>
-              </div>
-              <div class="overlay"></div>
-              <img src="../../assets/imgs/homePage_img/suggestion.jpg">
-            </ion-slide>
+            
             <!-- below code is only for test don't delet it coz only god and me know how it work -->
             <!-- <ion-slide class="slider-suggest">
             <div class="overlay"></div>

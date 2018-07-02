@@ -59,7 +59,7 @@ import { UserProvider } from "../providers/user/user";
     PersonalHistoryPage,
     FriendProfilPage,
     FriendFollowPage,
-    PopupPage
+    PopupPage,
 
     SearchRadioPipe,
  
@@ -97,7 +97,7 @@ import { UserProvider } from "../providers/user/user";
     PersonalHistoryPage,
     FriendProfilPage,
     FriendFollowPage,
-    PopupPage
+    PopupPage,
 
     TabsPage,
     FindFriendPage,

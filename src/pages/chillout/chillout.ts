@@ -37,7 +37,7 @@ export class ChilloutPage {
   pageData : Observable<any[]>;
   pagesData : Observable<any[]>;
   testrating = 4 ;//testing
-  
+  category : string;
   constructor(
     public navCtrl: NavController,
     private database: AngularFireDatabase,
@@ -52,13 +52,13 @@ export class ChilloutPage {
     /**
      * 
      */
-    const category = this.navParams.get('category'); 
+     this.category = this.navParams.get('category'); 
     /*this.pagesData = this.database.list(category, ref => ref.child('data').orderByChild('title').equalTo('jobi')).snapshotChanges().map(changes => {
       return changes.map( c => ({key : c.payload.key,...c.payload.val()}))
     });*/
    
 
-    this.pagesData = this.database.list(category).snapshotChanges().map(changes => {
+    this.pagesData = this.database.list(this.category).snapshotChanges().map(changes => {
       return changes.map( c => ({key : c.payload.key,...c.payload.val()}))
     });
    

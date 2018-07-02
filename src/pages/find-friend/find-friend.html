@@ -9,11 +9,7 @@
     <div class="toolbar-title">
       Trouvez vous amis
     </div>
-    <ion-buttons end>
-      <button ion-button icon-only color="light">
-        <ion-icon name="search"></ion-icon>
-      </button>
-    </ion-buttons>
+    
   </ion-navbar>
 </ion-header>
 <ion-content>
@@ -31,11 +27,11 @@
               <img src="https://images.unsplash.com/photo-1514904215020-2f15586b250e?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=895fd4bf73de899cfeda62d48a982820&dpr=1&auto=format&fit=crop&w=1000&q=80&cs=tinysrgb"
                 alt="" class="profile">
               <div>
-                <h2>{{item.name}}</h2>
+                <h2>{{item.Prenom}} {{item.Nom}} </h2>
                 <span class="location">
                   <ion-icon name="pin"></ion-icon>
-                  {{item.location}} ,
-                  <strong>{{item.age}}</strong>
+                  {{item.Place}} ,
+                  <strong>{{item.Age}}</strong>
                 </span>
               </div>
             </div>

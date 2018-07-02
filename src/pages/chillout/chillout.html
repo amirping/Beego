@@ -20,7 +20,7 @@
       <ion-col align-self-stretch>
         <div class="searchWrapper">
             
-          <ion-searchbar (click)="showYourGod($event)" class="search" [(ngModel)]="searchText" [showCancelButton]="shouldShowCancel"  (ionCancel)="onCancel($event)">
+          <ion-searchbar (click)="showYourGod($event)" placeholder="{{category}}" class="search" [(ngModel)]="searchText" [showCancelButton]="shouldShowCancel"  (ionCancel)="onCancel($event)">
           </ion-searchbar>
           
             <button>
