@@ -1,17 +1,172 @@
 page-find-friend {
+  .back-stylesh {
+    background: url(../../assets/imgs/findFriend/vectorpaint2.svg) top left no-repeat;
+    background-size: contain;
+  }
+  .grid {
+    padding: 0px;
+    width: 100%;
+    min-height: 100%;
+  }
+  .row {
+    padding: 0px;
+  }
+  .col {
+    padding: 0px;
+  }
   .toolbar-background {
-    background-image: linear-gradient( 98deg, #fb4b7d 0%, #fe757b 100%) !important;
+    background-image: linear-gradient(180deg, #fb6b94 0%, #fd8493 100%);
   }
   .tool-bar {
-    box-shadow: 0 0 6px rgba(0, 0, 0, 0.16);
-    border: 1px solid rgba(0, 0, 0, 0);
+    //box-shadow: 0 0 6px rgba(0, 0, 0, 0.16); //border: 1px solid rgba(0, 0, 0, 0);
     background-image: linear-gradient( 98deg, #fb4b7d 0%, #fe757b 100%) !important;
   }
   .toolbar-title {
     color: #ffffff;
     font-family: "Raleway";
-    font-size: 24px;
+    font-size: 21px;
     font-weight: 500;
     padding-left: 17px;
+  }
+  .holder {
+    position: relative;
+    height: 540px;
+    width: 336px;
+    .active {
+      z-index: 3 !important;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16) !important; //-webkit-animation: slide-fwd-center 0.45s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+      animation: slide-fwd-center 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+    }
+    .active+div {
+      transform: scale(0.9);
+      z-index: 2;
+      top: 25px;
+      transform-origin: 50% 100%;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16) !important;
+    }
+    .active+div+div {
+      transform: scale(0.8);
+      z-index: 1;
+      top: 50px;
+      transform-origin: 50% 100%;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16) !important;
+    }
+    .active+div+div div {
+      z-index: -1;
+      opacity: 0;
+    }
+    .slide-left {
+      z-index: 4;
+      animation: left-sliding 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+    }
+    .slide-right {
+      z-index: 5;
+      animation: right-sliding 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+    }
+    .friends {
+      position: absolute;
+      left: 0;
+      overflow: hidden;
+      position: absolute;
+      height: 480px;
+      width: 330px;
+      border-radius: 20px;
+      background: white;
+    }
+    .main-wrap {
+      height: 100%;
+      justify-content: center;
+    }
+    h2 {
+      margin: 0px;
+      color: #333333;
+      font-family: "Raleway";
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 0.19px;
+      padding-top: 11px;
+    }
+    .location {
+      color: #8e8e93;
+      font-family: "Raleway";
+      font-size: 12px;
+      letter-spacing: 0.14px;
+      font-weight: 500;
+    }
+    .cover-holder {
+      height: 339px;
+      width: 100%;
+      margin-bottom: 7px;
+    }
+    .cover {
+      //height: 100%;
+      height: 339px;
+      width: 330px;
+      object-fit: cover;
+    }
+    .profile {
+      width: 56px;
+      height: 62px;
+      object-fit: cover;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+      margin-right: 23px;
+      clip-path: url(#hexagonPathFind);
+    }
+    .content {
+      padding: 0px 17px 16px 17px;
+    }
+    .center-row-childes {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+    }
+    .button-profile {
+      background-image: linear-gradient(100deg, #fb6b94 0%, #fd8493 100%);
+      margin: 0px;
+      min-width: 185px;
+      font-family: "Raleway";
+      font-size: 14px;
+      font-weight: 500;
+    }
+    @-webkit-keyframes slide-fwd-center {
+      0% {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+      }
+      100% {
+        -webkit-transform: translateZ(160px);
+        transform: translateZ(160px);
+      }
+    }
+    @keyframes slide-fwd-center {
+      0% {
+        -webkit-transform: scale(0.9);
+        transform: scale(0.9);
+      }
+      100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+      }
+    }
+    @keyframes left-sliding {
+      0% {
+        transform: scale(1) translateX(0) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+        transform: scale(1.1) translateX(-1000px) rotate(-45deg); //z-index: 0;
+      }
+    }
+    @keyframes right-sliding {
+      0% {
+        transform: scale(1) translateX(0) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+        transform: scale(1.2) translateX(+1000px) rotate(45deg);
+      }
+    }
   }
 }

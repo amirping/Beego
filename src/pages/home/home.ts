@@ -1,3 +1,6 @@
+import { HeadlinesPage } from "./../headlines/headlines";
+import { SpecialForYouPage } from "./../special-for-you/special-for-you";
+import { SuggestPage } from "./../suggest/suggest";
 import { FindFriendPage } from "./../find-friend/find-friend";
 import { UserProvider } from "./../../providers/user/user";
 import { Component } from "@angular/core";
@@ -9,7 +12,7 @@ import { AngularFireDatabase } from "angularfire2/database";
 import { LoginPage } from "../login/login";
 import { ProfilPage } from "../profil/profil";
 import { ChilloutPage } from "../chillout/chillout";
-
+import { MenuController } from "ionic-angular";
 /**
  * Generated class for the HomePage page.
  *
@@ -27,8 +30,14 @@ export class HomePage {
     this.navCtrl.push(ProfilPage);
   }
 
-  @ViewChild(Slides) slides: Slides;
+  search = false;
 
+  searching() {
+    this.search = !this.search;
+  }
+
+  @ViewChild(Slides) slides: Slides;
+  animateMenu = false;
   evenementListRef$: Observable<any[]>;
   espacesListRef$: Observable<any[]>;
   promotionListRef$: Observable<any[]>;
@@ -48,60 +57,13 @@ export class HomePage {
     after_index_show: 2
   };
 
-  news = [
-    {
-      id: 1,
-      name: "EVENT - some names",
-      place: "Yuka, KEF",
-      pic:
-        "https://i.pinimg.com/originals/fd/5d/8e/fd5d8e333fcccbc366f390902e69ddd7.jpg"
-    },
-    {
-      id: 2,
-      name: "EVENT - some names",
-      place: "Yuka, KEF",
-      pic: "https://blog.spoongraphics.co.uk/wp-content/uploads/2016/05/25.jpg"
-    },
-    {
-      id: 3,
-      name: "EVENT - some names",
-      place: "Yuka, KEF",
-      pic: "https://piktochart.com/wp-content/uploads/2018/01/4.jpg"
-    },
-    {
-      id: 4,
-      name: "EVENT - some names",
-      place: "Yuka, KEF",
-      pic:
-        "https://st2.depositphotos.com/4312111/7742/v/950/depositphotos_77425808-stock-illustration-retro-poster-summer-party-and.jpg"
-    },
-    {
-      id: 5,
-      name: "EVENT - some names",
-      place: "Yuka, KEF",
-      pic:
-        "https://st2.depositphotos.com/3391779/10821/v/950/depositphotos_108216990-stock-illustration-beach-party-flyer-or-poster.jpg"
-    },
-    {
-      id: 5,
-      name: "EVENT - some names",
-      place: "Yuka, KEF",
-      pic:
-        "https://st2.depositphotos.com/3608591/11258/v/950/depositphotos_112589986-stock-illustration-tropic-summer-beach-party-tropic.jpg"
-    },
-    {
-      id: 6,
-      name: "EVENT - some names",
-      place: "Yuka, KEF",
-      pic:
-        "https://st2.depositphotos.com/4813335/11049/v/950/depositphotos_110494828-stock-illustration-club-party-flyer-hello-summer.jpg"
-    }
-  ];
+  news = [] as any;
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
     private database: AngularFireDatabase,
-    private userpovider: UserProvider
+    private userpovider: UserProvider,
+    public menuCtrl: MenuController
   ) {
     /* Liste des espaces */
     this.espacesListRef$ = this.database
@@ -139,11 +101,16 @@ export class HomePage {
       });*/
 
     /* Liste des evenements */
-    this.evenementListRef$ = this.database
+    this.database
       .list("evenement")
-      .valueChanges() /*.map(changes => {
+      .valueChanges()
+      .subscribe(news => {
+        this.news = news;
+        console.log(this.news);
+      }) /*.map(changes => {
         return changes.map( c => ({key : c.payload.key,...c.payload.val()}))
       })*/;
+    // this.news = this.evenementListRef$;
     this.promotionListRef$ = this.database
       .list("promotion")
       .valueChanges() /*.map(changes => {
@@ -234,12 +201,15 @@ export class HomePage {
     this.userpovider.logOut();
   }
   navigateToChilloutPage() {
+    console.log("545");
     this.navCtrl.push(ChilloutPage, { category: "chillout" });
   }
-  navigateToBeautyage() {
+  navigateToBeautyPage() {
+    console.log("545");
     this.navCtrl.push(ChilloutPage, { category: "beauty" });
   }
   navigateToShoppingPage() {
+    console.log("545");
     this.navCtrl.push(ChilloutPage, { category: "shopping" });
   }
   navigateTo(page) {
@@ -247,9 +217,36 @@ export class HomePage {
       case "FindFriendPage":
         this.navCtrl.push(FindFriendPage);
         break;
-
+      case "suggest":
+        this.navCtrl.push(SuggestPage);
+        break;
+      case "specialForYou":
+        this.navCtrl.push(SpecialForYouPage);
+        break;
+      case "headlines":
+        this.navCtrl.push(HeadlinesPage);
+        break;
       default:
         break;
     }
+  }
+  handelChange(Event) {
+    console.log(Event);
+    if (this.menuCtrl.isAnimating) {
+      console.log("animation there ");
+    }
+    if (Event.offsetDirection == 4) {
+      if (!this.menuCtrl.isOpen()) {
+        this.animateMenu = true;
+        this.menuCtrl.open();
+      }
+    } else if (Event.offsetDirection == 2) {
+      this.animateMenu = false;
+      this.menuCtrl.close();
+    }
+  }
+  collectSwiper(ev) {
+    console.log("collecting to drag");
+    console.log(ev);
   }
 }

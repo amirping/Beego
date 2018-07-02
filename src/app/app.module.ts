@@ -1,3 +1,6 @@
+import { HeadlinesPage } from "./../pages/headlines/headlines";
+import { SpecialForYouPage } from "./../pages/special-for-you/special-for-you";
+import { SuggestPage } from "./../pages/suggest/suggest";
 import { FindFriendPage } from "./../pages/find-friend/find-friend";
 import { BrowserModule } from "@angular/platform-browser";
 import { ErrorHandler, NgModule, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
@@ -32,6 +35,8 @@ import { Ionic2RatingModule } from "ionic2-rating";
 import { AngularFireModule } from "angularfire2";
 import { AngularFireAuthModule } from "angularfire2/auth";
 import { AngularFireDatabaseModule } from "angularfire2/database";
+import { SearchRadioPipe } from "../providers/user/pipe_search";
+
 import { TabsPage } from "../pages/tabs/tabs";
 // import { AngularFireStorageModule } from "angularfire2/storage";
 // import { AngularFirestoreModule } from "angularfire2/firestore";
@@ -52,15 +57,22 @@ import { UserProvider } from "../providers/user/user";
     HomePage,
     BlockPage,
     SettingProfil2Page,
+    SearchRadioPipe,
     SettingSecurityPage,
     TabsPage,
     FindFriendPage,
+
+    SuggestPage,
+    SpecialForYouPage,
+    HeadlinesPage,
+
 
     PersonalHistoryPage,
     FriendProfilPage,
     FriendFollowPage,
     PopupPage,
     EventPage
+
 
   ],
   imports: [
@@ -91,17 +103,24 @@ import { UserProvider } from "../providers/user/user";
     TabsPage,
     FindFriendPage,
 
+    SuggestPage,
+    SpecialForYouPage,
+    HeadlinesPage,
+
+
     PersonalHistoryPage,
     FriendProfilPage,
     FriendFollowPage,
     PopupPage,
     EventPage
+
   ],
   providers: [
     StatusBar,
     SplashScreen,
     Dialogs,
     UserProvider,
+    SearchRadioPipe,
     { provide: ErrorHandler, useClass: IonicErrorHandler }
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
