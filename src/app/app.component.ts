@@ -35,26 +35,12 @@ export class MyApp {
       statusBar.styleDefault();
       splashScreen.hide();
     });
-    const sub = this.userProvider.isConnect().subscribe(state=>{
+    this.userProvider.isConnect(state=>{
       if(state){
-        if(state.emailVerified){
-          console.log("set user");
-          this.userProvider.setUser().then(()=>{
-            this.rootPage =TabsPage;
-          }).catch(e=>{
-            if(e.userIsNotSet){
-              this.rootPage = LandingPage;
-              this.userProvider.logOut()
-            }
-          });
-        }else{
-          this.rootPage = LandingPage;
-          this.userProvider.logOut();
-       }
+        this.rootPage = TabsPage;
       }else{
         this.rootPage = LandingPage;
       }
-      sub.unsubscribe();
     });
   }
 }
