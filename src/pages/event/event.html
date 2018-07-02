@@ -8,6 +8,15 @@
 
 
 <ion-content class="back-color" >
+  <!-- <button 
+   ion-fab>
+    <ion-icon name="add"></ion-icon>
+  </button> -->
+  <ion-fab class="add-btn">
+      <button ion-fab>
+          <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-fab>
   <ion-grid no-padding class="grid-size">
     <ion-row class="photo-row">
       <ion-col>
@@ -80,7 +89,7 @@
                       </button>
                     </ion-item>
                     </ion-list>
-                    <ion-grid class="programs-and-invitaion" *ngSwitchCase="3">
+                    <ion-grid class="programs-and-invitaion" *ngSwitchCase="3" pager="false">
                         <ion-row>
                           <ion-col>
                             <span class="title-row">Vos programme</span>
@@ -88,24 +97,45 @@
                         </ion-row>
                         <ion-row>
                           <ion-col>
-                            
-                            <div class="programs">
-                              <div class="bee-profile-image">
-                                <div class="bee-hexagon">
-                                  <img src="../../assets/imgs/photoDeProfil.png" alt="">
-                                </div>
-                               
-                                  <div class="bee-edit-icon bee-edit-photo"></div>
-                                </div>
-                                <div class="cofeeTitle">
-                                    What's Up Coffée !
-                                </div>
-                                <div class="time">
-                                    Semdi 17 Dec - 6:00 PM
-                                </div>
-                                <div class="requestProg">
-                                    Mohamed Limayma vous invitez à What's up coffée avec 2 autres amis.
-                                </div>
+                            <ion-slides class="slides-programs" loop spaceBetween="5px">
+                                <ion-slide class="programs">
+                                    <div class="bee-profile-image">
+                                      <div class="bee-hexagon">
+                                        <img src="../../assets/imgs/photoDeProfil.png" alt="">
+                                      </div>
+                                     
+                                        <div class="bee-edit-icon bee-edit-photo"></div>
+                                      </div>
+                                      <div class="cofeeTitle">
+                                          What's Up Coffée !
+                                      </div>
+                                      <div class="time">
+                                          Semdi 17 Dec - 6:00 PM
+                                      </div>
+                                      <div class="requestProg">
+                                          Mohamed Limayma vous invitez à What's up coffée avec 2 autres amis.
+                                      </div>
+                                </ion-slide>
+                                <ion-slide class="programs">
+                                    <div class="bee-profile-image">
+                                      <div class="bee-hexagon">
+                                        <img src="../../assets/imgs/photoDeProfil.png" alt="">
+                                      </div>
+                                     
+                                        <div class="bee-edit-icon bee-edit-photo"></div>
+                                      </div>
+                                      <div class="cofeeTitle">
+                                          What's Up Coffée !
+                                      </div>
+                                      <div class="time">
+                                          Semdi 17 Dec - 6:00 PM
+                                      </div>
+                                      
+                                </ion-slide>
+                            </ion-slides>
+                            <div class="btn-programs">
+                              <button class="btn-style updatebtn">Modifier</button>
+                              <button class="btn-style cancelbtn">Annuler</button>
                             </div>
                           </ion-col>
                         </ion-row>

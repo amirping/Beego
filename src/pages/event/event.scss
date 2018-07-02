@@ -1,9 +1,9 @@
 page-event {
-  // .grid-size{
-  //   height: 100%;
-  //   flex-grow: 1;
-
-  // }
+  .add-btn{
+    position: fixed;
+    bottom: 3%;
+    right: 2%;
+  }
   .col{
     padding: 0;
     margin: 0;
@@ -128,15 +128,23 @@ page-event {
   padding-top: 0px !important;
   
 }
-.programs{
+.slides-programs{
   margin-top: 10px;
-  webkit-box-shadow: 5px 5px 5px 5px rgba(200,200,200,1);
-  box-shadow: 1px 1px 1px 1px rgba(200,200,200,1);
+  width: 99%;
+  height: 131px;
+}
+.programs{
+  -webkit-box-shadow: 0px 0px 5px 1px rgba(128, 124, 124, 0.45);
+  -moz-box-shadow: 0px 0px 5px 1px rgba(128, 124, 124, 0.45);
+  box-shadow: 0px 0px 2px 1px rgba(128, 124, 124, 0.45);
   border-radius: 10px;
   position: relative;
-  width: 100%;
-  height: 131px;
-
+  width: 96% !important;
+  height: 98% !important;
+  margin-top: 1px;
+  margin-left: 3%;
+  z-index: 1;
+  background-color: whitesmoke;
 
 }
 .bee-hexagon {
@@ -158,18 +166,47 @@ transform: scale(0.6);
 .cofeeTitle{
   position: absolute;
   top: 30px;
-  left: 120px;
+  left: 110px;
 }
 .time{
   position: absolute;
   top: 52px;
-  left: 120px;
+  left: 110px;
   font-size: 10px;
 }
 .requestProg{
   position: absolute;
   top: 92px;
-  left: 0px;
+  left: 29px;
   font-size: 10px;
+  padding-right: 22px;
+}
+.btn-programs{
+  position: relative;
+  overflow: hidden;
+  height: 40px;
+  width: 200px;
+  margin-left: calc(100% - 160px);
+  margin-top: -6px;
+  border-radius: 10px;
+  -webkit-box-shadow: 0px 0px 5px 1px rgba(128, 124, 124, 0.45);
+  -moz-box-shadow: 0px 0px 5px 1px rgba(128, 124, 124, 0.45);
+  box-shadow: 0px 0px 2px 1px rgba(128, 124, 124, 0.45);
+}
+.btn-style{
+  height: 98%;
+  width: 99px;
+  background-color: transparent;
+  
+}
+.cancelbtn{
+  position: absolute;
+  left: 100px;
+}
+.updatebtn{
+  position: absolute;
+  left: 1px;
+  border-right: 1px solid rgba(128, 124, 124, 0.45);
+ 
 }
 }
