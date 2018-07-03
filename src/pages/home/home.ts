@@ -13,6 +13,7 @@ import { LoginPage } from "../login/login";
 import { ProfilPage } from "../profil/profil";
 import { ChilloutPage } from "../chillout/chillout";
 import { MenuController } from "ionic-angular";
+import { FriendProfilPage } from "../friend-profil/friend-profil";
 /**
  * Generated class for the HomePage page.
  *
@@ -225,6 +226,9 @@ export class HomePage {
         break;
       case "headlines":
         this.navCtrl.push(HeadlinesPage);
+        break;
+      case "FriendProfil":
+        this.navCtrl.push(FriendProfilPage);
         break;
       default:
         break;
