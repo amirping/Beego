@@ -6,7 +6,6 @@ import { UserProvider } from "./../../providers/user/user";
 import { Component } from "@angular/core";
 import { IonicPage, NavController, NavParams } from "ionic-angular";
 import { ViewChild } from "@angular/core";
-import { Slides } from "ionic-angular";
 import { Observable } from "rxjs/Observable";
 import { AngularFireDatabase } from "angularfire2/database";
 import { LoginPage } from "../login/login";
@@ -30,15 +29,15 @@ export class HomePage {
   profil() {
     this.navCtrl.push(ProfilPage);
   }
-
+  scaleDragger = 100;
+  DynamicHi = { height: this.scaleDragger + " vh" };
   search = false;
+  animateMenu = false;
+  animateMenuClose = false;
 
   searching() {
     this.search = !this.search;
   }
-
-  @ViewChild(Slides) slides: Slides;
-  animateMenu = false;
   evenementListRef$: Observable<any[]>;
   espacesListRef$: Observable<any[]>;
   promotionListRef$: Observable<any[]>;
@@ -242,15 +241,30 @@ export class HomePage {
     if (Event.offsetDirection == 4) {
       if (!this.menuCtrl.isOpen()) {
         this.animateMenu = true;
+        this.animateMenuClose = false;
         this.menuCtrl.open();
       }
     } else if (Event.offsetDirection == 2) {
       this.animateMenu = false;
+      this.animateMenuClose = true;
+
       this.menuCtrl.close();
     }
   }
   collectSwiper(ev) {
     console.log("collecting to drag");
     console.log(ev);
+    //this.scaleDragger = this.scaleDragger - 0.2 * ev;
+    console.log(100 - 20 * ev);
+    let lober = 100 - 20 * ev;
+    this.scaleDragger = lober;
+  }
+  setContentStyle() {
+    let margintop = (100 - this.scaleDragger) / 2;
+    let styles = {
+      height: this.scaleDragger + "vh",
+      "margin-top": margintop + "vh"
+    };
+    return styles;
   }
 }
