@@ -118,6 +118,47 @@ page-event {
 .delete-invitation-button:active{
   background-color: rgb(242,40,118);
 }
+//suggetions
+.listsuggetion{
+  background-color: #f5f5f5 !important;
+  
+}
+.addPersonBtn{
+  background-color: transparent;
+  color: rgb(242,40,118);
+}
+.friendinvitation{
+  background-color:  #354e83;
+  border-radius: 14px;
+  color: white;
+  overflow: hidden;
+  padding: 0;
+  transition: width 0.3s;
+  font-size: 10px;
+  color: white;
+  right: 28px;
+    position: absolute;
+    top: 16px;
+    width: 27px;
+    height: 27px;
+}
+.friendinvitation-transition{
+ width: 122px; 
+}
+.textinvitation{
+  font-size: 11px;
+}
+.fbaddPersonBtn {
+  background-color: transparent;
+  width: 27px;
+  padding: 0;
+  vertical-align: middle;
+}
+.iconfb{
+  width: 27px;
+  height: 27px;
+}
+//prorams
 .title-row{
   font-size: 16px;
   

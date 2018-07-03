@@ -14,6 +14,11 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'event.html',
 })
 export class EventPage {
+  show=false;
+  index=1;
+  showInvitaion(){
+    this.show = !this.show;
+  }
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }

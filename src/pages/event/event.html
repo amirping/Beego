@@ -8,15 +8,14 @@
 
 
 <ion-content class="back-color">
-  <!-- <button 
-   ion-fab>
-    <ion-icon name="add"></ion-icon>
-  </button> -->
+  
  
   <ion-grid no-padding class="grid-size">
     <ion-row class="photo-row">
-      <ion-col>
-        <img class="img-event" src="../../assets/imgs/event/eventcover.png" alt="">
+      <ion-col >
+        <img *ngIf="index == 1" class="img-event" src="../../assets/imgs/event/eventcover.png" alt="">
+        <img *ngIf="index == 2"class="img-event" src="../../assets/imgs/event/suggestionCover.png" alt="">
+        <img *ngIf="index == 3" class="img-event" src="../../assets/imgs/event/programCover.png" alt="">
         <div class="eventitle">
           <button class="buttn">
             <img src="../../assets/imgs/arrow-back.png" alt="" class="back-img">
@@ -65,17 +64,37 @@
                 </ion-item-sliding>
 
               </ion-list>
+              <!--  suggetion -->
               <ion-list *ngSwitchCase="2">
-                <ion-item>
+                <ion-item class="listsuggetion">
                   <ion-avatar item-start>
                     <img src="../../assets/imgs/param/block/photoDeProfil.png">
                   </ion-avatar>
                   <h3>nom prenom</h3>
                   <p class="lieu-event">Bardo, Tunis</p>
-                  <button ion-button item-end>
-
+                  <button icon-only class="addPersonBtn" item-end>
+                      <ion-icon ios="ios-person-add" md="md-person-add"></ion-icon>
                   </button>
                 </ion-item>
+
+                <ion-item class="listsuggetion">
+                    <ion-avatar item-start>
+                      <img src="../../assets/imgs/param/block/photoDeProfil.png">
+                    </ion-avatar>
+                    <h3>nom prenom</h3>
+                    <p class="lieu-event">Bardo, Tunis</p>
+                    <div class="friendinvitation " [class.friendinvitation-transition]="show" >
+                        <button class="fbaddPersonBtn" (click)="showInvitaion()" >
+                            <img  class="iconfb"
+                             src="../../assets/imgs/param/Facebook.svg" alt="">
+                          </button>
+                      <span class="textinvitation"> Invitee mes amis</span>
+                        
+                    </div>
+                    
+                   
+                  </ion-item>
+
               </ion-list>
               <ion-grid class="programs-and-invitaion" *ngSwitchCase="3" pager="false">
                   <ion-fab class="add-btn">
