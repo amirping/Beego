@@ -24,7 +24,7 @@ export class ChilloutPage {
    */
   searchText: string = "";
   slides: Array<string> = [];
-  indexPage = 1;
+  indexPage = "ALL";
   /**
   * sub pages data
    */
@@ -34,8 +34,9 @@ export class ChilloutPage {
   rechercher$: Observable<any[]>;
   
 
-  pageData : Observable<any[]>;
-  pagesData : Observable<any[]>;
+  categories : Observable<any[]>;
+  pagesData : any = [];
+  tab : any = [];
   testrating = 4 ;//testing
   category : string;
   constructor(
@@ -57,10 +58,18 @@ export class ChilloutPage {
       return changes.map( c => ({key : c.payload.key,...c.payload.val()}))
     });*/
    
+    this.categories = this.database
+    .list(`category/${this.category}`)
+    .valueChanges();
+   
+   
+    this.pagesData = this.database
+      .list(this.category)
+      .valueChanges();
+      console.log(this.categories);
+      console.log(this.pagesData);
 
-    this.pagesData = this.database.list(this.category).snapshotChanges().map(changes => {
-      return changes.map( c => ({key : c.payload.key,...c.payload.val()}))
-    });
+    
    
    /* this.pagesData=[
       {
@@ -75,7 +84,9 @@ export class ChilloutPage {
         */
     
   }
-
+  log(message){
+    console.log(message);
+  }
   ionViewDidLoad() {
     console.log("ionViewDidLoad ChilloutPage");
   }

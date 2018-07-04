@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
 import { IonicPage, NavController, NavParams } from "ionic-angular";
+import { AngularFireDatabase } from "angularfire2/database";
 
 /**
  * Generated class for the HeadlinesPage page.
@@ -15,6 +16,11 @@ import { IonicPage, NavController, NavParams } from "ionic-angular";
 })
 export class HeadlinesPage {
   data: any = [];
+  evenement: any = [];
+  promotion: any = [];
+
+
+  /*
   evenement: any = [
     {
       id: 1,
@@ -90,10 +96,41 @@ export class HeadlinesPage {
       location: "Bon coin",
       pic: "https://source.unsplash.com/900x900/?vodka,bar"
     }
-  ];
+  ];*/
   index_news = "events";
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.data = this.evenement;
+  category : string;
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams,
+    private database : AngularFireDatabase
+  ) { 
+    this.category = this.navParams.get('category'); 
+    
+    const evenements$ = this.database.list('evenement').valueChanges().subscribe(evenements => {
+      this.evenement = evenements.map((espace,index)=>{
+        const e = espace as any ;
+         e.id = index;
+ 
+         return e;
+       })
+     
+       evenements$.unsubscribe();
+       this.data = this.evenement
+         });
+
+         const promotions$ = this.database.list('promotion').valueChanges().subscribe(promotions => {
+          this.promotion = promotions.map((espace,index)=>{
+            const e = espace as any ;
+             e.id = index;
+     
+             return e;
+           })
+         
+           promotions$.unsubscribe();
+             });
+
+
+    
   }
   switch(type) {
     this.index_news = type;

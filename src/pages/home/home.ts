@@ -224,7 +224,7 @@ export class HomePage {
         this.navCtrl.push(SpecialForYouPage);
         break;
       case "headlines":
-        this.navCtrl.push(HeadlinesPage);
+        this.navCtrl.push(HeadlinesPage, { category: "evenement" });
         break;
       case "FriendProfil":
         this.navCtrl.push(FriendProfilPage);
