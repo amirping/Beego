@@ -33,7 +33,7 @@ export class HomePage {
   search = false;
   animateMenu = false;
   animateMenuClose = false;
-
+  isMenuOpen = false;
   searching() {
     this.search = !this.search;
   }
@@ -262,5 +262,64 @@ export class HomePage {
       "margin-top": margintop + "vh"
     };
     return styles;
+  }
+  contentSwipe(Ev) {
+    // if (who) {
+    //   console.log("from hell we cum");
+    //   return false;
+    // }
+
+    console.log("swipe on the content");
+    console.log(Ev);
+    // -> right
+    if (Ev.direction == 4) {
+      if (!this.isMenuOpen && this.checkerForGod(Ev) == true) {
+        this.isMenuOpen = !this.isMenuOpen;
+      }
+      // left <-
+    } else if (Ev.direction == 2) {
+      if (this.isMenuOpen) {
+        this.isMenuOpen = !this.isMenuOpen;
+      }
+    }
+  }
+  menuSwipe(Ev) {
+    console.log("swipe on menu");
+    if (Ev.direction == 4) {
+      return false;
+      // left <-
+    } else if (Ev.direction == 2) {
+      if (this.isMenuOpen) {
+        this.isMenuOpen = !this.isMenuOpen;
+      }
+    }
+  }
+  dummySwipe(Ev) {
+    // tell u daddy that i shout u motherfucker
+    // fuck who care ?
+    // ok listen it look crazy but this is make it work so DON'T try to change it
+    console.log("Hello mother fucker");
+    //Ev.stopPropagation();
+
+    //return false;
+  }
+  checkerForGod(Event) {
+    let seekhere = Event.target;
+    while (seekhere.offsetParent && seekhere.offsetParent.length != 0) {
+      let bubbleofDevil = seekhere.offsetParent;
+      if (
+        bubbleofDevil.nodeName == "ION-SLIDE" ||
+        bubbleofDevil.classList.contains("slider") ||
+        bubbleofDevil.classList.contains("notYou")
+      ) {
+        return false;
+      } else if (
+        bubbleofDevil.nodeName == "ION-COL" ||
+        bubbleofDevil.nodeName == "ION-ROW"
+      ) {
+        return true;
+      }
+      seekhere = bubbleofDevil;
+    }
   }
 }
