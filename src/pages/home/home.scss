@@ -1,41 +1,72 @@
 page-home {
-  ion-menu {
-    //background: #f22876;
-    .ion-content-pink {
-      background: #f22876;
-      position: relative;
-      .menu-stylesh {
+  .home-side-menu {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: pink;
+    .menu-stylesh {
+      position: absolute;
+      width: 100vw;
+      left: 0;
+      top: 0;
+      img {
         position: absolute;
         width: 100vw;
-        left: 0;
-        top: 0;
-        img {
-          position: absolute;
-          width: 100vw;
-          object-fit: cover;
-          height: 40vh;
-        }
-        .overlay {
-          position: absolute;
-          width: 100vw;
-          height: 100vh;
-          /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#e5e5e5+0,fc5571+19,fd617c+100&0+0,0.71+19,0.87+34,1+100 */
-          background: -moz-linear-gradient(top, rgba(229, 229, 229, 0) 0%, rgba(252, 85, 113, 0.71) 19%, rgba(252, 87, 115, 1) 30%, rgba(253, 97, 124, 1) 100%);
-          /* FF3.6-15 */
-          background: -webkit-linear-gradient(top, rgba(229, 229, 229, 0) 0%, rgba(252, 85, 113, 0.71) 19%, rgba(252, 87, 115, 1) 30%, rgba(253, 97, 124, 1) 100%);
-          /* Chrome10-25,Safari5.1-6 */
-          background: linear-gradient(to bottom, rgba(229, 229, 229, 0) 0%, rgba(252, 85, 113, 0.71) 19%, rgba(252, 87, 115, 1) 30%, rgba(253, 97, 124, 1) 100%);
-          /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-          filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00e5e5e5', endColorstr='#fd617c', GradientType=0);
-          /* IE6-9 */
-        }
+        object-fit: cover;
+        height: 40vh;
+      }
+      .overlay {
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+        /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#e5e5e5+0,fc5571+19,fd617c+100&0+0,0.71+19,0.87+34,1+100 */
+        background: -moz-linear-gradient( top, rgba(229, 229, 229, 0) 0%, rgba(252, 85, 113, 0.71) 19%, rgba(252, 87, 115, 1) 30%, rgba(253, 97, 124, 1) 100%);
+        /* FF3.6-15 */
+        background: -webkit-linear-gradient( top, rgba(229, 229, 229, 0) 0%, rgba(252, 85, 113, 0.71) 19%, rgba(252, 87, 115, 1) 30%, rgba(253, 97, 124, 1) 100%);
+        /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient( to bottom, rgba(229, 229, 229, 0) 0%, rgba(252, 85, 113, 0.71) 19%, rgba(252, 87, 115, 1) 30%, rgba(253, 97, 124, 1) 100%);
+        /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00e5e5e5', endColorstr='#fd617c', GradientType=0);
+        /* IE6-9 */
       }
     }
   }
-  .menu-inner {
-    background: #f22876 !important;
-    .scroll-content {
-      overflow: visible;
+  #content {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    background: white;
+  }
+  .open-menu {
+    animation: slide-bck-right 0.45s cubic-bezier(0.47, 0, 0.745, 0.715)
+      forwards;
+  }
+
+  .close-menu {
+    animation: slide-off 0.45s cubic-bezier(0.47, 0, 0.745, 0.715) forwards;
+  }
+  @keyframes slide-bck-right {
+    0% {
+      transform: translateZ(0) translateX(0) scale(1);
+      transform-origin: left;
+    }
+    100% {
+      transform: translateZ(-400px) translateX(80%) scale(0.8);
+      transform-origin: left;
+      box-shadow: -7px 0px 8px 0px rgba(133, 133, 133, 1);
+    }
+  }
+
+  @keyframes slide-off {
+    0% {
+      transform: translateZ(-400px) translateX(80%) scale(0.8);
+      transform-origin: left;
+      box-shadow: -7px 0px 8px 0px rgba(133, 133, 133, 1);
+    }
+    100% {
+      transform: translateZ(0) translateX(0) scale(1);
+      transform-origin: left;
+      box-shadow: none;
     }
   }
   .menu-animated {
@@ -52,11 +83,11 @@ page-home {
     height: 100%;
   }
   .animateMenu {
-    animation: animate-menu 0.2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both; // height: 80vh;
+    animation: animate-menu 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) both; // height: 80vh;
     // margin-top: 10vh;
   }
   .animateMenu-close {
-    animation: animate-menu-close 0.2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    animation: animate-menu-close 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
   }
   @keyframes animate-menu {
     0% {
@@ -79,12 +110,20 @@ page-home {
     }
   }
   .toolbar-background {
-    background-image: linear-gradient( 98deg, #fb4b7d 0%, #fe757b 100%) !important;
+    background-image: linear-gradient(
+      98deg,
+      #fb4b7d 0%,
+      #fe757b 100%
+    ) !important;
   }
   .tool-bar {
     box-shadow: 0 0 6px rgba(0, 0, 0, 0.16);
     border: 1px solid rgba(0, 0, 0, 0);
-    background-image: linear-gradient( 98deg, #fb4b7d 0%, #fe757b 100%) !important;
+    background-image: linear-gradient(
+      98deg,
+      #fb4b7d 0%,
+      #fe757b 100%
+    ) !important;
   }
   .toolbar-title {
     color: #ffffff;
@@ -99,7 +138,8 @@ page-home {
   .motd {
     margin-left: 20px;
     margin-right: 20px;
-    background: url("../../assets/imgs/homePage_img/2-layers.svg") right top no-repeat; // not sure about it let's try it later
+    background: url("../../assets/imgs/homePage_img/2-layers.svg") right top
+      no-repeat; // not sure about it let's try it later
     background-size: contain;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.13);
     border-radius: 0 0 15px 15px;
@@ -143,7 +183,11 @@ page-home {
         width: 100%;
         position: absolute;
         width: 100%;
-        background-image: linear-gradient( 201deg, rgba(255, 29, 93, 0) 0%, #393939 100%);
+        background-image: linear-gradient(
+          201deg,
+          rgba(255, 29, 93, 0) 0%,
+          #393939 100%
+        );
         opacity: 0.5;
         z-index: 9;
       }
@@ -220,7 +264,8 @@ page-home {
     height: 150px;
   }
   .titrebarreleft {
-    background: url("../assets/imgs/titre barre left.png") center center no-repeat;
+    background: url("../assets/imgs/titre barre left.png") center center
+      no-repeat;
   }
   .slide-home {
     max-height: 150px;
@@ -237,7 +282,7 @@ page-home {
       -moz-transform: scale(0.9);
       z-index: 2;
     }
-    .swiper-slide-next+.swiper-slide {
+    .swiper-slide-next + .swiper-slide {
       margin-left: -60%;
       zoom: 0.7;
       -moz-transform: scale(0.7);
@@ -355,7 +400,11 @@ page-home {
       bottom: 0;
       left: 0;
       right: 0;
-      background-image: linear-gradient( 248deg, rgba(255, 29, 93, 0) 0%, #393939 100%); // background: url('../../assets/imgs/homePage_img/degrad-slider-suggest.png');
+      background-image: linear-gradient(
+        248deg,
+        rgba(255, 29, 93, 0) 0%,
+        #393939 100%
+      ); // background: url('../../assets/imgs/homePage_img/degrad-slider-suggest.png');
       background-size: cover;
       opacity: 0.4;
       border-radius: 10px;
