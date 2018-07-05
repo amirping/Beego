@@ -18,7 +18,8 @@
     </ion-row>
     <ion-row class="bottom">
       <ion-col>
-        <span class="result"> {{data.length}} Resultats</span>
+          <span class="result" *ngIf="data.length === 1"> {{data.length}} Resultat</span>
+        <span class="result"  *ngIf="data.length > 1"> {{data.length}} Resultats</span>
         <div class="box-grey row-space-around">
           <button ion-button clear class="filter_btn" (click)="switch('events')" [ngClass]="{'activated_filter' : index_news=='events'}">Evénements</button>
           <button ion-button clear class="filter_btn" (click)="switch('promotion')" [ngClass]="{'activated_filter' : index_news=='promotion'}">Promotions</button>
@@ -26,17 +27,22 @@
         <div class="filter-box">
           <span>Filter : </span>
           <div class="filtres">
-            <ion-select [(ngModel)]="f1" placeholder="gender">
-              <ion-option value="1">Option 1</ion-option>
-              <ion-option value="2">option 2</ion-option>
+            <ion-select [(ngModel)]="f1" placeholder="Gender">
+              <ion-option value="1">Musique</ion-option>
+              <ion-option value="2">Théatre</ion-option>
+              <ion-option value="2">Sport</ion-option>
             </ion-select>
-            <ion-select [(ngModel)]="f2" placeholder="Whene ! ">
-              <ion-option value="1">Option 1</ion-option>
-              <ion-option value="2">option 2</ion-option>
+            <ion-select [(ngModel)]="f2" placeholder="When? ">
+              <ion-option value="1">Aujourd'hui</ion-option>
+              <ion-option value="2">à partir de demain</ion-option>
             </ion-select>
-            <ion-select [(ngModel)]="f3" placeholder="Where !">
-              <ion-option value="1">Option 1 </ion-option>
-              <ion-option value="2">Option 2</ion-option>
+            <ion-select [(ngModel)]="f3" placeholder="Where ?">
+              <ion-option value="1">Grand Tunis </ion-option>
+              <ion-option value="2">Sousse</ion-option>
+              <ion-option value="2">Sfax</ion-option>
+              <ion-option value="2">Monastir</ion-option>
+              <ion-option value="2">Mahdia</ion-option>
+              <ion-option value="2">Bizerte</ion-option>
             </ion-select>
             <ion-select [(ngModel)]="f4" placeholder="Biteches ?">
               <ion-option value="1">Option 1 </ion-option>
@@ -49,15 +55,15 @@
           </div>
         </div>
         <div class="masonry">
-          <div class="item animated pulse" *ngFor="let item of data">
-            <img src="{{item.pic}}" alt="">
+          <div class="item animated pulse" *ngFor="let item of data | searchRadio : searchText : category">
+            <img src="{{item.Couverture}}" alt="">
             <div class="data">
               <span class="name">
-                {{item.name}}
+                {{item.Name}}
               </span>
               <span class="location">
                 <ion-icon name="pin"></ion-icon>
-                {{item.location}}
+                {{item.Place}}
               </span>
             </div>
           </div>

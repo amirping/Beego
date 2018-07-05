@@ -37,7 +37,7 @@
     <ion-row class="fllow">
       <ion-col class="no-padding">
         <div class="tabs-ex custom-padding">
-          <div *ngFor="let page of pagesData | async" (click)="indexPage = page.index" [ngClass]="{active: indexPage == page.index}">{{page.name}}</div>
+          <div *ngFor="let categorie of categories | async" (click)="indexPage = categorie" [ngClass]="{active: indexPage == categorie}">{{categorie}}</div>
 
           <div>&nbsp;</div>
         </div>
@@ -54,13 +54,20 @@
           </defs>
         </svg>
        
-        <div class="subPageContainer" [ngSwitch]="indexPage">
+        <div class="subPageContainer" >
           <!-- <ng-container *ngFor="let pageData of pagesData"> -->
-          <div class="subPage" *ngFor="let pageData of pagesData | async">
-            <ng-container *ngSwitchCase="pageData.index">
-              <div class="grid-viewr">
-                <div class="card-ex animated flipInX" *ngFor="let item of pageData.data | searchRadio : searchText ">
+          <div class="subPage" >
 
+          
+           
+            
+            <div class="grid-viewr"   >
+              <ng-container  *ngFor="let item of 
+              pagesData | async | searchRadio : searchText : category">
+                <div class="card-ex animated flipInX" *ngIf="item.type === indexPage || indexPage === 'ALL' "  >
+              
+                
+                
                   <div class="img">
                     <img src="../../assets/imgs/{{item.photo}}" alt="">
                   </div>
@@ -71,67 +78,24 @@
                       (ngModelChange)="null">
                     </rating>
                   </div>
+                
+                
+                
+                 
                 </div>
-                <!-- <div class="card-ex">
-                                <div class=img>
-                                  <img src="https://picsum.photos/100/109" alt="">
-                                </div>
-                                <span class="title">Nom de l'espace</span>
-                                <span class="sub-title">Nom de l'espace</span>
-                                <div class="rating"></div>
-                              </div>
-                              <div class=card-ex>
-                                <div class=img>
-                                  <img src="https://picsum.photos/100/109" alt="">
-                                </div>
-                                <span class="title">Nom de l'espace</span>
-                                <span class="sub-title">Nom de l'espace</span>
-                                <div class="rating"></div>
-                              </div>
-                              <div class=card-ex>
-                                <div class=img>
-                                  <img src="https://picsum.photos/100/109" alt="">
-                                </div>
-                                <span class="title">Nom de l'espace</span>
-                                <span class="sub-title">Nom de l'espace</span>
-                                <div class="rating-ex">
-                                  <rating
-                                    [(ngModel)]="testrating"
-                                    emptyStarIconName="star-outline"
-                                    halfStarIconName="star-half"
-                                    starIconName="star"
-                                    nullable="false"
-                                    (ngModelChange)="null">
-                                  </rating>
-                                </div>
-                              </div>
-                              <div class=card-ex>
-                                <div class=img>
-                                  <img src="https://picsum.photos/100/109" alt="">
-                                </div>
-                                <span class="title">Nom de l'espace</span>
-                                <span class="sub-title">Nom de l'espace</span>
-                                <div class="rating"></div>
-                              </div>
-                              <div class=card-ex>
-                                <div class=img>
-                                  <img src="https://picsum.photos/100/109" alt="">
-                                </div>
-                                <span class="title">Nom de l'espace</span>
-                                <span class="sub-title">Nom de l'espace</span>
-                                <div class="rating"></div>
-                              </div> -->
+              </ng-container>
+              
               </div>
-            </ng-container>
+            
+          
 
-
+            
+            
+        
+        
           </div>
-          <!-- </ng-container> -->
-          <!-- <div padding class="subPage" *ngSwitchCase="2">Café sub page</div>
-          <div padding class="subPage" *ngSwitchCase="3">Bar & lounge sub page</div>
-          <div padding class="subPage" *ngSwitchCase="4">Restaurent sub page</div> -->
-          <div padding class="subPage" *ngSwitchDefault>This page still not created</div>
         </div>
+        
       </ion-col>
     </ion-row>
     <ion-row >

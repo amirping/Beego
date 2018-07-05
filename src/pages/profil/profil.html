@@ -9,10 +9,20 @@
   <ion-grid no-padding>
     <ion-row>
       <ion-col>
-        <div class="profil-photo-part no-padding">
+        <div class="profil-photo-part no-padding" [class.cover-unset]="!user.coverURL">
+          <div class="bee-cover-blur">
+            <div class="bee-inner-cover">
+              <img [src]="user.coverURL" alt="">
+            </div>
+          </div>
+          <div class="bee-cover">
+            <div class="bee-inner-cover">
+              <img [src]="user.coverURL" alt="">
+            </div>
+          </div>
           <div class="arrow-right">
-            <button class="back-button-right" (click)="back()">
-              <img src="../../assets/imgs/arrow-back.png" alt="" class="img-right">
+            <button class="back-button-right">
+              <!-- <img src="../../assets/imgs/arrow-back.png" alt="" class="img-right"> -->
             </button>
           </div>
           <div class="take-photo">
@@ -39,6 +49,7 @@
     <ion-row>
       <ion-col class="position-info">
         <div class="info-profil">
+
           <ion-row class="first-row">
             <div class="first-row">
               <div class="bee-profile-image-holder">
@@ -65,7 +76,7 @@
               </div>
               <div>
                 <div class="follows">
-
+                  
                   <button class="follows-button" (click)="logout()">
                     Follows
                     <img class="follows-img" src="../../assets/imgs/profil/icon-user.svg" alt="">
@@ -116,6 +127,26 @@
               <div class="mesfavoris">
                 Mes favoris
               </div>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <div class="first-photo">
+
+              </div>
+              <div class="second-photo">
+
+              </div>
+              <div class="third-photo">
+
+              </div>
+              <div class="fourth-photo">
+
+              </div>
+              <div class="fifth-photo">
+
+              </div>
+
             </ion-col>
           </ion-row>
         </div>

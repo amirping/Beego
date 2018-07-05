@@ -32,5 +32,7 @@ export class FriendProfilPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad FriendProfilPage');
   }
-
+  back(){
+    this.navCtrl.pop();
+  }
 }

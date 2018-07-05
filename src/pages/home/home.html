@@ -310,7 +310,7 @@
           <div class="row row-scroller notYou">
             <div class="person-card" *ngFor="let item of connaissanceListRef$ |
           async">
-              <img src="http://i.pravatar.cc/60" alt="">
+              <img src="http://i.pravatar.cc/60" alt="" (click)="navigateTo('FriendProfil')">
 
               <span class="name">{{item.Prenom}} {{item.Nom}} </span>
               <span class="location">{{item.Place}}, {{item.Region}}</span>
