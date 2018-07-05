@@ -3,8 +3,14 @@ import { SpecialForYouPage } from "./../special-for-you/special-for-you";
 import { SuggestPage } from "./../suggest/suggest";
 import { FindFriendPage } from "./../find-friend/find-friend";
 import { UserProvider } from "./../../providers/user/user";
-import { Component } from "@angular/core";
-import { IonicPage, NavController, NavParams } from "ionic-angular";
+import { Component, Output, EventEmitter, ElementRef } from "@angular/core";
+import {
+  IonicPage,
+  NavController,
+  NavParams,
+  Tabs,
+  Events
+} from "ionic-angular";
 import { ViewChild } from "@angular/core";
 import { Observable } from "rxjs/Observable";
 import { AngularFireDatabase } from "angularfire2/database";
@@ -35,6 +41,7 @@ export class HomePage {
   animateMenu = false;
   animateMenuClose = false;
   isMenuOpen = false;
+  @Output() menuSliding: EventEmitter<any> = new EventEmitter();
   searching() {
     this.search = !this.search;
   }
@@ -63,8 +70,16 @@ export class HomePage {
     public navParams: NavParams,
     private database: AngularFireDatabase,
     private userpovider: UserProvider,
-    public menuCtrl: MenuController
+    public menuCtrl: MenuController,
+    private events: Events
   ) {
+    // don't
+    this.menuSliding.emit(false);
+    // this.tabBarElement = document.querySelector(".tabbar.show-tabbar");
+    // setTimeout(() => {
+    //   console.log(this.tabBarElement);
+    // }, 500);
+
     /* Liste des espaces */
     this.espacesListRef$ = this.database
       .list("espace")
@@ -279,11 +294,15 @@ export class HomePage {
     if (Ev.direction == 4) {
       if (!this.isMenuOpen && this.checkerForGod(Ev) == true) {
         this.isMenuOpen = !this.isMenuOpen;
+        this.menuSliding.emit(true);
+        this.events.publish("MenuOpen", true);
       }
       // left <-
     } else if (Ev.direction == 2) {
       if (this.isMenuOpen) {
         this.isMenuOpen = !this.isMenuOpen;
+        this.menuSliding.emit(false);
+        this.events.publish("MenuOpen", false);
       }
     }
   }
@@ -295,6 +314,8 @@ export class HomePage {
     } else if (Ev.direction == 2) {
       if (this.isMenuOpen) {
         this.isMenuOpen = !this.isMenuOpen;
+        this.menuSliding.emit(false);
+        this.events.publish("MenuOpen", false);
       }
     }
   }
@@ -325,5 +346,9 @@ export class HomePage {
       }
       seekhere = bubbleofDevil;
     }
+  }
+  swipeByButton() {
+    this.isMenuOpen = !this.isMenuOpen;
+    this.events.publish("MenuOpen", this.isMenuOpen);
   }
 }
