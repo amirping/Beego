@@ -15,8 +15,54 @@
 </ion-menu> -->
 <div id="menu" class="home-side-menu" (swipe)="menuSwipe($event)">
   <div class="menu-stylesh">
-    <img src="https://images.pexels.com/photos/573299/pexels-photo-573299.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="">
+    <img class="imgBack" src="https://images.pexels.com/photos/573299/pexels-photo-573299.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+      alt="">
     <div class="overlay"></div>
+    <div class="user-content animated" [class.fadeInLeft]="isMenuOpen">
+      <ion-list>
+        <ion-item>
+          <ion-avatar item-start>
+            <img src="http://i.pravatar.cc/60">
+          </ion-avatar>
+          <h2>lamia Ben Zekri</h2>
+          <p>Lamia@gmail.com</p>
+        </ion-item>
+      </ion-list>
+      <ion-list no-lines class="small-list">
+        <ion-item>
+          <ion-icon name="medal"></ion-icon>
+          Mes gouts
+        </ion-item>
+        <ion-item>
+          <ion-icon name="wifi"></ion-icon>
+          Trouvez un wifi
+        </ion-item>
+        <ion-item>
+          <ion-icon name="people"></ion-icon>
+          Trouvez vos amis
+        </ion-item>
+        <ion-item>
+          <ion-icon name="settings"></ion-icon>
+          Parametere de compte
+        </ion-item>
+        <ion-item>
+          <ion-icon name="clock"></ion-icon>
+          Historique personnelle
+        </ion-item>
+        <ion-item>
+          <ion-icon name="chatboxes"></ion-icon>
+          Mes messages
+        </ion-item>
+        <ion-item>
+          <ion-icon name="paper-plane"></ion-icon>
+          Contantez nous
+        </ion-item>
+        <ion-item>
+          <ion-icon name="information-circle"></ion-icon>
+          A propos
+        </ion-item>
+      </ion-list>
+    </div>
   </div>
 </div>
 <div #content class="home-wrapper" [class.open-menu]="isMenuOpen" [class.close-menu]="!isMenuOpen" (swipe)="contentSwipe($event)">
@@ -26,7 +72,12 @@
         <ion-grid>
           <ion-row>
             <ion-col>
-              <div class="toolbar-title">Acceuil</div>
+              <div class="toolbar-title">
+                <button ion-button icon-only clear small (click)="swipeByButton()">
+                  <ion-icon class="mx-auto" name="menu"></ion-icon>
+                </button>
+                <span>Acceuil</span>
+              </div>
             </ion-col>
             <!--
               <ion-col>
