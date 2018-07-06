@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
+import {UpdateProgramPage} from '../update-program/update-program';
 
 /**
  * Generated class for the EventPage page.
@@ -15,14 +16,24 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class EventPage {
   show=false;
+  disabled=false;
   index=1;
   showInvitaion(){
     this.show = !this.show;
   }
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController,private modalCtrl : ModalController,
+     public navParams: NavParams) {
   }
 
+  updateProgram(){
+    this.disabled=true;
+    const modal1= this.modalCtrl.create(UpdateProgramPage, null, { cssClass: 'update-program-modal' });
+    modal1.present();
+    modal1.onDidDismiss(()=>{
+      this.disabled=false;
+    });
+  }
   ionViewDidLoad() {
     console.log('ionViewDidLoad EventPage');
   }

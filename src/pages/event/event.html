@@ -7,7 +7,7 @@
 
 
 
-<ion-content class="back-color">
+<ion-content class="back-color" [class.blur]="disabled">
   
  
   <ion-grid no-padding class="grid-size">
@@ -156,7 +156,7 @@
                 </ion-row>
                 <ion-row class="btn-row">
                   <div class="btn-programs">
-                    <button class="btn-style updatebtn">Modifier</button>
+                    <button class="btn-style updatebtn" (click)="updateProgram()" >Modifier</button>
                     <button class="btn-style cancelbtn">Annuler</button>
                   </div>
                 </ion-row>

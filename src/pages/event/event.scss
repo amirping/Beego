@@ -1,4 +1,7 @@
 page-event {
+  .blur{
+    filter: blur(4px);
+  }
   .add-btn{
     position: fixed;
     bottom: 3%;

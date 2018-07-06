@@ -17,6 +17,8 @@ import {FriendProfilPage } from '../pages/friend-profil/friend-profil';
 import {FriendFollowPage} from '../pages/friend-follow/friend-follow';
 import { PopupPage} from '../pages/popup/popup';
 import {EventPage} from '../pages/event/event';
+import {UpdateProgramPage} from "../pages/update-program/update-program";
+
 
 
 import { UserProvider } from '../providers/user/user';
