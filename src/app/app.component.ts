@@ -17,6 +17,8 @@ import {FriendProfilPage } from '../pages/friend-profil/friend-profil';
 import {FriendFollowPage} from '../pages/friend-follow/friend-follow';
 import { PopupPage} from '../pages/popup/popup';
 import {EventPage} from '../pages/event/event';
+import {UpdateProgramPage} from "../pages/update-program/update-program";
+
 
 
 import { UserProvider } from '../providers/user/user';
@@ -28,7 +30,7 @@ import { UserProvider } from '../providers/user/user';
 export class MyApp {
 
 
-  rootPage:any ;
+  rootPage:any=EventPage ;
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,public userProvider: UserProvider) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
@@ -38,9 +40,9 @@ export class MyApp {
     });
     this.userProvider.isConnect(state=>{
       if(state){
-        this.rootPage = TabsPage;
+        // this.rootPage = TabsPage;
       }else{
-        this.rootPage = LandingPage;
+        // this.rootPage = LandingPage;
       }
     });
   }
