@@ -9,7 +9,7 @@
     <div class="toolbar-title">
       Trouvez vous amis
     </div>
-    
+
   </ion-navbar>
 </ion-header>
 <ion-content>
@@ -19,6 +19,14 @@
         <div *ngFor="let item of friends;let i= index;let first = first" class="col friends" [class.active]="i == activeFriend" [class.slide-left]="item.stat == '1'"
           [class.slide-right]="item.stat == '-1'" (swipe)="swiperHandler($event,i)">
           <div class="col main-wrap">
+            <div class="effect-overlay" *ngIf="item.stat == '1' || item.stat == '-1'">
+              <div class="accepted pos-mid-icon" *ngIf="item.stat == '1'">
+                <ion-icon name="checkmark-circle-outline" class="animated pulse infinite"></ion-icon>
+              </div>
+              <div class="rejected pos-mid-icon" *ngIf="item.stat == '-1'">
+                <ion-icon name="close-circle" class="animated pulse infinite"></ion-icon>
+              </div>
+            </div>
             <div class="cover-holder">
               <img src="https://images.unsplash.com/photo-1514904215020-2f15586b250e?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=895fd4bf73de899cfeda62d48a982820&dpr=1&auto=format&fit=crop&w=1000&q=80&cs=tinysrgb"
                 alt="" class="cover">
@@ -41,9 +49,10 @@
           </div>
         </div>
       </div>
-      <ion-col *ngIf="!friends || friends.length == 0 || traited.length == friends.length">
+      <ion-col *ngIf="!friends || friends.length == 0 || traited.length == friends.length" class="NoFreindMsg">
+        <div class="heart"></div>
         <p>
-          no Friends for now dude back later
+          no more freinds to suggest , well done :) back later for more .
         </p>
       </ion-col>
     </ion-row>
