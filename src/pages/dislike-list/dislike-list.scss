@@ -1,0 +1,219 @@
+page-dislike-list {
+    .col{
+        padding: 0;
+        margin: 0;
+      }
+        .photo-row{
+            height: auto;
+            flex-grow: 1;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+          }
+          .img-dislike{
+            background-repeat: no-repeat;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+          .disliketitle{
+            display: flex;
+            justify-content: space-between;
+            width: 100%; 
+            position: absolute;
+            top :27px;
+            color: white;
+            height: 27px;
+            vertical-align: middle;
+            background-color: rgba(0, 0, 0, 0.43);
+          }
+          .back{
+            color: white;
+            }
+          .buttn{
+            background-color: transparent;
+            width: 65px;
+             } 
+          .back-img{
+            width: 64%;
+             }
+          .title{
+            font-size: 14px;
+            margin-top: 2px;
+          }
+          .position-info{
+            margin-top: -47px;
+          }
+          .info-dislike{
+            width: 100%;
+            left: 0px;
+            height: auto;
+            background-color: whitesmoke;
+            border-top-right-radius: 47px;
+            border-top-left-radius: 47px;
+          }
+          .nbresult{
+            color: white;
+            margin-top: -28px;
+            position: absolute;
+            right: 40px;
+          }
+          .para-dislike{
+            color: #8e8e93;
+            font-family: Raleway;
+            font-size: 14px;
+            font-weight: 500;
+            width: 100%;
+            padding: 16px 27px;
+          }
+          .envelope{
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            .btn-envelope{
+              background-color: transparent;
+              position: relative;
+            }
+            .folder{
+              width: 62px;
+              height: 50px;
+            }
+            .actionbtn{
+              width: 35px;
+              height: 14px;
+              color: #ffffff;
+              font-family: Raleway;
+              font-size: 10px;
+              font-weight: 500;
+              letter-spacing: 0.14px;
+              position: absolute;
+              top: 23px;
+              left: 19px;
+            }
+          }
+          .masonry {
+            margin: auto; //max-width: 768px;
+            column-gap: auto;
+            justify-content: center
+          }
+          /* The Masonry Brick */
+          .item {
+            position: relative;
+            background: #fff; //padding: 1em; //margin: 0 0 1.5em;
+            margin-bottom: 7px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+            img {
+              height: auto;
+              width: 100%;
+              object-fit: cover;
+            }
+            .data {
+              position: absolute;
+              bottom: 5px;
+              left: 5px;
+              right: 5px;
+             
+              height: 56px;
+                box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+                border-radius: 10px;
+                background-color: rgba($color: white, $alpha: 0.9);
+                .clock{
+                  width: 12px;
+                  height: 12px;
+                  position: absolute;
+                  top: 11px;
+                  left:   7%;
+                }
+                .hp{
+                  width: 55px;
+                  height: 11px;
+                  color: #606c7d;
+                  font-family: Raleway;
+                  font-size: 10px;
+                  font-weight: 500;
+                  margin-left: 16%;
+                  margin-top: 11px;
+                  position: absolute;
+                }
+                .line{
+                  width: 88%;
+                  height: 1px;
+                  border: 0.1px solid #c9c9c9;
+                  position: absolute;
+                  top: 31px;
+                  left: 6%;
+                }
+                .btndata{
+                  width: 100%;
+                  justify-content: space-around;
+                  display: flex;
+                  position: absolute;
+                  bottom: 10px;
+                  height: 16px;
+                  top: 35px;
+                  position: absolute;
+                }
+                .btnhp{
+                  background-color: transparent;
+                  height: 8px;
+                  font-family: Raleway;
+                  font-size: 9px;
+                  font-weight: 500;
+                  letter-spacing: 0.08px;
+                  margin-top: 3px;
+                }
+                .btnignore{
+                  color: #8e8e93;
+                  margin-right: 16px;
+                 
+                }
+                .btnlike{
+                  color: #60d460;
+                }
+                .imglike{
+                  width: 11px;
+                  height: 8px;
+                  margin-left: 18px;
+                  position: absolute;
+                  margin-top: -8px;              
+                }
+                .imgignore{
+                  width:10px;
+                  height: 9px;
+                  margin-left: 20px;
+                  position: absolute;
+                  margin-top: -9px;
+                }
+                .separation{
+                  width: 1px;
+                  margin-left: 16px;
+                  height: 100%;
+                  border: 0.3px solid #c9c9c9;
+                  // position: absolute;
+                  // top: 31px;
+                  // left: 6%;
+                }
+            }
+          }
+          /* Masonry on large screens */
+          @media only screen and (min-width: 1024px) {
+            .masonry {
+              column-count: 4;
+            }
+          }
+          /* Masonry on medium-sized screens */
+          @media only screen and (max-width: 1023px) and (min-width: 768px) {
+            .masonry {
+              column-count: 3;
+            }
+          }
+          /* Masonry on small screens */
+          @media only screen and (max-width: 767px) and (min-width: 300px) {
+            .masonry {
+              column-count: 2;
+            }
+          }
+
+}
