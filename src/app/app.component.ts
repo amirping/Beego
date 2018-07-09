@@ -7,7 +7,6 @@ import { LandingPage } from "../pages/landing/landing";
 import { TabsPage } from "../pages/tabs/tabs";
 
 import { HomePage } from '../pages/home/home';
-
 import { BlockPage} from '../pages/block/block'
 import {SettingProfil2Page } from '../pages/setting-profil2/setting-profil2'
 import {SettingSecurityPage} from '../pages/setting-security/setting-security'
@@ -30,7 +29,10 @@ export class MyApp {
 
 
   rootPage:any ;
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,public userProvider: UserProvider) {
+  constructor(platform: Platform, 
+    statusBar: StatusBar, 
+    splashScreen: SplashScreen,
+    public userProvider: UserProvider) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.

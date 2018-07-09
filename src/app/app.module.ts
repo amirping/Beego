@@ -4,6 +4,7 @@ import { SuggestPage } from "./../pages/suggest/suggest";
 import { FindFriendPage } from "./../pages/find-friend/find-friend";
 import { BrowserModule } from "@angular/platform-browser";
 import { ErrorHandler, NgModule, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
+import { HttpClientModule } from "@angular/common/http";
 import { IonicApp, IonicErrorHandler, IonicModule } from "ionic-angular";
 import { SplashScreen } from "@ionic-native/splash-screen";
 import { StatusBar } from "@ionic-native/status-bar";
@@ -44,6 +45,7 @@ import { TabsPage } from "../pages/tabs/tabs";
 // import { AngularFirestoreModule } from "angularfire2/firestore";
 
 import { UserProvider } from "../providers/user/user";
+
 
 @NgModule({
   declarations: [
@@ -87,7 +89,8 @@ import { UserProvider } from "../providers/user/user";
     AngularFireAuthModule,
     AngularFireDatabaseModule,
     // AngularFireStorageModule,
-    Ionic2RatingModule
+    Ionic2RatingModule,
+    HttpClientModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -127,6 +130,7 @@ import { UserProvider } from "../providers/user/user";
     Dialogs,
     UserProvider,
     SearchRadioPipe,
+    
     { provide: ErrorHandler, useClass: IonicErrorHandler }
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

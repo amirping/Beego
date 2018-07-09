@@ -18,7 +18,9 @@ import { LoginPage } from "../login/login";
 import { ProfilPage } from "../profil/profil";
 import { ChilloutPage } from "../chillout/chillout";
 import { MenuController } from "ionic-angular";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { FriendProfilPage } from "../friend-profil/friend-profil";
+
 /**
  * Generated class for the HomePage page.
  *
@@ -71,6 +73,7 @@ export class HomePage {
     private database: AngularFireDatabase,
     private userpovider: UserProvider,
     public menuCtrl: MenuController,
+    private http: HttpClient,
     private events: Events
   ) {
     // don't
@@ -81,6 +84,18 @@ export class HomePage {
     // }, 500);
 
     /* Liste des espaces */
+    /**https://us-central1-test-3cdd6.cloudfunctions.net/helloBeego */
+    // this.userpovider.getToken().then(t=>{
+    //   const headers = new HttpHeaders().set('Authorization', `Bearer ${t}`);
+    //   console.log("eeeee", t);
+    //   this.http.get('http://localhost:5000/test-3cdd6/us-central1/helloBeego/',{headers})
+    //   // .map(res => res.json())
+    //   .subscribe(data => {
+  
+    //       console.log(data);
+  
+    //   });
+    // });
     this.espacesListRef$ = this.database
       .list("espace")
       .valueChanges(); /*map(changes => {
@@ -136,6 +151,7 @@ export class HomePage {
 
   ionViewDidLoad() {
     console.log("ionViewDidLoad AcceuilPage");
+
   }
   promotionClicked() {
     /* Liste des promotions */
@@ -213,7 +229,7 @@ export class HomePage {
 
   logout() {
     this.navCtrl.push(LoginPage);
-    this.userpovider.logOut();
+    this.userpovider.logout();
   }
   navigateToChilloutPage() {
     console.log("545");
@@ -350,5 +366,10 @@ export class HomePage {
   swipeByButton() {
     this.isMenuOpen = !this.isMenuOpen;
     this.events.publish("MenuOpen", this.isMenuOpen);
+  }
+  ionViewCanLeave(){
+    // this.userpovider.isStillConnect();
+    // this.userpovider.isUser();
+    return true;
   }
 }

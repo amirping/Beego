@@ -6,6 +6,7 @@ import { UserProvider } from '../../providers/user/user';
 import { HomePage } from '../home/home';
 import { SignupStep2Page } from '../signup_step2/signup_step2';
 import { TabsPage } from '../tabs/tabs';
+import { LandingPage } from '../landing/landing';
 
 /**
  * Generated class for the LoginPage page.
@@ -33,11 +34,13 @@ export class LoginPage {
         password: ['', Validators.compose([Validators.required, Validators.minLength(6)])],
       });
   }
+  ionViewDidLoad(){
+  }
   swipeTo(e){
     this.navCtrl.push(SignupStep1Page);
   }
   skip(){
-    this.navCtrl.push(HomePage);
+    this.navCtrl.setRoot(TabsPage);
   }
   login(){
     const load = this.loadCtrl.create();
@@ -46,7 +49,9 @@ export class LoginPage {
     .then((res)=>{
       load.dismiss();
       console.log(res);
-      if(!res.emailVerified){
+      if(res){
+        this.appCtrl.getRootNav().setRoot(TabsPage);        
+      }else{
         this.alertCtrl.create({
           title:"ERREUR",
           message:"Verfier votre email",
@@ -65,9 +70,8 @@ export class LoginPage {
           }
         ]
         }).present();
-      }else{
-        this.appCtrl.getRootNav().setRoot(TabsPage);
       }
+      
     })
     .catch((err)=>{
       load.dismiss();
