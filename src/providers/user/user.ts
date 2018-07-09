@@ -14,6 +14,7 @@ export class UserProvider {
   userSubscription : any;
   stateSubscription : any;
   isConnected: boolean;
+  token:any=0;
   constructor(
     public auth: AngularFireAuth,
     public db: AngularFireDatabase
@@ -60,6 +61,9 @@ export class UserProvider {
       this.user = user as User;
       this.user.email = this.auth.auth.currentUser.email;
       this.user.uid = this.auth.auth.currentUser.uid;
+      this.auth.auth.currentUser.getIdToken().then(tk=>{
+        this.token = tk;
+      });
       if(this.userObserverClbk){
         this.userObserverClbk(this.user);
       }
@@ -325,8 +329,8 @@ export class UserProvider {
     this.auth.auth.signOut();
     console.log("signout");
   }
-  getToken(){
-    return this.auth.auth.currentUser.getIdToken();
+  get idToken(){
+    return this.token;
   }
   checkUser(clbk) {
       const uid = this.auth.auth.currentUser.uid;

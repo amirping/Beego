@@ -47,6 +47,7 @@ import { TabsPage } from "../pages/tabs/tabs";
 import { UserProvider } from "../providers/user/user";
 import { SpacesProvider } from '../providers/spaces/spaces';
 import { EvenementPage } from "../pages/evenement/evenement";
+import { FriendsProvider } from '../providers/friends/friends';
 
 
 @NgModule({
@@ -139,7 +140,8 @@ import { EvenementPage } from "../pages/evenement/evenement";
     UserProvider,
     SearchRadioPipe,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
-    SpacesProvider
+    SpacesProvider,
+    FriendsProvider
 
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

@@ -21,6 +21,7 @@ import { MenuController } from "ionic-angular";
 import { SpacesProvider } from "../../providers/spaces/spaces";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { FriendProfilPage } from "../friend-profil/friend-profil";
+import { FriendsProvider } from "../../providers/friends/friends";
 
 
 /**
@@ -59,8 +60,8 @@ export class HomePage {
   allNewsData: any;
   ratingStatic = 4;
   index_news: any = "events";
-  listAttendees : AngularFireList<any>;
-  
+  listAttendees: AngularFireList<any>;
+
   /**
    * used for animation of news slides
    */
@@ -72,18 +73,19 @@ export class HomePage {
 
   news = [] as any;
   connected = false;
+  friends = []
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
     private database: AngularFireDatabase,
     private userpovider: UserProvider,
+    private friendsProvider: FriendsProvider,
     public menuCtrl: MenuController,
     private spacesProvider: SpacesProvider,
-     private http: HttpClient,
     private events: Events
   ) {
-    
-    
+
+
     /* Liste des espaces */
     this.espacesListRef$ = spacesProvider.listEspaces();
     // don't
@@ -101,9 +103,9 @@ export class HomePage {
     //   this.http.get('http://localhost:5000/test-3cdd6/us-central1/helloBeego/',{headers})
     //   // .map(res => res.json())
     //   .subscribe(data => {
-  
+
     //       console.log(data);
-  
+
     //   });
     // });
     this.espacesListRef$ = this.database
@@ -155,10 +157,10 @@ export class HomePage {
         this.news = news.map((espace, index) => {
           const e = espace.payload.val() as any;
           e.key = espace.key
-  
+
           return e;
         });
-        
+
       }) /*.map(changes => {
         return changes.map( c => ({key : c.payload.key,...c.payload.val()}))
       })*/;
@@ -173,6 +175,13 @@ export class HomePage {
 
   ionViewDidLoad() {
     console.log("ionViewDidLoad AcceuilPage");
+    this.friendsProvider.getSuggestedFriends().subscribe(f => {
+      const friends = f['friends'];
+      this.friends = [];
+      for (const key in friends) {
+        this.friends.push(friends[key]);
+      }
+    })
 
   }
   promotionClicked() {
@@ -199,7 +208,7 @@ export class HomePage {
       this.allNewsData = this.promotionListRef$;
     }
   }
-  
+
   nextSlide() {
     if (this.newSlider_indicators.show_index_slide < this.news.length - 1) {
       this.newSlider_indicators.show_index_slide++;
@@ -246,7 +255,7 @@ export class HomePage {
     console.log("545");
     this.navCtrl.push(ChilloutPage, { category: "shopping" });
   }
-  navigateTo(page) {
+  navigateTo(page, data?) {
     switch (page) {
       case "FindFriendPage":
         this.navCtrl.push(FindFriendPage);
@@ -261,7 +270,7 @@ export class HomePage {
         this.navCtrl.push(HeadlinesPage, { category: "evenement" });
         break;
       case "FriendProfil":
-        this.navCtrl.push(FriendProfilPage);
+        this.navCtrl.push(FriendProfilPage, { uid: data });
         break;
       default:
         break;
@@ -370,18 +379,18 @@ export class HomePage {
     this.isMenuOpen = !this.isMenuOpen;
     this.events.publish("MenuOpen", this.isMenuOpen);
   }
-  ionViewCanLeave(){
+  ionViewCanLeave() {
     // this.userpovider.isStillConnect();
     // this.userpovider.isUser();
     return true;
   }
-  interesser(id:string){
-    this.listAttendees= this.database.list(`evenement/${id}/Attendees`);
+  interesser(id: string) {
+    this.listAttendees = this.database.list(`evenement/${id}/Attendees`);
     this.listAttendees.push({
-      lastname :"Outlaw",
-      name:"Adem"
+      lastname: "Outlaw",
+      name: "Adem"
     });
     console.log("ok")
-    
+
   }
 }

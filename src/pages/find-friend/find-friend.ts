@@ -2,6 +2,7 @@ import { Component } from "@angular/core";
 import { IonicPage, NavController, NavParams } from "ionic-angular";
 import { AngularFireDatabase } from "angularfire2/database";
 import { FriendProfilPage } from "../friend-profil/friend-profil";
+import { FriendsProvider } from "../../providers/friends/friends";
 
 /**
  * Generated class for the FindFriendPage page.
@@ -18,24 +19,24 @@ import { FriendProfilPage } from "../friend-profil/friend-profil";
 export class FindFriendPage {
   
   friends: any = [];
-  traited: any = [];
+  traited: number = 0;
   activeFriend = 0;
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams, 
-    private database : AngularFireDatabase
+    private friendsProvider : FriendsProvider
   ) {
-    const friends$ = this.database.list('connaissance').valueChanges().subscribe(friends => {
-     this.friends = friends.map((friend,index)=>{
-       const f = friend as any ;
-        f.id = index;
-
-        return f;
-      })
-     // this.friends= friends;
+    const friends$ = this.friendsProvider.getSuggestedFriends().subscribe(f=>{
+      const friends = f['friends'];
+      this.friends = [];
+      let index = 0;
+      for (const key in friends) {
+        this.friends.push({...friends[key], id:index});
+        index++;
+      }
       console.log(this.friends)
       friends$.unsubscribe();
-        });
+    });
 
     /**
      * this.friends.push({
@@ -86,13 +87,15 @@ export class FindFriendPage {
   acceptFriend(id) {
     this.friends[id].stat = 1;
     //
-    this.traited.push(this.friends[id]);
+    // this.traited.push(this.friends[id]);
+    this.traited++;
     //this.friends.shift();
     this.activeFriend = id + 1;
   }
   rejectFriend(id) {
     this.friends[id].stat = -1;
-    this.traited.push(this.friends[id]);
+    // this.traited.push(this.friends[id]);
+    this.traited++;
     //this.friends.shift();
     this.activeFriend = id + 1;
   }

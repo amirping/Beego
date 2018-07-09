@@ -311,12 +311,11 @@
             <span class="more" (click)="navigateTo('FindFriendPage')">Tout afficher</span>
           </div>
           <div class="row row-scroller notYou">
-            <div class="person-card" *ngFor="let item of connaissanceListRef$ |
-          async">
-              <img src="http://i.pravatar.cc/60" alt="" (click)="navigateTo('FriendProfil')">
+            <div class="person-card" *ngFor="let item of friends">
+              <img [src]="item.photoURL" alt="" (click)="navigateTo('FriendProfil', item.uid)">
 
-              <span class="name">{{item.Prenom}} {{item.Nom}} </span>
-              <span class="location">{{item.Place}}, {{item.Region}}</span>
+              <span class="name">{{item.lastName}} {{item.firstName}} </span>
+              <span class="location">{{item.gov}}</span>
               <button ion-button small round icon-start>
                 <ion-icon name="person-add"></ion-icon>
                 S'abonner</button>

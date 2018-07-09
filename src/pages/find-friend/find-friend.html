@@ -15,7 +15,7 @@
 <ion-content>
   <ion-grid class="back-stylesh">
     <ion-row class="beego-row-center">
-      <div class="holder" *ngIf="friends.length > 0 && traited.length != friends.length">
+      <div class="holder" *ngIf="friends.length > 0 && traited != friends.length;else nofriends">
         <div *ngFor="let item of friends;let i= index;let first = first" class="col friends" [class.active]="i == activeFriend" [class.slide-left]="item.stat == '1'"
           [class.slide-right]="item.stat == '-1'" (swipe)="swiperHandler($event,i)">
           <div class="col main-wrap">
@@ -49,12 +49,14 @@
           </div>
         </div>
       </div>
-      <ion-col *ngIf="!friends || friends.length == 0 || traited.length == friends.length" class="NoFreindMsg">
-        <div class="heart"></div>
-        <p>
-          no more freinds to suggest , well done :) back later for more .
-        </p>
-      </ion-col>
+      <ng-template #nofriends>
+        <ion-col class="NoFreindMsg">
+          <div class="heart"></div>
+          <p>
+            no more freinds to suggest , well done :) back later for more .
+          </p>
+        </ion-col>
+      </ng-template>
     </ion-row>
   </ion-grid>
 </ion-content>
