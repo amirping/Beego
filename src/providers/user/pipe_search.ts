@@ -47,7 +47,7 @@ export class SearchRadioPipe implements PipeTransform {
   }
 
   private filterChillout(data: any, name: string) {
-    console.log("ee", name);
+    console.log("filterChillout", name);
     return data.filter(d => d.title.toLocaleLowerCase().includes(name.toLocaleLowerCase())
       || d.subtitle.toLocaleLowerCase().includes(name.toLocaleLowerCase()));
   }
