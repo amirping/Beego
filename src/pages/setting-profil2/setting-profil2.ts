@@ -32,7 +32,7 @@ export class SettingProfil2Page {
     public app: App,
     public userProvider: UserProvider,
     public alertCtrl: AlertController) {
-      this.user = this.userProvider.getCurrentUser();
+      this.user = this.userProvider.currentUser;
       const date = new Date();
       date.setFullYear(date.getFullYear()-5);
       const d = date.getDate();
@@ -53,13 +53,13 @@ export class SettingProfil2Page {
       });
   }
   ionViewDidLoad() {
-    this.userSubscription = this.userProvider.observeUser().subscribe(user=>{
-      this.user = this.userProvider.getCurrentUser(user);
+    this.userProvider.setUserObserver(user=>{
+      this.user = user;
       this.reset();
     });
   }
   ionViewWillLeave(){
-    this.userSubscription.unsubscribe();
+    this.userProvider.removeUserObserver();
   }
   changeDate(val: any=this.datePicker){
     const date = new Date(val);
@@ -157,6 +157,8 @@ export class SettingProfil2Page {
         }).present();
       }
     }).catch(err=>{
+      console.log(err);
+      load.dismiss();
       this.alertCtrl.create({
         title:"Erreur",
         message:"Quelque chose de mal s'il vous plaît essayer plus tard"

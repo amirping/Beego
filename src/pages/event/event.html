@@ -7,143 +7,203 @@
 
 
 
-<ion-content class="back-color" >
-  <!-- <button 
-   ion-fab>
-    <ion-icon name="add"></ion-icon>
-  </button> -->
-  <ion-fab class="add-btn">
-      <button ion-fab>
-          <ion-icon name="add"></ion-icon>
-      </button>
-    </ion-fab>
+<ion-content class="back-color" [class.blur]="disabled">
+  
+ 
   <ion-grid no-padding class="grid-size">
     <ion-row class="photo-row">
-      <ion-col>
-        <img class="img-event" 
-         src="../../assets/imgs/event/eventcover.png" alt="">
-         <div class="eventitle">
-                <button class="buttn">
-                  <img src="../../assets/imgs/arrow-back.png" alt="" 
-                  class="back-img">
-                </button>
-                <div class="title">
-                    Followers
-                </div>
-                <button class="buttn">
-                    <img src="../../assets/imgs/event/search.png" alt="" 
-                    class="searchevent">
-                  </button>
-         </div>
+      <ion-col >
+        <img *ngIf="index == 1" class="img-event" src="../../assets/imgs/event/eventcover.png" alt="">
+        <img *ngIf="index == 2"class="img-event" src="../../assets/imgs/event/suggestionCover.png" alt="">
+        <img *ngIf="index == 3" class="img-event" src="../../assets/imgs/event/programCover.png" alt="">
+        <div class="eventitle">
+          <button class="buttn">
+            <img src="../../assets/imgs/arrow-back.png" alt="" class="back-img">
+          </button>
+          <div class="title">
+            Followers
+          </div>
+          <button class="buttn">
+            <img src="../../assets/imgs/event/search.png" alt="" class="searchevent">
+          </button>
+        </div>
       </ion-col>
     </ion-row>
     <ion-row class="position-info">
       <ion-col>
         <ion-row>
           <ion-col>
-              <div class="info-event">
-                  <ion-segment  [(ngModel)]="index" class="head-list-button">
-                    <ion-segment-button  class="btn-behavior "value="1">Invitations</ion-segment-button>
-                    <ion-segment-button  class="btn-behavior "value="2" >Suggestion</ion-segment-button>
-                    <ion-segment-button  class="btn-behavior "value="3" >Programme</ion-segment-button>
-                  </ion-segment>
-                </div>
+            <div class="info-event">
+              <ion-segment [(ngModel)]="index" class="head-list-button">
+                <ion-segment-button class="btn-behavior " value="1">Invitations</ion-segment-button>
+                <ion-segment-button class="btn-behavior " value="2">Suggestion</ion-segment-button>
+                <ion-segment-button class="btn-behavior " value="3">Programme</ion-segment-button>
+              </ion-segment>
+            </div>
           </ion-col>
         </ion-row>
         <ion-row>
           <ion-col>
-              <div class="eventlist-part" [ngSwitch]="index">
-                  <ion-list *ngSwitchCase="1" >
-                  
+            <div class="eventlist-part" [ngSwitch]="index">
+              <ion-list *ngSwitchCase="1">
+                 <ion-item-sliding #item>
+                  <ion-item class="listInvitation">
+                    <ion-avatar item-start>
+                      <img src="../../assets/imgs/param/block/photoDeProfil.png">
+                    </ion-avatar>
+                    <h3>nom prenom</h3>
+                    <p class="lieu-event">Bardo, Tunis</p>
+                    <button ion-button round class="accept-event-button">
+                      Accepter
+                    </button>
+                  </ion-item>
+                  <ion-item-options slide="right">
+                    <button class="delete-invitation-button">Supprimer</button>
+                  </ion-item-options>
 
-                    
-                       
-                          <ion-item-sliding #item>
-                            <ion-item class="listInvitation">
-                                <ion-avatar item-start>
-                                  <img src="../../assets/imgs/param/block/photoDeProfil.png">
-                                </ion-avatar>
-                                <h3>nom prenom</h3>
-                                <p class="lieu-event">Bardo, Tunis</p>
-                                <button  ion-button round
-                                 class="accept-event-button">
-                                  Accepter
-                                </button>
-                              </ion-item>
-                                <ion-item-options slide="right">
-                                    <button  class="delete-invitation-button">Supprimer</button>
-                                  </ion-item-options>
-                              
-                            </ion-item-sliding>
-                            
-                  </ion-list>
-                  <ion-list *ngSwitchCase="2">
-                    <ion-item>
-                      <ion-avatar item-start>
-                        <img src="../../assets/imgs/param/block/photoDeProfil.png">
-                      </ion-avatar>
-                      <h3>nom prenom</h3>
-                      <p class="lieu-event">Bardo, Tunis</p>
-                      <button ion-button item-end>
+                </ion-item-sliding>
+
+              </ion-list>
+              <!--  suggetion -->
+              <ion-list *ngSwitchCase="2">
+                <ion-item class="listsuggetion">
+                  <ion-avatar item-start>
+                    <img src="../../assets/imgs/param/block/photoDeProfil.png">
+                  </ion-avatar>
+                  <h3>nom prenom</h3>
+                  <p class="lieu-event">Bardo, Tunis</p>
+                  <button icon-only class="addPersonBtn" item-end>
+                      <ion-icon ios="ios-person-add" md="md-person-add"></ion-icon>
+                  </button>
+                </ion-item>
+
+                <ion-item class="listsuggetion">
+                    <ion-avatar item-start>
+                      <img src="../../assets/imgs/param/block/photoDeProfil.png">
+                    </ion-avatar>
+                    <h3>nom prenom</h3>
+                    <p class="lieu-event">Bardo, Tunis</p>
+                    <div class="friendinvitation " [class.friendinvitation-transition]="show" >
+                        <button class="fbaddPersonBtn" (click)="showInvitaion()" >
+                            <img  class="iconfb"
+                             src="../../assets/imgs/param/Facebook.svg" alt="">
+                          </button>
+                      <span class="textinvitation"> Invitee mes amis</span>
                         
+                    </div>
+                    
+                   
+                  </ion-item>
+
+              </ion-list>
+              <ion-grid class="programs-and-invitaion" *ngSwitchCase="3" pager="false">
+                  <ion-fab class="add-btn">
+                      <button ion-fab>
+                        <ion-icon name="add"></ion-icon>
                       </button>
-                    </ion-item>
-                    </ion-list>
-                    <ion-grid class="programs-and-invitaion" *ngSwitchCase="3" pager="false">
-                        <ion-row>
-                          <ion-col>
-                            <span class="title-row">Vos programme</span>
-                          </ion-col>
-                        </ion-row>
-                        <ion-row>
-                          <ion-col>
-                            <ion-slides class="slides-programs" loop spaceBetween="5px">
-                                <ion-slide class="programs">
-                                    <div class="bee-profile-image">
-                                      <div class="bee-hexagon">
-                                        <img src="../../assets/imgs/photoDeProfil.png" alt="">
-                                      </div>
-                                     
-                                        <div class="bee-edit-icon bee-edit-photo"></div>
-                                      </div>
-                                      <div class="cofeeTitle">
-                                          What's Up Coffée !
-                                      </div>
-                                      <div class="time">
-                                          Semdi 17 Dec - 6:00 PM
-                                      </div>
-                                      <div class="requestProg">
-                                          Mohamed Limayma vous invitez à What's up coffée avec 2 autres amis.
-                                      </div>
-                                </ion-slide>
-                                <ion-slide class="programs">
-                                    <div class="bee-profile-image">
-                                      <div class="bee-hexagon">
-                                        <img src="../../assets/imgs/photoDeProfil.png" alt="">
-                                      </div>
-                                     
-                                        <div class="bee-edit-icon bee-edit-photo"></div>
-                                      </div>
-                                      <div class="cofeeTitle">
-                                          What's Up Coffée !
-                                      </div>
-                                      <div class="time">
-                                          Semdi 17 Dec - 6:00 PM
-                                      </div>
-                                      
-                                </ion-slide>
-                            </ion-slides>
-                            <div class="btn-programs">
-                              <button class="btn-style updatebtn">Modifier</button>
-                              <button class="btn-style cancelbtn">Annuler</button>
+                    </ion-fab>
+                <ion-row>
+                  <ion-col>
+                    <span class="title-row">Vos programme</span>
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col>
+                    <ion-slides centeredSlides="true" zoom="false" loop class="slides-programs" spaceBetween="5">
+                      <ion-slide>
+                        <div class="programs">
+                          <div class="bee-profile-image">
+                            <div class="bee-hexagon">
+                              <img src="../../assets/imgs/photoDeProfil.png" alt="">
                             </div>
-                          </ion-col>
-                        </ion-row>
-                       </ion-grid>
-                </div>
+
+                            <div class="bee-edit-icon bee-edit-photo"></div>
+                          </div>
+                          <div class="cofeeTitle">
+                            What's Up Coffée !
+                          </div>
+                          <div class="time">
+                            Semdi 17 Dec - 6:00 PM
+                          </div>
+                          <div class="requestProg">
+                            Mohamed Limayma vous invitez à What's up coffée avec 2 autres amis.
+                          </div>
+                        </div>
+
+                      </ion-slide>
+                      <ion-slide>
+                        <div class="programs">
+                          <div class="bee-profile-image">
+                            <div class="bee-hexagon">
+                              <img src="../../assets/imgs/photoDeProfil.png" alt="">
+                            </div>
+
+                            <div class="bee-edit-icon bee-edit-photo"></div>
+                          </div>
+                          <div class="cofeeTitle">
+                            What's Up Coffée !
+                          </div>
+                          <div class="time">
+                            Semdi 17 Dec - 6:00 PM
+                          </div>
+
+                        </div>
+                      </ion-slide>
+
+                    </ion-slides>
+
+                  </ion-col>
+                </ion-row>
+                <ion-row class="btn-row">
+                  <div class="btn-programs">
+                    <button class="btn-style updatebtn" (click)="updateProgram()" >Modifier</button>
+                    <button class="btn-style cancelbtn">Annuler</button>
+                  </div>
+                </ion-row>
+                <ion-row class="invite_row">
+                  <ion-col>
+                    <span class="title-row">Vos invites</span>
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col>
+                    <ion-slides centeredSlides class="slides-programs" loop spaceBetween="5">
+                      <ion-slide>
+                        <div class="programs">
+                          <div class="bee-profile-image">
+                            <div class="bee-hexagon">
+                              <img src="../../assets/imgs/friend-follow/coverPhoto.png" alt="">
+                            </div>
+
+                            <div class="bee-edit-icon bee-edit-photo"></div>
+                          </div>
+                          <div class="cofeeTitle">
+                            Dar jben !
+                          </div>
+                          <div class="time">
+                            Semdi 17 Dec - 6:00 PM
+                          </div>
+                          <div class="requestProg">
+                            Lamiya ben zekry vous invitez à Dar jben, avec 3 autres amis.
+                          </div>
+                        </div>
+
+                      </ion-slide>
+
+                    </ion-slides>
+                  </ion-col>
+                </ion-row>
+                <ion-row class="btn-row">
+                  <div class="btn-programs">
+                    <button class="btn-style accepterbtn">Accepter</button>
+                    <button class="btn-style cancelbtn">Annuler</button>
+                  </div>
+                </ion-row>
+              </ion-grid>
+            </div>
           </ion-col>
         </ion-row>
-        
+
       </ion-col>
     </ion-row>
   </ion-grid>

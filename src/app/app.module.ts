@@ -4,6 +4,7 @@ import { SuggestPage } from "./../pages/suggest/suggest";
 import { FindFriendPage } from "./../pages/find-friend/find-friend";
 import { BrowserModule } from "@angular/platform-browser";
 import { ErrorHandler, NgModule, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
+import { HttpClientModule } from "@angular/common/http";
 import { IonicApp, IonicErrorHandler, IonicModule } from "ionic-angular";
 import { SplashScreen } from "@ionic-native/splash-screen";
 import { StatusBar } from "@ionic-native/status-bar";
@@ -30,6 +31,8 @@ import {FriendProfilPage } from '../pages/friend-profil/friend-profil';
 import {FriendFollowPage} from '../pages/friend-follow/friend-follow';
 import { PopupPage} from '../pages/popup/popup';
 import {EventPage} from '../pages/event/event';
+import {UpdateProgramPage} from "../pages/update-program/update-program";
+import {DislikeListPage} from '../pages/dislike-list/dislike-list';
 
 import { Ionic2RatingModule } from "ionic2-rating";
 import { AngularFireModule } from "angularfire2";
@@ -44,6 +47,7 @@ import { TabsPage } from "../pages/tabs/tabs";
 import { UserProvider } from "../providers/user/user";
 import { SpacesProvider } from '../providers/spaces/spaces';
 import { EvenementPage } from "../pages/evenement/evenement";
+
 
 @NgModule({
   declarations: [
@@ -74,7 +78,10 @@ import { EvenementPage } from "../pages/evenement/evenement";
     FriendFollowPage,
     PopupPage,
     EventPage,
-    EvenementPage
+    EvenementPage,
+    UpdateProgramPage,
+    DislikeListPage
+
 
 
   ],
@@ -86,7 +93,8 @@ import { EvenementPage } from "../pages/evenement/evenement";
     AngularFireAuthModule,
     AngularFireDatabaseModule,
     // AngularFireStorageModule,
-    Ionic2RatingModule
+    Ionic2RatingModule,
+    HttpClientModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -116,7 +124,12 @@ import { EvenementPage } from "../pages/evenement/evenement";
     FriendFollowPage,
     PopupPage,
     EventPage,
-    EvenementPage
+
+    EvenementPage,
+
+    UpdateProgramPage,
+    DislikeListPage
+
 
   ],
   providers: [
@@ -127,6 +140,7 @@ import { EvenementPage } from "../pages/evenement/evenement";
     SearchRadioPipe,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     SpacesProvider
+
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
