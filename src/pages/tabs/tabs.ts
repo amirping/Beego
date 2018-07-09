@@ -5,7 +5,7 @@ import { HomePage } from '../home/home';
 import {ChilloutPage } from '../chillout/chillout';
 import {ProfilPage } from '../profil/profil';
 import { UserProvider } from '../../providers/user/user';
-import { Tabs, NavController, AlertController } from 'ionic-angular';
+import { Tabs, NavController, AlertController, Events } from 'ionic-angular';
 import { LandingPage } from '../landing/landing';
 import { LoginPage } from '../login/login';
 
@@ -23,7 +23,8 @@ export class TabsPage {
   @ViewChild(Tabs) tabs: Tabs;
   constructor(
     private userProvider: UserProvider,
-    private appCtr: App,
+    private alertCtrl: AlertController,
+    private navCtrl: NavController,
     events: Events
   ) {
     events.subscribe("MenuOpen", isOpen => {
@@ -61,7 +62,7 @@ export class TabsPage {
             }]
           }).present();
           setTimeout(() => {
-            this.tabRef.select(0)
+            this.tabs.select(0)
           }, 0);
         }
       }else{
