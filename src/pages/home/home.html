@@ -13,7 +13,7 @@
     </div>
   </ion-content>
 </ion-menu> -->
-<div id="menu" class="home-side-menu" (swipe)="menuSwipe($event)">
+<div id="menu" class="home-side-menu" (swipe)="menuSwipe($event)" *ngIf="connected">
   <div class="menu-stylesh">
     <img class="imgBack" src="https://images.pexels.com/photos/573299/pexels-photo-573299.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
       alt="">

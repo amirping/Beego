@@ -3,13 +3,9 @@ import { AngularFireAuth } from "angularfire2/auth";
 import { User } from "../../models/user.interface";
 import { AngularFireDatabase } from "angularfire2/database";
 import firebase from 'firebase';
-import { Observable } from "rxjs/Observable";
-/*
-  Generated class for the UserProvider provider.
 
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
+
+
 @Injectable()
 export class UserProvider {
   user = {} as User;
@@ -57,30 +53,6 @@ export class UserProvider {
       });
     }
   }
-  // isStillConnect(){
-  //   console.log("in isstillconnect");
-  //   const sub = this.auth.authState.subscribe(state=>{
-  //     console.log(state);
-  //     if(!state){
-  //       this.isConnected = false
-  //     }
-  //     sub.unsubscribe();
-  //   });
-  // }
-  // observeStateChange(clbk){
-  //   this.stateSubscription = this.auth.authState.subscribe(state=>{
-  //     if(!state || !state.emailVerified || state.email != this.user.email){
-  //       this.isConnected = false;
-  //     }
-  //     clbk(state);
-  //   });
-  // }
-  // unObserveStateChange(){
-  //   if(this.stateSubscription){
-  //     this.stateSubscription.unsubscribe();
-  //   }
-  // }
-
   startObserveUser(){
     this.userSubscription = this.db.object(`users/${this.auth.auth.currentUser.uid}`)
     .valueChanges()
@@ -354,7 +326,6 @@ export class UserProvider {
     console.log("signout");
   }
   getToken(){
-    
     return this.auth.auth.currentUser.getIdToken();
   }
   checkUser(clbk) {

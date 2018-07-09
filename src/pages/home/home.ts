@@ -71,6 +71,7 @@ export class HomePage {
   };
 
   news = [] as any;
+  connected = false;
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
