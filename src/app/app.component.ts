@@ -29,7 +29,7 @@ import { UserProvider } from '../providers/user/user';
 export class MyApp {
 
 
-  rootPage:any=DislikeListPage ;
+  rootPage:any ;
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,public userProvider: UserProvider) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
@@ -39,9 +39,9 @@ export class MyApp {
     });
     this.userProvider.isConnect(state=>{
       if(state){
-        // this.rootPage = TabsPage;
+         this.rootPage = TabsPage;
       }else{
-        // this.rootPage = LandingPage;
+         this.rootPage = LandingPage;
       }
     });
   }
