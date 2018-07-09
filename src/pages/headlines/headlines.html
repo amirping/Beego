@@ -52,6 +52,8 @@
         <div class="masonry" >
           <div class="item animated pulse" *ngFor="let item of data | searchRadio : filter : category : searchText ">
             <img src="{{item.Couverture}}" alt="">
+            <button (click)="navigateToEvenement(item.key)" > Voir plus</button>
+           
             <div class="data">
               <span class="name">
                 {{item.Name}}
@@ -60,6 +62,7 @@
                 <ion-icon name="pin"></ion-icon>
                 {{item.Place}}
               </span>
+              
             </div>
           </div>
         </div>
