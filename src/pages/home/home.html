@@ -197,62 +197,14 @@
           <button (click)="nextSlide()">we will add swipe to make next </button>
           <div class="wrap-holder row row-space-around" (swipe)="swipeEvent($event)">
             <div class="holder">
-              <!-- static try -->
-              <!-- <div class="slider active">
-              <img src="https://i.pinimg.com/originals/fd/5d/8e/fd5d8e333fcccbc366f390902e69ddd7.jpg" alt="">
-              <div class="content">
-                <div class="row row-right">
-                  <button ion-button small>Intéressé(e)</button>
-                </div>
-                <div>
-                  <span class="date">27 dec 2017</span>
-                  <div class="bottom-content">
-                    <h2>YUMA - Hell Yeah Bitches</h2>
-                    <span class="location">
-                      <ion-icon name="pin"></ion-icon> Yuka, KEF</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="slider next">
-              <img src="https://blog.spoongraphics.co.uk/wp-content/uploads/2016/05/25.jpg" alt="">
-              <div class="content">
-                <div class="row row-right">
-                  <button ion-button small>Intéressé(e)</button>
-                </div>
-                <div>
-                  <span class="date">27 dec 2017</span>
-                  <div class="bottom-content">
-                    <h2>YUMA - Hell Yeah Bitches</h2>
-                    <span class="location">
-                      <ion-icon name="pin"></ion-icon> Yuka, KEF</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="slider after-next">
-              <img src="https://piktochart.com/wp-content/uploads/2018/01/4.jpg" alt="">
-              <div class="content">
-                <div class="row row-right">
-                  <button ion-button small>Intéressé(e)</button>
-                </div>
-                <div>
-                  <span class="date">27 dec 2017</span>
-                  <div class="bottom-content">
-                    <h2>YUMA - Hell Yeah Bitches</h2>
-                    <span class="location">
-                      <ion-icon name="pin"></ion-icon> Yuka, KEF</span>
-                  </div>
-                </div>
-              </div>
-            </div> -->
+                    
               <!-- dynamique things -->
               <div class="slider not-yet" *ngFor="let item of news ; let i=index" [class.active]="i==newSlider_indicators.show_index_slide"
                 [class.next]="i==newSlider_indicators.next_index_show" [class.after-next]="i==newSlider_indicators.after_index_show">
                 <img src="{{item.Couverture}}" alt="">
                 <div class="content">
                   <div class="row row-right">
-                    <button ion-button small>Intéressé(e)</button>
+                    <button ion-button small (click)="interesser(item.key)">Intéressé(e)</button>
                   </div>
                   <div>
                     <span class="date">{{item.Date}}</span>

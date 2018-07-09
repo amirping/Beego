@@ -4,6 +4,7 @@ import { Ionic2RatingModule } from 'ionic2-rating';
 import { Observable } from 'rxjs/Observable';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { SearchRadioPipe } from '../../providers/user/pipe_search'
+import { SpacesProvider } from "../../providers/spaces/spaces";
 
 
 /**
@@ -41,8 +42,10 @@ export class ChilloutPage {
   category : string;
   constructor(
     public navCtrl: NavController,
-    private database: AngularFireDatabase,
-    public navParams: NavParams) {
+   
+    public navParams: NavParams,
+    private spacesProvider: SpacesProvider
+  ) {
       
     /**
      * slides on cover : put all images here and will auto displayed
@@ -54,34 +57,14 @@ export class ChilloutPage {
      * 
      */
      this.category = this.navParams.get('category'); 
-    /*this.pagesData = this.database.list(category, ref => ref.child('data').orderByChild('title').equalTo('jobi')).snapshotChanges().map(changes => {
-      return changes.map( c => ({key : c.payload.key,...c.payload.val()}))
-    });*/
-   
-    this.categories = this.database
-    .list(`category/${this.category}`)
-    .valueChanges();
-   
-   
-    this.pagesData = this.database
-      .list(this.category)
-      .valueChanges();
-      console.log(this.categories);
-      console.log(this.pagesData);
-
     
    
-   /* this.pagesData=[
-      {
-        index:1,
-        name:'All',
-        data:[
-        {
-          title:'Nom de l\'espace',
-          subTitle:'Nom de l\'espace',
-          rating:4
-        },
-        */
+    this.categories = spacesProvider.listCategoriesChillout(this.category)
+   
+   
+    this.pagesData = spacesProvider.listPagesDataChillout(this.category)
+
+    
     
   }
   log(message){
@@ -97,14 +80,6 @@ export class ChilloutPage {
     }
   }
 
-  // Méthode rechercher
-  search(searchText: string) {
-    console.log(searchText);
-    //const category = this.navParams.get('category');
- 
-    //this.rechercher$ = this.searchpipe.transform(this.pagesData,searchText);
-    
-    
-  }
+  
 }
 

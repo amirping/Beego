@@ -8,11 +8,13 @@ import { IonicPage, NavController, NavParams } from "ionic-angular";
 import { ViewChild } from "@angular/core";
 import { Slides } from "ionic-angular";
 import { Observable } from "rxjs/Observable";
-import { AngularFireDatabase } from "angularfire2/database";
+import { AngularFireDatabase, AngularFireList } from "angularfire2/database";
 import { LoginPage } from "../login/login";
 import { ProfilPage } from "../profil/profil";
 import { ChilloutPage } from "../chillout/chillout";
 import { MenuController } from "ionic-angular";
+import { SpacesProvider } from "../../providers/spaces/spaces";
+
 /**
  * Generated class for the HomePage page.
  *
@@ -48,6 +50,8 @@ export class HomePage {
   allNewsData: any;
   ratingStatic = 4;
   index_news: any = "events";
+  listAttendees : AngularFireList<any>;
+  
   /**
    * used for animation of news slides
    */
@@ -63,21 +67,15 @@ export class HomePage {
     public navParams: NavParams,
     private database: AngularFireDatabase,
     private userpovider: UserProvider,
-    public menuCtrl: MenuController
+    public menuCtrl: MenuController,
+    private spacesProvider: SpacesProvider
   ) {
+    
+    
     /* Liste des espaces */
-    this.espacesListRef$ = this.database
-      .list("espace")
-      .valueChanges(); /*map(changes => {
-        return changes.map( c => ({key : c.payload.key,...c.payload.val()}))
-      });*/
-
+    this.espacesListRef$ = spacesProvider.listEspaces();
     /* Liste des suggestions */
-    this.suggestionListRef$ = this.database
-      .list("suggestion")
-      .valueChanges(); /*map(changes => {
-        return changes.map( c => ({key : c.payload.key,...c.payload.val()}))
-      });*/
+    this.suggestionListRef$ = spacesProvider.listSuggestion();
 
     /* Liste des connaissances */
     this.connaissanceListRef$ = this.database
@@ -87,11 +85,7 @@ export class HomePage {
       });*/
 
     /* Liste des proximités */
-    this.proximiteListRef$ = this.database
-      .list("proximite")
-      .valueChanges(); /*map(changes => {
-        return changes.map( c => ({key : c.payload.key,...c.payload.val()}))
-      });*/
+    this.proximiteListRef$ = spacesProvider.listProximite();
 
     /* Liste des proximités */
     this.invitationListRef$ = this.database
@@ -101,12 +95,31 @@ export class HomePage {
       });*/
 
     /* Liste des evenements */
+    /**
+     * const evenements$ = this.database.list('evenement').snapshotChanges().subscribe(evenements => {
+      this.evenement = evenements.map((espace, index) => {
+        const e = espace.payload.val() as any;
+        e.key = espace.key
+
+        return e;
+      })
+
+      evenements$.unsubscribe();
+      console.log(evenements);
+      this.data = this.evenement
+    });
+     */
     this.database
       .list("evenement")
-      .valueChanges()
+      .snapshotChanges()
       .subscribe(news => {
-        this.news = news;
-        console.log(this.news);
+        this.news = news.map((espace, index) => {
+          const e = espace.payload.val() as any;
+          e.key = espace.key
+  
+          return e;
+        });
+        
       }) /*.map(changes => {
         return changes.map( c => ({key : c.payload.key,...c.payload.val()}))
       })*/;
@@ -146,26 +159,7 @@ export class HomePage {
       this.allNewsData = this.promotionListRef$;
     }
   }
-  // getNextShow() {
-  //   let index;
-  //   if (this.show_index_slide < this.news.length - 1) {
-  //     index  = this.show_index_slide + 1;
-  //   } else {
-  //     index = 0;
-  //   }
-  //   console.log(index);
-  //   return index;
-  // }
-  // getAfterNextShow() {
-  //   let index ;
-  //   if (this.getNextShow() < this.news.length - 1) {
-  //     index =  this.getAfterNextShow() + 1;
-  //   } else {
-  //     index = 0;
-  //   }
-  //   console.log(index);
-  //   return index;
-  // }
+  
   nextSlide() {
     if (this.newSlider_indicators.show_index_slide < this.news.length - 1) {
       this.newSlider_indicators.show_index_slide++;
@@ -248,5 +242,14 @@ export class HomePage {
   collectSwiper(ev) {
     console.log("collecting to drag");
     console.log(ev);
+  }
+  interesser(id:string){
+    this.listAttendees= this.database.list(`evenement/${id}/Attendees`);
+    this.listAttendees.push({
+      lastname :"Outlaw",
+      name:"Adem"
+    });
+    console.log("ok")
+    
   }
 }

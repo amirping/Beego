@@ -42,6 +42,8 @@ import { TabsPage } from "../pages/tabs/tabs";
 // import { AngularFirestoreModule } from "angularfire2/firestore";
 
 import { UserProvider } from "../providers/user/user";
+import { SpacesProvider } from '../providers/spaces/spaces';
+import { EvenementPage } from "../pages/evenement/evenement";
 
 @NgModule({
   declarations: [
@@ -71,7 +73,8 @@ import { UserProvider } from "../providers/user/user";
     FriendProfilPage,
     FriendFollowPage,
     PopupPage,
-    EventPage
+    EventPage,
+    EvenementPage
 
 
   ],
@@ -112,7 +115,8 @@ import { UserProvider } from "../providers/user/user";
     FriendProfilPage,
     FriendFollowPage,
     PopupPage,
-    EventPage
+    EventPage,
+    EvenementPage
 
   ],
   providers: [
@@ -121,7 +125,8 @@ import { UserProvider } from "../providers/user/user";
     Dialogs,
     UserProvider,
     SearchRadioPipe,
-    { provide: ErrorHandler, useClass: IonicErrorHandler }
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
+    SpacesProvider
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

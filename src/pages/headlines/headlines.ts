@@ -1,6 +1,7 @@
 import { Component } from "@angular/core";
 import { IonicPage, NavController, NavParams } from "ionic-angular";
 import { AngularFireDatabase } from "angularfire2/database";
+import { EvenementPage } from "../evenement/evenement";
 
 /**
  * Generated class for the HeadlinesPage page.
@@ -51,15 +52,16 @@ export class HeadlinesPage {
   ) {
     this.category = this.navParams.get('category');
 
-    const evenements$ = this.database.list('evenement').valueChanges().subscribe(evenements => {
+    const evenements$ = this.database.list('evenement').snapshotChanges().subscribe(evenements => {
       this.evenement = evenements.map((espace, index) => {
-        const e = espace as any;
-        e.id = index;
+        const e = espace.payload.val() as any;
+        e.key = espace.key
 
         return e;
       })
 
       evenements$.unsubscribe();
+      console.log(evenements);
       this.data = this.evenement
     });
 
@@ -133,5 +135,9 @@ export class HeadlinesPage {
 }
 
 console.log("nouveau filter", this.filter)
+  }
+  navigateToEvenement(eventId : string){
+    this.navCtrl.push(EvenementPage, {eventId});
+    console.log("ok")
   }
 }
