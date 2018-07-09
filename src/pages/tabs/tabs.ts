@@ -10,27 +10,38 @@ import { LandingPage } from '../landing/landing';
 import { LoginPage } from '../login/login';
 
 @Component({
-  templateUrl: 'tabs.html'
+  templateUrl: "tabs.html"
 })
 export class TabsPage {
-
   tab1Root = HomePage;
   tab2Root = ProfilPage;
   tab3Root = HomePage;
   tab4Root = ProfilPage;
   tab5Root = ProfilPage;
   connected : boolean;
+  showTabs = true;
+  @ViewChild(Tabs) tabs: Tabs;
+  constructor(
+    private userProvider: UserProvider,
+    private appCtr: App,
+    events: Events
+  ) {
+    events.subscribe("MenuOpen", isOpen => {
+      console.log("only god know how");
 
-  @ViewChild('myTabs') tabRef: Tabs;
-
-  constructor(private userProvider: UserProvider,
-    public navCtrl: NavController,
-    public alertCtrl: AlertController) {
-      console.log("ddddddddddddddddddddddddddddddddd");
-  }
-  ionViewDidLoad(){
-    
-  }
+      console.log(isOpen);
+      this.showTabs = !isOpen;
+      var tabBarElement = document.querySelector(".tabbar.show-tabbar");
+      if (!this.showTabs) {
+        tabBarElement.classList.add("animated", "fadeOutDown");
+        tabBarElement.classList.remove("fadeInUp");
+      } else {
+        tabBarElement.classList.remove("fadeOutDown");
+        tabBarElement.classList.add("animated", "fadeInUp");
+      }
+      console.log(tabBarElement);
+    });
+  }  
   ionViewDidEnter(){
     console.log("eeeeeeeeeeeeeeeeeeeeeeeeeeeeee88888888888888");
     this.userProvider.setTabsCtrl((connect,firstLoad=false)=>{
@@ -56,11 +67,12 @@ export class TabsPage {
       }else{
         if(connect){
           this.userProvider.startObserveUser();
+
         }
       }
     });
   }
-  ionViewWillLeave(){
+  ionViewWillLeave() {
     this.userProvider.stopObserveUser();
     this.userProvider.removeTabsCtrl();
   }

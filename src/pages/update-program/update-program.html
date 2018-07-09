@@ -1,0 +1,143 @@
+<!--
+  Generated template for the UpdateProgramPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+
+
+<ion-content  >
+  <div class="container_update_program">
+    <div class="update_program_title">
+        Modifier mon programme
+    </div>
+    <div class="spaces_list">
+        <div class="for-search">
+            <input type="text" name="text_search" value=""
+             placeholder="Trouvez votre espace" 
+            class="text-search"
+             id="text_search" [(ngModel)]="text_search">
+             
+             <button class="search-text-icon" >
+              <img src="../../assets/imgs/Search-listfollows.png" alt=""
+               ></button>
+             <button class="clear-text" (click)="text_search=''">
+               <img class="cleaner" 
+               src="../../assets/imgs/clean-listfollows.png" alt=""
+               *ngIf="text_search !=null && text_search.length>0" 
+                ></button>
+        </div>
+        <div class="listOfSpaces">
+        <ion-list class="">
+            <ion-item class="space">
+                <div class="beeBg"></div>
+              <ion-avatar item-start>
+                <img src="../../assets/imgs/photoDeProfil.png">
+              </ion-avatar>
+              <h3>Joelle</h3>
+              <p class="lieu">Menzah 5</p>
+              <div class="rating-ex">
+                  <rating [(ngModel)]="rating" emptyStarIconName="star-outline" halfStarIconName="star-half"
+                   starIconName="star" nullable="false"
+                    (ngModelChange)="null">
+                  </rating>
+                </div>
+            </ion-item>
+            <ion-item class="space">
+                <div class="beeBg"></div>
+              <ion-avatar item-start>
+                <img src="../../assets/imgs/photoDeProfil.png">
+              </ion-avatar>
+              <h3>Joelle</h3>
+              <p class="lieu">Menzah 5</p>
+              <div class="rating-ex">
+                  <rating [(ngModel)]="rating" emptyStarIconName="star-outline" halfStarIconName="star-half"
+                   starIconName="star" nullable="false"
+                    (ngModelChange)="null">
+                  </rating>
+                </div>
+            </ion-item>
+            <ion-item class="space">
+                <div class="beeBg"></div>
+              <ion-avatar item-start>
+                <img src="../../assets/imgs/photoDeProfil.png">
+              </ion-avatar>
+              <h3>Joelle</h3>
+              <p class="lieu">Menzah 5</p>
+              <div class="rating-ex">
+                  <rating [(ngModel)]="rating" emptyStarIconName="star-outline" halfStarIconName="star-half"
+                   starIconName="star" nullable="false"
+                    (ngModelChange)="null">
+                  </rating>
+                </div>
+            </ion-item>
+            <ion-item class="space">
+                <div class="beeBg"></div>
+              <ion-avatar item-start>
+                <img src="../../assets/imgs/photoDeProfil.png">
+              </ion-avatar>
+              <h3>Joelle</h3>
+              <p class="lieu">Menzah 5</p>
+              <div class="rating-ex">
+                  <rating [(ngModel)]="rating" emptyStarIconName="star-outline" halfStarIconName="star-half"
+                   starIconName="star" nullable="false"
+                    (ngModelChange)="null">
+                  </rating>
+                </div>
+            </ion-item>
+            <ion-item class="space">
+                <div class="beeBg"></div>
+              <ion-avatar item-start>
+                <img src="../../assets/imgs/photoDeProfil.png">
+              </ion-avatar>
+              <h3>Joelle</h3>
+              <p class="lieu">Menzah 5</p>
+              <div class="rating-ex">
+                  <rating [(ngModel)]="rating" emptyStarIconName="star-outline" halfStarIconName="star-half"
+                   starIconName="star" nullable="false"
+                    (ngModelChange)="null">
+                  </rating>
+                </div>
+            </ion-item>
+        </ion-list>
+        </div>
+        
+    </div>
+    <div class="fixDetailsProgram">
+      <ion-grid>
+        <ion-row >
+          <div class="iconsRow">
+            <button class="iconsbtn">
+                <img class="pinsize"
+              src="../../assets/imgs/event/pin.svg" alt="">
+            </button>
+            <button class="iconsbtn">
+                <img class="pinsize"
+                src="../../assets/imgs/event/timee.svg" alt="">
+            </button>
+           <button class="iconsbtn">
+              <img class="pinsize"
+            src="../../assets/imgs/event/people.svg" alt="">
+           </button>
+           
+          </div>
+        </ion-row>
+        <ion-row>
+          <div class="titleRow">
+            <span>What's up</span>
+            <span>6:00 pm</span>
+            <span>3 amis</span>
+          </div>
+        </ion-row>
+        <ion-row>
+          <div class="btnRow">
+              <button ion-button class="annuler" type="reset" (click)="dismiss()" > Annuler</button>
+              <button ion-button class="valider" type="submit" > Valider</button>
+          </div>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </div>
+
+</ion-content>

@@ -16,7 +16,8 @@ import {FriendProfilPage } from '../pages/friend-profil/friend-profil';
 import {FriendFollowPage} from '../pages/friend-follow/friend-follow';
 import { PopupPage} from '../pages/popup/popup';
 import {EventPage} from '../pages/event/event';
-
+import {UpdateProgramPage} from "../pages/update-program/update-program";
+import {DislikeListPage} from '../pages/dislike-list/dislike-list';
 
 import { UserProvider } from '../providers/user/user';
 
@@ -40,9 +41,9 @@ export class MyApp {
     });
     this.userProvider.isConnect(state=>{
       if(state){
-        this.rootPage = TabsPage;
+         this.rootPage = TabsPage;
       }else{
-        this.rootPage = LandingPage;
+         this.rootPage = LandingPage;
       }
     });
   }
