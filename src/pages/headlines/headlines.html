@@ -27,16 +27,16 @@
         <div class="filter-box">
           <span>Filter : </span>
           <div class="filtres">
-            <ion-select  [(ngModel)]="genre" placeholder="Gender" (ionChange)="changeFilter('Gender')">
+            <ion-select  [(ngModel)]="genre" placeholder="Gender" (ionChange)="changeFilter('Gender')" (ionCancel)="onCancel('Gender')">
               <ion-option value="Musique">Musique</ion-option>
               <ion-option value="Théatre">Théatre</ion-option>
               <ion-option value="Sport">Sport</ion-option>
             </ion-select>
-            <ion-select [(ngModel)]="date" placeholder="When? " (ionChange)="changeFilter('Date')">
+            <ion-select [(ngModel)]="date" placeholder="When? " (ionChange)="changeFilter('Date')" (ionCancel)="onCancel('Date')">
               <ion-option value="2018-07-05">Aujourd'hui</ion-option>
               <ion-option value="2018-07-06">Demain</ion-option>
             </ion-select>
-            <ion-select [(ngModel)]="place" placeholder="Where ?" (ionChange)="changeFilter('Place')">
+            <ion-select [(ngModel)]="place" placeholder="Where ?" (ionChange)="changeFilter('Place')" (ionCancel)="onCancel('Place')">
               <ion-option value="Tunis">Grand Tunis </ion-option>
               <ion-option value="Sousse">Sousse</ion-option>
               <ion-option value="Sfax">Sfax</ion-option>
