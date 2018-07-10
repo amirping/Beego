@@ -1,0 +1,318 @@
+page-space-detail {
+  .grid{
+    padding: 0 !important;
+  }
+  .padd_row{
+    padding-left: 21px;
+  }
+  .col{
+    padding: 0;
+    margin: 0;
+  }
+  .photo-row{
+    height: auto;
+    flex-grow: 1;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+  }
+  .img-space{
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .space_back_param{
+    display: flex;
+    justify-content: space-between;
+    width: 100%; 
+    position: absolute;
+    top :37px;
+    color: white;
+    height: 22px;
+    vertical-align: middle;
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+  .back{
+    color: white;
+  }
+  .buttn{
+    background-color: transparent;
+    width: 65px;
+  } 
+.back-img{
+width: 64%;
+margin-top: 3px;
+  }
+  .param_space{
+      width: 19px;
+  }
+  .position-info{
+    margin-top: -40px;
+  }
+  .info-space{
+    width: 100%;
+    left: 0px;
+    height: 45%;
+    height: auto;
+    background-color: whitesmoke;
+    border-top-right-radius: 47px;
+    border-top-left-radius: 47px;
+  }
+  .flex-row{
+    justify-content: space-between;
+    display:flex;
+    width: 100%;
+}
+.bee-hexagon {
+clip-path: url(#hexagonPath);
+background-repeat: no-repeat;
+background-position: -3px -15px;
+background-color:transparent;
+height: 100%;
+}
+.bee-image{
+height: 120px;
+width: 120px;
+
+transform: scale(0.6);
+}
+.bee-img-size{
+object-fit: cover;
+width: 100%;
+height: 100%;
+}
+.photo-col{
+top:0px;
+padding: 0px !important;
+}
+.space-title-place{
+//    position: absolute;
+    margin-top:40px;
+    margin-left: -8%;
+}
+.space-title{
+color: #333333;
+font-family: Raleway;
+font-size: 14px;
+font-weight: 600;
+/* Text style for "What's Up" */
+font-family: "Segoe UI";
+font-weight: 400;
+}
+.space-place{
+margin-top: 4px;
+color: #c9c9c9;
+font-family: Raleway;
+font-size: 11px;
+font-weight: 500;
+}
+
+.lieu-img{
+width: 9px;
+height: 10px;
+}
+
+
+.bee-icon{
+height: 119px;
+width: 113px;
+transform: scale(0.34);
+margin-top: -5px;
+}
+.bee-hexagon {
+    clip-path: url(#hexagonPath);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-color:#fecc37;
+    height: 100%;
+    background-image: url(../../assets/imgs/space_detail/bee.svg);
+    background-repeat: no-repeat;
+    background-size: 79px 73px;
+}
+.follow_row{
+  width: 100%;
+  height: 50px;
+  border-radius: 15px;
+  background-color: #e2e0e0;
+  margin-left:  21px;
+  margin-right: 21px;
+  display: flex;
+  justify-content: space-around;
+  padding-top: 11px;
+  padding-bottom: 9px;
+  button{
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  span{
+    color: #808083;
+    font-size: 10px;
+    font-weight: 500;
+    margin-top: -1px;
+    position: absolute;
+  }
+}
+.size_icon{
+  font-size: 23px;
+  color: #8e8e93;
+}
+.heart_position{
+  margin-left: 6px;
+  font-family: Raleway;
+}
+.call_position{
+  // margin-left: -14px;
+  font-family: "SFNS Display";
+}
+.person_position{
+  margin-left: 1px;
+  font-family: "SFNS Display";
+}
+.separation{
+  width: 1px;
+  height: 100%;
+  border: 0.3px solid #8e8e93;
+}
+.row_note_title{
+  margin-top: 22px;
+  .note_title{
+    color: #535353;
+    font-family: Montserrat;
+    font-size: 18px;
+    font-weight: 600;
+    /* Text style for "Note " */
+    font-family: "Segoe UI";
+    font-weight: 400;
+  }
+}
+.row_note{
+  margin-top: 10px;
+  .note{
+    color: #f8b334;
+    font-family: Montserrat;
+    font-size: 42px;
+    font-weight: 700;
+  }
+  .avis{
+    color: #c9c9c9;
+    font-family: Montserrat;
+    font-size: 14px;
+    font-weight: 400;
+    /* Text style for "257 avis" */
+    font-family: "Segoe UI";
+    font-weight: 400;
+    margin-left: 2px;
+  }
+}
+.rating_col{
+  width: 100%;
+  display:block;
+}
+.nbr{
+  color: #b9b8b8;
+  font-family: Montserrat;
+  font-size: 10px;
+  font-weight: 400;
+  /* Text style for "1" */
+  font-family: "Segoe UI";
+  font-weight: 400;
+}
+ion-range.range-ios{
+  display:inline;
+  .range-slider {
+    height: 14px;
+    display: inline-block;
+    width: 65%;
+  }
+  .range-bar{
+    top: 9px;
+    height: 4px;
+    border-radius: 2px;
+    // background-color: #8e8e93;
+  }
+  
+  .range-knob-handle{
+    visibility: hidden;
+  }
+}
+.range-ios-danger .range-bar-active, .range-ios-danger .range-tick-active {
+  background: #77777a;
+}
+.weather_title{
+  margin-top: 19px;
+}
+.weather{
+  color: #535353;
+  font-family: Montserrat;
+  font-size: 18px;
+  font-weight: 600;
+  /* Text style for "Météo" */
+  font-family: "Segoe UI";
+  font-weight: 400;
+}
+.weather_description_row{
+  margin-top: 7px;
+  margin-left: 25px;
+}
+.weather_description{
+  color: #8e8e93;
+  font-family: Raleway;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.degre{
+  color: #535353;
+  font-family: Montserrat;
+  font-size: 26px;
+  font-weight: 600;
+  letter-spacing: 0.31px;
+  /* Text style for "18°" */
+  
+  margin-left: 13px;
+  top: -8px;
+  position: absolute;
+  z-index: 1;
+}
+.weather_img{
+  width: 70px;
+  height: 58px;
+  position: absolute;
+  top: -31px;
+  margin-left: 23px;
+  z-index: 0;
+}
+.timing_row_title{
+  margin-top: 19px;
+  color: #535353;
+  font-family: Montserrat;
+  font-size: 18px;
+  font-weight: 600;
+  /* Text style for "Horaire" */
+  font-family: "Segoe UI";
+  font-weight: 400;
+}
+.timing_row{
+  margin-top: 8px;
+  margin-left: 28px;
+  .timing_description{
+    color: #8e8e93;
+    font-family: Raleway;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .opened{
+    color: #60d460;
+    font-family: "SFNS Display";
+    font-size: 12px;
+    font-weight: 400;
+    /* Text style for "Ouverte" */
+    font-family: "Segoe UI";
+    font-weight: 400;
+  }
+}
+
+           
+
+}

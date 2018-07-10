@@ -32,6 +32,7 @@ import { PopupPage} from '../pages/popup/popup';
 import {EventPage} from '../pages/event/event';
 import {UpdateProgramPage} from "../pages/update-program/update-program";
 import {DislikeListPage} from '../pages/dislike-list/dislike-list';
+import {SpaceDetailPage} from '../pages/space-detail/space-detail';
 
 import { Ionic2RatingModule } from "ionic2-rating";
 import { AngularFireModule } from "angularfire2";
@@ -75,7 +76,8 @@ import { UserProvider } from "../providers/user/user";
     PopupPage,
     EventPage,
     UpdateProgramPage,
-    DislikeListPage
+    DislikeListPage,
+    SpaceDetailPage
 
 
   ],
@@ -118,7 +120,8 @@ import { UserProvider } from "../providers/user/user";
     PopupPage,
     EventPage,
     UpdateProgramPage,
-    DislikeListPage
+    DislikeListPage,
+    SpaceDetailPage
 
   ],
   providers: [
