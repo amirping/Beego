@@ -32,51 +32,6 @@ export class SpecialForYouPage {
        console.log(this.data)
        espaces$.unsubscribe();
          });
-         /*
-    this.data = [
-      {
-        id: 1,
-        name: "Cocktail mojito",
-        location: "Morjena",
-        pic: "https://source.unsplash.com/600x1080/?drink"
-      },
-      {
-        id: 1,
-        name: "Cocktail mojito",
-        location: "Morjena",
-        pic: "https://source.unsplash.com/900x900/?cocktail,bar"
-      },
-      {
-        id: 1,
-        name: "Cocktail mojito",
-        location: "Morjena",
-        pic: "https://source.unsplash.com/1000x900/?choclat"
-      },
-      {
-        id: 1,
-        name: "Cocktail mojito",
-        location: "Morjena",
-        pic: "https://source.unsplash.com/1080x600/?bar"
-      },
-      {
-        id: 1,
-        name: "Cocktail mojito",
-        location: "Morjena",
-        pic: "https://source.unsplash.com/900x900/?icecream"
-      },
-      {
-        id: 1,
-        name: "Cocktail mojito",
-        location: "Morjena",
-        pic: "https://source.unsplash.com/900x900/?mojito,bar"
-      },
-      {
-        id: 1,
-        name: "Cocktail mojito",
-        location: "Morjena",
-        pic: "https://source.unsplash.com/900x900/?vodka,bar"
-      }
-    ];*/
   }
 
   ionViewDidLoad() {

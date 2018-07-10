@@ -190,12 +190,38 @@ export class HomePage {
       return changes.map( c => ({key : c.payload.key,...c.payload.val()}))
     })*/;
   }
+  /**Changement ici */
   changeNewsTo(type) {
     this.index_news = type;
     if (type === "events") {
-      this.allNewsData = this.evenementListRef$;
+      
+      this.database
+      .list("evenement")
+      .snapshotChanges()
+      .subscribe(news => {
+        this.news = news.map((espace) => {
+          const e = espace.payload.val() as any;
+          e.key = espace.key
+  
+          return e;
+        });
+        
+      })
     } else {
-      this.allNewsData = this.promotionListRef$;
+      
+      
+      this.database
+      .list("promotion")
+      .snapshotChanges()
+      .subscribe(news => {
+        this.news = news.map((espace) => {
+          const e = espace.payload.val() as any;
+          e.key = espace.key
+  
+          return e;
+        });
+        
+      })
     }
   }
   
