@@ -1,3 +1,4 @@
+import { MyTastesPage } from "./../pages/my-tastes/my-tastes";
 import { HeadlinesPage } from "./../pages/headlines/headlines";
 import { SpecialForYouPage } from "./../pages/special-for-you/special-for-you";
 import { SuggestPage } from "./../pages/suggest/suggest";
@@ -22,15 +23,15 @@ import { ListOfFollowsPage } from "../pages/list-of-follows/list-of-follows";
 import { SettingProfilPage } from "../pages/setting_profil/setting_profil";
 import { ChilloutPage } from "../pages/chillout/chillout";
 
-import { BlockPage} from '../pages/block/block'
-import {SettingProfil2Page } from '../pages/setting-profil2/setting-profil2';
-import {SettingSecurityPage} from '../pages/setting-security/setting-security'
-import {PersonalHistoryPage} from '../pages/personal-history/personal-history';
-import {FriendProfilPage } from '../pages/friend-profil/friend-profil';
-import {FriendFollowPage} from '../pages/friend-follow/friend-follow';
-import { PopupPage} from '../pages/popup/popup';
-import {EventPage} from '../pages/event/event';
-import {UpdateProgramPage} from "../pages/update-program/update-program";
+import { BlockPage } from "../pages/block/block";
+import { SettingProfil2Page } from "../pages/setting-profil2/setting-profil2";
+import { SettingSecurityPage } from "../pages/setting-security/setting-security";
+import { PersonalHistoryPage } from "../pages/personal-history/personal-history";
+import { FriendProfilPage } from "../pages/friend-profil/friend-profil";
+import { FriendFollowPage } from "../pages/friend-follow/friend-follow";
+import { PopupPage } from "../pages/popup/popup";
+import { EventPage } from "../pages/event/event";
+import { UpdateProgramPage } from "../pages/update-program/update-program";
 
 import { Ionic2RatingModule } from "ionic2-rating";
 import { AngularFireModule } from "angularfire2";
@@ -67,15 +68,13 @@ import { UserProvider } from "../providers/user/user";
     SpecialForYouPage,
     HeadlinesPage,
 
-
     PersonalHistoryPage,
     FriendProfilPage,
     FriendFollowPage,
     PopupPage,
     EventPage,
-    UpdateProgramPage
-
-
+    UpdateProgramPage,
+    MyTastesPage
   ],
   imports: [
     BrowserModule,
@@ -109,14 +108,13 @@ import { UserProvider } from "../providers/user/user";
     SpecialForYouPage,
     HeadlinesPage,
 
-
     PersonalHistoryPage,
     FriendProfilPage,
     FriendFollowPage,
     PopupPage,
     EventPage,
-    UpdateProgramPage
-
+    UpdateProgramPage,
+    MyTastesPage
   ],
   providers: [
     StatusBar,
