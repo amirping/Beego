@@ -13,8 +13,18 @@ page-my-tastes {
     background-attachment: fixed;
     height: 100%;
     .top-classer {
-      margin-top: 25px;
+      margin-top: 20px;
       margin-bottom: 30px;
+    }
+    .folder-shower {
+      img {}
+      span {
+        position: absolute;
+        z-index: 2;
+        top: 40%;
+        left: 40%;
+        color: white;
+      }
     }
   }
   .fit-box {
@@ -160,9 +170,6 @@ page-my-tastes {
     -webkit-animation: slide-tr 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
     animation: slide-tr 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
   }
-
-
-
   @keyframes slide-tl {
     0% {
       transform: translateY(0) translateX(0);
@@ -170,11 +177,9 @@ page-my-tastes {
     }
     100% {
       transform: translateY(-100px) translateX(-100px) scale(0.2);
-      opacity:0;
+      opacity: 0;
     }
   }
-
-
   @keyframes slide-tr {
     0% {
       transform: translateY(0) translateX(0);
@@ -182,9 +187,7 @@ page-my-tastes {
     }
     100% {
       transform: translateY(-100px) translateX(100px) scale(0.2);
-      opacity:0;
+      opacity: 0;
     }
   }
-
-
 }

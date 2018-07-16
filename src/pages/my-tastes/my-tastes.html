@@ -14,17 +14,25 @@
 <ion-content>
   <ion-grid>
     <ion-row class="top-classer">
-      <ion-col text-center>like it</ion-col>
-      <ion-col text-center>dislike</ion-col>
+      <ion-col text-center class="folder-shower">
+        <img src="../../assets/imgs/myTastes_img/folder.svg" alt="">
+        <span>like it</span>
+      </ion-col>
+      <ion-col text-center class="folder-shower">
+        <img src="../../assets/imgs/myTastes_img/folder.svg" alt="">
+        <span>dislike</span>
+      </ion-col>
     </ion-row>
     <ion-row justify-content-center>
       <div class="fit-box">
-        <ng-container *ngFor="let item of collection;let i=index" >
-          <div (swipeleft)="likeItem(i)" (swiperight)="dislikeItem(i)" (panbottom)="ignore(i)" class="taste-item" [class.active]="i == active" [class.slide-tl]="item.stat && item.stat === 1" [class.slide-tr]="item.stat && item.stat == -1" [class.slide-bck-bottom]="item.stat && item.stat !=2"
+        <ng-container *ngFor="let item of collection;let i=index">
+          <div (swipeleft)="likeItem(i)" (swiperight)="dislikeItem(i)" (panbottom)="ignore(i)" class="taste-item" [class.active]="i == active"
+            [class.slide-tl]="item.stat && item.stat === 1" [class.slide-tr]="item.stat && item.stat == -1" [class.slide-bck-bottom]="item.stat && item.stat !=2"
             *ngIf="collection.length != traitedCollection.length">
-            <img src="{{item.pic}}" alt="" >
+            <img src="{{item.pic}}" alt="">
             <div class="ask-box">
-              <h2>{{item.name}}</h2>
+              <h2>
+                <ion-icon name="timer"></ion-icon> {{item.name}}</h2>
               <div class="btn-holder">
                 <button ion-button clear color="secondary" small (click)="likeItem(i)">like
                   <ion-icon name="checkmark"></ion-icon>
