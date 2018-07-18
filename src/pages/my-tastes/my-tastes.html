@@ -11,7 +11,7 @@
 </ion-header>
 
 
-<ion-content>
+<ion-content >
   <ion-grid>
     <ion-row class="top-classer">
       <ion-col text-center class="folder-shower">
@@ -26,8 +26,8 @@
     <ion-row justify-content-center>
       <div class="fit-box">
         <ng-container *ngFor="let item of collection;let i=index">
-          <div (swipeleft)="likeItem(i)" (swiperight)="dislikeItem(i)" (panbottom)="ignore(i)" class="taste-item" [class.active]="i == active"
-            [class.slide-tl]="item.stat && item.stat === 1" [class.slide-tr]="item.stat && item.stat == -1" [class.slide-bck-bottom]="item.stat && item.stat !=2"
+          <div swipeAll (swipeleft)="likeItem(i)" (swiperight)="dislikeItem(i)" (swipedown)="ignore(i)" class="taste-item" [class.active]="i == active"
+            [class.slide-tl]="item.stat && item.stat === 1" [class.slide-tr]="item.stat && item.stat == -1" [class.slide-bck-bottom]="item.stat && item.stat ==2"
             *ngIf="collection.length != traitedCollection.length">
             <img src="{{item.pic}}" alt="">
             <div class="ask-box">

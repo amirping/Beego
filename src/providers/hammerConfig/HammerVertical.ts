@@ -6,9 +6,9 @@ export class HammerVertical extends HammerGestureConfig {
   overrides = <any>{
     /*pan: { direction: Hammer.DIRECTION_All },
             swipe: { direction: Hammer.DIRECTION_VERTICAL }, */
-    swipe: { direction: 31 },
+    swipe: { direction: 30 },
     pan: {
-      direction: 31
+      direction: 30
     }
   };
 }

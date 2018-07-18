@@ -33,6 +33,7 @@
     "cordova-plugin-dialogs": "^2.0.1",
     "firebase": "4.6.0",
     "ionic-angular": "3.9.2",
+    "ionic-swipe-all": "^1.2.0",
     "ionic2-rating": "^1.2.2",
     "ionicons": "3.0.0",
     "node-vibrant": "^3.0.0",

@@ -18,6 +18,8 @@ export class MyTastesPage {
   traitedCollection: any = [];
   active = 0;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    console.log(document.defaultView.window);
+
     this.collection.push(
       {
         id: 1,
@@ -69,21 +71,17 @@ export class MyTastesPage {
     //this.collection.splice(index, 1);
     //this.collection.push(this.collection.splice(this.collection[index], 1)[0]);
   }
-  ignore(index){
+  ignore(index) {
     this.collection[index].stat = 2;
     this.traitedCollection.push(this.traitedCollection[index]);
     this.active++;
   }
-  ActionHundler(index, event) {
-    console.log("allaho akbar ya kefer")
-    if (event.direction === 2) {
-      this.likeItem(index);
-    } else if (event.direction === 4) {
-      this.dislikeItem(index);
-    } else if (event.direction === 16) {
-      this.collection[index].stat = 2;
-      this.traitedCollection.push(this.traitedCollection[index]);
-      this.active++;
-    }
-  }
+  // ActionHundler(index, event) {
+  //   console.log("allaho akbar ya kefer");
+  //   if (event.direction === 2) {
+  //     this.likeItem(index);
+  //   } else if (event.direction === 4) {
+  //     this.dislikeItem(index);
+  //   }
+  // }
 }

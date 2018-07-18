@@ -44,6 +44,7 @@ import { TabsPage } from "../pages/tabs/tabs";
 // import { AngularFirestoreModule } from "angularfire2/firestore";
 
 import { UserProvider } from "../providers/user/user";
+import { IonicSwipeAllModule } from "ionic-swipe-all";
 
 @NgModule({
   declarations: [
@@ -84,7 +85,8 @@ import { UserProvider } from "../providers/user/user";
     AngularFireAuthModule,
     AngularFireDatabaseModule,
     // AngularFireStorageModule,
-    Ionic2RatingModule
+    Ionic2RatingModule,
+    IonicSwipeAllModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
