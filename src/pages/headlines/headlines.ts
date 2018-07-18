@@ -92,7 +92,7 @@ export class HeadlinesPage {
     console.log("ionViewDidLoad HeadlinesPage");
   }
   changeFilter(type: string) {
-
+    console.log("ay message")
     switch (type) {
       case 'Gender': {
         this.searchText = this.genre;
@@ -128,16 +128,45 @@ export class HeadlinesPage {
       }
 
         break;
-    
-    
-      default:
-    break;
-}
 
-console.log("nouveau filter", this.filter)
+
+      default:
+        break;
+    }
+
+    console.log("nouveau filter", this.filter)
   }
-  navigateToEvenement(eventId : string){
-    this.navCtrl.push(EvenementPage, {eventId});
+  navigateToEvenement(eventId: string) {
+    this.navCtrl.push(EvenementPage, { eventId });
     console.log("ok")
+  }
+  onCancel(type: string) {
+    switch (type) {
+      case 'Gender': {
+        this.genre = "ALL"
+      }
+
+        break;
+
+      case 'Date': {
+        this.date = "ALL"
+      }
+
+        break;
+
+      case 'Place': {
+        this.place = "ALL"
+      }
+
+        break;
+
+
+
+
+      default:
+        break;
+    }
+
+
   }
 }

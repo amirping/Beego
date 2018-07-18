@@ -14,6 +14,7 @@ import { AngularFireDatabase } from "angularfire2/database";
   templateUrl: "special-for-you.html"
 })
 export class SpecialForYouPage {
+  searchText: string = "";
   data: any = [];
   constructor(
     public navCtrl: NavController, 
@@ -80,5 +81,20 @@ export class SpecialForYouPage {
 
   ionViewDidLoad() {
     console.log("ionViewDidLoad SpecialForYouPage");
+  }
+  ShoworNot(item, text){
+
+    
+   
+    if((!item.espaceName.toLocaleLowerCase()
+    .includes(text.toLocaleLowerCase()))
+    &&
+    (!item.espaceSpecialite.toLocaleLowerCase()
+    .includes(text.toLocaleLowerCase())))
+    
+    return false
+    
+    
+    return true;
   }
 }
