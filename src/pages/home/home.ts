@@ -13,13 +13,16 @@ import {
 } from "ionic-angular";
 import { ViewChild } from "@angular/core";
 import { Observable } from "rxjs/Observable";
-import { AngularFireDatabase } from "angularfire2/database";
+import { AngularFireDatabase, AngularFireList } from "angularfire2/database";
 import { LoginPage } from "../login/login";
 import { ProfilPage } from "../profil/profil";
 import { ChilloutPage } from "../chillout/chillout";
 import { MenuController } from "ionic-angular";
+import { SpacesProvider } from "../../providers/spaces/spaces";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { FriendProfilPage } from "../friend-profil/friend-profil";
 import { MyTastesPage } from "../my-tastes/my-tastes";
+
 /**
  * Generated class for the HomePage page.
  *
@@ -56,6 +59,8 @@ export class HomePage {
   allNewsData: any;
   ratingStatic = 4;
   index_news: any = "events";
+  listAttendees : AngularFireList<any>;
+  
   /**
    * used for animation of news slides
    */
@@ -72,8 +77,14 @@ export class HomePage {
     private database: AngularFireDatabase,
     private userpovider: UserProvider,
     public menuCtrl: MenuController,
+    private spacesProvider: SpacesProvider,
+     private http: HttpClient,
     private events: Events
   ) {
+    
+    
+    /* Liste des espaces */
+    this.espacesListRef$ = spacesProvider.listEspaces();
     // don't
     this.menuSliding.emit(false);
     // this.tabBarElement = document.querySelector(".tabbar.show-tabbar");
@@ -82,18 +93,27 @@ export class HomePage {
     // }, 500);
 
     /* Liste des espaces */
+    /**https://us-central1-test-3cdd6.cloudfunctions.net/helloBeego */
+    // this.userpovider.getToken().then(t=>{
+    //   const headers = new HttpHeaders().set('Authorization', `Bearer ${t}`);
+    //   console.log("eeeee", t);
+    //   this.http.get('http://localhost:5000/test-3cdd6/us-central1/helloBeego/',{headers})
+    //   // .map(res => res.json())
+    //   .subscribe(data => {
+  
+    //       console.log(data);
+  
+    //   });
+    // });
     this.espacesListRef$ = this.database
       .list("espace")
       .valueChanges(); /*map(changes => {
         return changes.map( c => ({key : c.payload.key,...c.payload.val()}))
       });*/
 
+
     /* Liste des suggestions */
-    this.suggestionListRef$ = this.database
-      .list("suggestion")
-      .valueChanges(); /*map(changes => {
-        return changes.map( c => ({key : c.payload.key,...c.payload.val()}))
-      });*/
+    this.suggestionListRef$ = spacesProvider.listSuggestion();
 
     /* Liste des connaissances */
     this.connaissanceListRef$ = this.database
@@ -103,11 +123,7 @@ export class HomePage {
       });*/
 
     /* Liste des proximités */
-    this.proximiteListRef$ = this.database
-      .list("proximite")
-      .valueChanges(); /*map(changes => {
-        return changes.map( c => ({key : c.payload.key,...c.payload.val()}))
-      });*/
+    this.proximiteListRef$ = spacesProvider.listProximite();
 
     /* Liste des proximités */
     this.invitationListRef$ = this.database
@@ -117,12 +133,31 @@ export class HomePage {
       });*/
 
     /* Liste des evenements */
+    /**
+     * const evenements$ = this.database.list('evenement').snapshotChanges().subscribe(evenements => {
+      this.evenement = evenements.map((espace, index) => {
+        const e = espace.payload.val() as any;
+        e.key = espace.key
+
+        return e;
+      })
+
+      evenements$.unsubscribe();
+      console.log(evenements);
+      this.data = this.evenement
+    });
+     */
     this.database
       .list("evenement")
-      .valueChanges()
+      .snapshotChanges()
       .subscribe(news => {
-        this.news = news;
-        console.log(this.news);
+        this.news = news.map((espace, index) => {
+          const e = espace.payload.val() as any;
+          e.key = espace.key
+  
+          return e;
+        });
+        
       }) /*.map(changes => {
         return changes.map( c => ({key : c.payload.key,...c.payload.val()}))
       })*/;
@@ -137,6 +172,7 @@ export class HomePage {
 
   ionViewDidLoad() {
     console.log("ionViewDidLoad AcceuilPage");
+
   }
   promotionClicked() {
     /* Liste des promotions */
@@ -162,26 +198,7 @@ export class HomePage {
       this.allNewsData = this.promotionListRef$;
     }
   }
-  // getNextShow() {
-  //   let index;
-  //   if (this.show_index_slide < this.news.length - 1) {
-  //     index  = this.show_index_slide + 1;
-  //   } else {
-  //     index = 0;
-  //   }
-  //   console.log(index);
-  //   return index;
-  // }
-  // getAfterNextShow() {
-  //   let index ;
-  //   if (this.getNextShow() < this.news.length - 1) {
-  //     index =  this.getAfterNextShow() + 1;
-  //   } else {
-  //     index = 0;
-  //   }
-  //   console.log(index);
-  //   return index;
-  // }
+  
   nextSlide() {
     if (this.newSlider_indicators.show_index_slide < this.news.length - 1) {
       this.newSlider_indicators.show_index_slide++;
@@ -214,7 +231,7 @@ export class HomePage {
 
   logout() {
     this.navCtrl.push(LoginPage);
-    this.userpovider.logOut();
+    this.userpovider.logout();
   }
   navigateToChilloutPage() {
     console.log("545");
@@ -354,5 +371,19 @@ export class HomePage {
   swipeByButton() {
     this.isMenuOpen = !this.isMenuOpen;
     this.events.publish("MenuOpen", this.isMenuOpen);
+  }
+  ionViewCanLeave(){
+    // this.userpovider.isStillConnect();
+    // this.userpovider.isUser();
+    return true;
+  }
+  interesser(id:string){
+    this.listAttendees= this.database.list(`evenement/${id}/Attendees`);
+    this.listAttendees.push({
+      lastname :"Outlaw",
+      name:"Adem"
+    });
+    console.log("ok")
+    
   }
 }

@@ -5,6 +5,7 @@ import { SuggestPage } from "./../pages/suggest/suggest";
 import { FindFriendPage } from "./../pages/find-friend/find-friend";
 import { BrowserModule } from "@angular/platform-browser";
 import { ErrorHandler, NgModule, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
+import { HttpClientModule } from "@angular/common/http";
 import { IonicApp, IonicErrorHandler, IonicModule } from "ionic-angular";
 import { SplashScreen } from "@ionic-native/splash-screen";
 import { StatusBar } from "@ionic-native/status-bar";
@@ -23,15 +24,19 @@ import { ListOfFollowsPage } from "../pages/list-of-follows/list-of-follows";
 import { SettingProfilPage } from "../pages/setting_profil/setting_profil";
 import { ChilloutPage } from "../pages/chillout/chillout";
 
-import { BlockPage } from "../pages/block/block";
-import { SettingProfil2Page } from "../pages/setting-profil2/setting-profil2";
-import { SettingSecurityPage } from "../pages/setting-security/setting-security";
-import { PersonalHistoryPage } from "../pages/personal-history/personal-history";
-import { FriendProfilPage } from "../pages/friend-profil/friend-profil";
-import { FriendFollowPage } from "../pages/friend-follow/friend-follow";
-import { PopupPage } from "../pages/popup/popup";
-import { EventPage } from "../pages/event/event";
-import { UpdateProgramPage } from "../pages/update-program/update-program";
+
+import { BlockPage} from '../pages/block/block'
+import {SettingProfil2Page } from '../pages/setting-profil2/setting-profil2';
+import {SettingSecurityPage} from '../pages/setting-security/setting-security'
+import {PersonalHistoryPage} from '../pages/personal-history/personal-history';
+import {FriendProfilPage } from '../pages/friend-profil/friend-profil';
+import {FriendFollowPage} from '../pages/friend-follow/friend-follow';
+import { PopupPage} from '../pages/popup/popup';
+import {EventPage} from '../pages/event/event';
+import {UpdateProgramPage} from "../pages/update-program/update-program";
+import {DislikeListPage} from '../pages/dislike-list/dislike-list';
+import {SpaceDetailPage} from '../pages/space-detail/space-detail';
+
 
 import { Ionic2RatingModule } from "ionic2-rating";
 import { AngularFireModule } from "angularfire2";
@@ -44,7 +49,13 @@ import { TabsPage } from "../pages/tabs/tabs";
 // import { AngularFirestoreModule } from "angularfire2/firestore";
 
 import { UserProvider } from "../providers/user/user";
+
 import { IonicSwipeAllModule } from "ionic-swipe-all";
+
+import { SpacesProvider } from '../providers/spaces/spaces';
+import { EvenementPage } from "../pages/evenement/evenement";
+
+
 
 @NgModule({
   declarations: [
@@ -74,8 +85,11 @@ import { IonicSwipeAllModule } from "ionic-swipe-all";
     FriendFollowPage,
     PopupPage,
     EventPage,
+    MyTastesPage,
+    EvenementPage,
     UpdateProgramPage,
-    MyTastesPage
+    DislikeListPage,
+    SpaceDetailPage
   ],
   imports: [
     BrowserModule,
@@ -86,7 +100,10 @@ import { IonicSwipeAllModule } from "ionic-swipe-all";
     AngularFireDatabaseModule,
     // AngularFireStorageModule,
     Ionic2RatingModule,
-    IonicSwipeAllModule
+
+    IonicSwipeAllModule,
+
+    HttpClientModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -105,18 +122,19 @@ import { IonicSwipeAllModule } from "ionic-swipe-all";
     SettingSecurityPage,
     TabsPage,
     FindFriendPage,
-
     SuggestPage,
     SpecialForYouPage,
     HeadlinesPage,
-
     PersonalHistoryPage,
     FriendProfilPage,
     FriendFollowPage,
     PopupPage,
     EventPage,
+    MyTastesPage,
+    EvenementPage,
     UpdateProgramPage,
-    MyTastesPage
+    DislikeListPage,
+    SpaceDetailPage
   ],
   providers: [
     StatusBar,
@@ -124,7 +142,9 @@ import { IonicSwipeAllModule } from "ionic-swipe-all";
     Dialogs,
     UserProvider,
     SearchRadioPipe,
-    { provide: ErrorHandler, useClass: IonicErrorHandler }
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
+    SpacesProvider
+
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

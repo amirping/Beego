@@ -1,0 +1,407 @@
+<!--
+  Generated template for the SpaceDetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+
+
+<ion-content class="back-color">
+  <ion-grid>
+      <ion-row class="photo-row">
+          <ion-col >
+            <img  class="img-space" src="../../assets/imgs/space_detail/whats-up.png" alt="">
+            <div class="space_back_param">
+              <button class="buttn">
+                <img src="../../assets/imgs/arrow-back.png" alt="" class="back-img">
+              </button>
+              
+              <button class="buttn">
+                <img src="../../assets/imgs/space_detail/update.svg" 
+                alt="" class="param_space">
+              </button>
+            </div>
+          </ion-col>
+        </ion-row>
+        <ion-row class="position-info">
+          <ion-col>
+            <div class="info-space">
+                <ion-row>
+                    <ion-col>
+                      <div class="flex-row">
+                          <div class="photo-col">
+                              <div class="bee-image">
+                                <div class="bee-hexagon">
+                                  <img class="bee-img-size"
+                                  src="../../assets/imgs/space_detail/whats-up.png" alt="">
+                                </div>
+                                
+                                </div>
+                                
+                         </div>
+                         <div class="space-title-place">
+                           <div class="space-title">What's Up Coffée</div>
+                           <div class="space-place">
+                              <img class="lieu-img"
+                               src="../../assets/imgs/space_detail/trac.png" alt="">
+                             Menzah 5, Ariena</div>
+                         </div>
+                         <div class="photo-col">
+                            <div class="bee-icon">
+                              <div class="bee-hexagon">
+                              </div>
+                              
+                              </div>
+                              
+                       </div>
+                      </div>
+                    </ion-col>
+                  </ion-row>
+                  <ion-row>
+                    <div class="follow_row">
+                      <div>
+                        <button icon-only>
+                            <ion-icon class="size_icon"
+                            ios="ios-heart" md="md-heart"></ion-icon>
+                            
+                        </button>
+                        
+                        <div>
+                            <span class="heart_position">Suivre</span>
+                        </div>
+                      </div>
+                      <div class="separation"></div>
+                      <div>
+                        <button icon-only>
+                            <ion-icon class="size_icon" 
+                            name="call"></ion-icon>
+                        </button>
+                          
+                           <span class="call_position">71 568 421</span>
+                      </div>
+                      <div class="separation"></div>
+                      <div>
+                        <button icon-only>
+                            <ion-icon class="size_icon"
+                            ios="ios-person" md="md-person"></ion-icon>
+                        </button>
+                          
+                           <span class="person_position">2, 345 K</span>
+                      </div>
+                    </div>
+                   
+                  </ion-row>
+                  <ion-row class="row_title ">
+                    <span class="note_title">
+                      Note des  clients
+                    </span>
+                  </ion-row>
+                  <ion-row class=" row_note">
+                    <ion-col col-3>
+                      <div class="note">
+                       <span> 4,5</span>
+                      </div>
+                      <div class="avis">
+                          <span>234 avis</span>
+                      </div>
+                    </ion-col>
+                    <ion-col col-9>
+                      <div class="rating_col">
+                        <div *ngFor="let note of notes">
+                          <img src="../../assets/imgs/space_detail/little_star.svg" alt="">
+                          <span class="nbr">{{note.index}}</span>
+                          <ion-range  color="danger" [(ngModel)]="note.value" min="0" max="50" pin="true" disabled="true"></ion-range>
+                        </div>
+                      </div>
+                    </ion-col>
+                  </ion-row>
+                  <ion-row class="row_title ">
+                    <span class="weather">Météo</span>
+                  </ion-row>
+                  <ion-row class="weather_description_row">
+                    <ion-col col-8>
+                        <span class="weather_description">
+                            Temps clair avec quelques nuages.
+                        </span>
+                    </ion-col>
+                    <ion-col col-4 ><span class="degre">18°</span> 
+                      <img class="weather_img"
+                      src="../../assets/imgs/space_detail/2-layers.svg" alt="">
+                    </ion-col>
+                  </ion-row>
+                  <ion-row class="row_title ">
+                      Horaire
+                  </ion-row>
+                  <ion-row class="timing_row">
+                    <ion-col col-9>
+                      <span class="timing_description">
+                          De Lun à Sam - de 8:30 AM à 11:00 PM
+                      </span>
+                    </ion-col>
+                    <ion-col col-3>
+                      <img class="green_img"
+                       src="../../assets/imgs/space_detail/greenpnt.svg" alt="">
+                       <span class="opened">Ouverte</span>
+                    </ion-col>
+                  </ion-row>
+                  <ion-row class="row_title ">
+                    <ion-col>
+                      <span>Services</span>
+                    </ion-col>
+                  </ion-row>
+                  <ion-row class="service_detail">
+                    <ion-col class="servises" col-6>
+                      <div>Spécialité : <span>Milkshake .. </span>
+                      </div>
+                      <div>Parking : <span>Disponible</span>
+                      </div>
+                      <div>Fouchette de prix : <span>$$$</span>
+                      </div>
+                    </ion-col>
+                    <ion-col class="servises" col-6>
+                      <div>Loisirs : <span>Manege ..</span>
+                      </div>
+                      <div>Terasse : <span>Oui</span>
+                      </div>
+                      <div>Cuisine : <span>Variée</span>
+                      </div>
+                    </ion-col>
+                  </ion-row>
+                  <ion-row class="btn_add_row">
+                    <button  class="add_btn">
+                      <ion-icon class="add_icon"
+                      ios="ios-add" md="md-add"></ion-icon>
+                  </button>
+                  </ion-row>
+                  <ion-row class="row_title ">
+                    Nos gouts
+                  </ion-row>
+                  <ion-row class="row_taste">
+                      <div class="taste">
+                        <span>Milkshake</span>
+                      </div>
+                      <div class="taste">
+                        <span>Milkshake</span>
+                      </div>
+                      <div class="taste">
+                          <span>Milkshake</span>
+                      </div>
+                      </ion-row>
+                      <ion-row class="row_taste">
+                      <div class="taste">
+                          <span>Milkshake</span>
+                      </div>
+                      <div class="taste">
+                          <span>Milkshake</span>
+                      </div>
+                  </ion-row>
+                  <ion-row class="row_title ">
+                      A propos:
+                  </ion-row>
+                  <ion-row class="about"  [class.about-transition]="show">
+                      <p>
+                          Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. 
+                          Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500,
+                           quand un peintre anonyme assembla ensemble des morceaux de texte pour réaliser
+                            un livre spécimen de polices de texte. 
+                           Il n'a pas fait que survivre cinq siècles, mais s'est aussi adapté à la bureautique informatique, 
+                           sans que son contenu n'en soit modifié. Il a été popularisé dans les années 1960 
+                           grâce à la vente de feuilles Letraset contenant des passages du Lorem Ipsum, 
+                          et, plus récemment, par son inclusion dans des applications de mise en page de texte, 
+                          comme Aldus PageMaker.
+                      </p>
+                      <div class="whitediv" *ngIf="!show"></div>
+                  </ion-row>
+                  <ion-row class="arrow_down_row">
+                    <button (click)="showabout()">
+                        <ion-icon *ngIf="!show"
+                        class="arrow-down-icon"
+                        name="arrow-down"></ion-icon>
+                        <ion-icon *ngIf="show"
+                         class="arrow-down-icon"
+                        name="arrow-up"></ion-icon>
+                    </button>
+                  </ion-row>
+                  <ion-row class="row_title ">
+                      Plus d'info
+                  </ion-row>
+                  <ion-row class="info_row">
+                    <ion-col class="info_col" col-6>
+                      <div class="info_element">
+                        <img class="info_img"
+                        src="../../assets/imgs/space_detail/Karaoke-icon.svg" alt="">
+                        <span>Karaoké</span>
+                      </div>
+                      <div class="info_element">
+                          <img class="info_img"
+                          src="../../assets/imgs/space_detail/wifi-icon.svg" alt="">
+                          <span>Acces wifi</span>
+                      </div>
+                      <div class="info_element">
+                        <img class="info_img"
+                         src="../../assets/imgs/space_detail/reservation-icon.svg" alt="">
+                         <span>Reservation</span>
+                      </div>
+                      <div class="last_info">
+                        <img class="info_img"
+                        src="../../assets/imgs/space_detail/Vue-sur-mer-icon.svg" alt="">
+                        <span>Vue sur mer</span>
+                      </div>
+                    </ion-col>
+                    <ion-col class="info_col" col-6>
+                        <div class="info_element">
+                            <img class="info_img_dec"
+                            src="../../assets/imgs/space_detail/style-decontracte-icon.svg" alt="">
+                            <span>Style décontracté</span>
+                          </div>
+                          <div class="info_element">
+                              <img class="info_img_dif"
+                              src="../../assets/imgs/space_detail/Diffuse-icon.svg" alt="">
+                              <span>Diffuse les matchs</span>
+                          </div>
+                          <div class="info_element">
+                            <img class="info_img"
+                             src="../../assets/imgs/space_detail/Live-music-icon.svg" alt="">
+                             <span>Live musique</span>
+                          </div>
+                          <div class="last_info">
+                            <img class="info_img_clim"
+                            src="../../assets/imgs/space_detail/climatisation-icon.svg" alt="">
+                            <span class="clim_pos">Climatisation</span>
+                          </div>
+                    </ion-col>
+                  </ion-row>
+                  <ion-row class="row_title">
+                      Mode de paiement
+                  </ion-row>
+                  <ion-row class="payment_row">
+                    <div class="pay">
+                        <img class="img1"
+                        src="../../assets/imgs/space_detail/img1.svg" alt="">
+                    </div>
+                    <div class="pay">
+                        <img class="img2"
+                         src="../../assets/imgs/space_detail/img2.svg" alt="">
+                    </div>
+                    <div class="pay">
+                        <img class="img3"
+                         src="../../assets/imgs/space_detail/img3.svg" alt="">
+                    </div>
+                    <div class="pay">
+                        <img class="img4"
+                        src="../../assets/imgs/space_detail/img4.svg" alt="">
+                    </div>
+                  </ion-row>
+                  <ion-row class="row_title">
+                      Images
+                  </ion-row>
+                  <ion-row class="photo_row">
+                      <!-- <div class="masonry">
+                          <div class="item animated pulse" *ngFor="let item of data">
+                            <img src="{{item.pic}}" alt="">
+                          </div>
+                        </div> -->
+                  </ion-row>
+                  <ion-row >
+                    <ion-col class="row_title">
+                        Reviews
+                    </ion-col>
+                      <button class="Reviews_btn">
+                          Tout afficher
+                      </button>
+                  </ion-row>
+                  <ion-slides centeredSlides="true" zoom="false" loop  spaceBetween="5">
+                      <ion-slide>
+                          <ion-row class="Reviews_row">
+                              <ion-col col-3>
+                                  <div class="bee-img-reviews">
+                                      <div class="bee-hexagon-reviews">
+                                          <img class="bee-img-size"
+                                          src="../../assets/imgs/photoDeProfil.png" alt="">
+                                        </div>
+                                  </div>
+                                  <div class="com_time">
+                                      6 Mar 2018
+                                  </div>
+                              </ion-col>
+                              <ion-col col-9>
+                                <div class="com_detail">
+                                  <div class="name">
+                                    Nom Prenom
+                                  </div>
+                                  <div class="rating-ex">
+                                      <rating [(ngModel)]="rating" emptyStarIconName="star-outline" halfStarIconName="star-half"
+                                       starIconName="star" nullable="false"
+                                        (ngModelChange)="null">
+                                      </rating>
+                                    </div>
+                                    <div class="com">
+                                        Le Lorem Ipsum est simplement faux texte employé dans la composition et la
+                                         mise en page avant impression.
+                                    </div>
+                                    <div class="com_number">
+                                        1 commentaire
+                                    </div>
+                                </div>
+                              </ion-col>
+                            </ion-row>
+                      </ion-slide>
+                      
+                  </ion-slides>
+                  
+                  <ion-row class="row_title">
+                      Localisation
+                  </ion-row>
+                  <ion-row class="localisation_row">
+                    <div class="adress_title">
+                        Adresse : 
+                    </div>
+                    <div class="adress">
+                      <img class="trac_img" 
+                       src="../../assets/imgs/space_detail/trac.svg" alt="">
+                        <span>
+                            Rue 12457 num 4 nahje nakhil,zahrouni
+                        </span> 
+                    </div>
+                    <div class="btn_map">
+                      <button >
+                        Voir dans la map
+                        <ion-icon class="icon_map"
+                        name=arrow-forward></ion-icon>
+                      </button>
+                    </div>
+                  </ion-row>
+                  <ion-row class="row_title">
+                    <ion-col col-6>
+                        Trouvez nous sur :
+                    </ion-col>
+                    <ion-col col-5 class="find_us">
+                      <img class="find_us_fb"
+                       src="../../assets/imgs/space_detail/Facebook.svg" alt="">
+                       <img class="find_us_insta" 
+                        src="../../assets/imgs/param/insta.svg" alt="">
+                    </ion-col>
+                  </ion-row>
+                  <ion-row class="opinion">
+                    <ion-col>
+                        <button>
+                            <ion-icon class="add_opinion"
+                              name="add"></ion-icon>
+                            Donner un avis
+                          </button>
+                    </ion-col>
+                    <ion-col class="mail_col" >
+                        <ion-icon class="mail_opinion"
+                        ios="ios-mail" md="md-mail"></ion-icon>
+                       </ion-col>
+                       <ion-col class="person_col" >
+                        <ion-icon class="person_opinion"
+                        ios="ios-person" md="md-person"></ion-icon>
+                    </ion-col>
+                  </ion-row>
+            </div>
+          </ion-col>
+        </ion-row>
+  </ion-grid>
+</ion-content>
