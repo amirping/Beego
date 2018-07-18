@@ -3,16 +3,26 @@ import { SpecialForYouPage } from "./../special-for-you/special-for-you";
 import { SuggestPage } from "./../suggest/suggest";
 import { FindFriendPage } from "./../find-friend/find-friend";
 import { UserProvider } from "./../../providers/user/user";
-import { Component } from "@angular/core";
-import { IonicPage, NavController, NavParams } from "ionic-angular";
+import { Component, Output, EventEmitter, ElementRef } from "@angular/core";
+import {
+  IonicPage,
+  NavController,
+  NavParams,
+  Tabs,
+  Events
+} from "ionic-angular";
 import { ViewChild } from "@angular/core";
-import { Slides } from "ionic-angular";
 import { Observable } from "rxjs/Observable";
-import { AngularFireDatabase } from "angularfire2/database";
+import { AngularFireDatabase, AngularFireList } from "angularfire2/database";
 import { LoginPage } from "../login/login";
 import { ProfilPage } from "../profil/profil";
 import { ChilloutPage } from "../chillout/chillout";
 import { MenuController } from "ionic-angular";
+import { SpacesProvider } from "../../providers/spaces/spaces";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { FriendProfilPage } from "../friend-profil/friend-profil";
+
+
 /**
  * Generated class for the HomePage page.
  *
@@ -29,15 +39,16 @@ export class HomePage {
   profil() {
     this.navCtrl.push(ProfilPage);
   }
-
+  scaleDragger = 100;
+  DynamicHi = { height: this.scaleDragger + " vh" };
   search = false;
-
+  animateMenu = false;
+  animateMenuClose = false;
+  isMenuOpen = false;
+  @Output() menuSliding: EventEmitter<any> = new EventEmitter();
   searching() {
     this.search = !this.search;
   }
-
-  @ViewChild(Slides) slides: Slides;
-  animateMenu = false;
   evenementListRef$: Observable<any[]>;
   espacesListRef$: Observable<any[]>;
   promotionListRef$: Observable<any[]>;
@@ -48,6 +59,8 @@ export class HomePage {
   allNewsData: any;
   ratingStatic = 4;
   index_news: any = "events";
+  listAttendees : AngularFireList<any>;
+  
   /**
    * used for animation of news slides
    */
@@ -63,21 +76,44 @@ export class HomePage {
     public navParams: NavParams,
     private database: AngularFireDatabase,
     private userpovider: UserProvider,
-    public menuCtrl: MenuController
+    public menuCtrl: MenuController,
+    private spacesProvider: SpacesProvider,
+     private http: HttpClient,
+    private events: Events
   ) {
+    
+    
     /* Liste des espaces */
+    this.espacesListRef$ = spacesProvider.listEspaces();
+    // don't
+    this.menuSliding.emit(false);
+    // this.tabBarElement = document.querySelector(".tabbar.show-tabbar");
+    // setTimeout(() => {
+    //   console.log(this.tabBarElement);
+    // }, 500);
+
+    /* Liste des espaces */
+    /**https://us-central1-test-3cdd6.cloudfunctions.net/helloBeego */
+    // this.userpovider.getToken().then(t=>{
+    //   const headers = new HttpHeaders().set('Authorization', `Bearer ${t}`);
+    //   console.log("eeeee", t);
+    //   this.http.get('http://localhost:5000/test-3cdd6/us-central1/helloBeego/',{headers})
+    //   // .map(res => res.json())
+    //   .subscribe(data => {
+  
+    //       console.log(data);
+  
+    //   });
+    // });
     this.espacesListRef$ = this.database
       .list("espace")
       .valueChanges(); /*map(changes => {
         return changes.map( c => ({key : c.payload.key,...c.payload.val()}))
       });*/
 
+
     /* Liste des suggestions */
-    this.suggestionListRef$ = this.database
-      .list("suggestion")
-      .valueChanges(); /*map(changes => {
-        return changes.map( c => ({key : c.payload.key,...c.payload.val()}))
-      });*/
+    this.suggestionListRef$ = spacesProvider.listSuggestion();
 
     /* Liste des connaissances */
     this.connaissanceListRef$ = this.database
@@ -87,11 +123,7 @@ export class HomePage {
       });*/
 
     /* Liste des proximités */
-    this.proximiteListRef$ = this.database
-      .list("proximite")
-      .valueChanges(); /*map(changes => {
-        return changes.map( c => ({key : c.payload.key,...c.payload.val()}))
-      });*/
+    this.proximiteListRef$ = spacesProvider.listProximite();
 
     /* Liste des proximités */
     this.invitationListRef$ = this.database
@@ -101,12 +133,31 @@ export class HomePage {
       });*/
 
     /* Liste des evenements */
+    /**
+     * const evenements$ = this.database.list('evenement').snapshotChanges().subscribe(evenements => {
+      this.evenement = evenements.map((espace, index) => {
+        const e = espace.payload.val() as any;
+        e.key = espace.key
+
+        return e;
+      })
+
+      evenements$.unsubscribe();
+      console.log(evenements);
+      this.data = this.evenement
+    });
+     */
     this.database
       .list("evenement")
-      .valueChanges()
+      .snapshotChanges()
       .subscribe(news => {
-        this.news = news;
-        console.log(this.news);
+        this.news = news.map((espace, index) => {
+          const e = espace.payload.val() as any;
+          e.key = espace.key
+  
+          return e;
+        });
+        
       }) /*.map(changes => {
         return changes.map( c => ({key : c.payload.key,...c.payload.val()}))
       })*/;
@@ -121,6 +172,7 @@ export class HomePage {
 
   ionViewDidLoad() {
     console.log("ionViewDidLoad AcceuilPage");
+
   }
   promotionClicked() {
     /* Liste des promotions */
@@ -146,26 +198,7 @@ export class HomePage {
       this.allNewsData = this.promotionListRef$;
     }
   }
-  // getNextShow() {
-  //   let index;
-  //   if (this.show_index_slide < this.news.length - 1) {
-  //     index  = this.show_index_slide + 1;
-  //   } else {
-  //     index = 0;
-  //   }
-  //   console.log(index);
-  //   return index;
-  // }
-  // getAfterNextShow() {
-  //   let index ;
-  //   if (this.getNextShow() < this.news.length - 1) {
-  //     index =  this.getAfterNextShow() + 1;
-  //   } else {
-  //     index = 0;
-  //   }
-  //   console.log(index);
-  //   return index;
-  // }
+  
   nextSlide() {
     if (this.newSlider_indicators.show_index_slide < this.news.length - 1) {
       this.newSlider_indicators.show_index_slide++;
@@ -198,7 +231,7 @@ export class HomePage {
 
   logout() {
     this.navCtrl.push(LoginPage);
-    this.userpovider.logOut();
+    this.userpovider.logout();
   }
   navigateToChilloutPage() {
     console.log("545");
@@ -224,7 +257,10 @@ export class HomePage {
         this.navCtrl.push(SpecialForYouPage);
         break;
       case "headlines":
-        this.navCtrl.push(HeadlinesPage);
+        this.navCtrl.push(HeadlinesPage, { category: "evenement" });
+        break;
+      case "FriendProfil":
+        this.navCtrl.push(FriendProfilPage);
         break;
       default:
         break;
@@ -238,15 +274,113 @@ export class HomePage {
     if (Event.offsetDirection == 4) {
       if (!this.menuCtrl.isOpen()) {
         this.animateMenu = true;
+        this.animateMenuClose = false;
         this.menuCtrl.open();
       }
     } else if (Event.offsetDirection == 2) {
       this.animateMenu = false;
+      this.animateMenuClose = true;
+
       this.menuCtrl.close();
     }
   }
   collectSwiper(ev) {
     console.log("collecting to drag");
     console.log(ev);
+    //this.scaleDragger = this.scaleDragger - 0.2 * ev;
+    console.log(100 - 20 * ev);
+    let lober = 100 - 20 * ev;
+    this.scaleDragger = lober;
+  }
+  setContentStyle() {
+    let margintop = (100 - this.scaleDragger) / 2;
+    let styles = {
+      height: this.scaleDragger + "vh",
+      "margin-top": margintop + "vh"
+    };
+    return styles;
+  }
+  contentSwipe(Ev) {
+    // if (who) {
+    //   console.log("from hell we cum");
+    //   return false;
+    // }
+
+    console.log("swipe on the content");
+    console.log(Ev);
+    // -> right
+    if (Ev.direction == 4) {
+      if (!this.isMenuOpen && this.checkerForGod(Ev) == true) {
+        this.isMenuOpen = !this.isMenuOpen;
+        this.menuSliding.emit(true);
+        this.events.publish("MenuOpen", true);
+      }
+      // left <-
+    } else if (Ev.direction == 2) {
+      if (this.isMenuOpen) {
+        this.isMenuOpen = !this.isMenuOpen;
+        this.menuSliding.emit(false);
+        this.events.publish("MenuOpen", false);
+      }
+    }
+  }
+  menuSwipe(Ev) {
+    console.log("swipe on menu");
+    if (Ev.direction == 4) {
+      return false;
+      // left <-
+    } else if (Ev.direction == 2) {
+      if (this.isMenuOpen) {
+        this.isMenuOpen = !this.isMenuOpen;
+        this.menuSliding.emit(false);
+        this.events.publish("MenuOpen", false);
+      }
+    }
+  }
+  dummySwipe(Ev) {
+    // tell u daddy that i shout u motherfucker
+    // fuck who care ?
+    // ok listen it look crazy but this is make it work so DON'T try to change it
+    console.log("Hello mother fucker");
+    //Ev.stopPropagation();
+
+    //return false;
+  }
+  checkerForGod(Event) {
+    let seekhere = Event.target;
+    while (seekhere.offsetParent && seekhere.offsetParent.length != 0) {
+      let bubbleofDevil = seekhere.offsetParent;
+      if (
+        bubbleofDevil.nodeName == "ION-SLIDE" ||
+        bubbleofDevil.classList.contains("slider") ||
+        bubbleofDevil.classList.contains("notYou")
+      ) {
+        return false;
+      } else if (
+        bubbleofDevil.nodeName == "ION-COL" ||
+        bubbleofDevil.nodeName == "ION-ROW"
+      ) {
+        return true;
+      }
+      seekhere = bubbleofDevil;
+    }
+  }
+  swipeByButton() {
+    this.isMenuOpen = !this.isMenuOpen;
+    this.events.publish("MenuOpen", this.isMenuOpen);
+  }
+  ionViewCanLeave(){
+    // this.userpovider.isStillConnect();
+    // this.userpovider.isUser();
+    return true;
+  }
+  interesser(id:string){
+    this.listAttendees= this.database.list(`evenement/${id}/Attendees`);
+    this.listAttendees.push({
+      lastname :"Outlaw",
+      name:"Adem"
+    });
+    console.log("ok")
+    
   }
 }

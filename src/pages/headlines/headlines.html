@@ -9,7 +9,7 @@
     <ion-row class="top">
       <img src="https://source.unsplash.com/900x900/?restaurant,bar,hotel" alt="">
       <div class="searchWrapper">
-        <ion-searchbar (click)="null" class="search" [(ngModel)]="searchText" [showCancelButton]="false" (ionCancel)="onCancel($event)">
+        <ion-searchbar (click)="null" class="search" (ionInput)="changeFilter('Name')" [(ngModel)]="searchName" [showCancelButton]="false" (ionCancel)="onCancel($event)">
         </ion-searchbar>
         <!-- <button>
           <ion-icon class="searchbar-search-icon newIcon" name="search"> </ion-icon>
@@ -18,7 +18,8 @@
     </ion-row>
     <ion-row class="bottom">
       <ion-col>
-        <span class="result"> {{data.length}} Resultats</span>
+          <span class="result" *ngIf="data.length === 1"> {{data.length}} Resultat</span>
+        <span class="result"  *ngIf="data.length > 1"> {{data.length}} Resultats</span>
         <div class="box-grey row-space-around">
           <button ion-button clear class="filter_btn" (click)="switch('events')" [ngClass]="{'activated_filter' : index_news=='events'}">Evénements</button>
           <button ion-button clear class="filter_btn" (click)="switch('promotion')" [ngClass]="{'activated_filter' : index_news=='promotion'}">Promotions</button>
@@ -26,39 +27,42 @@
         <div class="filter-box">
           <span>Filter : </span>
           <div class="filtres">
-            <ion-select [(ngModel)]="f1" placeholder="gender">
-              <ion-option value="1">Option 1</ion-option>
-              <ion-option value="2">option 2</ion-option>
+            <ion-select  [(ngModel)]="genre" placeholder="Gender" (ionChange)="changeFilter('Gender')" (ionCancel)="onCancel('Gender')">
+              <ion-option value="Musique">Musique</ion-option>
+              <ion-option value="Théatre">Théatre</ion-option>
+              <ion-option value="Sport">Sport</ion-option>
             </ion-select>
-            <ion-select [(ngModel)]="f2" placeholder="Whene ! ">
-              <ion-option value="1">Option 1</ion-option>
-              <ion-option value="2">option 2</ion-option>
+            <ion-select [(ngModel)]="date" placeholder="When? " (ionChange)="changeFilter('Date')" (ionCancel)="onCancel('Date')">
+              <ion-option value="2018-07-05">Aujourd'hui</ion-option>
+              <ion-option value="2018-07-06">Demain</ion-option>
             </ion-select>
-            <ion-select [(ngModel)]="f3" placeholder="Where !">
-              <ion-option value="1">Option 1 </ion-option>
-              <ion-option value="2">Option 2</ion-option>
+            <ion-select [(ngModel)]="place" placeholder="Where ?" (ionChange)="changeFilter('Place')" (ionCancel)="onCancel('Place')">
+              <ion-option value="Tunis">Grand Tunis </ion-option>
+              <ion-option value="Sousse">Sousse</ion-option>
+              <ion-option value="Sfax">Sfax</ion-option>
+              <ion-option value="Monastir">Monastir</ion-option>
+              <ion-option value="Mahdia">Mahdia</ion-option>
+              <ion-option value="Bizerte">Bizerte</ion-option>
+              <ion-option value="KEF">KEF</ion-option>
             </ion-select>
-            <ion-select [(ngModel)]="f4" placeholder="Biteches ?">
-              <ion-option value="1">Option 1 </ion-option>
-              <ion-option value="2">Option 2</ion-option>
-            </ion-select>
-            <ion-select [(ngModel)]="f5" placeholder="Free Drink">
-              <ion-option value="1">Option 1 </ion-option>
-              <ion-option value="2">Option 2</ion-option>
-            </ion-select>
+                        
           </div>
         </div>
-        <div class="masonry">
-          <div class="item animated pulse" *ngFor="let item of data">
-            <img src="{{item.pic}}" alt="">
+        
+        <div class="masonry" >
+          <div class="item animated pulse" *ngFor="let item of data | searchRadio : filter : category : searchText ">
+            <img src="{{item.Couverture}}" alt="">
+            <button (click)="navigateToEvenement(item.key)" > Voir plus</button>
+           
             <div class="data">
               <span class="name">
-                {{item.name}}
+                {{item.Name}}
               </span>
               <span class="location">
                 <ion-icon name="pin"></ion-icon>
-                {{item.location}}
+                {{item.Place}}
               </span>
+              
             </div>
           </div>
         </div>
