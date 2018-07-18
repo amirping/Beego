@@ -19,6 +19,7 @@ page-home {
         position: absolute;
         width: 100vw;
         height: 100vh;
+        background-image: url("../../assets/imgs/homePage_img/bottomHome.svg") left bottom no-repeat;
         /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#e5e5e5+0,fc5571+19,fd617c+100&0+0,0.71+19,0.87+34,1+100 */
         background: -moz-linear-gradient( top, rgba(229, 229, 229, 0) 0%, rgba(252, 85, 113, 0.61) 19%, rgba(252, 87, 115, 1) 30%, rgba(253, 97, 124, 1) 100%);
         /* FF3.6-15 */
@@ -28,6 +29,21 @@ page-home {
         /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
         filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00e5e5e5', endColorstr='#fd617c', GradientType=0);
         /* IE6-9 */
+        .bottomLines {
+          position: absolute;
+          width: 100%;
+          bottom: 0;
+          left: 0;
+          object-fit: contain;
+        }
+        .cls-btn {
+          position: absolute;
+          bottom: 10px;
+          left: 10px;
+          ion-icon {
+            margin-right: 5px;
+          }
+        }
       }
       .user-content {
         position: absolute;
@@ -50,8 +66,7 @@ page-home {
           ion-item {
             background: transparent;
             color: white; // .item-inner {
-            //   border: none;
-            // }
+            border: none; // }
             ion-icon {
               vertical-align: middle;
               font-size: 20px;
@@ -100,7 +115,7 @@ page-home {
     100% {
       transform: translateZ(-400px) translateX(80%) scale(0.8);
       transform-origin: left;
-      box-shadow: -7px 0px 8px 0px rgba(133, 133, 133, 1);
+      box-shadow: -7px 0px 8px 0px #b5001e98;
     }
   }
   @keyframes slide-off {

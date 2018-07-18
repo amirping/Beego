@@ -1,3 +1,4 @@
+import { MyTastesPage } from "./../pages/my-tastes/my-tastes";
 import { HeadlinesPage } from "./../pages/headlines/headlines";
 import { SpecialForYouPage } from "./../pages/special-for-you/special-for-you";
 import { SuggestPage } from "./../pages/suggest/suggest";
@@ -23,6 +24,7 @@ import { ListOfFollowsPage } from "../pages/list-of-follows/list-of-follows";
 import { SettingProfilPage } from "../pages/setting_profil/setting_profil";
 import { ChilloutPage } from "../pages/chillout/chillout";
 
+
 import { BlockPage} from '../pages/block/block'
 import {SettingProfil2Page } from '../pages/setting-profil2/setting-profil2';
 import {SettingSecurityPage} from '../pages/setting-security/setting-security'
@@ -35,6 +37,7 @@ import {UpdateProgramPage} from "../pages/update-program/update-program";
 import {DislikeListPage} from '../pages/dislike-list/dislike-list';
 import {SpaceDetailPage} from '../pages/space-detail/space-detail';
 
+
 import { Ionic2RatingModule } from "ionic2-rating";
 import { AngularFireModule } from "angularfire2";
 import { AngularFireAuthModule } from "angularfire2/auth";
@@ -46,8 +49,12 @@ import { TabsPage } from "../pages/tabs/tabs";
 // import { AngularFirestoreModule } from "angularfire2/firestore";
 
 import { UserProvider } from "../providers/user/user";
+
+import { IonicSwipeAllModule } from "ionic-swipe-all";
+
 import { SpacesProvider } from '../providers/spaces/spaces';
 import { EvenementPage } from "../pages/evenement/evenement";
+
 
 
 @NgModule({
@@ -73,19 +80,16 @@ import { EvenementPage } from "../pages/evenement/evenement";
     SpecialForYouPage,
     HeadlinesPage,
 
-
     PersonalHistoryPage,
     FriendProfilPage,
     FriendFollowPage,
     PopupPage,
     EventPage,
+    MyTastesPage,
     EvenementPage,
     UpdateProgramPage,
     DislikeListPage,
     SpaceDetailPage
-
-
-
   ],
   imports: [
     BrowserModule,
@@ -96,6 +100,9 @@ import { EvenementPage } from "../pages/evenement/evenement";
     AngularFireDatabaseModule,
     // AngularFireStorageModule,
     Ionic2RatingModule,
+
+    IonicSwipeAllModule,
+
     HttpClientModule,
   ],
   bootstrap: [IonicApp],
@@ -115,25 +122,19 @@ import { EvenementPage } from "../pages/evenement/evenement";
     SettingSecurityPage,
     TabsPage,
     FindFriendPage,
-
     SuggestPage,
     SpecialForYouPage,
     HeadlinesPage,
-
-
     PersonalHistoryPage,
     FriendProfilPage,
     FriendFollowPage,
     PopupPage,
     EventPage,
-
+    MyTastesPage,
     EvenementPage,
-
     UpdateProgramPage,
     DislikeListPage,
     SpaceDetailPage
-
-
   ],
   providers: [
     StatusBar,

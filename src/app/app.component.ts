@@ -1,3 +1,4 @@
+import { MyTastesPage } from "./../pages/my-tastes/my-tastes";
 import { Component } from "@angular/core";
 import { Platform } from "ionic-angular";
 import { StatusBar } from "@ionic-native/status-bar";
@@ -28,11 +29,13 @@ import { UserProvider } from '../providers/user/user';
 })
 export class MyApp {
 
-  rootPage:any ;
-  constructor(platform: Platform, 
-    statusBar: StatusBar, 
+  rootPage: any;
+  constructor(
+    platform: Platform,
+    statusBar: StatusBar,
     splashScreen: SplashScreen,
-    public userProvider: UserProvider) {
+    public userProvider: UserProvider
+  ) {
 
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
@@ -40,6 +43,7 @@ export class MyApp {
       statusBar.styleDefault();
       splashScreen.hide();
     });
+
     this.userProvider.isConnect(state=>{
       if(state){
          this.rootPage = TabsPage;

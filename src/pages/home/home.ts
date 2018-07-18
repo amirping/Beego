@@ -21,7 +21,7 @@ import { MenuController } from "ionic-angular";
 import { SpacesProvider } from "../../providers/spaces/spaces";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { FriendProfilPage } from "../friend-profil/friend-profil";
-
+import { MyTastesPage } from "../my-tastes/my-tastes";
 
 /**
  * Generated class for the HomePage page.
@@ -261,6 +261,9 @@ export class HomePage {
         break;
       case "FriendProfil":
         this.navCtrl.push(FriendProfilPage);
+        break;
+      case "MyTastes":
+        this.navCtrl.push(MyTastesPage);
         break;
       default:
         break;
