@@ -230,6 +230,9 @@ ion-range.range-md, ion-range.range-wp,ion-range.range-ios{
     border-radius: 2px;
     
   }
+  .range-ios-danger .range-bar-active, .range-ios-danger .range-tick-active {
+    background:#767677 !important;
+}
   
   .range-knob-handle{
     visibility: hidden;
@@ -711,5 +714,22 @@ ion-range.range-md, ion-range.range-wp,ion-range.range-ios{
       position: absolute;  
     }
   }
+}
+.mail_col{
+  margin-left: 8%;
+  margin-top: 2px;
+}
+.mail_opinion{
+  font-size: 39px;
+  background-color: transparent;
+  color: #c1c1c1;
+}
+.person_col{
+  margin-top: 5px;
+}
+.person_opinion{
+  font-size: 31px;
+  background-color: transparent;
+  color: #c1c1c1;
 }
 }
