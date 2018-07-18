@@ -303,42 +303,53 @@
                           </div>
                         </div> -->
                   </ion-row>
-                  <ion-row class="row_title">
-                      Reviews
-                  </ion-row>
-                  <ion-row class="Reviews_row">
-                    <ion-col col-3>
-                        <div class="bee-img-reviews">
-                            <div class="bee-hexagon-reviews">
-                                <img class="bee-img-size"
-                                src="../../assets/imgs/photoDeProfil.png" alt="">
-                              </div>
-                        </div>
-                        <div class="com_time">
-                            6 Mar 2018
-                        </div>
+                  <ion-row >
+                    <ion-col class="row_title">
+                        Reviews
                     </ion-col>
-                    <ion-col col-9>
-                      <div class="com_detail">
-                        <div class="name">
-                          Nom Prenom
-                        </div>
-                        <div class="rating-ex">
-                            <rating [(ngModel)]="rating" emptyStarIconName="star-outline" halfStarIconName="star-half"
-                             starIconName="star" nullable="false"
-                              (ngModelChange)="null">
-                            </rating>
-                          </div>
-                          <div class="com">
-                              Le Lorem Ipsum est simplement faux texte employé dans la composition et la
-                               mise en page avant impression.
-                          </div>
-                          <div class="com_number">
-                              1 commentaire
-                          </div>
-                      </div>
-                    </ion-col>
+                      <button class="Reviews_btn">
+                          Tout afficher
+                      </button>
                   </ion-row>
+                  <ion-slides centeredSlides="true" zoom="false" loop  spaceBetween="5">
+                      <ion-slide>
+                          <ion-row class="Reviews_row">
+                              <ion-col col-3>
+                                  <div class="bee-img-reviews">
+                                      <div class="bee-hexagon-reviews">
+                                          <img class="bee-img-size"
+                                          src="../../assets/imgs/photoDeProfil.png" alt="">
+                                        </div>
+                                  </div>
+                                  <div class="com_time">
+                                      6 Mar 2018
+                                  </div>
+                              </ion-col>
+                              <ion-col col-9>
+                                <div class="com_detail">
+                                  <div class="name">
+                                    Nom Prenom
+                                  </div>
+                                  <div class="rating-ex">
+                                      <rating [(ngModel)]="rating" emptyStarIconName="star-outline" halfStarIconName="star-half"
+                                       starIconName="star" nullable="false"
+                                        (ngModelChange)="null">
+                                      </rating>
+                                    </div>
+                                    <div class="com">
+                                        Le Lorem Ipsum est simplement faux texte employé dans la composition et la
+                                         mise en page avant impression.
+                                    </div>
+                                    <div class="com_number">
+                                        1 commentaire
+                                    </div>
+                                </div>
+                              </ion-col>
+                            </ion-row>
+                      </ion-slide>
+                      
+                  </ion-slides>
+                  
                   <ion-row class="row_title">
                       Localisation
                   </ion-row>
