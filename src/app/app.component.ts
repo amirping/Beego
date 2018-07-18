@@ -18,6 +18,7 @@ import { PopupPage} from '../pages/popup/popup';
 import {EventPage} from '../pages/event/event';
 import {UpdateProgramPage} from "../pages/update-program/update-program";
 import {DislikeListPage} from '../pages/dislike-list/dislike-list';
+import {SpaceDetailPage} from '../pages/space-detail/space-detail';
 
 import { UserProvider } from '../providers/user/user';
 
@@ -27,12 +28,12 @@ import { UserProvider } from '../providers/user/user';
 })
 export class MyApp {
 
-
   rootPage:any ;
   constructor(platform: Platform, 
     statusBar: StatusBar, 
     splashScreen: SplashScreen,
     public userProvider: UserProvider) {
+
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.

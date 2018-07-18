@@ -1,0 +1,747 @@
+page-space-detail {
+  .grid{
+    padding: 0 !important;
+  }
+  // .padd_row{
+  // }
+  .col{
+    padding: 0;
+    margin: 0;
+  }
+  .photo-row{
+    height: auto;
+    flex-grow: 1;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+  }
+  .img-space{
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .space_back_param{
+    display: flex;
+    justify-content: space-between;
+    width: 100%; 
+    position: absolute;
+    top :37px;
+    color: white;
+    height: 22px;
+    vertical-align: middle;
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+  .back{
+    color: white;
+  }
+  .buttn{
+    background-color: transparent;
+    width: 65px;
+  } 
+.back-img{
+width: 64%;
+margin-top: 3px;
+  }
+  .param_space{
+      width: 19px;
+  }
+  .position-info{
+    margin-top: -40px;
+  }
+  .info-space{
+    width: 100%;
+    left: 0px;
+    height: 45%;
+    height: auto;
+    background-color: whitesmoke;
+    border-top-right-radius: 47px;
+    border-top-left-radius: 47px;
+  }
+  .flex-row{
+    justify-content: space-between;
+    display:flex;
+    width: 100%;
+}
+.bee-hexagon {
+clip-path: url(#hexagonPath);
+background-repeat: no-repeat;
+background-position: -3px -15px;
+background-color:transparent;
+height: 100%;
+}
+.bee-image{
+height: 120px;
+width: 120px;
+
+transform: scale(0.6);
+}
+.bee-img-size{
+object-fit: cover;
+width: 100%;
+height: 100%;
+}
+.photo-col{
+top:0px;
+padding: 0px !important;
+}
+.space-title-place{
+//    position: absolute;
+    margin-top:40px;
+    margin-left: -8%;
+}
+.space-title{
+color: #333333;
+font-family: Raleway;
+font-size: 14px;
+font-weight: 600;
+/* Text style for "What's Up" */
+font-family: "Segoe UI";
+font-weight: 400;
+}
+.space-place{
+margin-top: 4px;
+color: #c9c9c9;
+font-family: Raleway;
+font-size: 11px;
+font-weight: 500;
+}
+
+.lieu-img{
+width: 9px;
+height: 10px;
+}
+
+
+.bee-icon{
+height: 119px;
+width: 113px;
+transform: scale(0.34);
+margin-top: -5px;
+}
+.bee-hexagon {
+    clip-path: url(#hexagonPath);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-color:#fecc37;
+    height: 100%;
+    background-image: url(../../assets/imgs/space_detail/bee.svg);
+    background-repeat: no-repeat;
+    background-size: 79px 73px;
+}
+.follow_row{
+  width: 100%;
+  height: 50px;
+  border-radius: 15px;
+  background-color: #e2e0e0;
+  margin-left:  21px;
+  margin-right: 21px;
+  display: flex;
+  justify-content: space-around;
+  padding-top: 11px;
+  padding-bottom: 9px;
+  button{
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  span{
+    color: #808083;
+    font-size: 10px;
+    font-weight: 500;
+    margin-top: -1px;
+    position: absolute;
+  }
+}
+.size_icon{
+  font-size: 23px;
+  color: #8e8e93;
+}
+.heart_position{
+  margin-left: 6px;
+  font-family: Raleway;
+}
+.call_position{
+  // margin-left: -14px;
+  font-family: "SFNS Display";
+}
+.person_position{
+  margin-left: 1px;
+  font-family: "SFNS Display";
+}
+.separation{
+  width: 1px;
+  height: 100%;
+  border: 0.3px solid #8e8e93;
+}
+.row_title{
+  margin-top: 19px;
+  padding-left: 21px;
+  color: #535353;
+  font-family: Montserrat;
+  font-size: 18px;
+  font-weight: 600;
+  /* Text style for "Horaire" */
+  font-family: "Segoe UI";
+  font-weight: 400;
+}
+.row_note{
+  margin-left: 20px;
+  margin-top: 10px;
+  .note{
+    color: #f8b334;
+    font-family: Montserrat;
+    font-size: 42px;
+    font-weight: 700;
+  }
+  .avis{
+    color: #c9c9c9;
+    font-family: Montserrat;
+    font-size: 14px;
+    font-weight: 400;
+    /* Text style for "257 avis" */
+    font-family: "Segoe UI";
+    font-weight: 400;
+    margin-left: 2px;
+  }
+}
+.rating_col{
+  width: 100%;
+  display:block;
+}
+.nbr{
+  color: #b9b8b8;
+  font-family: Montserrat;
+  font-size: 10px;
+  font-weight: 400;
+  /* Text style for "1" */
+  font-family: "Segoe UI";
+  font-weight: 400;
+}
+ion-range.range-md, ion-range.range-wp,ion-range.range-ios{
+  display:inline;
+  .range-slider {
+    height: 14px;
+    display: inline-block;
+    width: 65%;
+  }
+  .range-bar{
+    top: 9px;
+    height: 4px;
+    border-radius: 2px;
+    
+  }
+  .range-ios-danger .range-bar-active, .range-ios-danger .range-tick-active {
+    background:#767677 !important;
+}
+  
+  .range-knob-handle{
+    visibility: hidden;
+  }
+}
+.range-md  .range-bar-active {
+  bottom: 0;
+  width: auto;
+  background: #767677 !important;
+}
+
+
+.weather_description_row{
+  margin-top: 7px;
+  margin-left: 25px;
+}
+.weather_description{
+  color: #8e8e93;
+  font-family: Raleway;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.degre{
+  color: #535353;
+  font-family: Montserrat;
+  font-size: 26px;
+  font-weight: 600;
+  letter-spacing: 0.31px;
+  /* Text style for "18°" */
+  
+  margin-left: 13px;
+  top: -8px;
+  position: absolute;
+  z-index: 1;
+}
+.weather_img{
+  width: 70px;
+  height: 58px;
+  position: absolute;
+  top: -31px;
+  margin-left: 23px;
+  z-index: 0;
+}
+
+.timing_row{
+  margin-top: 8px;
+  margin-left: 28px;
+  .timing_description{
+    color: #8e8e93;
+    font-family: Raleway;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .opened{
+    color: #60d460;
+    font-family: "SFNS Display";
+    font-size: 12px;
+    font-weight: 400;
+    /* Text style for "Ouverte" */
+    font-family: "Segoe UI";
+    font-weight: 400;
+  }
+}
+.service_detail{
+  margin-top: 22px;
+  margin-left: 20px;
+  .servises{
+    display: block;
+    color: #535353;
+    font-family: Raleway;
+    font-size: 13px;
+    font-weight: 500;
+    
+    color: #8e8e93;
+    span{
+      color: black !important;
+    }
+  }
+
+}
+.btn_add_row{
+ justify-content: center;
+  margin-top: 23px;
+}
+.add_btn{
+  width: 23px;
+  height: 23px;
+  background-color: #60d460;
+  border-radius: 50%;
+}
+.add_icon{
+  font-weight: 100;
+  color: white;
+}
+.row_taste{
+  margin-top: 16px;
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.taste{
+  width: 98px;
+  height: 30px;
+  border-radius: 18px;
+  background-color: #f22876;
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  span{
+    color: #ffffff;
+    font-family: Raleway;
+    font-size: 12px;
+    font-weight: 500;
+  }
+}
+.about{
+  position: relative;
+  margin-top: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
+  color: #8e8e93;
+  font-family: Raleway;
+  font-size: 12px;
+  font-weight: 500;
+  height: 90px;
+  overflow: hidden;
+  // box-shadow:inset  0px -20px 0px 0px rgba(255, 0, 255, 0.45);
+
+}
+.about-transition{
+  overflow: visible  !important;
+  height: auto  !important;
+}
+.whitediv{
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.47) 0%, whitesmoke 100%);
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  height: 30px;
+}
+.arrow_down_row{
+  justify-content: center;
+  button{
+    background-color: transparent;
+    z-index: 1;
+  }
+  .arrow-down-icon{
+    font-size: 20px;
+    font-weight: 600;
+    color: #8e8e93;
+  }
+}
+.info_row{
+  margin-top:25px;
+  margin-left: 27px;
+  .info_col{
+    
+    display: block;
+    .info_element{
+      padding-bottom: 12px;
+      position: relative;
+    }
+    span{
+      color: #a8a5a5;
+      font-family: Raleway;
+      font-size: 12px;
+      font-weight: 500;
+      padding-left: 15px;
+      position: absolute;
+      top: 5px;
+    }
+    .info_img{
+      width: 22px ;
+    }
+    .info_img_clim{
+      width: 27px;
+      height: 25px;
+      }
+    .last_info{
+      position: relative;
+    }
+    .clim_pos{
+      padding-left: 10px !important;
+    }
+    .info_img_dec{
+      width: 25px;
+      margin-top: 5px;
+    }
+    .info_img_dif{
+      width: 25px;
+    }
+  }
+ 
+}
+.payment_row{
+  margin-left: 14%;
+  margin-right: 14%;
+  margin-top: 16px;
+  width: 72%;
+  justify-content: space-around;
+  display: flex;
+  .pay{
+    width: 45px;
+    height: 45px;
+    border: 1px solid #e2e2e2;
+    border-radius: 50px;
+    position: relative;
+    .img1{
+      width: 27px;
+      position: absolute;
+      top: 9px;
+      left: 8px;
+    }
+    .img2{
+      width: 53px ;
+      top: 8px;
+      left: -6px;
+      position: absolute;
+      max-width: fit-content;
+    }
+    .img3{
+      width: 16px;
+      position: absolute;
+      left: 13px;
+      top: 2px;
+    }
+    .img4{
+      width: 61px;
+      max-width: fit-content;
+      position: absolute;
+      left: -5px;
+      top: 4px;
+    }
+  }
+}
+.photo_row{
+  height: 190px;
+  margin-top: 10px;
+  margin-left: 20px;
+ background-color: red;
+  // .masonry {
+  //   margin: auto; //max-width: 768px;
+  //   column-gap: auto;
+  //   justify-content: center
+  // }
+//   .item {
+//     position: relative;
+//     background: #fff; //padding: 1em; //margin: 0 0 1.5em;
+//     margin-bottom: 7px;
+//     border-radius: 10px;
+//     overflow: hidden;
+//     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+//     img {
+//       height: auto;
+//       width: 100%;
+//       object-fit: cover;
+//     }
+  
+//   }
+}
+ /* Masonry on large screens */
+//  @media only screen and (min-width: 1024px) {
+//   .masonry {
+//     column-count: 4;
+//   }
+// }
+// /* Masonry on medium-sized screens */
+// @media only screen and (max-width: 1023px) and (min-width: 768px) {
+//   .masonry {
+//     column-count: 3;
+//   }
+// }
+// /* Masonry on small screens */
+// @media only screen and (max-width: 767px) and (min-width: 300px) {
+//   .masonry {
+//     column-count: 2;
+//   }
+// }
+.Reviews_btn{
+  color: #989595;
+  font-family: Raleway;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.14px;
+  font-family: "Segoe UI";
+  font-weight: 400;
+  background-color: transparent;
+  float: right;
+  margin-top: 26px;
+  margin-right: 20px;
+}
+.Reviews_row{
+  margin-left:20px; 
+  margin-right: 20px;
+  margin-top: 10px;
+  height: 135px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+  background-color: #ffffff;
+  border-radius: 15px;
+  position: relative;
+  .bee-hexagon-reviews{
+    clip-path: url(#hexagonPath);
+    background-repeat: no-repeat;
+    background-position: -3px -15px;
+    background-color:transparent;
+    height: 100%;
+    }
+    .bee-img-reviews{
+    height: 120px;
+    width: 120px;
+    transform: scale(0.55);
+    position: absolute;
+    top: -14px;
+    left: -21px;
+    }
+    .com_time{
+      color: #8e8e93;
+      font-family: Raleway;
+      font-size: 10px;
+      font-weight: 400;
+      /* Text style for "6 Mar 2018" */
+      font-family: "Segoe UI";
+      font-weight: 400;
+      position: absolute;
+      top: 88px;
+      padding-left: 14px;
+  
+    }
+    .com_detail{
+      // width: 100%;
+      height: 109px;
+      margin-right: 15px;
+      margin-top: 15px;
+      border-radius: 15px;
+      background-color: whitesmoke;
+      position: relative;
+      .name{
+        float: left;
+        color: #535353;
+        font-family: Raleway;
+        font-size: 12px;
+        font-weight: 700;
+        /* Text style for "Mohamed Li" */
+        font-family: "Segoe UI";
+        font-weight: 400;
+        margin-top: 10px;
+        margin-left: 5%;
+      }
+      .rating-ex{
+        display:flex;
+        flex-direction:row;
+        justify-content:center;
+        float: right;
+        margin-top: 10px;
+        margin-right: 5%;
+      }
+      .rating-ex ul {
+      padding: 0px;
+      text-align:center;
+      margin:0px;
+    
+      &.rating li {
+        padding: 5px 0px !important;
+        background: none;
+        color: #ffb400;
+        text-align:center;
+    
+        ion-icon {
+          font-size: 15px;
+        }
+      }
+    }
+    .com{
+      color: #8e8e93;
+      font-family: Raleway;
+      font-size: 10px;
+      font-weight: 400;
+      /* Text style for "Le Lorem I" */
+      font-family: "Segoe UI";
+      font-weight: 400;
+      margin-top: 34px;
+      position: absolute;
+      left: 5%;
+      right: 5%;
+    }
+    .com_number{
+      color: #8e8e93;
+      font-family: Raleway;
+      font-size: 10px;
+      font-weight: 500;
+      position: absolute;
+      right: 5%;
+      bottom: 13px;
+    }
+    }
+
+}
+.localisation_row{
+  margin-top: 10px;
+  margin-left: 20px;
+  margin-right: 10px;
+  height: 130px;
+  position: relative;
+  .adress_title{
+    color: #535353;
+    font-family: Raleway;
+    font-size: 12px;
+    font-weight: 500;
+    position: absolute;
+    top: 10px;
+    left: 3%;
+  }
+  .adress{
+    position: absolute;
+    margin-left: 3%;
+    margin-top: 28px;
+    
+    span{
+      color: #95989a;
+    font-family: Raleway;
+    font-size: 10px;
+    font-weight: 500;
+    padding-left: 2px;
+    }
+  }
+  .trac_img{
+    width: 7px;
+    height: 8px;
+    // padding-right: 3px;
+  }
+  .btn_map{
+    button{
+      width: 160px;
+      height: 30px;
+      box-shadow: 0 3px 6px rgba(255, 81, 156, 0.22);
+      border-radius: 118px;
+      background-image: linear-gradient(100deg, #fb4b7d 0%, #fe757b 100%);
+      position: absolute;
+      top: 57px;
+      left: 3%;
+      color: #ffffff;
+      font-family: Raleway;
+      font-size: 12px;
+      font-weight: 500;
+      .icon_map{
+        font-size: 10px;
+        font-weight: 100;
+        margin-left: 18px;
+      }
+    }
+  }
+}
+.find_us{
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  height: 32px;
+  margin-top: -5px;
+  .find_us_fb{
+    width: 31px;
+  }
+  .find_us_insta{
+    width: 31px;
+  }
+}
+.opinion{
+  margin-top: 20px;
+  margin-left: 20px;
+  button{
+    background-image: url(../../assets/imgs/space_detail/union-62.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 182px;
+    height: 44px;
+    background-color: transparent;
+    background-position: 0px 7px;
+    color: #ffffff;
+    font-family: Raleway;
+    font-size: 12px;
+    font-weight: 400;
+    /* Text style for "Donner un" */
+    font-family: "Segoe UI";
+    font-weight: 400;
+    .add_opinion{
+      margin-left: -15px;
+      font-size: 14px;
+      font-weight: 600;
+      position: absolute;  
+    }
+  }
+}
+.mail_col{
+  margin-left: 8%;
+  margin-top: 2px;
+}
+.mail_opinion{
+  font-size: 39px;
+  background-color: transparent;
+  color: #c1c1c1;
+}
+.person_col{
+  margin-top: 5px;
+}
+.person_opinion{
+  font-size: 31px;
+  background-color: transparent;
+  color: #c1c1c1;
+}
+}

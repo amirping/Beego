@@ -1,0 +1,36 @@
+<svg id="style_décontracte_icon" data-name="style décontracte icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 22.121 18">
+  <defs>
+    <style>
+      .cls-1 {
+        clip-path: url(#clip-path);
+      }
+
+      .cls-2 {
+        fill: #e6415c;
+      }
+
+      .cls-3 {
+        fill: #ef5770;
+      }
+
+      .cls-4 {
+        fill: #f6788d;
+      }
+
+      .cls-5 {
+        fill: #f24662;
+      }
+    </style>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_455" data-name="Rectangle 455" width="22.121" height="18"/>
+    </clipPath>
+  </defs>
+  <g id="Groupe_972" data-name="Groupe 972" transform="translate(0)">
+    <g id="Groupe_971" data-name="Groupe 971" class="cls-1">
+      <path id="Tracé_2647" data-name="Tracé 2647" class="cls-2" d="M1.386,4.933,4.149,1.477C5.23.1,5.193.1,6.218.1h9.665c1.016,0,.979,0,2.07,1.377l2.763,3.447c1.867,2.07,1.83,2.07,0,4.14l-7.6,7.6c-.675.693-1.016,1.377-2.07,1.377s-1.4-.693-2.07-1.377l-7.6-7.586C-.444,7-.481,7,1.386,4.933Zm0,0" transform="translate(0 -0.091)"/>
+    </g>
+  </g>
+  <path id="Tracé_2648" data-name="Tracé 2648" class="cls-3" d="M16.568,8.379H5.526l4.74,9.49a1.781,1.781,0,0,0,.776.176,1.647,1.647,0,0,0,.758-.157ZM22.066,7V6.808a5.592,5.592,0,0,0-1.358-1.885L17.945,1.477C16.863.1,16.891.1,15.875.1H11.024L16.54,8.379C16.614,8.315,22.066,7,22.066,7ZM4.149,1.477,1.386,4.933C.453,5.968,0,6.485,0,7c.055.018,5.452,1.312,5.526,1.377L11.042.1H6.219C5.193.1,5.23.1,4.149,1.477Zm0,0" transform="translate(0 -0.091)"/>
+  <path id="Tracé_2649" data-name="Tracé 2649" class="cls-4" d="M59.8,8.379,65.316.1l5.516,8.279Zm0,0" transform="translate(-54.274 -0.091)"/>
+  <path id="Tracé_2650" data-name="Tracé 2650" class="cls-5" d="M65.217.562C64.8.1,64.6.1,63.887.1H59.054L64.57,8.379,65.217.562ZM52.9.58l.638,7.8L59.054.1H54.231c-.711,0-.9,0-1.331.48Zm0,0" transform="translate(-48.012 -0.091)"/>
+</svg>

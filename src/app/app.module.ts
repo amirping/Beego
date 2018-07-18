@@ -33,6 +33,7 @@ import { PopupPage} from '../pages/popup/popup';
 import {EventPage} from '../pages/event/event';
 import {UpdateProgramPage} from "../pages/update-program/update-program";
 import {DislikeListPage} from '../pages/dislike-list/dislike-list';
+import {SpaceDetailPage} from '../pages/space-detail/space-detail';
 
 import { Ionic2RatingModule } from "ionic2-rating";
 import { AngularFireModule } from "angularfire2";
@@ -80,7 +81,8 @@ import { EvenementPage } from "../pages/evenement/evenement";
     EventPage,
     EvenementPage,
     UpdateProgramPage,
-    DislikeListPage
+    DislikeListPage,
+    SpaceDetailPage
 
 
 
@@ -128,7 +130,8 @@ import { EvenementPage } from "../pages/evenement/evenement";
     EvenementPage,
 
     UpdateProgramPage,
-    DislikeListPage
+    DislikeListPage,
+    SpaceDetailPage
 
 
   ],
