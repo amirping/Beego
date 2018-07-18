@@ -1,0 +1,213 @@
+<!--
+  Generated template for the SpaceDetailOpinionsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header >
+
+  <ion-navbar hideBackButton="true" color="bar-color" class="nav_title">
+    <div class="div_title">
+      <div>
+          <button icon-only
+           (click)="back()">
+           <ion-icon class="icon_title"
+           ios="ios-arrow-round-back" md="md-arrow-round-back"></ion-icon>
+            </button>
+      </div>
+      <div class="title">
+        space title
+        <div class="bee-icon">
+            <div class="bee-hexagon">
+            </div>
+            
+            </div>
+      </div>
+      <div>
+        <button icon-only>
+          <ion-icon class="icon_title"
+          name="more"></ion-icon>
+        </button>
+      </div>
+    </div>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="opinion_back_color">
+    <div class="opinions_info">
+        <ion-grid>
+          <ion-row class="feedback_row">
+            <div class="feedback_title">
+                Feedback
+            </div>
+            <button>
+                <ion-icon class="add_opinion"
+                name="add"></ion-icon>
+              Donner un avis
+            </button>
+          </ion-row>
+          <ion-row class="list_row">
+                  <ion-row class="Reviews_row">
+                      <ion-col col-3>
+                          <div class="bee-img-reviews">
+                              <div class="bee-hexagon-reviews">
+                                  <img class="bee-img-size"
+                                  src="../../assets/imgs/photoDeProfil.png" alt="">
+                                </div>
+                                <button icon-only>
+                                  <!-- this icon changes his color to #8e8e93 when a user click on it   -->
+                                  <ion-icon class="heart_icon"
+                                  name="heart" ></ion-icon>
+                                </button>
+                          </div>
+                      </ion-col>
+                      <ion-col col-9>
+                        <div class="com_detail">
+                          <div class="name">
+                            Nom Prenom
+                          </div>
+                          <div class="com_time">
+                              6 Mar 2018
+                          </div>
+                          <div class="rating-ex">
+                              <rating [(ngModel)]="rating" emptyStarIconName="star-outline" halfStarIconName="star-half"
+                               starIconName="star" nullable="false"
+                                (ngModelChange)="null">
+                              </rating>
+                            </div>
+                            <div class="com">
+                                Le Lorem Ipsum est simplement faux texte employé dans la composition et la
+                                 mise en page avant impression.
+                            </div>
+                            <div class="com_number">
+                                1 commentaire
+                            </div>
+                        </div>
+                      </ion-col>
+                    </ion-row>
+                    
+                    <ion-row class="Reviews_row">
+                        <ion-col col-3>
+                            <div class="bee-img-reviews">
+                                <div class="bee-hexagon-reviews">
+                                    <img class="bee-img-size"
+                                    src="../../assets/imgs/photoDeProfil.png" alt="">
+                                  </div>
+                                  <button icon-only>
+                                    <!-- this icon changes his color to #8e8e93 when a user click on it   -->
+                                    <ion-icon class="heart_icon"
+                                    name="heart" ></ion-icon>
+                                  </button>
+                            </div>
+                        </ion-col>
+                        <ion-col col-9>
+                          <div class="com_detail">
+                            <div class="name">
+                              Nom Prenom
+                            </div>
+                            <div class="com_time">
+                                6 Mar 2018
+                            </div>
+                            <div class="rating-ex">
+                                <rating [(ngModel)]="rating" emptyStarIconName="star-outline" halfStarIconName="star-half"
+                                 starIconName="star" nullable="false"
+                                  (ngModelChange)="null">
+                                </rating>
+                              </div>
+                              <div class="com">
+                                  Le Lorem Ipsum est simplement faux texte employé dans la composition et la
+                                   mise en page avant impression.
+                              </div>
+                              <div class="com_number">
+                                  1 commentaire
+                              </div>
+                          </div>
+                        </ion-col>
+                      </ion-row>
+
+
+                      <ion-row class="Reviews_row">
+                          <ion-col col-3>
+                              <div class="bee-img-reviews">
+                                  <div class="bee-hexagon-reviews">
+                                      <img class="bee-img-size"
+                                      src="../../assets/imgs/photoDeProfil.png" alt="">
+                                    </div>
+                                    <button icon-only>
+                                      <!-- this icon changes his color to #8e8e93 when a user click on it   -->
+                                      <ion-icon class="heart_icon"
+                                      name="heart" ></ion-icon>
+                                    </button>
+                              </div>
+                          </ion-col>
+                          <ion-col col-9>
+                            <div class="com_detail">
+                              <div class="name">
+                                Nom Prenom
+                              </div>
+                              <div class="com_time">
+                                  6 Mar 2018
+                              </div>
+                              <div class="rating-ex">
+                                  <rating [(ngModel)]="rating" emptyStarIconName="star-outline" halfStarIconName="star-half"
+                                   starIconName="star" nullable="false"
+                                    (ngModelChange)="null">
+                                  </rating>
+                                </div>
+                                <div class="com">
+                                    Le Lorem Ipsum est simplement faux texte employé dans la composition et la
+                                     mise en page avant impression.
+                                </div>
+                                <div class="com_number">
+                                    1 commentaire
+                                </div>
+                            </div>
+                          </ion-col>
+                        </ion-row>
+
+                        <ion-row class="Reviews_row">
+                            <ion-col col-3>
+                                <div class="bee-img-reviews">
+                                    <div class="bee-hexagon-reviews">
+                                        <img class="bee-img-size"
+                                        src="../../assets/imgs/photoDeProfil.png" alt="">
+                                      </div>
+                                      <button icon-only>
+                                        <!-- this icon changes his color to #8e8e93 when a user click on it   -->
+                                        <ion-icon class="heart_icon"
+                                        name="heart" ></ion-icon>
+                                      </button>
+                                </div>
+                            </ion-col>
+                            <ion-col col-9>
+                              <div class="com_detail">
+                                <div class="name">
+                                  Nom Prenom
+                                </div>
+                                <div class="com_time">
+                                    6 Mar 2018
+                                </div>
+                                <div class="rating-ex">
+                                    <rating [(ngModel)]="rating" emptyStarIconName="star-outline" halfStarIconName="star-half"
+                                     starIconName="star" nullable="false"
+                                      (ngModelChange)="null">
+                                    </rating>
+                                  </div>
+                                  <div class="com">
+                                      Le Lorem Ipsum est simplement faux texte employé dans la composition et la
+                                       mise en page avant impression.
+                                  </div>
+                                  <div class="com_number">
+                                      1 commentaire
+                                  </div>
+                              </div>
+                            </ion-col>
+                          </ion-row>
+
+                    
+          </ion-row>
+        </ion-grid>
+      </div>
+</ion-content>

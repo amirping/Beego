@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { SpaceDetailOpinionsPage } from '../space-detail-opinions/space-detail-opinions';
 
 /**
  * Generated class for the SpaceDetailPage page.
@@ -14,6 +15,9 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'space-detail.html',
 })
 export class SpaceDetailPage {
+  goToOpinions(){
+    this.navCtrl.push(SpaceDetailOpinionsPage);
+  }
   rating = 5 ;
   dualValue2 = 30;
   notes = [

@@ -33,6 +33,8 @@ import {EventPage} from '../pages/event/event';
 import {UpdateProgramPage} from "../pages/update-program/update-program";
 import {DislikeListPage} from '../pages/dislike-list/dislike-list';
 import {SpaceDetailPage} from '../pages/space-detail/space-detail';
+import {SpaceDetailOpinionsPage} from '../pages/space-detail-opinions/space-detail-opinions'
+
 
 import { Ionic2RatingModule } from "ionic2-rating";
 import { AngularFireModule } from "angularfire2";
@@ -77,7 +79,8 @@ import { UserProvider } from "../providers/user/user";
     EventPage,
     UpdateProgramPage,
     DislikeListPage,
-    SpaceDetailPage
+    SpaceDetailPage,
+    SpaceDetailOpinionsPage
 
 
   ],
@@ -121,7 +124,8 @@ import { UserProvider } from "../providers/user/user";
     EventPage,
     UpdateProgramPage,
     DislikeListPage,
-    SpaceDetailPage
+    SpaceDetailPage,
+    SpaceDetailOpinionsPage
 
   ],
   providers: [

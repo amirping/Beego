@@ -20,6 +20,7 @@ import {EventPage} from '../pages/event/event';
 import {UpdateProgramPage} from "../pages/update-program/update-program";
 import {DislikeListPage} from '../pages/dislike-list/dislike-list';
 import {SpaceDetailPage} from '../pages/space-detail/space-detail';
+import {SpaceDetailOpinionsPage} from '../pages/space-detail-opinions/space-detail-opinions'
 
 import { UserProvider } from '../providers/user/user';
 
@@ -30,7 +31,7 @@ import { UserProvider } from '../providers/user/user';
 export class MyApp {
 
 
-  rootPage:any=SpaceDetailPage ;
+  rootPage:any=SpaceDetailOpinionsPage ;
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,public userProvider: UserProvider) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.

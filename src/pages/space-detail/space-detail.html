@@ -307,7 +307,8 @@
                     <ion-col class="row_title">
                         Reviews
                     </ion-col>
-                      <button class="Reviews_btn">
+                      <button  (click)="goToOpinions()"
+                      class="Reviews_btn">
                           Tout afficher
                       </button>
                   </ion-row>
@@ -385,7 +386,7 @@
                   </ion-row>
                   <ion-row class="opinion">
                     <ion-col>
-                        <button>
+                        <button (click)="goToOpinions()" >
                             <ion-icon class="add_opinion"
                               name="add"></ion-icon>
                             Donner un avis
