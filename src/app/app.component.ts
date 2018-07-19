@@ -31,7 +31,7 @@ import { UserProvider } from '../providers/user/user';
 export class MyApp {
 
 
-  rootPage:any=SpaceDetailOpinionsPage ;
+  rootPage:any=SpaceDetailPage ;
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,public userProvider: UserProvider) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
