@@ -8,6 +8,7 @@ import { IonicApp, IonicErrorHandler, IonicModule } from "ionic-angular";
 import { SplashScreen } from "@ionic-native/splash-screen";
 import { StatusBar } from "@ionic-native/status-bar";
 import { Dialogs } from "@ionic-native/dialogs";
+import { EmojiPickerModule } from '@ionic-tools/emoji-picker';
 
 import { MyApp } from "./app.component";
 import { FIREBASE_CREDENTIALS } from "./firebase.credentials";
@@ -33,7 +34,8 @@ import {EventPage} from '../pages/event/event';
 import {UpdateProgramPage} from "../pages/update-program/update-program";
 import {DislikeListPage} from '../pages/dislike-list/dislike-list';
 import {SpaceDetailPage} from '../pages/space-detail/space-detail';
-import {SpaceDetailOpinionsPage} from '../pages/space-detail-opinions/space-detail-opinions'
+import {SpaceDetailOpinionsPage} from '../pages/space-detail-opinions/space-detail-opinions';
+import {SpaceDetailFeedback1Page} from '../pages/space-detail-feedback1/space-detail-feedback1';
 
 
 import { Ionic2RatingModule } from "ionic2-rating";
@@ -80,7 +82,8 @@ import { UserProvider } from "../providers/user/user";
     UpdateProgramPage,
     DislikeListPage,
     SpaceDetailPage,
-    SpaceDetailOpinionsPage
+    SpaceDetailOpinionsPage,
+    SpaceDetailFeedback1Page
 
 
   ],
@@ -92,7 +95,8 @@ import { UserProvider } from "../providers/user/user";
     AngularFireAuthModule,
     AngularFireDatabaseModule,
     // AngularFireStorageModule,
-    Ionic2RatingModule
+    Ionic2RatingModule,
+    EmojiPickerModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -125,7 +129,8 @@ import { UserProvider } from "../providers/user/user";
     UpdateProgramPage,
     DislikeListPage,
     SpaceDetailPage,
-    SpaceDetailOpinionsPage
+    SpaceDetailOpinionsPage,
+    SpaceDetailFeedback1Page
 
   ],
   providers: [

@@ -4,7 +4,7 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header >
+<ion-header  [class.dismiss]="dismiss">
 
   <ion-navbar hideBackButton="true" color="bar-color" class="nav_title">
     <div class="div_title">
@@ -35,14 +35,14 @@
 </ion-header>
 
 
-<ion-content class="opinion_back_color">
+<ion-content class="opinion_back_color" [class.dismiss]="dismiss" >
     <div class="opinions_info">
         <ion-grid>
           <ion-row class="feedback_row">
             <div class="feedback_title">
                 Feedback
             </div>
-            <button>
+            <button (click)="goToFeefback1()">
                 <ion-icon class="add_opinion"
                 name="add"></ion-icon>
               Donner un avis

@@ -20,7 +20,9 @@ import {EventPage} from '../pages/event/event';
 import {UpdateProgramPage} from "../pages/update-program/update-program";
 import {DislikeListPage} from '../pages/dislike-list/dislike-list';
 import {SpaceDetailPage} from '../pages/space-detail/space-detail';
-import {SpaceDetailOpinionsPage} from '../pages/space-detail-opinions/space-detail-opinions'
+import {SpaceDetailOpinionsPage} from '../pages/space-detail-opinions/space-detail-opinions';
+import {SpaceDetailFeedback1Page} from '../pages/space-detail-feedback1/space-detail-feedback1';
+
 
 import { UserProvider } from '../providers/user/user';
 
