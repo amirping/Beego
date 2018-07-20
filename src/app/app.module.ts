@@ -36,6 +36,8 @@ import {DislikeListPage} from '../pages/dislike-list/dislike-list';
 import {SpaceDetailPage} from '../pages/space-detail/space-detail';
 import {SpaceDetailOpinionsPage} from '../pages/space-detail-opinions/space-detail-opinions';
 import {SpaceDetailFeedback1Page} from '../pages/space-detail-feedback1/space-detail-feedback1';
+import {SpaceDetailFeedback2Page} from '../pages/space-detail-feedback2/space-detail-feedback2';
+
 
 
 import { Ionic2RatingModule } from "ionic2-rating";
@@ -83,7 +85,8 @@ import { UserProvider } from "../providers/user/user";
     DislikeListPage,
     SpaceDetailPage,
     SpaceDetailOpinionsPage,
-    SpaceDetailFeedback1Page
+    SpaceDetailFeedback1Page,
+    SpaceDetailFeedback2Page
 
 
   ],
@@ -130,7 +133,8 @@ import { UserProvider } from "../providers/user/user";
     DislikeListPage,
     SpaceDetailPage,
     SpaceDetailOpinionsPage,
-    SpaceDetailFeedback1Page
+    SpaceDetailFeedback1Page,
+    SpaceDetailFeedback2Page
 
   ],
   providers: [

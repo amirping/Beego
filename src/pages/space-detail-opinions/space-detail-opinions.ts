@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController, ViewController } from 'ionic-angular';
 import { SpaceDetailFeedback1Page } from '../space-detail-feedback1/space-detail-feedback1';
 
 /**
@@ -22,16 +22,13 @@ export class SpaceDetailOpinionsPage {
   }
 
   constructor(public navCtrl: NavController,  private modalCtrl : ModalController,
-    public navParams: NavParams) {
+    public navParams: NavParams, private viewCtrl:ViewController ) {
   }
   goToFeefback1(){
-    // this.navCtrl.push(SpaceDetailOpinionsPage);
-    // this.disabled=true;
     const modal1= this.modalCtrl.create(SpaceDetailFeedback1Page);
     modal1.present();
-    this.dismiss=true;
+    this.viewCtrl.dismiss();
     modal1.onDidDismiss(()=>{
-      // this.disabled=false;
     });
   }
 
