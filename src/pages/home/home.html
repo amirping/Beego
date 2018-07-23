@@ -214,11 +214,12 @@
             <span class="more" (click)="navigateTo('specialForYou')">Tout afficher</span>
           </div>
           <ion-slides class="slide-home" [slidesPerView]="2" [pager]="true" [spaceBetween]="10">
-            <ion-slide *ngFor="let item of espacesListRef$ | async" class="slider-specialement">
+            <ion-slide *ngFor="let item of espacesListRef$ | async" class="slider-specialement" (click)="navigateTo('space-detail',item.key)">
               <img src="https://loremflickr.com/900/900/dinner,food">
               <div class="content">
                 <div class="layer"></div>
-                <span class="title" text-left>{{item.espaceSpecialite}}</span>
+                <span class="title" text-left>
+                  {{item.espaceMeilleureSpecialite}}</span>
                 <span class="location" text-left>
                   <ion-icon name="pin"></ion-icon> {{item.espaceName}}</span>
               </div>

@@ -17,7 +17,12 @@ import { MenuController } from "ionic-angular";
 import { SpacesProvider } from "../../providers/spaces/spaces";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { FriendProfilPage } from "../friend-profil/friend-profil";
+
+import { SpaceDetailPage } from "../space-detail/space-detail";
+
+
 import { MyTastesPage } from "../my-tastes/my-tastes";
+
 
 /**
  * Generated class for the HomePage page.
@@ -72,11 +77,30 @@ export class HomePage {
     public menuCtrl: MenuController
   ) {
     /* Liste des espaces */
-    this.espacesListRef$ = this.database
-      .list("espace")
-      .valueChanges(); /*map(changes => {
-        return changes.map( c => ({key : c.payload.key,...c.payload.val()}))
-      });*/
+
+    this.espacesListRef$ = spacesProvider.listEspaces();
+    // don't
+    this.menuSliding.emit(false);
+    // this.tabBarElement = document.querySelector(".tabbar.show-tabbar");
+    // setTimeout(() => {
+    //   console.log(this.tabBarElement);
+    // }, 500);
+
+    /* Liste des espaces */
+    /**https://us-central1-test-3cdd6.cloudfunctions.net/helloBeego */
+    // this.userpovider.getToken().then(t=>{
+    //   const headers = new HttpHeaders().set('Authorization', `Bearer ${t}`);
+    //   console.log("eeeee", t);
+    //   this.http.get('http://localhost:5000/test-3cdd6/us-central1/helloBeego/',{headers})
+    //   // .map(res => res.json())
+    //   .subscribe(data => {
+  
+    //       console.log(data);
+  
+    //   });
+    // });
+ 
+
 
     /* Liste des suggestions */
     this.suggestionListRef$ = this.database
@@ -144,12 +168,38 @@ export class HomePage {
       return changes.map( c => ({key : c.payload.key,...c.payload.val()}))
     })*/;
   }
+  /**Changement ici */
   changeNewsTo(type) {
     this.index_news = type;
     if (type === "events") {
-      this.allNewsData = this.evenementListRef$;
+      
+      this.database
+      .list("evenement")
+      .snapshotChanges()
+      .subscribe(news => {
+        this.news = news.map((espace) => {
+          const e = espace.payload.val() as any;
+          e.key = espace.key
+  
+          return e;
+        });
+        
+      })
     } else {
-      this.allNewsData = this.promotionListRef$;
+      
+      
+      this.database
+      .list("promotion")
+      .snapshotChanges()
+      .subscribe(news => {
+        this.news = news.map((espace) => {
+          const e = espace.payload.val() as any;
+          e.key = espace.key
+  
+          return e;
+        });
+        
+      })
     }
   }
   // getNextShow() {
@@ -218,7 +268,7 @@ export class HomePage {
     console.log("545");
     this.navCtrl.push(ChilloutPage, { category: "shopping" });
   }
-  navigateTo(page) {
+  navigateTo(page,idEspace) {
     switch (page) {
       case "FindFriendPage":
         this.navCtrl.push(FindFriendPage);
@@ -235,6 +285,8 @@ export class HomePage {
       case "MyTastes":
         this.navCtrl.push(MyTastesPage);
         break;
+        case"space-detail": 
+        this.navCtrl.push(SpaceDetailPage,{cle : idEspace});
       default:
         break;
     }
