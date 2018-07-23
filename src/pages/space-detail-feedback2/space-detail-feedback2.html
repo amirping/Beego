@@ -18,7 +18,7 @@
       </ion-row>
       <ion-row class="feedback2_secondStep">
         <div class="secondStep">
-          <div class="blueCircle"></div>
+          <div class="blueCircle" (click)="backToFeedback1()"></div>
           <div class="blueLine"></div>
           <div class="blueCircle"></div>
           <div class="grayLine"></div>
@@ -36,7 +36,8 @@
         name="" id="" cols="30" rows="10"></textarea>
       </ion-row>
       <ion-row class="feedback_btn_row">
-        <button class="feedback_btn">
+        <button (click)="goToFeefback3()"
+         class="feedback_btn">
             Valider
         </button>
     </ion-row>

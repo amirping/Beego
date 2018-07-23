@@ -23,6 +23,7 @@ import {SpaceDetailPage} from '../pages/space-detail/space-detail';
 import {SpaceDetailOpinionsPage} from '../pages/space-detail-opinions/space-detail-opinions';
 import {SpaceDetailFeedback1Page} from '../pages/space-detail-feedback1/space-detail-feedback1';
 import {SpaceDetailFeedback2Page} from '../pages/space-detail-feedback2/space-detail-feedback2';
+import {SpaceDetailFeedback3Page} from '../pages/space-detail-feedback3/space-detail-feedback3';
 
 import { UserProvider } from '../providers/user/user';
 
@@ -33,7 +34,7 @@ import { UserProvider } from '../providers/user/user';
 export class MyApp {
 
 
-  rootPage:any=SpaceDetailFeedback1Page ;
+  rootPage:any=SpaceDetailOpinionsPage ;
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,public userProvider: UserProvider) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.

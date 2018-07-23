@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams ,ModalController, ViewController } from 'ionic-angular';
+import { SpaceDetailFeedback3Page } from '../space-detail-feedback3/space-detail-feedback3';
+import { SpaceDetailFeedback1Page } from '../space-detail-feedback1/space-detail-feedback1';
 
 /**
  * Generated class for the SpaceDetailFeedback2Page page.
@@ -22,14 +24,21 @@ export class SpaceDetailFeedback2Page {
     // console.log('ratingg', navParams.get('ratingg'));
     // console.log(this.r);
   }
-  // goToFeefback1(){
-  //   const modal1= this.modalCtrl.create(SpaceDetailFeedback2Page);
-  //   modal1.present();
-  //   this.viewCtrl.dismiss();
-  //   modal1.onDidDismiss(()=>{
-  //   });
-  // }
-
+  goToFeefback3(){
+    const modal3= this.modalCtrl.create(SpaceDetailFeedback3Page , {ratingg:this.r},);
+    modal3.present();
+    this.viewCtrl.dismiss();
+    modal3.onDidDismiss(()=>{
+    });
+  }
+  
+  backToFeedback1(){
+    const modal3= this.modalCtrl.create(SpaceDetailFeedback1Page);
+    modal3.present();
+    this.viewCtrl.dismiss();
+    modal3.onDidDismiss(()=>{
+    });
+  }
   ionViewDidLoad() {
     console.log('ionViewDidLoad SpaceDetailFeedback2Page');
   }
