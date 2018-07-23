@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 375 124.805">
+  <defs>
+    <style>
+      .cls-1 {
+        stroke: rgba(0,0,0,0);
+        fill: url(#linear-gradient);
+      }
+
+      .cls-2 {
+        opacity: 0.6;
+        fill: url(#linear-gradient-2);
+      }
+
+      .cls-3 {
+        fill: url(#linear-gradient-3);
+      }
+
+      .cls-4 {
+        clip-path: url(#clip-path);
+      }
+
+      .cls-5 {
+        filter: url(#Background);
+      }
+    </style>
+    <linearGradient id="linear-gradient" x1="0.057" y1="0.325" x2="1.283" y2="1.214" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#fb4b7d"/>
+      <stop offset="1" stop-color="#fe757b"/>
+    </linearGradient>
+    <filter id="Background" x="-9.5" y="-9.5" width="394" height="143.805" filterUnits="userSpaceOnUse">
+      <feOffset input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <linearGradient id="linear-gradient-2" x1="0" y1="0" x2="0" y2="1" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient-3" x1="0" y1="0" x2="1" y2="0.767" xlink:href="#linear-gradient"/>
+    <clipPath id="clip-path">
+      <g class="cls-5" transform="matrix(1, 0, 0, 1, 0, 0)">
+        <path id="Background-2" data-name="Background" class="cls-1" d="M0,0H375V124.8H0Z" transform="translate(20 1200)"/>
+      </g>
+    </clipPath>
+  </defs>
+  <g id="Groupe_1012" data-name="Groupe 1012" transform="translate(-8488 -2178)">
+    <path id="Intersection_5" data-name="Intersection 5" class="cls-2" d="M91.228,161.659V65.534h375V158.6c-51.42,20.019-119.944,30.353-193.243,30.353C202.085,188.95,138.9,179.678,91.228,161.659Z" transform="translate(8396.772 2112.466)"/>
+    <path id="Intersection_4" data-name="Intersection 4" class="cls-3" d="M50.243,124.747V43.764h375v77.915c-45.183,25.236-116.11,38.081-193,38.081C157,159.76,92.144,147.978,50.243,124.747Z" transform="translate(8437.757 2134.236)"/>
+  </g>
+</svg>

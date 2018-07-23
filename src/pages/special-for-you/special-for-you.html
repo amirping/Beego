@@ -20,11 +20,12 @@
     </ion-row>
     <ion-row class="bottom">
       <ion-col>
-        <span class="result"> {{data.length}} Resultats</span>
+        <span class="result"> 69 Resultats</span>
         <p>
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odit atque nihil facilis,
         </p>
         <div class="masonry">
+
           
             <ng-container *ngFor="let item of data ">
                 <div class="item" *ngIf="ShoworNot(item,searchText) " (click)="navigateToSpaceDetail(item.key)">
@@ -35,15 +36,14 @@
                 <br>
                 
                 {{item.espaceName}}
+
               </span>
               <span class="location">
                 <ion-icon name="pin"></ion-icon>
-                {{item.Place}}
+                {{item.location}}
               </span>
             </div>
           </div>
-          </ng-container>
-          
         </div>
       </ion-col>
     </ion-row>

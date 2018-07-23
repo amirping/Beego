@@ -1,9 +1,7 @@
 page-find-friend {
   .back-stylesh {
-    background: url(../../assets/imgs/findFriend/vectorpaint2.svg) top left
-      no-repeat;
+    background: url(../../assets/imgs/findFriend/vectorpaint2.svg) top left no-repeat;
     background-size: contain;
-    background-attachment: fixed;
   }
   .grid {
     padding: 0px;
@@ -16,57 +14,12 @@ page-find-friend {
   .col {
     padding: 0px;
   }
-  .NoFreindMsg {
-    height: 100vh;
-    justify-content: center;
-    display: flex;
-    flex-direction: column;
-    .heart {
-      width: 100px;
-      height: 100px;
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      background: url(https://cssanimation.rocks/images/posts/steps/heart.png)
-        no-repeat;
-      background-position: 0 0;
-      cursor: pointer;
-      animation: fave-heart 1s steps(28);
-    }
-    .heart:hover,
-    .heart:active {
-      background-position: -2800px 0;
-      transition: background 1s steps(28);
-    }
-    @keyframes fave-heart {
-      0% {
-        background-position: 0 0;
-      }
-      100% {
-        background-position: -2800px 0;
-      }
-    }
-    p {
-      font-family: "Raleway";
-      font-size: 14px;
-      font-weight: 700;
-      margin-top: 150px;
-      text-align: center;
-      text-transform: capitalize;
-      padding: 0px 10px 0px 10px;
-    }
-  }
   .toolbar-background {
     background-image: linear-gradient(180deg, #fb6b94 0%, #fd8493 100%);
   }
   .tool-bar {
     //box-shadow: 0 0 6px rgba(0, 0, 0, 0.16); //border: 1px solid rgba(0, 0, 0, 0);
-    background-image: linear-gradient(
-      98deg,
-      #fb4b7d 0%,
-      #fe757b 100%
-    ) !important;
+    background-image: linear-gradient( 98deg, #fb4b7d 0%, #fe757b 100%) !important;
   }
   .toolbar-title {
     color: #ffffff;
@@ -82,36 +35,33 @@ page-find-friend {
     .active {
       z-index: 3 !important;
       box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16) !important; //-webkit-animation: slide-fwd-center 0.45s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-      animation: slide-fwd-center 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94)
-        both;
+      animation: slide-fwd-center 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
     }
-    .active + div {
+    .active+div {
       transform: scale(0.9);
       z-index: 2;
       top: 25px;
       transform-origin: 50% 100%;
       box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16) !important;
     }
-    .active + div + div {
+    .active+div+div {
       transform: scale(0.8);
       z-index: 1;
       top: 50px;
       transform-origin: 50% 100%;
       box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16) !important;
     }
-    .active + div + div div {
+    .active+div+div div {
       z-index: -1;
       opacity: 0;
     }
     .slide-left {
       z-index: 4;
       animation: left-sliding 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
-      animation-delay: 0.4s;
     }
     .slide-right {
       z-index: 5;
       animation: right-sliding 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
-      animation-delay: 0.4s;
     }
     .friends {
       position: absolute;
@@ -124,62 +74,8 @@ page-find-friend {
       background: white;
     }
     .main-wrap {
-      position: relative;
       height: 100%;
       justify-content: center;
-      .effect-overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        right: 0;
-        z-index: 999;
-        animation: showUpSign 0.2s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
-        .pos-mid-icon {
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          ion-icon {
-            margin: auto;
-            font-size: 64px;
-            color: white;
-          }
-        }
-        .accepted {
-          position: relative;
-          background: #11998e;
-          /* fallback for old browsers */
-          background: -webkit-linear-gradient(to bottom, #38ef7d, #11998e);
-          /* Chrome 10-25, Safari 5.1-6 */
-          background: linear-gradient(to bottom, #38ef7d, #11998e);
-          /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-          height: 100%;
-          width: 100%;
-          z-index: 999;
-          opacity: 0.5;
-        }
-        .rejected {
-          position: relative;
-          background: #cb2d3e;
-          /* fallback for old browsers */
-          background: -webkit-linear-gradient(to bottom, #ef473a, #cb2d3e);
-          /* Chrome 10-25, Safari 5.1-6 */
-          background: linear-gradient(to bottom, #ef473a, #cb2d3e);
-          /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-          height: 100%;
-          width: 100%;
-          z-index: 999;
-          opacity: 0.5;
-        }
-      }
-      @keyframes showUpSign {
-        0% {
-          opacity: 0;
-        }
-        100% {
-          opacity: 1;
-        }
-      }
     }
     h2 {
       margin: 0px;

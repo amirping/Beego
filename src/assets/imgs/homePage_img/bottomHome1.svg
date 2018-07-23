@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="389.73584920167934" height="135.50943386554718" style=""><rect id="backgroundrect" width="100%" height="100%" x="0" y="0" fill="none" stroke="none" style="" class=""/>
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        fill: #fff;
+      }
+
+      .cls-1 {
+        opacity: 0.59;
+      }
+
+      .cls-3 {
+        filter: url(#Intersection_1);
+      }
+
+      .cls-4 {
+        filter: url(#Intersection_3);
+      }
+
+      .cls-5 {
+        filter: url(#Intersection_2);
+      }
+    </style>
+    <filter id="Intersection_2" x="6.000999927520752" y="41.30799865722656" width="392.9989929199219" height="101.37300109863281" filterUnits="userSpaceOnUse">
+      <feOffset dx="-3" dy="-3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Intersection_3" x="9" y="17.86199951171875" width="387" height="121.81900024414062" filterUnits="userSpaceOnUse">
+      <feOffset dx="-3" dy="-3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="2" result="blur-2"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur-2"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Intersection_1" x="0" y="0" width="405" height="148.68099975585938" filterUnits="userSpaceOnUse">
+      <feOffset dx="-3" dy="-3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="5" result="blur-3"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur-3"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  
+<g class="currentLayer" style=""><title>Layer 1</title><g id="Groupe_1011" data-name="Groupe 1011" class="">
+    <g class="cls-5" id="svg_1">
+      <path id="Intersection_2-2" data-name="Intersection 2" class="cls-1" d="M0.20536112785339355,135.8873748779297 V82.22637176513672 c17.93427848815918,8.147000312805176 43.43297576904297,14.281999588012695 84.29974365234375,14 c118.06395721435547,-0.824999988079071 119.52025604248047,-43.70899963378906 196.77362060546875,-43.70899963378906 c45.51027297973633,0 76.8892822265625,22.969999313354492 109.00579833984375,42.01300048828125 V135.8873748779297 z" stroke-width="0"/>
+    </g>
+    <g class="cls-4" id="svg_2">
+      <path id="Intersection_3-2" data-name="Intersection 3" class="cls-2" d="M0.20028197765350342,135.8873748779297 V37.74736404418945 a150.32611083984375,144.51499938964844 0 0 1 60.78993606567383,-11.677000045776367 c98.1782455444336,0.5 133.03466796875,71.75199890136719 217.26992797851562,72.74199676513672 c42.117103576660156,0.4950000047683716 62.74137496948242,-10.267999649047852 77.91805267333984,-21.0310001373291 c12.116378784179688,-8.592000007629395 20.761571884155273,-17.184999465942383 34.10124206542969,-20.048999786376953 V135.8873748779297 z" stroke-width="0"/>
+    </g>
+    <g class="cls-3" id="svg_3">
+      <path id="Intersection_1-2" data-name="Intersection 1" class="cls-1" d="M0.20434534549713135,135.8873748779297 V40.0923957824707 c24.724775314331055,-12.842000007629395 56.04344940185547,-23.06999969482422 92.94390106201172,-22.884000778198242 c98.17928314208984,0.4950000047683716 133.03466796875,71.75199890136719 217.27096557617188,72.74199676513672 c42.117103576660156,0.4950000047683716 62.34817123413086,-14.968999862670898 77.13373565673828,-30.43199920654297 q1.3959633111953735,-1.4600000381469727 2.7305541038513184,-2.9159998893737793 V135.8873748779297 z" stroke-width="0"/>
+    </g>
+  </g></g></svg>

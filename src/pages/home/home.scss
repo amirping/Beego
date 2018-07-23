@@ -1,4 +1,6 @@
 page-home {
+
+
   .home-side-menu {
     position: absolute;
     width: 100%;
@@ -19,6 +21,7 @@ page-home {
         position: absolute;
         width: 100vw;
         height: 100vh;
+        background-image: url("../../assets/imgs/homePage_img/bottomHome.svg") left bottom no-repeat;
         /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#e5e5e5+0,fc5571+19,fd617c+100&0+0,0.71+19,0.87+34,1+100 */
         background: -moz-linear-gradient( top, rgba(229, 229, 229, 0) 0%, rgba(252, 85, 113, 0.61) 19%, rgba(252, 87, 115, 1) 30%, rgba(253, 97, 124, 1) 100%);
         /* FF3.6-15 */
@@ -28,6 +31,21 @@ page-home {
         /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
         filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00e5e5e5', endColorstr='#fd617c', GradientType=0);
         /* IE6-9 */
+        .bottomLines {
+          position: absolute;
+          width: 100%;
+          bottom: 0;
+          left: 0;
+          object-fit: contain;
+        }
+        .cls-btn {
+          position: absolute;
+          bottom: 10px;
+          left: 10px;
+          ion-icon {
+            margin-right: 5px;
+          }
+        }
       }
       .user-content {
         position: absolute;
@@ -50,8 +68,7 @@ page-home {
           ion-item {
             background: transparent;
             color: white; // .item-inner {
-            //   border: none;
-            // }
+            border: none; // }
             ion-icon {
               vertical-align: middle;
               font-size: 20px;
@@ -100,7 +117,7 @@ page-home {
     100% {
       transform: translateZ(-400px) translateX(80%) scale(0.8);
       transform-origin: left;
-      box-shadow: -7px 0px 8px 0px rgba(133, 133, 133, 1);
+      box-shadow: -7px 0px 8px 0px #b5001e98;
     }
   }
   @keyframes slide-off {
@@ -125,15 +142,13 @@ page-home {
   //     background: #f22876;
   //   }
   // }
+
   .home-wrapper {
     height: 100%;
   }
   .animateMenu {
-    animation: animate-menu 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) both; // height: 80vh;
+    animation: animate-menu 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both; // height: 80vh;
     // margin-top: 10vh;
-  }
-  .animateMenu-close {
-    animation: animate-menu-close 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
   }
   @keyframes animate-menu {
     0% {
@@ -143,16 +158,6 @@ page-home {
     100% {
       height: 80vh;
       margin-top: 10vh;
-    }
-  }
-  @keyframes animate-menu-close {
-    0% {
-      height: 80vh;
-      margin-top: 10vh;
-    }
-    100% {
-      height: 100%;
-      margin-top: 0;
     }
   }
   .toolbar-background {
@@ -181,10 +186,10 @@ page-home {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.13);
     border-radius: 0 0 15px 15px;
     h2 {
-      color: #000000;
+      color: #333333;
       font-family: "Raleway";
       font-size: 21px;
-      font-weight: 700;
+      font-weight: 400;
       letter-spacing: 0.25px;
     }
     p {
@@ -252,10 +257,10 @@ page-home {
     margin-top: 20px;
     .title {
       padding-left: 8px;
-      color: #000000;
+      color: #333333;
       font-family: "Raleway";
-      font-size: 17px;
-      font-weight: 700;
+      font-size: 16px;
+      font-weight: 400;
       letter-spacing: 0.19px;
       text-transform: capitalize;
     }
@@ -699,7 +704,6 @@ page-home {
       height: 100%;
       z-index: 4;
       border-radius: 15px;
-      object-fit: cover;
     }
     .content {
       position: absolute;
@@ -745,7 +749,7 @@ page-home {
     }
   }
   .not-yet {
-    z-index: 1;
+    z-index:1;
     position: absolute;
     right: -100%;
   }
@@ -977,113 +981,130 @@ page-home {
   .mx-auto {
     margin: auto;
   }
-  header-acceuil-container {
-    display: flex;
+
+  header-acceuil-container{
+    display: flex ;
     width: 100%;
     height: 43px;
     flex-direction: row;
     padding-top: 9px;
+
     background-color: rgb(255, 102, 153) !important;
-  }
-  .space {
+
+ }
+ .space{
     justify-content: space-between;
-  }
-  .onsearch .hide-onserach,
-  .show-onserach {
+ }
+ .onsearch .hide-onserach,
+ .show-onserach{
     display: none;
-  }
-  .onsearch .show-onserach {
+ }
+ .onsearch .show-onserach{
     display: flex;
-  }
-  .cleaner .hide-cleaner {
+ }
+
+ .cleaner .hide-cleaner{
     display: none;
+
     padding-top: 3px;
-  }
-  .cleaner .showcleaner {
+
+ }
+ .cleaner .showcleaner{
     display: flex;
-  }
-  .burger_menu {
+ }
+
+ .burger_menu{
+
     background-color: transparent;
     background-repeat: no-repeat;
-  }
-  .titre {
+ }
+ .titre{
     text-align: center;
-    color: white;
+    color:white;
     position: relative;
-    width: 50%;
+    width:50%;
     font-size: 16px;
-  }
-  .search {
+ }
+
+
+ .search{
     background-color: transparent;
     background-repeat: no-repeat;
     float: right;
-  }
-  .search:hover {
+   }
+
+   .search:hover{
     background-color: transparent;
     background-repeat: no-repeat;
-    transform: scale(1.1);
-  }
-  .search:active {
-    background-color: transparent;
-    background-repeat: no-repeat;
-    transform: scale(1);
-  }
-  .text-search {
+     transform: scale(1.1);
+     }
+     .search:active{
+        background-color: transparent;
+        background-repeat: no-repeat;
+        transform: scale(1);
+
+         }
+
+ .text-search{
     background-color: rgb(243, 150, 166);
     border-radius: 12px;
-    height: 27px;
-    width: 100%;
-    border: none;
+
+   height: 27px;
+   width: 100%;
+    border:none;
     padding-left: 37px;
-    color: white !important;
-  }
-  .text-search::placeholder {
+    color:white !important;
+ }
+ .text-search::placeholder {
     color: white;
     font-size: 14px;
-  }
-  .for-search {
+    }
+ .for-search{
     padding-left: 10px;
-    position: relative;
-    width: 240px;
-  }
-  .cancel-search {
+     position: relative;
+     width: 240px;
+
+ }
+
+ .cancel-search{
     color: white;
     margin-top: 3px;
     font-size: 13px;
     margin-left: 10px;
-  }
-  .cancel-search:hover {
+ }
+ .cancel-search:hover{
     color: white;
     margin-top: 3px;
     transform: scale(1.1);
     margin-left: 10px;
-  }
-  .cancel-search:active {
+ }
+ .cancel-search:active{
     color: white;
     margin-top: 3px;
     transform: scale(1);
     margin-left: 10px;
-  }
-  .cancel-search-action {
+ }
+ .cancel-search-action{
     background-color: transparent;
     color: white;
     float: right;
-  }
-  .clear-text {
+ }
+ .clear-text{
     position: absolute;
     background-color: transparent;
     top: 2px;
     right: 6px;
-  }
-  .search-text-icon {
+ }
+ .search-text-icon{
     position: absolute;
     background-color: transparent;
     top: 3px;
     padding-top: 3px;
-  }
-  .search-text-icon:active {
+ }
+ .search-text-icon:active{
     position: absolute;
     background-color: transparent;
     top: 4px;
-  }
+
+ }
 }

@@ -43,7 +43,7 @@ export class SettingProfilPage {
     this.fbLinkTemp = this.fbLink;
     this.instaLinkTemp = this.instaLink;
     this.snapLinkTemp = this.snapLink;
-    this.passwordUpdatable = this.userProvider.canChangePassword();
+    this.passwordUpdatable = this.userProvider.canCahngePassword();
   }
   updateSocialLink(idx){
     switch (idx) {

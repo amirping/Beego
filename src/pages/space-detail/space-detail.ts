@@ -1,7 +1,12 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams , AlertController} from 'ionic-angular';
+
+import { IonicPage, NavController, NavParams , AlertController,ModalController } from 'ionic-angular';
 import { Observable } from '../../../node_modules/rxjs/Observable';
 import { AngularFireDatabase, AngularFireList } from '../../../node_modules/angularfire2/database';
+
+
+import { SpaceDetailOpinionsPage } from '../space-detail-opinions/space-detail-opinions';
+
 
 /**
  * Generated class for the SpaceDetailPage page.
@@ -16,6 +21,7 @@ import { AngularFireDatabase, AngularFireList } from '../../../node_modules/angu
   templateUrl: 'space-detail.html',
 })
 export class SpaceDetailPage {
+
   espace: Observable<any[]>
   espaceName: string;
   espaceRegion: string;
@@ -41,6 +47,18 @@ export class SpaceDetailPage {
   follower : any;
   idEspace: string;
   rating = 5;
+
+  goToOpinions(){
+    // this.navCtrl.push(SpaceDetailOpinionsPage);
+    // this.disabled=true;
+    const modal1= this.modalCtrl.create(SpaceDetailOpinionsPage);
+    modal1.present();
+    modal1.onDidDismiss(()=>{
+      // this.disabled=false;
+    });
+  }
+  rating = 5 ;
+
   dualValue2 = 30;
   listFollowers : AngularFireList<any>;
   notes = [
@@ -148,9 +166,12 @@ export class SpaceDetailPage {
      this.nbFollowers = this.listFollowerss.length
       
 
+
     })
    
     console.log(this.idEspace)
+
+
     this.data = this.evenement;
     this.listFollowers= this.db.list(`espace/${this.idEspace}/followers`);
     

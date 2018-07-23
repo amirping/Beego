@@ -1,7 +1,11 @@
 import { Component } from "@angular/core";
 import { IonicPage, NavController, NavParams } from "ionic-angular";
+
 import { AngularFireDatabase } from "angularfire2/database";
 import { SpaceDetailPage } from "../../pages/space-detail/space-detail";
+
+
+
 /**
  * Generated class for the SpecialForYouPage page.
  *
@@ -15,8 +19,8 @@ import { SpaceDetailPage } from "../../pages/space-detail/space-detail";
   templateUrl: "special-for-you.html"
 })
 export class SpecialForYouPage {
-  searchText: string = "";
   data: any = [];
+
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
@@ -35,11 +39,13 @@ export class SpecialForYouPage {
        console.log(this.data)
        espaces$.unsubscribe();
          });
+
   }
 
   ionViewDidLoad() {
     console.log("ionViewDidLoad SpecialForYouPage");
   }
+
   ShoworNot(item, text){
 
     
@@ -59,4 +65,5 @@ export class SpecialForYouPage {
   {
     this.navCtrl.push(SpaceDetailPage,{cle : idEspace});
   }
+
 }
