@@ -210,11 +210,12 @@
             <span class="more" (click)="navigateTo('specialForYou')">Tout afficher</span>
           </div>
           <ion-slides class="slide-home" [slidesPerView]="2" [pager]="true" [spaceBetween]="10">
-            <ion-slide *ngFor="let item of espacesListRef$ | async" class="slider-specialement">
+            <ion-slide *ngFor="let item of espacesListRef$ | async" class="slider-specialement" (click)="navigateTo('space-detail',item.key)">
               <img src="https://loremflickr.com/900/900/dinner,food">
               <div class="content">
                 <div class="layer"></div>
-                <span class="title" text-left>{{item.espaceSpecialite}}</span>
+                <span class="title" text-left>
+                  {{item.espaceMeilleureSpecialite}}</span>
                 <span class="location" text-left>
                   <ion-icon name="pin"></ion-icon> {{item.espaceName}}</span>
               </div>
@@ -256,10 +257,10 @@
             <div class="holder">
                     
               <!-- dynamique things -->
-              <div class="slider not-yet"  *ngFor="let item of news ; let i=index" [class.active]="i==newSlider_indicators.show_index_slide"
+              <div class="slider not-yet" *ngFor="let item of news ; let i=index" [class.active]="i==newSlider_indicators.show_index_slide"
                 [class.next]="i==newSlider_indicators.next_index_show" [class.after-next]="i==newSlider_indicators.after_index_show">
-                <img src="{{item.Couverture}}" alt="" >
-                <div class="content" (click)="eventPage(item.key)">
+                <img src="{{item.Couverture}}" alt="">
+                <div class="content">
                   <div class="row row-right">
                     <button ion-button small (click)="interesser(item.key)">Intéressé(e)</button>
                   </div>

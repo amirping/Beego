@@ -21,7 +21,7 @@ import { MenuController } from "ionic-angular";
 import { SpacesProvider } from "../../providers/spaces/spaces";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { FriendProfilPage } from "../friend-profil/friend-profil";
-// import { PrincipalEventPage } from "../principal-event/principal-event";
+import { SpaceDetailPage } from "../space-detail/space-detail";
 
 
 /**
@@ -106,11 +106,7 @@ export class HomePage {
   
     //   });
     // });
-    this.espacesListRef$ = this.database
-      .list("espace")
-      .valueChanges(); /*map(changes => {
-        return changes.map( c => ({key : c.payload.key,...c.payload.val()}))
-      });*/
+ 
 
 
     /* Liste des suggestions */
@@ -191,12 +187,38 @@ export class HomePage {
       return changes.map( c => ({key : c.payload.key,...c.payload.val()}))
     })*/;
   }
+  /**Changement ici */
   changeNewsTo(type) {
     this.index_news = type;
     if (type === "events") {
-      this.allNewsData = this.evenementListRef$;
+      
+      this.database
+      .list("evenement")
+      .snapshotChanges()
+      .subscribe(news => {
+        this.news = news.map((espace) => {
+          const e = espace.payload.val() as any;
+          e.key = espace.key
+  
+          return e;
+        });
+        
+      })
     } else {
-      this.allNewsData = this.promotionListRef$;
+      
+      
+      this.database
+      .list("promotion")
+      .snapshotChanges()
+      .subscribe(news => {
+        this.news = news.map((espace) => {
+          const e = espace.payload.val() as any;
+          e.key = espace.key
+  
+          return e;
+        });
+        
+      })
     }
   }
   
@@ -246,7 +268,7 @@ export class HomePage {
     console.log("545");
     this.navCtrl.push(ChilloutPage, { category: "shopping" });
   }
-  navigateTo(page) {
+  navigateTo(page,idEspace) {
     switch (page) {
       case "FindFriendPage":
         this.navCtrl.push(FindFriendPage);
@@ -263,6 +285,8 @@ export class HomePage {
       case "FriendProfil":
         this.navCtrl.push(FriendProfilPage);
         break;
+        case"space-detail": 
+        this.navCtrl.push(SpaceDetailPage,{cle : idEspace});
       default:
         break;
     }
@@ -384,7 +408,4 @@ export class HomePage {
     console.log("ok")
     
   }
-  // eventPage(item:string) {
-  //   this.navCtrl.push(PrincipalEventPage,{cle:item});
-  // }
 }
