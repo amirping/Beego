@@ -139,7 +139,6 @@ page-profil {
     background-repeat: no-repeat;
     background-position: -3px -15px;
     background-color: transparent;
-    background-image: url(../../assets/imgs/homme.png);
     height: 100%;
     img{
       min-height: 100%;
@@ -236,11 +235,9 @@ page-profil {
     margin-top: 1%;
   }
   .mesfavoris {
-    position: relative;
+    position: absolute;
     margin-top: 3%;
-    left: 19px;
-    font-size: 18px;
-    font-weight: 600;
+    left: 10%;
   }
   .first-photo {
     margin-top: 12%;
@@ -265,72 +262,5 @@ page-profil {
     width: 72px;
     height: 72px;
     margin: 10px 0px 0 19px;
-  }
-  /* The Masonry Container */
-  .masonry {
-    // display: flex;
-    margin: auto; //max-width: 768px;
-    column-gap: auto;
-    justify-content: center;
-    // flex-wrap: nowrap;
-    // flex-direction: row;
-
-  }
-  /* The Masonry Brick */
-  .item {
-    position: relative;
-    background: #fff; //padding: 1em; //margin: 0 0 1.5em;
-    margin-bottom: 7px;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
-    img {
-      height: auto;
-      width: 100%;
-      object-fit: cover;
-    }
-    .data {
-      position: absolute;
-      bottom: 5px;
-      left: 5px;
-      right: 5px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.16);
-      border-radius: 15px;
-      background-color: rgba($color: #535353, $alpha: 0.63);
-      padding: 5px 11px 5px 11px;
-      .name {
-        color: #ffffff;
-        font-family: "Raleway";
-        font-size: 18px;
-        font-weight: 400;
-        letter-spacing: 0.22px;
-        margin: 0px;
-      }
-      .location {
-        color: #ffffff;
-        font-family: "Raleway";
-        font-size: 10px;
-        font-weight: 400;
-        letter-spacing: 0.12px;
-      }
-    }
-  }
-  /* Masonry on large screens */
-  @media only screen and (min-width: 1024px) {
-    .masonry {
-      column-count: 4;
-    }
-  }
-  /* Masonry on medium-sized screens */
-  @media only screen and (max-width: 1023px) and (min-width: 768px) {
-    .masonry {
-      column-count: 3;
-    }
-  }
-  /* Masonry on small screens */
-  @media only screen and (max-width: 767px) and (min-width: 300px) {
-    .masonry {
-      column-count: 2;
-    }
   }
 }

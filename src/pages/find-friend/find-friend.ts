@@ -1,7 +1,6 @@
 import { Component } from "@angular/core";
 import { IonicPage, NavController, NavParams } from "ionic-angular";
 import { AngularFireDatabase } from "angularfire2/database";
-import { FriendProfilPage } from "../friend-profil/friend-profil";
 
 /**
  * Generated class for the FindFriendPage page.
@@ -103,8 +102,5 @@ export class FindFriendPage {
     else if(Event.offsetDirection == 4){
       this.rejectFriend(id)
     }
-  }
-  friend_follow_Page(){
-    this.navCtrl.push(FriendProfilPage);
   }
 }

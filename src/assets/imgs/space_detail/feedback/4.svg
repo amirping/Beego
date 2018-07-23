@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 75.533 75.534">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #ffd86a;
+      }
+
+      .cls-2 {
+        fill: #504e4b;
+      }
+
+      .cls-3 {
+        fill: #eac365;
+      }
+
+      .cls-4 {
+        filter: url(#Tracé_1715);
+      }
+    </style>
+    <filter id="Tracé_1715" x="0" y="0" width="75.533" height="75.534" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="emoji_behya" data-name="emoji behya" transform="translate(15 12)">
+    <g id="Groupe_769" data-name="Groupe 769" transform="translate(0)">
+      <g class="cls-4" transform="matrix(1, 0, 0, 1, -15, -12)">
+        <path id="Tracé_1715-2" data-name="Tracé 1715" class="cls-1" d="M723.767,0A22.767,22.767,0,1,1,701,22.767,22.779,22.779,0,0,1,723.767,0Z" transform="translate(-686 12)"/>
+      </g>
+    </g>
+    <path id="Tracé_1728" data-name="Tracé 1728" class="cls-2" d="M741.314,70.054a.86.86,0,0,1-.727-.415,4.182,4.182,0,0,0-7.165,0,.85.85,0,1,1-1.454-.883,5.869,5.869,0,0,1,10.072,0,.86.86,0,0,1-.727,1.3Z" transform="translate(-723.843 -48.792)"/>
+    <path id="Tracé_1729" data-name="Tracé 1729" class="cls-2" d="M815.314,70.054a.861.861,0,0,1-.727-.415,4.181,4.181,0,0,0-7.165,0,.85.85,0,0,1-1.454-.883,5.869,5.869,0,0,1,10.073,0,.877.877,0,0,1-.286,1.168.957.957,0,0,1-.441.13Z" transform="translate(-778.633 -48.792)"/>
+    <path id="Tracé_1730" data-name="Tracé 1730" class="cls-2" d="M751.921,110.69a17.846,17.846,0,0,1-12.642-5.218.844.844,0,0,1,1.194-1.194,16.217,16.217,0,0,0,22.9,0,.844.844,0,0,1,1.194,1.194,17.846,17.846,0,0,1-12.642,5.218Z" transform="translate(-729.154 -77.02)"/>
+    <path id="Tracé_1731" data-name="Tracé 1731" class="cls-3" d="M775.382,135.986a15.373,15.373,0,0,1-4.05-.545.847.847,0,0,1,.441-1.635,13.427,13.427,0,0,0,7.165,0,.847.847,0,0,1,.441,1.635,14.711,14.711,0,0,1-4,.545Z" transform="translate(-752.615 -99.045)"/>
+  </g>
+</svg>

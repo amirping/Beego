@@ -1,0 +1,117 @@
+page-space-detail-feedback2 {
+    ion-content{
+        background-color: rgba(0, 0, 0, 0.3) !important;
+        .feedback2_container{
+            height: 348px;
+            border-radius: 30px;
+            background-color: white; 
+            position: relative;
+            padding-left: 26px;
+            padding-right: 26px;
+            margin-top: 21%;
+            width: 100%;
+            .feedback2_emoji{
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                .back_emoji{
+                    width: 72px;
+                    height: 72px;
+                    background-color: #ffffff;
+                    border-radius: 50px;
+                    margin-top: -32px;
+                    .img_emoji{
+                        width: 100%;
+                    }
+                }
+            }
+            .feedback2_secondStep{
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                margin-top: 7px;
+                .secondStep{
+                    height: 20px;
+                    width: 136px;
+                    background-color: transparent;
+                    display: flex;
+                    justify-content: space-around;
+                    .blueCircle{
+                        width: 8px;
+                        height: 8px;
+                        background-color: #1f9ed5;
+                        border-radius: 50px;
+                    }
+                    .blueLine{
+                        width: 35px;
+                        height: 1px;
+                        border: 0.2px solid #1f9ed5;
+                        margin-top: 4px;
+                    }
+                    .grayLine{
+                        width: 35px;
+                        height: 1px;
+                        border: 0.2px solid #c9c9c9;
+                        margin-top: 4px;
+                    }
+                    .whiteCircle{
+                        width: 8px;
+                        height: 8px;
+                        background-color: white;
+                        border-radius: 50px;
+                        border: 1px solid #dadada;
+                    }
+                }
+            }
+            .feedback_welcome{
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                margin-top: 10px;
+                color: #535353;
+                font-family: Raleway;
+                font-size: 14px;
+                font-weight: 500;
+                /* Text style for "Salut , ," */
+                font-family: "Raleway - Regular";
+                font-weight: 400;
+                text-align: center;
+            }
+            .feedback2_com{
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                margin-top: 15px;
+                .com{
+                    width: 260px;
+                    height: 146px;
+                    border-radius: 10px;
+                    border: 1px solid #dadada;
+                    color: #8e8e93;
+                    font-family: "SFNS Display";
+                    font-size: 12px;
+                    font-weight: 400;
+                    padding: 9px 12px;
+                }
+            }
+            .feedback_btn_row{
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                margin-top: 20px;
+                .feedback_btn{
+                    background-image: linear-gradient(99deg, #fb4b7d 0%, #fe757b 100%);
+                    box-shadow: 0 3px 6px rgba(255, 81, 156, 0.38);
+                    border-radius: 17px;
+                    width: 207px;
+                    height: 34px;
+                    color: #ffffff;
+                    font-family: Raleway;
+                    font-size: 14px;
+                    font-weight: 400;
+                }
+            }
+        }
+    }
+
+}

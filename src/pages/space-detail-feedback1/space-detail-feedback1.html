@@ -1,0 +1,84 @@
+<!--
+  Generated template for the SpaceDetailFeedback1Page page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+
+
+
+<ion-content  padding>
+    <div class="feedback1_container">
+        <ion-grid>
+            <ion-row class="feedback1_img">
+                <div class="bee-image_bg">
+                    <div class="bee-hexagon_bg">
+                        <div class="bee-image">
+                            <div class="bee-hexagon">
+                                <img class="bee-img-size"
+                                src="../../assets/imgs/space_detail/whats-up.png" alt="">
+                              </div>
+                        </div>
+                    </div>
+                </div>
+            </ion-row>
+            <ion-row>
+                <div class="feedback_welcome">
+                    Salut Mohamed, Comment vous trouvez
+                    What's Up Coffée
+                </div>
+            </ion-row>
+            <ion-row class="feedback_smile">
+                        <img 
+                         class="smile"
+                        src="../../assets/imgs/space_detail/feedback/{{rating}}.svg" alt="">
+            </ion-row>
+            <ion-row class="feedback_smile_com">
+                <span *ngIf="rating==1" >
+                    Angry
+                </span>
+                <span *ngIf="rating==2" >
+                    sad
+                </span>
+                <span *ngIf="rating==3" >
+                    normal
+                </span>
+                <span *ngIf="rating==4" >
+                    good
+                </span>
+                <span *ngIf="rating==5" >
+                    lovely
+                </span>
+            </ion-row>
+            <ion-row class="feedback_rating">
+                <div class="rating-ex">
+                    <rating [(ngModel)]="rating" emptyStarIconName="star-outline" halfStarIconName="star-half"
+                     starIconName="star" nullable="false"
+                      (ngModelChange)="null"
+                      [class.active-1]="rating >= 1"
+                      [class.active-2]="rating >= 2"
+                      [class.active-3]="rating >= 3"
+                      [class.active-4]="rating >= 4"
+                      [class.active-5]="rating >= 5" 
+                      [class.is-active-1]="rating == 1"
+                      [class.is-active-2]="rating == 2"
+                      [class.is-active-3]="rating == 3"
+                      [class.is-active-4]="rating == 4"
+                      [class.is-active-5]="rating == 5" 
+                      >
+                    </rating>
+                </div>
+            </ion-row>
+            <ion-row class="feedback_btn_row">
+                <button (click)="goToFeefback2()"
+                 class="feedback_btn">
+                    Continuer
+                </button>
+            </ion-row>
+          </ion-grid>
+    </div>
+        
+     
+        
+</ion-content>

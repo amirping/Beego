@@ -8,6 +8,7 @@ import { LandingPage } from "../pages/landing/landing";
 import { TabsPage } from "../pages/tabs/tabs";
 
 import { HomePage } from '../pages/home/home';
+
 import { BlockPage} from '../pages/block/block'
 import {SettingProfil2Page } from '../pages/setting-profil2/setting-profil2'
 import {SettingSecurityPage} from '../pages/setting-security/setting-security'
@@ -20,6 +21,10 @@ import {EventPage} from '../pages/event/event';
 import {UpdateProgramPage} from "../pages/update-program/update-program";
 import {DislikeListPage} from '../pages/dislike-list/dislike-list';
 import {SpaceDetailPage} from '../pages/space-detail/space-detail';
+import {SpaceDetailOpinionsPage} from '../pages/space-detail-opinions/space-detail-opinions';
+import {SpaceDetailFeedback1Page} from '../pages/space-detail-feedback1/space-detail-feedback1';
+import {SpaceDetailFeedback2Page} from '../pages/space-detail-feedback2/space-detail-feedback2';
+import {SpaceDetailFeedback3Page} from '../pages/space-detail-feedback3/space-detail-feedback3';
 
 import { UserProvider } from '../providers/user/user';
 
@@ -29,6 +34,7 @@ import { UserProvider } from '../providers/user/user';
 })
 export class MyApp {
 
+
   rootPage: any;
   constructor(
     platform: Platform,
@@ -37,6 +43,9 @@ export class MyApp {
     public userProvider: UserProvider
   ) {
 
+
+  rootPage:any=SpaceDetailOpinionsPage ;
+  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,public userProvider: UserProvider) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
@@ -46,9 +55,9 @@ export class MyApp {
 
     this.userProvider.isConnect(state=>{
       if(state){
-         this.rootPage = TabsPage;
+        // this.rootPage = TabsPage;
       }else{
-         this.rootPage = LandingPage;
+        // this.rootPage = LandingPage;
       }
     });
   }

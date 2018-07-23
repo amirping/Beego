@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
+import { SpaceDetailOpinionsPage } from '../space-detail-opinions/space-detail-opinions';
 
 /**
  * Generated class for the SpaceDetailPage page.
@@ -14,6 +15,15 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'space-detail.html',
 })
 export class SpaceDetailPage {
+  goToOpinions(){
+    // this.navCtrl.push(SpaceDetailOpinionsPage);
+    // this.disabled=true;
+    const modal1= this.modalCtrl.create(SpaceDetailOpinionsPage);
+    modal1.present();
+    modal1.onDidDismiss(()=>{
+      // this.disabled=false;
+    });
+  }
   rating = 5 ;
   dualValue2 = 30;
   notes = [
@@ -78,7 +88,8 @@ export class SpaceDetailPage {
   
   index_news = "events";
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, private modalCtrl : ModalController,
+     public navParams: NavParams) {
     this.data = this.evenement;
   }
 

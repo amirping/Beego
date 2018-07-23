@@ -4,7 +4,6 @@ import { Ionic2RatingModule } from 'ionic2-rating';
 import { Observable } from 'rxjs/Observable';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { SearchRadioPipe } from '../../providers/user/pipe_search'
-import { SpacesProvider } from "../../providers/spaces/spaces";
 
 
 /**
@@ -25,7 +24,7 @@ export class ChilloutPage {
    */
   searchText: string = "";
   slides: Array<string> = [];
-  indexPage = "ALL";
+  indexPage = 1;
   /**
   * sub pages data
    */
@@ -35,17 +34,14 @@ export class ChilloutPage {
   rechercher$: Observable<any[]>;
   
 
-  categories : Observable<any[]>;
-  pagesData : any = [];
-  tab : any = [];
+  pageData : Observable<any[]>;
+  pagesData : Observable<any[]>;
   testrating = 4 ;//testing
   category : string;
   constructor(
     public navCtrl: NavController,
-   
-    public navParams: NavParams,
-    private spacesProvider: SpacesProvider
-  ) {
+    private database: AngularFireDatabase,
+    public navParams: NavParams) {
       
     /**
      * slides on cover : put all images here and will auto displayed
@@ -57,19 +53,29 @@ export class ChilloutPage {
      * 
      */
      this.category = this.navParams.get('category'); 
-    
+    /*this.pagesData = this.database.list(category, ref => ref.child('data').orderByChild('title').equalTo('jobi')).snapshotChanges().map(changes => {
+      return changes.map( c => ({key : c.payload.key,...c.payload.val()}))
+    });*/
    
-    this.categories = spacesProvider.listCategoriesChillout(this.category)
-   
-   
-    this.pagesData = spacesProvider.listPagesDataChillout(this.category)
 
-    
+    this.pagesData = this.database.list(this.category).snapshotChanges().map(changes => {
+      return changes.map( c => ({key : c.payload.key,...c.payload.val()}))
+    });
+   
+   /* this.pagesData=[
+      {
+        index:1,
+        name:'All',
+        data:[
+        {
+          title:'Nom de l\'espace',
+          subTitle:'Nom de l\'espace',
+          rating:4
+        },
+        */
     
   }
-  log(message){
-    console.log(message);
-  }
+
   ionViewDidLoad() {
     console.log("ionViewDidLoad ChilloutPage");
   }
@@ -79,21 +85,15 @@ export class ChilloutPage {
       this.navCtrl.pop();
     }
   }
-  ShoworNot(item, text){
 
+  // Méthode rechercher
+  search(searchText: string) {
+    console.log(searchText);
+    //const category = this.navParams.get('category');
+ 
+    //this.rechercher$ = this.searchpipe.transform(this.pagesData,searchText);
     
-   
-    if(!item.title.toLocaleLowerCase().includes(text.toLocaleLowerCase()))
-    return false
-    if(this.indexPage !="ALL")
-    {
-      if(item.type !== this.indexPage)
-      return false
-    }
     
-    return true;
   }
-
-  
 }
 

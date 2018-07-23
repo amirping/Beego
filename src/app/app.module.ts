@@ -5,11 +5,11 @@ import { SuggestPage } from "./../pages/suggest/suggest";
 import { FindFriendPage } from "./../pages/find-friend/find-friend";
 import { BrowserModule } from "@angular/platform-browser";
 import { ErrorHandler, NgModule, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
-import { HttpClientModule } from "@angular/common/http";
 import { IonicApp, IonicErrorHandler, IonicModule } from "ionic-angular";
 import { SplashScreen } from "@ionic-native/splash-screen";
 import { StatusBar } from "@ionic-native/status-bar";
 import { Dialogs } from "@ionic-native/dialogs";
+import { EmojiPickerModule } from '@ionic-tools/emoji-picker';
 
 import { MyApp } from "./app.component";
 import { FIREBASE_CREDENTIALS } from "./firebase.credentials";
@@ -36,6 +36,12 @@ import {EventPage} from '../pages/event/event';
 import {UpdateProgramPage} from "../pages/update-program/update-program";
 import {DislikeListPage} from '../pages/dislike-list/dislike-list';
 import {SpaceDetailPage} from '../pages/space-detail/space-detail';
+import {SpaceDetailOpinionsPage} from '../pages/space-detail-opinions/space-detail-opinions';
+import {SpaceDetailFeedback1Page} from '../pages/space-detail-feedback1/space-detail-feedback1';
+import {SpaceDetailFeedback2Page} from '../pages/space-detail-feedback2/space-detail-feedback2';
+import {SpaceDetailFeedback3Page} from '../pages/space-detail-feedback3/space-detail-feedback3';
+
+
 
 
 import { Ionic2RatingModule } from "ionic2-rating";
@@ -50,10 +56,12 @@ import { TabsPage } from "../pages/tabs/tabs";
 
 import { UserProvider } from "../providers/user/user";
 
+
 import { IonicSwipeAllModule } from "ionic-swipe-all";
 
 import { SpacesProvider } from '../providers/spaces/spaces';
 import { EvenementPage } from "../pages/evenement/evenement";
+
 
 
 
@@ -85,11 +93,22 @@ import { EvenementPage } from "../pages/evenement/evenement";
     FriendFollowPage,
     PopupPage,
     EventPage,
+
+    UpdateProgramPage,
+    DislikeListPage,
+    SpaceDetailPage,
+    SpaceDetailOpinionsPage,
+    SpaceDetailFeedback1Page,
+    SpaceDetailFeedback2Page,
+    SpaceDetailFeedback3Page,
+
+
     MyTastesPage,
     EvenementPage,
     UpdateProgramPage,
     DislikeListPage,
     SpaceDetailPage
+
   ],
   imports: [
     BrowserModule,
@@ -101,9 +120,11 @@ import { EvenementPage } from "../pages/evenement/evenement";
     // AngularFireStorageModule,
     Ionic2RatingModule,
 
+
     IonicSwipeAllModule,
 
     HttpClientModule,
+
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -130,11 +151,22 @@ import { EvenementPage } from "../pages/evenement/evenement";
     FriendFollowPage,
     PopupPage,
     EventPage,
+
+    UpdateProgramPage,
+    DislikeListPage,
+    SpaceDetailPage,
+    SpaceDetailOpinionsPage,
+    SpaceDetailFeedback1Page,
+    SpaceDetailFeedback2Page,
+    SpaceDetailFeedback3Page
+
+
     MyTastesPage,
     EvenementPage,
     UpdateProgramPage,
     DislikeListPage,
     SpaceDetailPage
+
   ],
   providers: [
     StatusBar,
@@ -142,9 +174,7 @@ import { EvenementPage } from "../pages/evenement/evenement";
     Dialogs,
     UserProvider,
     SearchRadioPipe,
-    { provide: ErrorHandler, useClass: IonicErrorHandler },
-    SpacesProvider
-
+    { provide: ErrorHandler, useClass: IonicErrorHandler }
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
