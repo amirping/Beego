@@ -175,8 +175,10 @@ import { HttpClientModule } from "../../node_modules/@angular/common/http";
     Dialogs,
     UserProvider,
     SearchRadioPipe,
-    { provide: ErrorHandler, useClass: IonicErrorHandler }
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
+    SpacesProvider
   ],
+  
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule {}
