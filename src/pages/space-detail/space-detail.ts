@@ -168,10 +168,11 @@ export class SpaceDetailPage {
       firstName:"Ghassen",
       lastName:"ASKRI"}
     )
-    /*this.follower= this.db.list(`espace/${this.idEspace}/followers` ,ref => ref.child('firstName').equalTo('hatemaaa'))
+    /* Se désabonner 
+    this.follower= this.db.list(`espace/${this.idEspace}/followers` ,ref => ref.child('firstName').equalTo('hatemaaa'))
     console.log("follower : ", this.follower)
     this.listFollowers.remove(this.follower)
-    console.log(this.listFollowers)*/
+    console.log(this.listFollowers) */
       let alert = this.alertController.create({
       title :this.espaceName,
       message : "Vous êtes maintenant abonner à nous",
