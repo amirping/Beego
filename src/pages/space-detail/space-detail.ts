@@ -57,7 +57,6 @@ export class SpaceDetailPage {
       // this.disabled=false;
     });
   }
-  rating = 5 ;
 
   dualValue2 = 30;
   listFollowers : AngularFireList<any>;
@@ -128,7 +127,8 @@ export class SpaceDetailPage {
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     private db: AngularFireDatabase,
-    private alertController : AlertController
+    private alertController : AlertController,
+    private modalCtrl: ModalController
 
   ) {
     this.idEspace = this.navParams.get('cle');

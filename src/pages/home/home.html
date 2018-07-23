@@ -1,31 +1,23 @@
-
 <!--
   Generated template for the AcceuilPage page.
 
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-menu [content]="mycontent" type="push" (swipe)="handelChange($event)" (ionClose)="animateMenu = false" (ionOpen)="animateMenu = true"
-  (ionDrag)="collectSwiper($event)">
-  <ion-content>
-    <ion-list>
-      <p>some menu content, could be list items</p>
-    </ion-list>
+<!-- <ion-menu class="side-menu-style" [content]="mycontent" type="push" swipeEnabled="false" (swipe)="handelChange($event)" (ionDrag)="collectSwiper($event)"
+  (ionClose)="animateMenu = false;animateMenuClose = true">
+  <ion-content class="ion-content-pink">
+    <div class="menu-stylesh">
+      <img src="https://images.pexels.com/photos/573299/pexels-photo-573299.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="">
+      <div class="overlay"></div>
+    </div>
   </ion-content>
-
-</ion-menu>
-<div #mycontent class="home-wrapper" [class.animateMenu]="animateMenu == true" [class.animateMenuClose]="animateMenuClose == true">
-
-
+</ion-menu> -->
 <div id="menu" class="home-side-menu" (swipe)="menuSwipe($event)">
   <div class="menu-stylesh">
     <img class="imgBack" src="https://images.pexels.com/photos/573299/pexels-photo-573299.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
       alt="">
-    <div class="overlay">
-      <img class="bottomLines" src="../../assets/imgs/homePage_img/bottomSVG.svg" alt="">
-      <button ion-button clear color="primary" class="cls-btn">
-        <ion-icon name="power"></ion-icon> Deconnexion</button>
-    </div>
+    <div class="overlay"></div>
     <div class="user-content animated" [class.fadeInLeft]="isMenuOpen">
       <ion-list>
         <ion-item>
@@ -37,7 +29,7 @@
         </ion-item>
       </ion-list>
       <ion-list no-lines class="small-list">
-        <ion-item (click)="navigateTo('MyTastes')">
+        <ion-item>
           <ion-icon name="medal"></ion-icon>
           Mes gouts
         </ion-item>
@@ -74,14 +66,18 @@
   </div>
 </div>
 <div #content class="home-wrapper" [class.open-menu]="isMenuOpen" [class.close-menu]="!isMenuOpen" (swipe)="contentSwipe($event)">
-
   <ion-header>
     <ion-navbar color="trans" [class.onsearch]="search" [class.cleaner]="hide_cleaner_button">
       <div class="header-acceuil-container space hide-onserach">
         <ion-grid>
           <ion-row>
             <ion-col>
-              <div class="toolbar-title">Acceuil</div>
+              <div class="toolbar-title">
+                <button ion-button icon-only clear small (click)="swipeByButton()">
+                  <ion-icon class="mx-auto" name="menu"></ion-icon>
+                </button>
+                <span>Acceuil</span>
+              </div>
             </ion-col>
             <!--
               <ion-col>
@@ -92,7 +88,7 @@
               </div>
             </ion-col>
             -->
-            
+
           </ion-row>
         </ion-grid>
 
@@ -133,7 +129,7 @@
 
   </ion-header>
   <ion-content>
-    <ion-grid>
+    <ion-grid (swipe)="contentSwipe($event)">
       <ion-row>
         <ion-col class="motd">
           <div>
@@ -178,7 +174,7 @@
             <span class="title">Suggestion</span>
             <span class="more" (click)="navigateTo('suggest')">Tout afficher</span>
           </div>
-          <ion-slides [pager]="true" class="slide-home" [spaceBetween]="5" [slidesPerView]="1" [initialSlide]="1">
+          <ion-slides [pager]="true" class="slide-home" [spaceBetween]="5" (swiperight)="dummySwipe($event)" [slidesPerView]="1" [initialSlide]="1">
             <ion-slide *ngFor="let item of suggestionListRef$ | async" class="slider-suggest">
               <div class="data-content">
                 <div class="temp">23</div>
@@ -188,13 +184,13 @@
                   </rating>
                 </div>
                 <p>
-                {{item.dscrp}}
+                  {{item.dscrp}}
                 </p>
               </div>
               <div class="overlay"></div>
               <img src="../../assets/imgs/homePage_img/suggestion.jpg">
             </ion-slide>
-            
+
             <!-- below code is only for test don't delet it coz only god and me know how it work -->
             <!-- <ion-slide class="slider-suggest">
             <div class="overlay"></div>
@@ -214,12 +210,11 @@
             <span class="more" (click)="navigateTo('specialForYou')">Tout afficher</span>
           </div>
           <ion-slides class="slide-home" [slidesPerView]="2" [pager]="true" [spaceBetween]="10">
-            <ion-slide *ngFor="let item of espacesListRef$ | async" class="slider-specialement" (click)="navigateTo('space-detail',item.key)">
+            <ion-slide *ngFor="let item of espacesListRef$ | async" class="slider-specialement">
               <img src="https://loremflickr.com/900/900/dinner,food">
               <div class="content">
                 <div class="layer"></div>
-                <span class="title" text-left>
-                  {{item.espaceMeilleureSpecialite}}</span>
+                <span class="title" text-left>{{item.espaceSpecialite}}</span>
                 <span class="location" text-left>
                   <ion-icon name="pin"></ion-icon> {{item.espaceName}}</span>
               </div>
@@ -256,65 +251,17 @@
             </div>
           </ion-slide>
         </ion-slides> -->
-          <button (click)="nextSlide()">we will add swipe to make next </button>
+          <!-- <button (click)="nextSlide()">we will add swipe to make next </button> -->
           <div class="wrap-holder row row-space-around" (swipe)="swipeEvent($event)">
             <div class="holder">
-              <!-- static try -->
-              <!-- <div class="slider active">
-              <img src="https://i.pinimg.com/originals/fd/5d/8e/fd5d8e333fcccbc366f390902e69ddd7.jpg" alt="">
-              <div class="content">
-                <div class="row row-right">
-                  <button ion-button small>Intéressé(e)</button>
-                </div>
-                <div>
-                  <span class="date">27 dec 2017</span>
-                  <div class="bottom-content">
-                    <h2>YUMA - Hell Yeah Bitches</h2>
-                    <span class="location">
-                      <ion-icon name="pin"></ion-icon> Yuka, KEF</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="slider next">
-              <img src="https://blog.spoongraphics.co.uk/wp-content/uploads/2016/05/25.jpg" alt="">
-              <div class="content">
-                <div class="row row-right">
-                  <button ion-button small>Intéressé(e)</button>
-                </div>
-                <div>
-                  <span class="date">27 dec 2017</span>
-                  <div class="bottom-content">
-                    <h2>YUMA - Hell Yeah Bitches</h2>
-                    <span class="location">
-                      <ion-icon name="pin"></ion-icon> Yuka, KEF</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="slider after-next">
-              <img src="https://piktochart.com/wp-content/uploads/2018/01/4.jpg" alt="">
-              <div class="content">
-                <div class="row row-right">
-                  <button ion-button small>Intéressé(e)</button>
-                </div>
-                <div>
-                  <span class="date">27 dec 2017</span>
-                  <div class="bottom-content">
-                    <h2>YUMA - Hell Yeah Bitches</h2>
-                    <span class="location">
-                      <ion-icon name="pin"></ion-icon> Yuka, KEF</span>
-                  </div>
-                </div>
-              </div>
-            </div> -->
+                    
               <!-- dynamique things -->
-              <div class="slider not-yet" *ngFor="let item of news ; let i=index" [class.active]="i==newSlider_indicators.show_index_slide"
+              <div class="slider not-yet"  *ngFor="let item of news ; let i=index" [class.active]="i==newSlider_indicators.show_index_slide"
                 [class.next]="i==newSlider_indicators.next_index_show" [class.after-next]="i==newSlider_indicators.after_index_show">
-                <img src="{{item.Couverture}}" alt="">
-                <div class="content">
+                <img src="{{item.Couverture}}" alt="" >
+                <div class="content" (click)="eventPage(item.key)">
                   <div class="row row-right">
-                    <button ion-button small>Intéressé(e)</button>
+                    <button ion-button small (click)="interesser(item.key)">Intéressé(e)</button>
                   </div>
                   <div>
                     <span class="date">{{item.Date}}</span>
@@ -363,10 +310,10 @@
             <span class="title">Connaissez vous</span>
             <span class="more" (click)="navigateTo('FindFriendPage')">Tout afficher</span>
           </div>
-          <div class="row row-scroller">
+          <div class="row row-scroller notYou">
             <div class="person-card" *ngFor="let item of connaissanceListRef$ |
           async">
-              <img src="http://i.pravatar.cc/60" alt="">
+              <img src="http://i.pravatar.cc/60" alt="" (click)="navigateTo('FriendProfil')">
 
               <span class="name">{{item.Prenom}} {{item.Nom}} </span>
               <span class="location">{{item.Place}}, {{item.Region}}</span>
@@ -420,7 +367,7 @@
             <span class="title">A proximité</span>
             <span class="more">Tout afficher</span>
           </div>
-          <div class="row row-scroller">
+          <div class="row row-scroller notYou">
             <div class="proximite-card" *ngFor="let item of proximiteListRef$ |
         async">
               <img src="http://lorempixel.com/400/200/sports" alt="">
@@ -469,14 +416,14 @@
       <!--Invitations-->
       <ion-row>
         <ion-col>
-          <div class="section-title">
+          <div class="section-title ">
             <span class="title">Invitations</span>
             <span class="more">Tout afficher</span>
           </div>
-          <div class="row row-scroller">
+          <div class="row row-scroller notYou">
             <div class="invit-card" *ngFor="let item of invitationListRef$ |
           async">
-              <div class="row">
+              <div class="row notYou">
                 <img src="http://i.pravatar.cc/60" alt="">
                 <div class="col mx-auto">
                   <h2>{{item.invitationTo}} !</h2>
