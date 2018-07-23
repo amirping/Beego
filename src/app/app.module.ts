@@ -1,3 +1,4 @@
+import { MyTastesPage } from "./../pages/my-tastes/my-tastes";
 import { HeadlinesPage } from "./../pages/headlines/headlines";
 import { SpecialForYouPage } from "./../pages/special-for-you/special-for-you";
 import { SuggestPage } from "./../pages/suggest/suggest";
@@ -23,6 +24,7 @@ import { ListOfFollowsPage } from "../pages/list-of-follows/list-of-follows";
 import { SettingProfilPage } from "../pages/setting_profil/setting_profil";
 import { ChilloutPage } from "../pages/chillout/chillout";
 
+
 import { BlockPage} from '../pages/block/block'
 import {SettingProfil2Page } from '../pages/setting-profil2/setting-profil2';
 import {SettingSecurityPage} from '../pages/setting-security/setting-security'
@@ -41,6 +43,7 @@ import {SpaceDetailFeedback3Page} from '../pages/space-detail-feedback3/space-de
 
 
 
+
 import { Ionic2RatingModule } from "ionic2-rating";
 import { AngularFireModule } from "angularfire2";
 import { AngularFireAuthModule } from "angularfire2/auth";
@@ -52,6 +55,15 @@ import { TabsPage } from "../pages/tabs/tabs";
 // import { AngularFirestoreModule } from "angularfire2/firestore";
 
 import { UserProvider } from "../providers/user/user";
+
+
+import { IonicSwipeAllModule } from "ionic-swipe-all";
+
+import { SpacesProvider } from '../providers/spaces/spaces';
+import { EvenementPage } from "../pages/evenement/evenement";
+
+
+
 
 @NgModule({
   declarations: [
@@ -76,20 +88,26 @@ import { UserProvider } from "../providers/user/user";
     SpecialForYouPage,
     HeadlinesPage,
 
-
     PersonalHistoryPage,
     FriendProfilPage,
     FriendFollowPage,
     PopupPage,
     EventPage,
+
     UpdateProgramPage,
     DislikeListPage,
     SpaceDetailPage,
     SpaceDetailOpinionsPage,
     SpaceDetailFeedback1Page,
     SpaceDetailFeedback2Page,
-    SpaceDetailFeedback3Page
+    SpaceDetailFeedback3Page,
 
+
+    MyTastesPage,
+    EvenementPage,
+    UpdateProgramPage,
+    DislikeListPage,
+    SpaceDetailPage
 
   ],
   imports: [
@@ -101,7 +119,12 @@ import { UserProvider } from "../providers/user/user";
     AngularFireDatabaseModule,
     // AngularFireStorageModule,
     Ionic2RatingModule,
-    EmojiPickerModule.forRoot()
+
+
+    IonicSwipeAllModule,
+
+    HttpClientModule,
+
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -120,17 +143,15 @@ import { UserProvider } from "../providers/user/user";
     SettingSecurityPage,
     TabsPage,
     FindFriendPage,
-
     SuggestPage,
     SpecialForYouPage,
     HeadlinesPage,
-
-
     PersonalHistoryPage,
     FriendProfilPage,
     FriendFollowPage,
     PopupPage,
     EventPage,
+
     UpdateProgramPage,
     DislikeListPage,
     SpaceDetailPage,
@@ -138,6 +159,13 @@ import { UserProvider } from "../providers/user/user";
     SpaceDetailFeedback1Page,
     SpaceDetailFeedback2Page,
     SpaceDetailFeedback3Page
+
+
+    MyTastesPage,
+    EvenementPage,
+    UpdateProgramPage,
+    DislikeListPage,
+    SpaceDetailPage
 
   ],
   providers: [

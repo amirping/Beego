@@ -1,3 +1,4 @@
+import { MyTastesPage } from "./../pages/my-tastes/my-tastes";
 import { Component } from "@angular/core";
 import { Platform } from "ionic-angular";
 import { StatusBar } from "@ionic-native/status-bar";
@@ -34,6 +35,15 @@ import { UserProvider } from '../providers/user/user';
 export class MyApp {
 
 
+  rootPage: any;
+  constructor(
+    platform: Platform,
+    statusBar: StatusBar,
+    splashScreen: SplashScreen,
+    public userProvider: UserProvider
+  ) {
+
+
   rootPage:any=SpaceDetailOpinionsPage ;
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,public userProvider: UserProvider) {
     platform.ready().then(() => {
@@ -42,6 +52,7 @@ export class MyApp {
       statusBar.styleDefault();
       splashScreen.hide();
     });
+
     this.userProvider.isConnect(state=>{
       if(state){
         // this.rootPage = TabsPage;

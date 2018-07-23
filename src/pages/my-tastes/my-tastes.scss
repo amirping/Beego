@@ -1,0 +1,193 @@
+page-my-tastes {
+  .header-syle {
+    background: linear-gradient(104deg, #fb4b7d 0%, #fe757b 100%);
+    .toolbar-background {
+      background: transparent;
+    }
+    .toolbar-title {
+      color: white;
+    }
+  }
+  ion-grid {
+    background: url("../../assets/imgs/myTastes_img/Groupe\ 1012.svg") top left no-repeat;
+    background-attachment: fixed;
+    height: 100%;
+    .top-classer {
+      margin-top: 20px;
+      margin-bottom: 30px;
+    }
+    .folder-shower {
+      img {}
+      span {
+        position: absolute;
+        z-index: 2;
+        top: 40%;
+        left: 40%;
+        color: white;
+      }
+    }
+  }
+  .fit-box {
+    position: relative;
+    margin: auto;
+    min-width: 286px;
+    width: auto;
+  }
+  .taste-item {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    width: 286px;
+    height: 322px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.16);
+    transform-origin: top;
+    transition: all 0.3s;
+    padding: 15px;
+    .ask-box {
+      padding: 6px;
+      width: 100%;
+      background: rgba($color: #FFFFFF, $alpha: .8);
+      position: relative;
+      border-radius: 15px;
+      box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+      h2 {
+        margin: 0px;
+        font-family: 'Raleway';
+        font-size: 18px;
+        font-weight: 500;
+        color: #606c7d;
+        border-bottom: 1px solid #c9c9c9;
+        padding: 9px;
+      }
+      .btn-holder {
+        position: relative;
+        margin-top: 5px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        ion-icon {
+          margin-left: 15px;
+          font-size: 24px;
+        }
+        button {
+          font-size: 14px;
+          font-weight: 500;
+          letter-spacing: 0.17px;
+        }
+        .sip {
+          position: relative;
+          height: 100%;
+          width: 1px;
+          background: #c9c9c9;
+          min-height: 35px;
+        }
+      }
+    }
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  } // .taste-item:first-child {
+  //   z-index: 4;
+  //   margin-top: 60px;
+  // }
+  .active {
+    z-index: 4;
+    margin-top: 60px;
+    animation: slide-fwd-center 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  }
+  .active+.taste-item {
+    z-index: 3;
+    margin-top: 45px;
+    transform: scale(0.9);
+  }
+  .active+.taste-item+.taste-item {
+    z-index: 2;
+    margin-top: 30px;
+    transform: scale(0.8);
+  }
+  .active+.taste-item+.taste-item+.taste-item {
+    z-index: 1;
+    margin-top: 15px;
+    transform: scale(0.7);
+  }
+  .active+.taste-item+.taste-item+.taste-item~* {
+    z-index: 0;
+    display: none;
+  }
+  .slide-bck-bottom {
+    -webkit-animation: slide-bck-bottom 0.45s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
+    animation: slide-bck-bottom 0.45s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
+  }
+  @-webkit-keyframes slide-bck-bottom {
+    0% {
+      -webkit-transform: translateZ(0) translateY(0);
+      transform: translateZ(0) translateY(0);
+      opacity: 1;
+      z-index: 5;
+    }
+    100% {
+      -webkit-transform: translateZ(-400px) translateY(100%);
+      opacity: 0;
+      transform: translateZ(-400px) translateY(100%);
+    }
+  }
+  @keyframes slide-bck-bottom {
+    0% {
+      -webkit-transform: translateZ(0) translateY(0);
+      transform: translateZ(0) translateY(0);
+      opacity: 1;
+      z-index: 5;
+    }
+    100% {
+      -webkit-transform: translateZ(-400px) translateY(100%);
+      transform: translateZ(-400px) translateY(100%);
+      opacity: 0;
+    }
+  }
+  @keyframes slide-fwd-center {
+    0% {
+      -webkit-transform: scale(0.9);
+      transform: scale(0.9);
+    }
+    100% {
+      -webkit-transform: scale(1) !important;
+      transform: scale(1) !important;
+    }
+  }
+  .slide-tl {
+    -webkit-animation: slide-tl 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    animation: slide-tl 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  }
+  .slide-tr {
+    -webkit-animation: slide-tr 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    animation: slide-tr 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  }
+  @keyframes slide-tl {
+    0% {
+      transform: translateY(0) translateX(0);
+      z-index: 5;
+    }
+    100% {
+      transform: translateY(-100px) translateX(-100px) scale(0.2);
+      opacity: 0;
+    }
+  }
+  @keyframes slide-tr {
+    0% {
+      transform: translateY(0) translateX(0);
+      z-index: 5;
+    }
+    100% {
+      transform: translateY(-100px) translateX(100px) scale(0.2);
+      opacity: 0;
+    }
+  }
+}
