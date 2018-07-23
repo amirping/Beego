@@ -33,7 +33,9 @@ export class SpacesProvider {
   listEspaces(){
     this.espacesList = this.database
       .list("espace")
-      .valueChanges();
+      .snapshotChanges().map(changes => {
+        return changes.map( c => ({key : c.payload.key,...c.payload.val()}))
+      });
       return this.espacesList;
 
   }
