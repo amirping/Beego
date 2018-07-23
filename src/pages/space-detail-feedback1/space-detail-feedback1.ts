@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams,ModalController, ViewController } from 'ionic-angular';
-import { EmojiEvent } from '@ionic-tools/emoji-picker/src';
+//import { EmojiEvent } from '@ionic-tools/emoji-picker/src';
 import { SpaceDetailFeedback2Page } from '../space-detail-feedback2/space-detail-feedback2';
 
 /**

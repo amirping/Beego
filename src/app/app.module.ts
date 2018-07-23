@@ -9,7 +9,7 @@ import { IonicApp, IonicErrorHandler, IonicModule } from "ionic-angular";
 import { SplashScreen } from "@ionic-native/splash-screen";
 import { StatusBar } from "@ionic-native/status-bar";
 import { Dialogs } from "@ionic-native/dialogs";
-import { EmojiPickerModule } from '@ionic-tools/emoji-picker';
+//import { EmojiPickerModule } from '@ionic-tools/emoji-picker';
 
 import { MyApp } from "./app.component";
 import { FIREBASE_CREDENTIALS } from "./firebase.credentials";
@@ -57,10 +57,11 @@ import { TabsPage } from "../pages/tabs/tabs";
 import { UserProvider } from "../providers/user/user";
 
 
-import { IonicSwipeAllModule } from "ionic-swipe-all";
+//import { IonicSwipeAllModule } from "ionic-swipe-all";
 
 import { SpacesProvider } from '../providers/spaces/spaces';
 import { EvenementPage } from "../pages/evenement/evenement";
+import { HttpClientModule } from "../../node_modules/@angular/common/http";
 
 
 
@@ -121,7 +122,7 @@ import { EvenementPage } from "../pages/evenement/evenement";
     Ionic2RatingModule,
 
 
-    IonicSwipeAllModule,
+   // IonicSwipeAllModule,
 
     HttpClientModule,
 
@@ -158,7 +159,7 @@ import { EvenementPage } from "../pages/evenement/evenement";
     SpaceDetailOpinionsPage,
     SpaceDetailFeedback1Page,
     SpaceDetailFeedback2Page,
-    SpaceDetailFeedback3Page
+    SpaceDetailFeedback3Page,
 
 
     MyTastesPage,

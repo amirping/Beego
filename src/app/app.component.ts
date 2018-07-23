@@ -42,10 +42,7 @@ export class MyApp {
     splashScreen: SplashScreen,
     public userProvider: UserProvider
   ) {
-
-
-  rootPage:any=SpaceDetailOpinionsPage ;
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,public userProvider: UserProvider) {
+ 
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
@@ -55,9 +52,9 @@ export class MyApp {
 
     this.userProvider.isConnect(state=>{
       if(state){
-        // this.rootPage = TabsPage;
+         this.rootPage = TabsPage;
       }else{
-        // this.rootPage = LandingPage;
+         this.rootPage = LandingPage;
       }
     });
   }
