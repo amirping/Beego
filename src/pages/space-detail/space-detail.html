@@ -13,7 +13,7 @@
           <ion-col >
             <img  class="img-space" src="../../assets/imgs/space_detail/whats-up.png" alt="">
             <div class="space_back_param">
-              <button class="buttn">
+              <button class="buttn" (click)="back()">
                 <img src="../../assets/imgs/arrow-back.png" alt="" class="back-img">
               </button>
               
@@ -41,11 +41,11 @@
                                 
                          </div>
                          <div class="space-title-place">
-                           <div class="space-title">What's Up Coffée</div>
+                           <div class="space-title">{{espaceName}}</div>
                            <div class="space-place">
                               <img class="lieu-img"
                                src="../../assets/imgs/space_detail/trac.png" alt="">
-                             Menzah 5, Ariena</div>
+                             {{espacePlace}}, {{espaceRegion}}</div>
                          </div>
                          <div class="photo-col">
                             <div class="bee-icon">
@@ -61,7 +61,7 @@
                   <ion-row>
                     <div class="follow_row">
                       <div>
-                        <button icon-only>
+                        <button icon-only (click)="suivre()">
                             <ion-icon class="size_icon"
                             ios="ios-heart" md="md-heart"></ion-icon>
                             
@@ -78,7 +78,7 @@
                             name="call"></ion-icon>
                         </button>
                           
-                           <span class="call_position">71 568 421</span>
+                           <span class="call_position">{{espaceTelephone}}</span>
                       </div>
                       <div class="separation"></div>
                       <div>
@@ -87,7 +87,7 @@
                             ios="ios-person" md="md-person"></ion-icon>
                         </button>
                           
-                           <span class="person_position">2, 345 K</span>
+                           <span class="person_position">{{nbFollowers}} </span>
                       </div>
                     </div>
                    
@@ -152,19 +152,19 @@
                   </ion-row>
                   <ion-row class="service_detail">
                     <ion-col class="servises" col-6>
-                      <div>Spécialité : <span>Milkshake .. </span>
+                      <div>Spécialité : <span>{{espaceMeilleureSpecialite}} </span>
                       </div>
-                      <div>Parking : <span>Disponible</span>
+                      <div>Parking : <span>{{espaceParking}}</span>
                       </div>
                       <div>Fouchette de prix : <span>$$$</span>
                       </div>
                     </ion-col>
                     <ion-col class="servises" col-6>
-                      <div>Loisirs : <span>Manege ..</span>
+                      <div>Loisirs : <span>{{loisirArray}} </span>
                       </div>
-                      <div>Terasse : <span>Oui</span>
+                      <div>Terasse : <span>{{espaceTerasse}}</span>
                       </div>
-                      <div>Cuisine : <span>Variée</span>
+                      <div>Cuisine : <span>{{espaceCuisine}}</span>
                       </div>
                     </ion-col>
                   </ion-row>
@@ -177,24 +177,11 @@
                   <ion-row class="row_title ">
                     Nos gouts
                   </ion-row>
-                  <ion-row class="row_taste">
-                      <div class="taste">
-                        <span>Milkshake</span>
+                  <ion-row class="row_taste" >
+                      <div class="taste" *ngFor="let item of espaceSpecialite">
+                        <span>{{item}}</span>
                       </div>
-                      <div class="taste">
-                        <span>Milkshake</span>
-                      </div>
-                      <div class="taste">
-                          <span>Milkshake</span>
-                      </div>
-                      </ion-row>
-                      <ion-row class="row_taste">
-                      <div class="taste">
-                          <span>Milkshake</span>
-                      </div>
-                      <div class="taste">
-                          <span>Milkshake</span>
-                      </div>
+                      
                   </ion-row>
                   <ion-row class="row_title ">
                       A propos:
@@ -228,47 +215,47 @@
                   </ion-row>
                   <ion-row class="info_row">
                     <ion-col class="info_col" col-6>
-                      <div class="info_element">
+                      <div class="info_element" *ngIf="espaceKaraoke">
                         <img class="info_img"
                         src="../../assets/imgs/space_detail/Karaoke-icon.svg" alt="">
-                        <span>Karaoké</span>
+                        <span>{{espaceKaraoke}}</span>
                       </div>
-                      <div class="info_element">
+                      <div class="info_element" *ngIf="espaceAccesWifi">
                           <img class="info_img"
                           src="../../assets/imgs/space_detail/wifi-icon.svg" alt="">
-                          <span>Acces wifi</span>
+                          <span>{{espaceAccesWifi}}</span>
                       </div>
-                      <div class="info_element">
+                      <div class="info_element" *ngIf="espaceReservation">
                         <img class="info_img"
                          src="../../assets/imgs/space_detail/reservation-icon.svg" alt="">
-                         <span>Reservation</span>
+                         <span>{{espaceReservation}}</span>
                       </div>
-                      <div class="last_info">
+                      <div class="last_info" *ngIf="espaceVue">
                         <img class="info_img"
                         src="../../assets/imgs/space_detail/Vue-sur-mer-icon.svg" alt="">
-                        <span>Vue sur mer</span>
+                        <span>{{espaceVue}}</span>
                       </div>
                     </ion-col>
                     <ion-col class="info_col" col-6>
-                        <div class="info_element">
+                        <div class="info_element" *ngIf="espaceStyle">
                             <img class="info_img_dec"
                             src="../../assets/imgs/space_detail/style-decontracte-icon.svg" alt="">
-                            <span>Style décontracté</span>
+                            <span>Style {{espaceStyle}}</span>
                           </div>
-                          <div class="info_element">
+                          <div class="info_element" *ngIf="espaceMatch">
                               <img class="info_img_dif"
                               src="../../assets/imgs/space_detail/Diffuse-icon.svg" alt="">
-                              <span>Diffuse les matchs</span>
+                              <span>{{espaceMatch}}</span>
                           </div>
-                          <div class="info_element">
+                          <div class="info_element" *ngIf="espaceMusique">
                             <img class="info_img"
                              src="../../assets/imgs/space_detail/Live-music-icon.svg" alt="">
-                             <span>Live musique</span>
+                             <span>{{espaceMusique}}</span>
                           </div>
-                          <div class="last_info">
+                          <div class="last_info" *ngIf="espaceClimatisation">
                             <img class="info_img_clim"
                             src="../../assets/imgs/space_detail/climatisation-icon.svg" alt="">
-                            <span class="clim_pos">Climatisation</span>
+                            <span class="clim_pos">{{espaceClimatisation}}</span>
                           </div>
                     </ion-col>
                   </ion-row>
@@ -311,8 +298,8 @@
                           Tout afficher
                       </button>
                   </ion-row>
-                  <ion-slides centeredSlides="true" zoom="false" loop  spaceBetween="5">
-                      <ion-slide>
+                  <ion-slides centeredSlides="true" zoom="false"  spaceBetween="5" >
+                      <ion-slide *ngFor="let item of reviewsArray" >
                           <ion-row class="Reviews_row">
                               <ion-col col-3>
                                   <div class="bee-img-reviews">
@@ -322,23 +309,22 @@
                                         </div>
                                   </div>
                                   <div class="com_time">
-                                      6 Mar 2018
+                                      {{item.date}}
                                   </div>
                               </ion-col>
                               <ion-col col-9>
                                 <div class="com_detail">
                                   <div class="name">
-                                    Nom Prenom
+                                    {{item.firstName}} {{item.lastName}}
                                   </div>
                                   <div class="rating-ex">
-                                      <rating [(ngModel)]="rating" emptyStarIconName="star-outline" halfStarIconName="star-half"
+                                      <rating [(ngModel)]="item.rating" emptyStarIconName="star-outline" halfStarIconName="star-half"
                                        starIconName="star" nullable="false"
                                         (ngModelChange)="null">
                                       </rating>
                                     </div>
                                     <div class="com">
-                                        Le Lorem Ipsum est simplement faux texte employé dans la composition et la
-                                         mise en page avant impression.
+                                        {{item.description}}
                                     </div>
                                     <div class="com_number">
                                         1 commentaire
@@ -361,7 +347,7 @@
                       <img class="trac_img" 
                        src="../../assets/imgs/space_detail/trac.svg" alt="">
                         <span>
-                            Rue 12457 num 4 nahje nakhil,zahrouni
+                           {{espaceAdresse}}
                         </span> 
                     </div>
                     <div class="btn_map">
@@ -378,9 +364,9 @@
                     </ion-col>
                     <ion-col col-5 class="find_us">
                       <img class="find_us_fb"
-                       src="../../assets/imgs/space_detail/Facebook.svg" alt="">
+                       src="../../assets/imgs/space_detail/Facebook.svg" alt="" (click)="back()">
                        <img class="find_us_insta" 
-                        src="../../assets/imgs/param/insta.svg" alt="">
+                        src="../../assets/imgs/param/insta.svg" alt="" (click)="back()">
                     </ion-col>
                   </ion-row>
                   <ion-row class="opinion">

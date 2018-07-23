@@ -21,6 +21,7 @@ import { MenuController } from "ionic-angular";
 import { SpacesProvider } from "../../providers/spaces/spaces";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { FriendProfilPage } from "../friend-profil/friend-profil";
+import { SpaceDetailPage } from "../space-detail/space-detail";
 
 
 /**
@@ -105,11 +106,7 @@ export class HomePage {
   
     //   });
     // });
-    this.espacesListRef$ = this.database
-      .list("espace")
-      .valueChanges(); /*map(changes => {
-        return changes.map( c => ({key : c.payload.key,...c.payload.val()}))
-      });*/
+ 
 
 
     /* Liste des suggestions */
@@ -271,7 +268,7 @@ export class HomePage {
     console.log("545");
     this.navCtrl.push(ChilloutPage, { category: "shopping" });
   }
-  navigateTo(page) {
+  navigateTo(page,idEspace) {
     switch (page) {
       case "FindFriendPage":
         this.navCtrl.push(FindFriendPage);
@@ -288,6 +285,8 @@ export class HomePage {
       case "FriendProfil":
         this.navCtrl.push(FriendProfilPage);
         break;
+        case"space-detail": 
+        this.navCtrl.push(SpaceDetailPage,{cle : idEspace});
       default:
         break;
     }

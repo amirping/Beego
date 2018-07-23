@@ -1,6 +1,7 @@
 import { Component } from "@angular/core";
 import { IonicPage, NavController, NavParams } from "ionic-angular";
 import { AngularFireDatabase } from "angularfire2/database";
+import { SpaceDetailPage } from "../../pages/space-detail/space-detail";
 /**
  * Generated class for the SpecialForYouPage page.
  *
@@ -21,10 +22,12 @@ export class SpecialForYouPage {
     public navParams: NavParams,
     private database : AngularFireDatabase
   ) {
-    const espaces$ = this.database.list('espace').valueChanges().subscribe(espaces => {
+    const espaces$ = this.database.list('espace').snapshotChanges().subscribe(espaces => {
       this.data = espaces.map((espace,index)=>{
-        const e = espace as any ;
+        const e = espace.payload.val() as any;
          e.id = index;
+         
+        e.key = espace.key
  
          return e;
        })
@@ -51,5 +54,9 @@ export class SpecialForYouPage {
     
     
     return true;
+  }
+  navigateToSpaceDetail(idEspace)
+  {
+    this.navCtrl.push(SpaceDetailPage,{cle : idEspace});
   }
 }
