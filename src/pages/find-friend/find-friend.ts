@@ -123,7 +123,7 @@ export class FindFriendPage {
     })
     
   }
-  friend_follow_Page(){
-    this.navCtrl.push(FriendProfilPage);
+  friend_follow_Page(uid){
+    this.navCtrl.push(FriendProfilPage, { uid });
   }
 }

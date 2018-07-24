@@ -19,6 +19,39 @@ export class FriendsProvider {
   ) {
     console.log('Hello FriendsProvider Provider');
   }
+  getFriendsRequest(clcbk){
+    const tk = this.userProvider.idToken;
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${tk}`);
+    this.http.get('http://localhost:5000/test-3cdd6/us-central1/beegoapi/friendrequests/',{headers})
+      .pipe(
+        retry(3), // retry a failed request up to 3 times
+        catchError(e=>{
+          return of({e});
+        }) // then handle the error
+      ).subscribe((data: any)=>{
+        // for (const friend of data.friends) {
+        //   friend.state = 0;
+        //   friends.push(friend);
+        // }
+        console.log(data);
+        this.lastScore = data.lastScore;
+        if(data.e){
+          clcbk(data.e)
+        }else{
+          const friends = [];
+          console.log(data);
+          console.log(data.friends);
+          for (const key in data.friends) {
+            console.log(key);
+            const friend = data.friends[key];
+            console.log(friend);
+            // friend.uid = key; 
+            friends.push(friend);
+          }
+          clcbk(friends);
+        }
+      });
+  }
   getSuggestedFriends(firstPage: boolean, method: "nearby"|"mutual"){
     this.lastScore = !firstPage?this.lastScore:"";
     const tk = this.userProvider.idToken;
@@ -95,5 +128,4 @@ export class FriendsProvider {
       });
     });
   }
-
 }

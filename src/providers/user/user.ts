@@ -83,6 +83,7 @@ export class UserProvider {
   stopObserveUser(){
     if(this.userSubscription){
       this.userSubscription.unsubscribe();
+      this.userSubscription = null;
     }
   }
   setUserObserver(clbk){
@@ -373,15 +374,20 @@ export class UserProvider {
   }
   canEnter(){
     if(this.connected){
-      if(this.lastConnectionCheck + 6000 > Date.now()){
+      if(this.lastConnectionCheck + 6000 < Date.now()){
         this.lastConnectionCheck = Date.now();
+        if(this.stateSubscription){
+          this.stateSubscription.unsubscribe();
+        }
         this.stateSubscription = this.auth.authState.pipe(
           catchError(e=>{
             console.log(e);
             return of(null);
           })
         ).subscribe(state=>{
+          console.log(state);
           if(!state || !state.emailVerified || state.email != this.user.email){
+            console.error("is not connect");
             this.connected = false;
             if(this.tabsCtrl){
               this.tabsCtrl(false);
@@ -400,7 +406,8 @@ export class UserProvider {
     return false;
   }
   setTabsCtrl(tabsCtrl){
-    this.tabsCtrl = tabsCtrl;    
+    this.tabsCtrl = tabsCtrl;
+    this.lastConnectionCheck = 0
     if(this.connected){
       const sub = this.db.object(`users/${this.auth.auth.currentUser.uid}`)
           .valueChanges()
@@ -416,14 +423,6 @@ export class UserProvider {
             sub.unsubscribe();
           });
     }
-    // this.stateSubscription = this.auth.authState.subscribe(state=>{
-    //   if(!state || !state.emailVerified ){
-    //     this.connected = false;
-    //     this.tabsCtrl(false);
-    //   }else{
-        
-    //   }
-    // });
   }
   removeTabsCtrl(){
     this.tabsCtrl = null;

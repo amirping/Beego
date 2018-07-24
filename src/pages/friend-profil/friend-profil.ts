@@ -21,11 +21,11 @@ import { FriendsProvider } from '../../providers/friends/friends';
 export class FriendProfilPage {
   friend:User;
   constructor(public navCtrl: NavController,
-    public friendProvider: FriendsProvider,
+    public friendsProvider: FriendsProvider,
     public navParams: NavParams) {
       const uid = this.navParams.get("uid");
     console.log(uid);
-    this.friendProvider.getFriend(this.navParams.get('uid')).subscribe((friend: User)=>{
+    this.friendsProvider.getFriend(this.navParams.get('uid')).subscribe((friend: User)=>{
       this.friend = friend;
       this.friend.uid = uid;
       this.friend.age = Math.abs(new Date(Date.now() - this.friend.birthday).getUTCFullYear() - 1970);
@@ -38,6 +38,15 @@ export class FriendProfilPage {
   }
   folowsPage(){
     this.navCtrl.push(ProfilPage);
+  }
+  requestFriend(friend){
+    friend.waiting = true;
+      this.friendsProvider.sendFriendRequest(friend.uid, 'request').then(t=>{
+        
+        console.log(t);
+      }).catch(e=>{
+        console.log(e);
+      });
   }
   
   

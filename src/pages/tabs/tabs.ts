@@ -6,6 +6,7 @@ import {ChilloutPage } from '../chillout/chillout';
 import { LoginPage } from '../login/login';
 
 import { UserProvider } from '../../providers/user/user';
+import { NotifyPage } from '../notify/notify';
 
 @Component({
   templateUrl: 'tabs.html'
@@ -14,7 +15,7 @@ export class TabsPage {
   tab1Root = HomePage;
   tab2Root = ProfilPage;
   tab3Root = HomePage;
-  tab4Root = ProfilPage;
+  tab4Root = NotifyPage;
   tab5Root = ProfilPage;
   connected : boolean;
   showTabs = true;

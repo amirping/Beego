@@ -64,6 +64,7 @@ import { EvenementPage } from "../pages/evenement/evenement";
 import { FriendsProvider } from '../providers/friends/friends';
 
 import { HttpClientModule } from "../../node_modules/@angular/common/http";
+import { NotifyPage } from "../pages/notify/notify";
 
 
 
@@ -109,7 +110,8 @@ import { HttpClientModule } from "../../node_modules/@angular/common/http";
     EvenementPage,
     UpdateProgramPage,
     DislikeListPage,
-    SpaceDetailPage
+    SpaceDetailPage,
+    NotifyPage,
 
   ],
   imports: [
@@ -167,7 +169,8 @@ import { HttpClientModule } from "../../node_modules/@angular/common/http";
     EvenementPage,
     UpdateProgramPage,
     DislikeListPage,
-    SpaceDetailPage
+    SpaceDetailPage,
+    NotifyPage
 
   ],
   providers: [
