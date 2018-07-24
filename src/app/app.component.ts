@@ -35,7 +35,7 @@ import { UserProvider } from '../providers/user/user';
 export class MyApp {
 
 
-  rootPage: any;
+  rootPage: any= SpaceDetailOpinionsPage;
   constructor(
     platform: Platform,
     statusBar: StatusBar,
@@ -52,9 +52,9 @@ export class MyApp {
 
     this.userProvider.isConnect(state=>{
       if(state){
-         this.rootPage = TabsPage;
+        //  this.rootPage = TabsPage;
       }else{
-         this.rootPage = LandingPage;
+        //  this.rootPage = LandingPage;
       }
     });
   }
