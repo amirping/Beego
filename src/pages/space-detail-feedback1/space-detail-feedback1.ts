@@ -17,14 +17,18 @@ import { SpaceDetailFeedback2Page } from '../space-detail-feedback2/space-detail
 })
 export class SpaceDetailFeedback1Page {
   rating =3 ;
+  idEspace;
   // ratingg;
- 
+  nom : string;
   constructor(public navCtrl: NavController, public navParams: NavParams
     ,private modalCtrl : ModalController , private viewCtrl:ViewController) {
+      this.nom = this.navParams.get('nom');
+      this.idEspace = this.navParams.get('cle')
   }
+
  
   goToFeefback2(){
-    const modal2= this.modalCtrl.create(SpaceDetailFeedback2Page, {ratingg:this.rating}, );
+    const modal2= this.modalCtrl.create(SpaceDetailFeedback2Page, {ratingg:this.rating, nom: this.nom,cle : this.idEspace } );
     modal2.present();
     this.viewCtrl.dismiss();
     // console.log(this.rating);

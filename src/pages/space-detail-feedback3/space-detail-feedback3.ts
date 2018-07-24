@@ -17,23 +17,28 @@ import { SpaceDetailFeedback2Page } from '../space-detail-feedback2/space-detail
 })
 export class SpaceDetailFeedback3Page {
   r;
+  nom : string;
   constructor(public navCtrl: NavController, public navParams: NavParams
     ,private modalCtrl : ModalController , private viewCtrl:ViewController) {
       this.r=navParams.get('ratingg');
+      this.nom = this.navParams.get('nom');
   }
   backToFeedback1(){
-    const modal3= this.modalCtrl.create(SpaceDetailFeedback1Page);
+    const modal3= this.modalCtrl.create(SpaceDetailFeedback1Page,{ nom: this.nom });
     modal3.present();
     this.viewCtrl.dismiss();
     modal3.onDidDismiss(()=>{
     });
   }
   backToFeedback2(){
-    const modal3= this.modalCtrl.create(SpaceDetailFeedback2Page , {ratingg:this.r},);
+    const modal3= this.modalCtrl.create(SpaceDetailFeedback2Page , {ratingg:this.r,nom: this.nom });
     modal3.present();
     this.viewCtrl.dismiss();
     modal3.onDidDismiss(()=>{
     });
+  }
+  close(){
+    this.viewCtrl.dismiss();
   }
   ionViewDidLoad() {
     console.log('ionViewDidLoad SpaceDetailFeedback3Page');

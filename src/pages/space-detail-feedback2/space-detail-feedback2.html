@@ -28,15 +28,15 @@
       <ion-row>
         <div class="feedback_welcome">
             Salut Mohamed, Comment vous trouvez
-            What's Up Coffée
+            {{nom}}
         </div>
       </ion-row>
       <ion-row class="feedback2_com">
         <textarea class="com"
-        name="" id="" cols="30" rows="10"></textarea>
+        name="" id="" cols="30" rows="10" [(ngModel)]="description"></textarea>
       </ion-row>
       <ion-row class="feedback_btn_row">
-        <button (click)="goToFeefback3()"
+        <button (click)="goToFeefback3(description)"
          class="feedback_btn">
             Valider
         </button>

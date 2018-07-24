@@ -48,15 +48,7 @@ export class SpaceDetailPage {
   idEspace: string;
   rating = 5;
 
-  goToOpinions(){
-    // this.navCtrl.push(SpaceDetailOpinionsPage);
-    // this.disabled=true;
-    const modal1= this.modalCtrl.create(SpaceDetailOpinionsPage);
-    modal1.present();
-    modal1.onDidDismiss(()=>{
-      // this.disabled=false;
-    });
-  }
+ 
 
   dualValue2 = 30;
   listFollowers : AngularFireList<any>;
@@ -183,6 +175,16 @@ export class SpaceDetailPage {
   back()
   {
     this.navCtrl.pop()
+  }
+  goToOpinions(espaceNom){
+    // this.navCtrl.push(SpaceDetailOpinionsPage);
+    // this.disabled=true;
+    const modal1= this.modalCtrl.create(SpaceDetailOpinionsPage,{ nom: espaceNom, cle : this.idEspace });
+    console.log(espaceNom)
+    modal1.present();
+    modal1.onDidDismiss(()=>{
+      // this.disabled=false;
+    });
   }
   suivre(){
     this.listFollowers.push({

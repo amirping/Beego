@@ -294,7 +294,7 @@
                     <ion-col class="row_title">
                         Reviews
                     </ion-col>
-                      <button  (click)="goToOpinions()"
+                      <button  (click)="goToOpinions(espaceName)"
                       class="Reviews_btn">
                           Tout afficher
                       </button>
@@ -321,7 +321,7 @@
                                   <div class="rating-ex">
                                       <rating [(ngModel)]="item.rating" emptyStarIconName="star-outline" halfStarIconName="star-half"
                                        starIconName="star" nullable="false"
-                                        (ngModelChange)="null">
+                                        (ngModelChange)="null" onlyread>
                                       </rating>
                                     </div>
                                     <div class="com">
@@ -372,7 +372,7 @@
                   </ion-row>
                   <ion-row class="opinion">
                     <ion-col>
-                        <button (click)="goToOpinions()" >
+                        <button (click)="goToOpinions(espaceName)" >
                             <ion-icon class="add_opinion"
                               name="add"></ion-icon>
                             Donner un avis

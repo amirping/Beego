@@ -46,14 +46,14 @@ export class SpecialForYouPage {
     console.log("ionViewDidLoad SpecialForYouPage");
   }
 
-  ShoworNot(item, text){
+  ShoworNot(item, text = ""){
 
     
    
     if((!item.espaceName.toLocaleLowerCase()
     .includes(text.toLocaleLowerCase()))
     &&
-    (!item.espaceSpecialite.toLocaleLowerCase()
+    (!item.espaceMeilleureSpecialite.toLocaleLowerCase()
     .includes(text.toLocaleLowerCase())))
     
     return false

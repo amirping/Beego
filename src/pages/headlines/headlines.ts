@@ -1,5 +1,7 @@
 import { Component } from "@angular/core";
 import { IonicPage, NavController, NavParams } from "ionic-angular";
+import { AngularFireDatabase } from "angularfire2/database";
+import { EvenementPage } from "../evenement/evenement";
 
 /**
  * Generated class for the HeadlinesPage page.
@@ -14,86 +16,68 @@ import { IonicPage, NavController, NavParams } from "ionic-angular";
   templateUrl: "headlines.html"
 })
 export class HeadlinesPage {
+  searchText: string;
+  searchName: string = "";
   data: any = [];
-  evenement: any = [
-    {
-      id: 1,
-      name: "YUMA - WInter tour",
-      location: "Bon coin",
-      pic: "https://source.unsplash.com/600x1080/?movie"
-    },
-    {
-      id: 1,
-      name: "YUMA - WInter tour",
-      location: "Bon coin",
-      pic: "https://source.unsplash.com/900x900/?party"
-    },
-    {
-      id: 1,
-      name: "YUMA - WInter tour",
-      location: "Bon coin",
-      pic: "https://source.unsplash.com/1000x900/?events"
-    },
-    {
-      id: 1,
-      name: "YUMA - WInter tour",
-      location: "Bon coin",
-      pic: "https://source.unsplash.com/1080x600/?music part"
-    },
-    {
-      id: 1,
-      name: "YUMA - WInter tour",
-      location: "Bon coin",
-      pic: "https://source.unsplash.com/900x900/?desko"
-    }
-  ];
-  promotion: any = [
-    {
-      id: 1,
-      name: "YUMA - WInter tour",
-      location: "Bon coin",
-      pic: "https://source.unsplash.com/600x1080/?movie"
-    },
-    {
-      id: 1,
-      name: "YUMA - WInter tour",
-      location: "Bon coin",
-      pic: "https://source.unsplash.com/900x900/?party"
-    },
-    {
-      id: 1,
-      name: "YUMA - WInter tour",
-      location: "Bon coin",
-      pic: "https://source.unsplash.com/1000x900/?events"
-    },
-    {
-      id: 1,
-      name: "YUMA - WInter tour",
-      location: "Bon coin",
-      pic: "https://source.unsplash.com/1080x600/?bar"
-    },
-    {
-      id: 1,
-      name: "YUMA - WInter tour",
-      location: "Bon coin",
-      pic: "https://source.unsplash.com/900x900/?desko"
-    },
-    {
-      id: 1,
-      name: "YUMA - WInter tour",
-      location: "Bon coin",
-      pic: "https://source.unsplash.com/900x900/?club"
-    },
-    {
-      id: 1,
-      name: "YUMA - WInter tour",
-      location: "Bon coin",
-      pic: "https://source.unsplash.com/900x900/?vodka,bar"
-    }
-  ];
+  evenement: any = [];
+  promotion: any = [];
+  date: string;
+  filter = [{
+    name: "gender",
+    value: "ALL"
+  },
+  {
+    name: "Place",
+    value: "ALL"
+  },
+  {
+    name: "date",
+    value: "ALL"
+  },
+  {
+    name: "name",
+    value: ""
+  }
+
+  ]
+  genre = "ALL"
+  place = "ALL"
+
   index_news = "events";
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.data = this.evenement;
+  category: string;
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    private database: AngularFireDatabase
+  ) {
+    this.category = this.navParams.get('category');
+
+    const evenements$ = this.database.list('evenement').snapshotChanges().subscribe(evenements => {
+      this.evenement = evenements.map((espace, index) => {
+        const e = espace.payload.val() as any;
+        e.key = espace.key
+
+        return e;
+      })
+
+      evenements$.unsubscribe();
+      console.log(evenements);
+      this.data = this.evenement
+    });
+
+    const promotions$ = this.database.list('promotion').valueChanges().subscribe(promotions => {
+      this.promotion = promotions.map((espace, index) => {
+        const e = espace as any;
+        e.id = index;
+
+        return e;
+      })
+
+      promotions$.unsubscribe();
+    });
+
+
+
   }
   switch(type) {
     this.index_news = type;
@@ -106,5 +90,83 @@ export class HeadlinesPage {
 
   ionViewDidLoad() {
     console.log("ionViewDidLoad HeadlinesPage");
+  }
+  changeFilter(type: string) {
+
+    switch (type) {
+      case 'Gender': {
+        this.searchText = this.genre;
+        this.filter[0] = {
+          name: "gender",
+          value: this.genre
+        }
+
+        break;
+      }
+      case 'Date': {
+        this.searchText = this.date;
+        this.filter[2] = {
+          name: "Date",
+          value: this.date
+        }
+
+        break;
+      }
+      case 'Place': {
+        this.searchText = this.place;
+        this.filter[1] = {
+          name: "Place",
+          value: this.place
+        }
+
+        break;
+      }
+      case 'Name': {
+        this.searchText = this.searchName;
+        this.filter[3].value = this.searchName
+        console.log(this.filter)
+      }
+
+        break;
+    
+    
+      default:
+    break;
+}
+
+console.log("nouveau filter", this.filter)
+  }
+  navigateToEvenement(eventId : string){
+    this.navCtrl.push(EvenementPage, {eventId});
+    console.log("ok")
+  }
+  onCancel(type: string) {
+    switch (type) {
+      case 'Gender': {
+        this.genre = "ALL"
+      }
+
+        break;
+
+      case 'Date': {
+        this.date = "ALL"
+      }
+
+        break;
+
+      case 'Place': {
+        this.place = "ALL"
+      }
+
+        break;
+
+
+
+
+      default:
+        break;
+    }
+
+
   }
 }
