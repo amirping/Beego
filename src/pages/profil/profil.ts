@@ -22,23 +22,72 @@ export class ProfilPage {
   user = {} as User;
   updateImageType: string;
   userSubscription : Subscription;
+  favorites: any = [
+    {
+      id: 1,
+      name: "YUMA - WInter tour",
+      location: "Bon coin",
+      pic: "https://source.unsplash.com/600x1080/?movie"
+    },
+    {
+      id: 1,
+      name: "YUMA - WInter tour",
+      location: "Bon coin",
+      pic: "https://source.unsplash.com/900x900/?party"
+    },
+    {
+      id: 1,
+      name: "YUMA - WInter tour",
+      location: "Bon coin",
+      pic: "https://source.unsplash.com/1000x900/?events"
+    },
+    {
+      id: 1,
+      name: "YUMA - WInter tour",
+      location: "Bon coin",
+      pic: "https://source.unsplash.com/1080x600/?music part"
+    },
+    {
+      id: 1,
+      name: "YUMA - WInter tour",
+      location: "Bon coin",
+      pic: "https://source.unsplash.com/900x900/?desko"
+    }
+  ];
+  hiddenPage:boolean;
   constructor(public navCtrl: NavController,
     public userProvider: UserProvider,
     public loadCtrl: LoadingController) {
+      this.hiddenPage = false;
   }
-  
+  // ionViewCanEnter(){
+  //   console.log("can enter");
+    
+    
+  //   this.userProvider.canEnter();
+  //   this.navCtrl.getViews()[0].dismiss()
+  //   return false
+  // }
+  ngOnInit(){
+    console.log("test");
+  }
   ionViewDidLoad() {
-    console.log(" profile");
-    this.user = this.userProvider.getCurrentUser();
+    console.log("did load");
+    this.user = this.userProvider.currentUser;
+  }
+  ionViewWillEnter(){
+    console.log("will enter");
+    this.hiddenPage = !this.userProvider.canEnter();
   }
   ionViewDidEnter(){
-    this.userSubscription  = this.userProvider.observeUser().subscribe(user=>{
-      this.user = {uid:this.user.uid,...user};
+    console.log("did enter");
+    this.userProvider.setUserObserver(user=>{
+      this.user = user;
     });
   }
   ionViewWillLeave(){
     console.log("fffffff");
-    this.userSubscription.unsubscribe();
+    this.userProvider.removeUserObserver();
   }
   formatFollows(nbr:number):string{
     return nbr+"";
@@ -54,7 +103,7 @@ export class ProfilPage {
   }
 
   logout(){
-    this.userProvider.logOut();
+    this.userProvider.logout();
     console.log("eeeee");
   }
   uploadImage(sourceType, input){
