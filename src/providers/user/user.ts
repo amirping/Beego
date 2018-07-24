@@ -366,9 +366,6 @@ export class UserProvider {
     user.follower = 0;
     user.following = 0;
     user.bio = "";
-    user.lat = 0;
-    user.lon = 0;
-    user.location = 0+"_"+0;
     return user;
   }
   get isConnected(){

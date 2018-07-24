@@ -264,7 +264,7 @@ export class HomePage {
   }
   logout() {
     this.navCtrl.push(LoginPage);
-    this.userpovider.logOut();
+    this.userpovider.logout();
   }
   navigateToChilloutPage() {
     console.log("545");
@@ -299,7 +299,7 @@ export class HomePage {
         this.navCtrl.push(FriendProfilPage, { uid: data });
         break;
         case"space-detail": 
-        this.navCtrl.push(SpaceDetailPage,{cle : idEspace});
+        this.navCtrl.push(SpaceDetailPage,{cle : data});
       default:
         break;
     }

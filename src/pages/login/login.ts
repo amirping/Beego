@@ -67,8 +67,6 @@ export class LoginPage {
           }
         ]
         }).present();
-      }else{
-        this.appCtrl.getRootNav().setRoot(TabsPage);
       }
     })
     .catch((err)=>{
