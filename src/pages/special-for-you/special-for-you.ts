@@ -1,6 +1,11 @@
 import { Component } from "@angular/core";
 import { IonicPage, NavController, NavParams } from "ionic-angular";
+
 import { AngularFireDatabase } from "angularfire2/database";
+import { SpaceDetailPage } from "../../pages/space-detail/space-detail";
+
+
+
 /**
  * Generated class for the SpecialForYouPage page.
  *
@@ -15,15 +20,18 @@ import { AngularFireDatabase } from "angularfire2/database";
 })
 export class SpecialForYouPage {
   data: any = [];
+
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
     private database : AngularFireDatabase
   ) {
-    const espaces$ = this.database.list('espace').valueChanges().subscribe(espaces => {
+    const espaces$ = this.database.list('espace').snapshotChanges().subscribe(espaces => {
       this.data = espaces.map((espace,index)=>{
-        const e = espace as any ;
+        const e = espace.payload.val() as any;
          e.id = index;
+         
+        e.key = espace.key
  
          return e;
        })
@@ -31,54 +39,31 @@ export class SpecialForYouPage {
        console.log(this.data)
        espaces$.unsubscribe();
          });
-         /*
-    this.data = [
-      {
-        id: 1,
-        name: "Cocktail mojito",
-        location: "Morjena",
-        pic: "https://source.unsplash.com/600x1080/?drink"
-      },
-      {
-        id: 1,
-        name: "Cocktail mojito",
-        location: "Morjena",
-        pic: "https://source.unsplash.com/900x900/?cocktail,bar"
-      },
-      {
-        id: 1,
-        name: "Cocktail mojito",
-        location: "Morjena",
-        pic: "https://source.unsplash.com/1000x900/?choclat"
-      },
-      {
-        id: 1,
-        name: "Cocktail mojito",
-        location: "Morjena",
-        pic: "https://source.unsplash.com/1080x600/?bar"
-      },
-      {
-        id: 1,
-        name: "Cocktail mojito",
-        location: "Morjena",
-        pic: "https://source.unsplash.com/900x900/?icecream"
-      },
-      {
-        id: 1,
-        name: "Cocktail mojito",
-        location: "Morjena",
-        pic: "https://source.unsplash.com/900x900/?mojito,bar"
-      },
-      {
-        id: 1,
-        name: "Cocktail mojito",
-        location: "Morjena",
-        pic: "https://source.unsplash.com/900x900/?vodka,bar"
-      }
-    ];*/
+
   }
 
   ionViewDidLoad() {
     console.log("ionViewDidLoad SpecialForYouPage");
   }
+
+  ShoworNot(item, text){
+
+    
+   
+    if((!item.espaceName.toLocaleLowerCase()
+    .includes(text.toLocaleLowerCase()))
+    &&
+    (!item.espaceSpecialite.toLocaleLowerCase()
+    .includes(text.toLocaleLowerCase())))
+    
+    return false
+    
+    
+    return true;
+  }
+  navigateToSpaceDetail(idEspace)
+  {
+    this.navCtrl.push(SpaceDetailPage,{cle : idEspace});
+  }
+
 }

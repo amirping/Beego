@@ -83,7 +83,7 @@ export class SignupStep2Page {
       this.userProvider.signup(user, this.navParams.get("password"), this.file)
       .then(()=>{
         load.dismiss();
-        this.userProvider.logout();
+        this.userProvider.logOut();
         this.navCtrl.push(LoginPage);
       }).catch(err=>{
         load.dismiss();

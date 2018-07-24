@@ -22,6 +22,8 @@ import { SpacesProvider } from "../../providers/spaces/spaces";
 import { FriendProfilPage } from "../friend-profil/friend-profil";
 import { FriendsProvider } from "../../providers/friends/friends";
 import { User } from "../../models/user.interface";
+import { SpaceDetailPage } from "../space-detail/space-detail";
+
 
 
 /**
@@ -108,11 +110,7 @@ export class HomePage {
 
     //   });
     // });
-    this.espacesListRef$ = this.database
-      .list("espace")
-      .valueChanges(); /*map(changes => {
-        return changes.map( c => ({key : c.payload.key,...c.payload.val()}))
-      });*/
+ 
 
 
     /* Liste des suggestions */
@@ -201,12 +199,38 @@ export class HomePage {
       return changes.map( c => ({key : c.payload.key,...c.payload.val()}))
     })*/;
   }
+  /**Changement ici */
   changeNewsTo(type) {
     this.index_news = type;
     if (type === "events") {
-      this.allNewsData = this.evenementListRef$;
+      
+      this.database
+      .list("evenement")
+      .snapshotChanges()
+      .subscribe(news => {
+        this.news = news.map((espace) => {
+          const e = espace.payload.val() as any;
+          e.key = espace.key
+  
+          return e;
+        });
+        
+      })
     } else {
-      this.allNewsData = this.promotionListRef$;
+      
+      
+      this.database
+      .list("promotion")
+      .snapshotChanges()
+      .subscribe(news => {
+        this.news = news.map((espace) => {
+          const e = espace.payload.val() as any;
+          e.key = espace.key
+  
+          return e;
+        });
+        
+      })
     }
   }
   nextSlide() {
@@ -240,7 +264,7 @@ export class HomePage {
   }
   logout() {
     this.navCtrl.push(LoginPage);
-    this.userpovider.logout();
+    this.userpovider.logOut();
   }
   navigateToChilloutPage() {
     console.log("545");
@@ -253,9 +277,6 @@ export class HomePage {
   navigateToShoppingPage() {
     console.log("545");
     this.navCtrl.push(ChilloutPage, { category: "shopping" });
-  }
-  log(page, data?) {
-    console.log(page, data);
   }
   navigateTo(page, data?) {
     switch (page) {
@@ -277,6 +298,8 @@ export class HomePage {
         console.log(data);
         this.navCtrl.push(FriendProfilPage, { uid: data });
         break;
+        case"space-detail": 
+        this.navCtrl.push(SpaceDetailPage,{cle : idEspace});
       default:
         break;
     }

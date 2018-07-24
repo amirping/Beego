@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 53 39">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+
+      .cls-2 {
+        fill: #e9ecee;
+      }
+
+      .cls-3 {
+        fill: #f2f5f7;
+      }
+
+      .cls-4 {
+        fill: #5bb797;
+      }
+
+      .cls-5 {
+        fill: #667a88;
+      }
+
+      .cls-6 {
+        fill: #e15c49;
+      }
+
+      .cls-7 {
+        fill: #dfdee1;
+      }
+
+      .cls-8 {
+        fill: #f7c64e;
+      }
+
+      .cls-9 {
+        fill: #fdd75a;
+      }
+
+      .cls-10 {
+        filter: url(#Tracé_1493);
+      }
+
+      .cls-11 {
+        filter: url(#Tracé_1515);
+      }
+    </style>
+    <filter id="Tracé_1515" x="1" y="0" width="45" height="33" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.078"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Tracé_1493" x="0" y="3" width="53" height="36" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="5" result="blur-2"/>
+      <feFlood flood-opacity="0.29"/>
+      <feComposite operator="in" in2="blur-2"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Groupe_630" data-name="Groupe 630" transform="translate(8.344 6.258)">
+    <g class="cls-11" transform="matrix(1, 0, 0, 1, -8.34, -6.26)">
+      <path id="Tracé_1515-2" data-name="Tracé 1515" class="cls-1" d="M4.656,15.742c.673-.337,24-7,24-7l-6-8-21,4Z" transform="translate(8.34 5.26)"/>
+    </g>
+    <path id="Tracé_1492" data-name="Tracé 1492" class="cls-1" d="M48.145,44.29h0l-22,5h0l22-5Z" transform="translate(-20.488 -34.548)"/>
+    <g class="cls-10" transform="matrix(1, 0, 0, 1, -8.34, -6.26)">
+      <path id="Tracé_1493-2" data-name="Tracé 1493" class="cls-2" d="M51.8,39.937l-21,5-1,1h0l22-5,1-1Z" transform="translate(-14.8 -24.94)"/>
+    </g>
+    <path id="Tracé_1494" data-name="Tracé 1494" class="cls-3" d="M32.291-.258l-21,5,4,10,23-6Z" transform="translate(-8.634)"/>
+    <path id="Tracé_1495" data-name="Tracé 1495" class="cls-4" d="M39.1,14.137l-22,5-2-6,21-5Z" transform="translate(-11.442 -6.395)"/>
+    <path id="Tracé_1496" data-name="Tracé 1496" class="cls-5" d="M63.549,41.951l-14,3v-1l14-3Z" transform="translate(-38.893 -32.208)"/>
+    <path id="Tracé_1497" data-name="Tracé 1497" class="cls-5" d="M44.8,14.5l-7,1h-1l7-2Z" transform="translate(-29.145 -10.762)"/>
+    <path id="Tracé_1498" data-name="Tracé 1498" class="cls-6" d="M19.906,17.468h-1l-1,2,2,1,1-1,1-1Z" transform="translate(-14.249 -13.726)"/>
+    <path id="Tracé_1499" data-name="Tracé 1499" class="cls-7" d="M80.711,9.059h-1v-1h1Z" transform="translate(-62.055 -6.317)"/>
+    <path id="Tracé_1500" data-name="Tracé 1500" class="cls-7" d="M85.143,8.357h-1v-1h1Z" transform="translate(-65.486 -5.615)"/>
+    <path id="Tracé_1501" data-name="Tracé 1501" class="cls-7" d="M89.574,6.733l-1,1v-1Z" transform="translate(-68.918 -4.991)"/>
+    <path id="Tracé_1502" data-name="Tracé 1502" class="cls-7" d="M93.928,6.032h-1v-1Z" transform="translate(-72.271 -4.289)"/>
+    <path id="Tracé_1503" data-name="Tracé 1503" class="cls-7" d="M98.281,5.33h-1v-1h0Z" transform="translate(-75.625 -3.587)"/>
+    <path id="Tracé_1504" data-name="Tracé 1504" class="cls-7" d="M102.634,4.628h-1v-1h0Z" transform="translate(-78.978 -2.885)"/>
+    <path id="Tracé_1505" data-name="Tracé 1505" class="cls-3" d="M34.947,22.055l-13,3h0l13-3Z" transform="translate(-17.291 -17.313)"/>
+    <path id="Tracé_1506" data-name="Tracé 1506" class="cls-3" d="M37.9,28.422l-13,3v-1l13-3Z" transform="translate(-19.241 -21.68)"/>
+    <path id="Tracé_1507" data-name="Tracé 1507" class="cls-3" d="M40.847,33.868l-14,3h0l14-3Z" transform="translate(-21.19 -26.125)"/>
+    <path id="Tracé_1508" data-name="Tracé 1508" class="cls-3" d="M100.331,29.982l-6,1h0l6-1Z" transform="translate(-73.675 -23.24)"/>
+    <path id="Tracé_1509" data-name="Tracé 1509" class="cls-3" d="M92.7,16.83l-6,1-1-1,6-1Z" transform="translate(-67.046 -12.088)"/>
+    <path id="Tracé_1510" data-name="Tracé 1510" class="cls-6" d="M21.218,59.662l-1-2h-2l1,2h2Z" transform="translate(-14.561 -44.92)"/>
+    <g id="Groupe_629" data-name="Groupe 629" transform="translate(-0.072 3.267)">
+      <path id="Tracé_1511" data-name="Tracé 1511" class="cls-8" d="M24.663,56.259l1,2s.286-.274,0-1a2.016,2.016,0,0,0-1-1h0" transform="translate(-18.935 -46.783)"/>
+      <path id="Tracé_1512" data-name="Tracé 1512" class="cls-8" d="M15.942,57.493v2s-.56.079-1-1l-1-2h1" transform="translate(-11.214 -47.017)"/>
+      <path id="Tracé_1513" data-name="Tracé 1513" class="cls-9" d="M6.656,25.315l-3-8-1-2c-.264-1.057-3.242-.057-3,1l1,2,3,8c-.286-1.233,2.362-1.969,3-1Z" transform="translate(0.072 -14.839)"/>
+    </g>
+    <path id="Tracé_1514" data-name="Tracé 1514" class="cls-5" d="M24.181,65.589h0l-2,1v-1Z" transform="translate(-17.525 -50.847)"/>
+  </g>
+</svg>

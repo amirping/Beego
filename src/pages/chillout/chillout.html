@@ -64,7 +64,7 @@
             <div class="grid-viewr"   >
               <ng-container  *ngFor="let item of 
               pagesData | async | searchRadio : searchText : category">
-                <div class="card-ex animated flipInX" *ngIf="item.type === indexPage || indexPage === 'ALL' "  >
+                <div class="card-ex animated flipInX" *ngIf="ShoworNot(item,searchText) "  >
               
                 
                 

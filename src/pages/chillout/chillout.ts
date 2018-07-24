@@ -79,6 +79,20 @@ export class ChilloutPage {
       this.navCtrl.pop();
     }
   }
+  ShoworNot(item, text){
+
+    
+   
+    if(!item.title.toLocaleLowerCase().includes(text.toLocaleLowerCase()))
+    return false
+    if(this.indexPage !="ALL")
+    {
+      if(item.type !== this.indexPage)
+      return false
+    }
+    
+    return true;
+  }
 
   
 }

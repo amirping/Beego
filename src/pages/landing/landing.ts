@@ -21,7 +21,7 @@ export class LandingPage {
     this.navCtrl.push(SignupStep1Page);
   }
   skip(){
-    this.navCtrl.setRoot(TabsPage);
+    this.navCtrl.push(TabsPage);
   }
 
 }
