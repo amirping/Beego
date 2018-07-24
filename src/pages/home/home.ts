@@ -19,9 +19,11 @@ import { ProfilPage } from "../profil/profil";
 import { ChilloutPage } from "../chillout/chillout";
 import { MenuController } from "ionic-angular";
 import { SpacesProvider } from "../../providers/spaces/spaces";
-import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { FriendProfilPage } from "../friend-profil/friend-profil";
+import { FriendsProvider } from "../../providers/friends/friends";
+import { User } from "../../models/user.interface";
 import { SpaceDetailPage } from "../space-detail/space-detail";
+
 
 
 /**
@@ -43,8 +45,8 @@ export class HomePage {
   scaleDragger = 100;
   DynamicHi = { height: this.scaleDragger + " vh" };
   search = false;
-  animateMenu = false;
-  animateMenuClose = false;
+  // animateMenu = false;
+  // animateMenuClose = false;
   isMenuOpen = false;
   @Output() menuSliding: EventEmitter<any> = new EventEmitter();
   searching() {
@@ -60,8 +62,8 @@ export class HomePage {
   allNewsData: any;
   ratingStatic = 4;
   index_news: any = "events";
-  listAttendees : AngularFireList<any>;
-  
+  listAttendees: AngularFireList<any>;
+  user:User;
   /**
    * used for animation of news slides
    */
@@ -72,18 +74,20 @@ export class HomePage {
   };
 
   news = [] as any;
+  connected = false;
+  friends = []
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
     private database: AngularFireDatabase,
     private userpovider: UserProvider,
+    private friendsProvider: FriendsProvider,
     public menuCtrl: MenuController,
     private spacesProvider: SpacesProvider,
-     private http: HttpClient,
     private events: Events
   ) {
-    
-    
+
+
     /* Liste des espaces */
     this.espacesListRef$ = spacesProvider.listEspaces();
     // don't
@@ -101,9 +105,9 @@ export class HomePage {
     //   this.http.get('http://localhost:5000/test-3cdd6/us-central1/helloBeego/',{headers})
     //   // .map(res => res.json())
     //   .subscribe(data => {
-  
+
     //       console.log(data);
-  
+
     //   });
     // });
  
@@ -151,10 +155,10 @@ export class HomePage {
         this.news = news.map((espace, index) => {
           const e = espace.payload.val() as any;
           e.key = espace.key
-  
+
           return e;
         });
-        
+
       }) /*.map(changes => {
         return changes.map( c => ({key : c.payload.key,...c.payload.val()}))
       })*/;
@@ -166,10 +170,18 @@ export class HomePage {
       })*/;
     this.allNewsData = this.evenementListRef$;
   }
-
   ionViewDidLoad() {
-    console.log("ionViewDidLoad AcceuilPage");
-
+    this.userpovider.setUserObserver(user=>{
+      this.user = user;
+    });
+    this.friendsProvider.getSuggestedFriends(true, "mutual")
+    .then((friends: any[])=>{
+      this.friends=friends;
+    })
+    .catch(e=>{
+      console.log(e);
+    });
+    this.connected = this.userpovider.isConnected;
   }
   promotionClicked() {
     /* Liste des promotions */
@@ -221,7 +233,6 @@ export class HomePage {
       })
     }
   }
-  
   nextSlide() {
     if (this.newSlider_indicators.show_index_slide < this.news.length - 1) {
       this.newSlider_indicators.show_index_slide++;
@@ -251,7 +262,6 @@ export class HomePage {
     }
     console.log(Event);
   }
-
   logout() {
     this.navCtrl.push(LoginPage);
     this.userpovider.logOut();
@@ -268,10 +278,12 @@ export class HomePage {
     console.log("545");
     this.navCtrl.push(ChilloutPage, { category: "shopping" });
   }
-  navigateTo(page,idEspace) {
+  navigateTo(page, data?) {
     switch (page) {
       case "FindFriendPage":
-        this.navCtrl.push(FindFriendPage);
+        if(this.userpovider.canEnter()){
+          this.navCtrl.push(FindFriendPage);
+        }
         break;
       case "suggest":
         this.navCtrl.push(SuggestPage);
@@ -283,7 +295,8 @@ export class HomePage {
         this.navCtrl.push(HeadlinesPage, { category: "evenement" });
         break;
       case "FriendProfil":
-        this.navCtrl.push(FriendProfilPage);
+        console.log(data);
+        this.navCtrl.push(FriendProfilPage, { uid: data });
         break;
         case"space-detail": 
         this.navCtrl.push(SpaceDetailPage,{cle : idEspace});
@@ -298,24 +311,24 @@ export class HomePage {
     }
     if (Event.offsetDirection == 4) {
       if (!this.menuCtrl.isOpen()) {
-        this.animateMenu = true;
-        this.animateMenuClose = false;
+        // this.animateMenu = true;
+        // this.animateMenuClose = false;
         this.menuCtrl.open();
       }
     } else if (Event.offsetDirection == 2) {
-      this.animateMenu = false;
-      this.animateMenuClose = true;
+      // this.animateMenu = false;
+      // this.animateMenuClose = true;
 
       this.menuCtrl.close();
     }
   }
   collectSwiper(ev) {
-    console.log("collecting to drag");
-    console.log(ev);
-    //this.scaleDragger = this.scaleDragger - 0.2 * ev;
-    console.log(100 - 20 * ev);
-    let lober = 100 - 20 * ev;
-    this.scaleDragger = lober;
+    // console.log("collecting to drag");
+    // console.log(ev);
+    // //this.scaleDragger = this.scaleDragger - 0.2 * ev;
+    // console.log(100 - 20 * ev);
+    // let lober = 100 - 20 * ev;
+    this.scaleDragger = 100 - 20 * ev;
   }
   setContentStyle() {
     let margintop = (100 - this.scaleDragger) / 2;
@@ -331,11 +344,11 @@ export class HomePage {
     //   return false;
     // }
 
-    console.log("swipe on the content");
-    console.log(Ev);
+    // console.log("swipe on the content");
+    // console.log(Ev);
     // -> right
     if (Ev.direction == 4) {
-      if (!this.isMenuOpen && this.checkerForGod(Ev) == true) {
+      if (this.canOpenMenuBySwipe(Ev)) {
         this.isMenuOpen = !this.isMenuOpen;
         this.menuSliding.emit(true);
         this.events.publish("MenuOpen", true);
@@ -350,7 +363,7 @@ export class HomePage {
     }
   }
   menuSwipe(Ev) {
-    console.log("swipe on menu");
+    // console.log("swipe on menu");
     if (Ev.direction == 4) {
       return false;
       // left <-
@@ -362,16 +375,10 @@ export class HomePage {
       }
     }
   }
-  dummySwipe(Ev) {
-    // tell u daddy that i shout u motherfucker
-    // fuck who care ?
-    // ok listen it look crazy but this is make it work so DON'T try to change it
-    console.log("Hello mother fucker");
-    //Ev.stopPropagation();
-
-    //return false;
-  }
-  checkerForGod(Event) {
+  canOpenMenuBySwipe(Event) {
+    if(!this.connected || this.isMenuOpen){
+      return false;
+    }
     let seekhere = Event.target;
     while (seekhere.offsetParent && seekhere.offsetParent.length != 0) {
       let bubbleofDevil = seekhere.offsetParent;
@@ -391,21 +398,40 @@ export class HomePage {
     }
   }
   swipeByButton() {
+    if(!this.connected){
+      return
+    }
     this.isMenuOpen = !this.isMenuOpen;
     this.events.publish("MenuOpen", this.isMenuOpen);
   }
-  ionViewCanLeave(){
-    // this.userpovider.isStillConnect();
-    // this.userpovider.isUser();
-    return true;
-  }
-  interesser(id:string){
-    this.listAttendees= this.database.list(`evenement/${id}/Attendees`);
+  // ionViewCanLeave() {
+  //   // this.userpovider.isStillConnect();
+  //   // this.userpovider.isUser();
+  //   return true;
+  // }
+  interesser(id: string) {
+    this.listAttendees = this.database.list(`evenement/${id}/Attendees`);
     this.listAttendees.push({
-      lastname :"Outlaw",
-      name:"Adem"
+      lastname: "Outlaw",
+      name: "Adem"
     });
     console.log("ok")
-    
+
+  }
+  sendFriendRequest(friend){
+    if(this.userpovider.canEnter()){
+      friend.waiting = true;
+      this.friendsProvider.sendFriendRequest(friend.uid, 'request').then(t=>{
+        for (let index = 0; index < this.friends.length; index++) {
+          if(this.friends[index].uid === friend.uid){
+            this.friends.splice(index, 1);
+            break;
+          }
+        }
+        console.log(t);
+      }).catch(e=>{
+        console.log(e);
+      });
+    }
   }
 }

@@ -25,19 +25,34 @@ export class TabsPage {
     private appCtr: App) {
   }
   ionViewDidEnter(){
-    this.connected = false;
-    this.userProvider.observeStateChange(state=>{
-      if(state){
-        this.connected = true;
+    console.log("did enter to tabs");
+    this.userProvider.setTabsCtrl(connect=>{
+      if(connect){
         this.userProvider.startObserveUser();
       }else{
-        if(this.connected){
-          this.appCtr.getRootNav().setRoot(LandingPage);
-        }
+        console.log("prevent to enter");
+        this.alertCtrl.create({
+          title:'connect',
+          message:'login or register ',
+          buttons:[{
+            text:'login',
+            handler:()=>{
+              this.navCtrl.setRoot(LoginPage)
+            }
+          },{
+            text:'cancel'
+          }]
+        }).present();
+        setTimeout(() => {
+          this.tabs.select(0)
+        }, 0);
+
       }
     })
   }
-  ionViewWillLeave(){
+
+  ionViewWillLeave() {
+
     this.userProvider.stopObserveUser();
   }
 }

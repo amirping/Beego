@@ -3,67 +3,90 @@ import { AngularFireAuth } from "angularfire2/auth";
 import { User } from "../../models/user.interface";
 import { AngularFireDatabase } from "angularfire2/database";
 import firebase from 'firebase';
-import { Observable } from "rxjs/Observable";
-/*
-  Generated class for the UserProvider provider.
+import { catchError } from "rxjs/operators";
+import { of } from "rxjs/observable/of";
 
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
+
+
 @Injectable()
 export class UserProvider {
   user = {} as User;
   userObserverClbk : any;
+  tabsCtrl: any;
   userSubscription : any;
+  stateSubscription : any;
+  connected: boolean;
+  token:any=0;
+  lastConnectionCheck = 0;
   constructor(
     public auth: AngularFireAuth,
     public db: AngularFireDatabase
   ) {
   }
   isConnect(clbk) {
+    this.connected = false;
+    this.lastConnectionCheck = Date.now();
     const sub = this.auth.authState.subscribe(state=>{
+      console.log(state);
       if(state && state.emailVerified){
-          this.db.object(`users/${this.auth.auth.currentUser.uid}`)
+          const sub2 = this.db.object(`users/${this.auth.auth.currentUser.uid}`)
           .valueChanges()
           .subscribe((user: any) => {
             if (user) {
               this.user = user;
               this.user.uid = this.auth.auth.currentUser.uid;
+              this._updateEmail(user);
+              this.connected = true;
               clbk(true);
             } else {
               clbk(false);
             }
+            sub2.unsubscribe();
           });
-        }else{
-          clbk(false);
-        }
+      }else{
+        clbk(false);
+      }
       sub.unsubscribe();
     });
   }
-  observeStateChange(clbk){
-    const sub = this.auth.authState.subscribe(state=>{
-      clbk(state);
-      if(!state){
-        sub.unsubscribe();
-      }
+  _updateEmail(user){
+    if(user["email"] != this.auth.auth.currentUser.email){
+      console.log("diff mail");
+      this.user.email = this.auth.auth.currentUser.email;
+      this.db.list('users').update(this.auth.auth.currentUser.uid, {email:this.user.email})
+      .catch(err=>{
+        console.log(err);
+      });
+    }
+    console.log("in update mail");
+    this.auth.auth.currentUser.getIdToken().then(tk=>{
+      this.token = tk;
     });
   }
   startObserveUser(){
+    if(this.userSubscription) return;
     this.userSubscription = this.db.object(`users/${this.auth.auth.currentUser.uid}`)
     .valueChanges()
     .subscribe(user=>{
       this.user = user as User;
-      this.user.uid = this.auth.auth.currentUser.uid;
       this.user.email = this.auth.auth.currentUser.email;
+      this.user.uid = this.auth.auth.currentUser.uid;
+      console.log("we set user");
+      this.auth.auth.currentUser.getIdToken().then(tk=>{
+        this.token = tk;
+      });
       if(this.userObserverClbk){
         this.userObserverClbk(this.user);
       }
     });
   }
   stopObserveUser(){
-    this.userSubscription.unsubscribe();
+    if(this.userSubscription){
+      this.userSubscription.unsubscribe();
+    }
   }
   setUserObserver(clbk){
+    clbk(this.user);
     this.userObserverClbk = clbk;
   }
   removeUserObserver(){
@@ -71,46 +94,43 @@ export class UserProvider {
   }
   login(email: string, password: string): Promise<any> {
     return new Promise((resolve, reject)=>{
-      this.auth.auth.signInWithEmailAndPassword(email, password).then((res)=>{
-        resolve(res);
-      }).catch((e)=>{
+      this.auth.auth.signInWithEmailAndPassword(email, password)
+      .then((res)=>{
+        if(res.emailVerified){
+          this.checkUser(exist=>{
+            resolve(exist)
+            this.connected = exist;
+          });
+        }else{
+          resolve(false);
+        }
+      })
+      .catch((e)=>{
         console.log(e);
         const err = {error:e, msg :"Votre email ou votre mot de passe sont fausses"}
         reject(err);
-      })
+      });
     });
   }
   loginWithGoogle(nextStep, success, reject) {
     this.auth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider())
     .then(res => {
       const af = res.additionalUserInfo;
-      if (af.isNewUser) {
-        const user:User = {
-          email: af.profile.email,
-          gender: af.profile.gender,
-          photoURL: af.profile.picture,
-          firstName: af.profile.given_name,
-          lastName: af.profile.family_name
-        };
-        nextStep(user);
-      } else {
-        this.setUser()
-        .then(() => {
+      const user:User = {
+        email: af.profile.email,
+        gender: af.profile.gender,
+        photoURL: af.profile.picture,
+        firstName: af.profile.given_name,
+        lastName: af.profile.family_name
+      };
+      this.checkUser(exist=>{
+        if(exist){
+          this.connected = exist;
           success();
-        })
-        .catch(e => {
-          if (e.userIsNotSet) {
-            const user: User = {
-              email: af.profile.email,
-              gender: af.profile.gender,
-              photoURL: af.profile.picture,
-              firstName: af.profile.given_name,
-              lastName: af.profile.family_name
-            };
-            nextStep(user);
-          }
-        });
-      }
+        }else{
+          nextStep(user);
+        }
+      });
     })
     .catch(err => {
       reject(err);
@@ -121,33 +141,22 @@ export class UserProvider {
     .then(res => {
       const kf = res.additionalUserInfo;
       console.log(kf);
-      if (kf.isNewUser) {
-          const user :User = {
-            email: kf.profile.email,
-            gender: kf.profile.gender,
-            photoURL: kf.profile.picture.data.url,
-            firstName: kf.profile.first_name,
-            lastName: kf.profile.last_name
-          };
-          nextStep(user);
-      } else {
-        this.setUser()
-        .then(() => {
+      const user :User = {
+        email: kf.profile.email,
+        gender: kf.profile.gender,
+        photoURL: kf.profile.picture.data.url,
+        firstName: kf.profile.first_name,
+        lastName: kf.profile.last_name
+      };
+      this.checkUser(exist=>{
+        if(exist){
+          this.connected = exist;
           success();
-        })
-        .catch(e => {
-          if (e.userIsNotSet) {
-            const user = {
-              email: kf.profile.email,
-              gender: kf.profile.gender,
-              photoUrl: kf.profile.picture.data.url,
-              firstName: kf.profile.first_name,
-              lastName: kf.profile.last_name
-            };
-            nextStep(user);
-          }
-        });
-      }
+        }else{
+          nextStep(user);
+        }
+      });
+      
     })
     .catch(err =>{
       reject(err);
@@ -175,7 +184,7 @@ export class UserProvider {
                   .then(() => {
                     resolve();
                     this.auth.auth.currentUser.sendEmailVerification();
-                    this.logOut();
+                    this.logout();
                   }).catch(err => {
                     reject({ type: 1, err });
                   })
@@ -186,7 +195,7 @@ export class UserProvider {
           .then(() => {
             resolve();
             this.sendEmailVerification();
-            this.logOut();
+            this.logout();
           }).catch(err => {
             reject({ type: 2, err });
           });
@@ -211,7 +220,6 @@ export class UserProvider {
         });
     });
   }
-  
   sendEmailVerification(){
     return new Promise((resolve, reject)=>{
       this.auth.auth.currentUser.sendEmailVerification().then(()=>{
@@ -220,7 +228,7 @@ export class UserProvider {
         reject(err);
       });
     })
-  }    
+  } 
   resetPassword(email: string) {
     return new Promise((resolve, reject)=>{
       this.auth.auth.sendPasswordResetEmail(email).then(()=>{
@@ -236,7 +244,6 @@ export class UserProvider {
     return this.user;
   }
   upadateImage(imageType: string, file: File): Promise<any>{
-    console.log(file);
     return new Promise((resolve, reject)=>{
       const uid = this.auth.auth.currentUser.uid;
       const folder = imageType=="photo"?"photos":"covers";
@@ -284,7 +291,7 @@ export class UserProvider {
       });
     })
   }
-  canCahngePassword():boolean{
+  canChangePassword():boolean{
     const providerData = this.auth.auth.currentUser.providerData;
     for (const p of providerData) {
       if(p.providerId == "password"){
@@ -309,10 +316,8 @@ export class UserProvider {
   updateEmail(email, password){
     const user = this.auth.auth.currentUser;
     return new Promise((resolve, reject)=>{
-      user.reauthenticateWithCredential(firebase.auth.EmailAuthProvider.credential(this.user.email, password))
+      user.reauthenticateWithCredential(firebase.auth.EmailAuthProvider.credential(this.auth.auth.currentUser.email, password))
       .then(()=>{
-        console.log("we will try to update mail");
-        console.log(email);
         user.updateEmail(email)
         .then(()=> {
           this.db.list('users').update(this.auth.auth.currentUser.uid, {email}).then(()=>{
@@ -334,54 +339,100 @@ export class UserProvider {
       
     });
   }
-
-  logOut() {
+  logout() {
     this.auth.auth.signOut();
+    console.log("signout");
   }
-
-  setUser() {
-    return new Promise((resolve, reject) => {
+  get idToken(){
+    return this.token;
+  }
+  checkUser(clbk) {
       const uid = this.auth.auth.currentUser.uid;
       const sub = this.db
         .object(`users/${uid}`)
         .valueChanges()
         .subscribe((user: any) => {
           if (user) {
-            this.user = user;
-            this.user.uid = uid;
-            console.log(this.user);
-            resolve();
+            clbk(true);
           } else {
-            reject({ userIsNotSet: true });
+            clbk(false);
           }
           sub.unsubscribe();
         });
-    });
   }
-  observeUser():Observable<any>{
-    return this.db
-      .object(`users/${this.auth.auth.currentUser.uid}`)
-      .valueChanges();
-  }
-  
-  getCurrentUser(user=null) {
-    if(user){
-      this.user ={...this.user,...user};
-    }
-    return this.user;
-  }
-  
-  
-  
-  
-
   setUserToSignup(user:User):User{
     user.coverURL = "";
     user.photoURL = user.photoURL || "";
     user.follower = 0;
     user.following = 0;
     user.bio = "";
+    user.lat = 0;
+    user.lon = 0;
+    user.location = 0+"_"+0;
     return user;
+  }
+  get isConnected(){
+    return this.connected;
+  }
+  canEnter(){
+    if(this.connected){
+      if(this.lastConnectionCheck + 6000 < Date.now()){
+        this.lastConnectionCheck = Date.now();
+        this.stateSubscription = this.auth.authState.pipe(
+          catchError(e=>{
+            console.log(e);
+            return of(null);
+          })
+        ).subscribe(state=>{
+          if(!state || !state.emailVerified || state.email != this.user.email){
+            this.connected = false;
+            if(this.tabsCtrl){
+              this.tabsCtrl(false);
+            }
+          }
+        });
+      }
+      if(this.tabsCtrl){
+        this.tabsCtrl(true);
+      }
+      return true;
+    }
+    if(this.tabsCtrl){
+      this.tabsCtrl(false);
+    }
+    return false;
+  }
+  setTabsCtrl(tabsCtrl){
+    this.tabsCtrl = tabsCtrl;    
+    if(this.connected){
+      const sub = this.db.object(`users/${this.auth.auth.currentUser.uid}`)
+          .valueChanges()
+          .subscribe((user: any) => {
+            if (user) {
+              this.user = user;
+              this.user.uid = this.auth.auth.currentUser.uid;
+              this.connected = true;
+            } else {
+              this.connected = false;
+            }
+            this.canEnter();
+            sub.unsubscribe();
+          });
+    }
+    // this.stateSubscription = this.auth.authState.subscribe(state=>{
+    //   if(!state || !state.emailVerified ){
+    //     this.connected = false;
+    //     this.tabsCtrl(false);
+    //   }else{
+        
+    //   }
+    // });
+  }
+  removeTabsCtrl(){
+    this.tabsCtrl = null;
+    if(this.stateSubscription){
+      this.stateSubscription.unsubscribe();
+    }
   }
   get GUID(): string {
     return (new Date().getTime().toString(36) +"_" + Math.random().toString(36).substring(2, 10));

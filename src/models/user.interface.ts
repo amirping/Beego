@@ -15,4 +15,8 @@ export interface User{
     fbLink?: string;
     instaLink?: string;
     snapLink?: string;
+    age?: number;
+    lat?: number;
+    lon?: number;
+    location?: string;
 }

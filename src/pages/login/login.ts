@@ -46,7 +46,9 @@ export class LoginPage {
     .then((res)=>{
       load.dismiss();
       console.log(res);
-      if(!res.emailVerified){
+      if(res){
+        this.appCtrl.getRootNav().setRoot(TabsPage);
+      }else{
         this.alertCtrl.create({
           title:"ERREUR",
           message:"Verfier votre email",

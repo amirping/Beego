@@ -2,6 +2,7 @@ import { Component } from "@angular/core";
 import { IonicPage, NavController, NavParams } from "ionic-angular";
 import { AngularFireDatabase } from "angularfire2/database";
 import { FriendProfilPage } from "../friend-profil/friend-profil";
+import { FriendsProvider } from "../../providers/friends/friends";
 
 /**
  * Generated class for the FindFriendPage page.
@@ -18,24 +19,13 @@ import { FriendProfilPage } from "../friend-profil/friend-profil";
 export class FindFriendPage {
   
   friends: any = [];
-  traited: any = [];
-  activeFriend = 0;
+  activeIndex = 0;
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams, 
-    private database : AngularFireDatabase
+    private friendsProvider : FriendsProvider
   ) {
-    const friends$ = this.database.list('connaissance').valueChanges().subscribe(friends => {
-     this.friends = friends.map((friend,index)=>{
-       const f = friend as any ;
-        f.id = index;
-
-        return f;
-      })
-     // this.friends= friends;
-      console.log(this.friends)
-      friends$.unsubscribe();
-        });
+    
 
     /**
      * this.friends.push({
@@ -82,27 +72,56 @@ export class FindFriendPage {
 
   ionViewDidLoad() {
     console.log("ionViewDidLoad FindFriendPage");
+    this.friendsProvider.getSuggestedFriends(true, "nearby")
+    .then((friends: any[])=>{
+      this.friends.push(...friends);
+    })
+    .catch(e=>{
+      console.log(e);
+    });
   }
-  acceptFriend(id) {
-    this.friends[id].stat = 1;
-    //
-    this.traited.push(this.friends[id]);
-    //this.friends.shift();
-    this.activeFriend = id + 1;
+  acceptFriend(friend) {
+    friend.state = 1;
+    this._sendRequest(friend.uid, 'request');
   }
-  rejectFriend(id) {
-    this.friends[id].stat = -1;
-    this.traited.push(this.friends[id]);
-    //this.friends.shift();
-    this.activeFriend = id + 1;
+  rejectFriend(friend) {
+    friend.state = -1;
+    this._sendRequest(friend.uid, 'ignore');
   }
-  swiperHandler(Event,id) {
-    if(Event.offsetDirection == 2 ){
-      this.acceptFriend(id)
+  swiperHandler(event, friend) {
+    if(event.offsetDirection == 2 ){
+      this.acceptFriend(friend)
     }
-    else if(Event.offsetDirection == 4){
-      this.rejectFriend(id)
+    else if(event.offsetDirection == 4){
+      this.rejectFriend(friend)
     }
+    // this.friends.shift();
+    if(this.friends.length<3){
+      // this.friends.unshift({hidden:true});
+      this.friendsProvider.getSuggestedFriends(false, "nearby")
+      .then((friends: any[])=>{
+        this.friends.push(...friends);
+      })
+      .catch(e=>{
+        console.log(e);
+      });
+    }
+  }
+  _sendRequest(uid, type){
+    this.activeIndex++;
+    this.friendsProvider.sendFriendRequest(uid, type)
+    .then(data=>{
+      console.log(data);
+      for (let index = 0; index < this.friends.length; index++) {
+        if(this.friends[index].uid === uid){
+          this.friends.splice(index, 1);
+          this.activeIndex--;
+        }
+      }
+    }).catch(e=>{
+      console.log(e);
+    })
+    
   }
   friend_follow_Page(){
     this.navCtrl.push(FriendProfilPage);

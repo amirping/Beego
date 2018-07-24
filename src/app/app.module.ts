@@ -61,8 +61,9 @@ import { UserProvider } from "../providers/user/user";
 
 import { SpacesProvider } from '../providers/spaces/spaces';
 import { EvenementPage } from "../pages/evenement/evenement";
-import { HttpClientModule } from "../../node_modules/@angular/common/http";
+import { FriendsProvider } from '../providers/friends/friends';
 
+import { HttpClientModule } from "../../node_modules/@angular/common/http";
 
 
 
@@ -176,7 +177,9 @@ import { HttpClientModule } from "../../node_modules/@angular/common/http";
     UserProvider,
     SearchRadioPipe,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
-    SpacesProvider
+    SpacesProvider,
+    FriendsProvider
+
   ],
   
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
