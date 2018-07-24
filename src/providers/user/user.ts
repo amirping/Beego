@@ -3,6 +3,8 @@ import { AngularFireAuth } from "angularfire2/auth";
 import { User } from "../../models/user.interface";
 import { AngularFireDatabase } from "angularfire2/database";
 import firebase from 'firebase';
+import { catchError } from "rxjs/operators";
+import { of } from "rxjs/observable/of";
 
 
 
@@ -13,30 +15,33 @@ export class UserProvider {
   tabsCtrl: any;
   userSubscription : any;
   stateSubscription : any;
-  isConnected: boolean;
+  connected: boolean;
   token:any=0;
+  lastConnectionCheck = 0;
   constructor(
     public auth: AngularFireAuth,
     public db: AngularFireDatabase
   ) {
   }
   isConnect(clbk) {
-    this.isConnected = false;
+    this.connected = false;
+    this.lastConnectionCheck = Date.now();
     const sub = this.auth.authState.subscribe(state=>{
       console.log(state);
       if(state && state.emailVerified){
-          this.db.object(`users/${this.auth.auth.currentUser.uid}`)
+          const sub2 = this.db.object(`users/${this.auth.auth.currentUser.uid}`)
           .valueChanges()
           .subscribe((user: any) => {
             if (user) {
               this.user = user;
               this.user.uid = this.auth.auth.currentUser.uid;
               this._updateEmail(user);
-              this.isConnected = true;
+              this.connected = true;
               clbk(true);
             } else {
               clbk(false);
             }
+            sub2.unsubscribe();
           });
       }else{
         clbk(false);
@@ -53,14 +58,20 @@ export class UserProvider {
         console.log(err);
       });
     }
+    console.log("in update mail");
+    this.auth.auth.currentUser.getIdToken().then(tk=>{
+      this.token = tk;
+    });
   }
   startObserveUser(){
+    if(this.userSubscription) return;
     this.userSubscription = this.db.object(`users/${this.auth.auth.currentUser.uid}`)
     .valueChanges()
     .subscribe(user=>{
       this.user = user as User;
       this.user.email = this.auth.auth.currentUser.email;
       this.user.uid = this.auth.auth.currentUser.uid;
+      console.log("we set user");
       this.auth.auth.currentUser.getIdToken().then(tk=>{
         this.token = tk;
       });
@@ -75,6 +86,7 @@ export class UserProvider {
     }
   }
   setUserObserver(clbk){
+    clbk(this.user);
     this.userObserverClbk = clbk;
   }
   removeUserObserver(){
@@ -82,20 +94,22 @@ export class UserProvider {
   }
   login(email: string, password: string): Promise<any> {
     return new Promise((resolve, reject)=>{
-      this.auth.auth.signInWithEmailAndPassword(email, password).then((res)=>{
+      this.auth.auth.signInWithEmailAndPassword(email, password)
+      .then((res)=>{
         if(res.emailVerified){
-          this.checkUser(user=>{
-            this._updateEmail(user);
+          this.checkUser(exist=>{
+            resolve(exist)
+            this.connected = exist;
           });
-          resolve(true)
         }else{
           resolve(false);
         }
-      }).catch((e)=>{
+      })
+      .catch((e)=>{
         console.log(e);
         const err = {error:e, msg :"Votre email ou votre mot de passe sont fausses"}
         reject(err);
-      })
+      });
     });
   }
   loginWithGoogle(nextStep, success, reject) {
@@ -111,6 +125,7 @@ export class UserProvider {
       };
       this.checkUser(exist=>{
         if(exist){
+          this.connected = exist;
           success();
         }else{
           nextStep(user);
@@ -135,6 +150,7 @@ export class UserProvider {
       };
       this.checkUser(exist=>{
         if(exist){
+          this.connected = exist;
           success();
         }else{
           nextStep(user);
@@ -302,8 +318,6 @@ export class UserProvider {
     return new Promise((resolve, reject)=>{
       user.reauthenticateWithCredential(firebase.auth.EmailAuthProvider.credential(this.auth.auth.currentUser.email, password))
       .then(()=>{
-        console.log("we will try to update mail");
-        console.log(email);
         user.updateEmail(email)
         .then(()=> {
           this.db.list('users').update(this.auth.auth.currentUser.uid, {email}).then(()=>{
@@ -352,18 +366,34 @@ export class UserProvider {
     user.follower = 0;
     user.following = 0;
     user.bio = "";
+    user.lat = 0;
+    user.lon = 0;
+    user.location = 0+"_"+0;
     return user;
   }
+  get isConnected(){
+    return this.connected;
+  }
   canEnter(){
-    if(this.isConnected){
-      if(this.tabsCtrl){
-        this.tabsCtrl(true);
-        this.stateSubscription = this.auth.authState.subscribe(state=>{
+    if(this.connected){
+      if(this.lastConnectionCheck + 6000 < Date.now()){
+        this.lastConnectionCheck = Date.now();
+        this.stateSubscription = this.auth.authState.pipe(
+          catchError(e=>{
+            console.log(e);
+            return of(null);
+          })
+        ).subscribe(state=>{
           if(!state || !state.emailVerified || state.email != this.user.email){
-            this.isConnected = false;
-            this.tabsCtrl(false);
+            this.connected = false;
+            if(this.tabsCtrl){
+              this.tabsCtrl(false);
+            }
           }
         });
+      }
+      if(this.tabsCtrl){
+        this.tabsCtrl(true);
       }
       return true;
     }
@@ -372,33 +402,37 @@ export class UserProvider {
     }
     return false;
   }
-  setTabsCtrl(clbk){
-    this.tabsCtrl = clbk;
-    this.stateSubscription = this.auth.authState.subscribe(state=>{
-      if(!state || !state.emailVerified ){
-        this.isConnected = false;
-        this.tabsCtrl(false, true);
-      }else{
-        const sub = this.db.object(`users/${this.auth.auth.currentUser.uid}`)
+  setTabsCtrl(tabsCtrl){
+    this.tabsCtrl = tabsCtrl;    
+    if(this.connected){
+      const sub = this.db.object(`users/${this.auth.auth.currentUser.uid}`)
           .valueChanges()
           .subscribe((user: any) => {
             if (user) {
               this.user = user;
               this.user.uid = this.auth.auth.currentUser.uid;
-              this.isConnected = true;
-              this.tabsCtrl(true, true);
+              this.connected = true;
             } else {
-              this.isConnected = false;
-              this.tabsCtrl(false, true);
+              this.connected = false;
             }
+            this.canEnter();
             sub.unsubscribe();
           });
-      }
-    });
+    }
+    // this.stateSubscription = this.auth.authState.subscribe(state=>{
+    //   if(!state || !state.emailVerified ){
+    //     this.connected = false;
+    //     this.tabsCtrl(false);
+    //   }else{
+        
+    //   }
+    // });
   }
   removeTabsCtrl(){
     this.tabsCtrl = null;
-    this.stateSubscription.unsubscribe();
+    if(this.stateSubscription){
+      this.stateSubscription.unsubscribe();
+    }
   }
   get GUID(): string {
     return (new Date().getTime().toString(36) +"_" + Math.random().toString(36).substring(2, 10));

@@ -15,30 +15,31 @@
 <ion-content>
   <ion-grid class="back-stylesh">
     <ion-row class="beego-row-center">
-      <div class="holder" *ngIf="friends.length > 0 && traited != friends.length;else nofriends">
-        <div *ngFor="let item of friends;let i= index;let first = first" class="col friends" [class.active]="i == activeFriend" [class.slide-left]="item.stat == '1'"
-          [class.slide-right]="item.stat == '-1'" (swipe)="swiperHandler($event,i)">
+      <div class="holder" *ngIf="friends.length > activeIndex ;else nofriends">
+        <div *ngFor="let item of friends;let i= index;" 
+          class="col friends" [class.active]="i == activeIndex" [class.slide-left]="item.state == '1'"
+          [class.slide-right]="item.state == '-1'" (swipe)="swiperHandler($event,item)">
           <div class="col main-wrap">
-            <div class="effect-overlay" *ngIf="item.stat == '1' || item.stat == '-1'">
-              <div class="accepted pos-mid-icon" *ngIf="item.stat == '1'">
+            <div class="effect-overlay" *ngIf="item.state == '1' || item.state == '-1'">
+              <div class="accepted pos-mid-icon" *ngIf="item.state == '1'">
                 <ion-icon name="checkmark-circle-outline" class="animated pulse infinite"></ion-icon>
               </div>
-              <div class="rejected pos-mid-icon" *ngIf="item.stat == '-1'">
+              <div class="rejected pos-mid-icon" *ngIf="item.state == '-1'">
                 <ion-icon name="close-circle" class="animated pulse infinite"></ion-icon>
               </div>
             </div>
             <div class="cover-holder">
-              <img src="https://images.unsplash.com/photo-1514904215020-2f15586b250e?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=895fd4bf73de899cfeda62d48a982820&dpr=1&auto=format&fit=crop&w=1000&q=80&cs=tinysrgb"
+              <img [src]="item.coverURL"
                 alt="" class="cover">
             </div>
             <div class="row content">
-              <img src="https://images.unsplash.com/photo-1514904215020-2f15586b250e?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=895fd4bf73de899cfeda62d48a982820&dpr=1&auto=format&fit=crop&w=1000&q=80&cs=tinysrgb"
+              <img [src]="item.photoURL"
                 alt="" class="profile">
               <div>
-                <h2>{{item.Prenom}} {{item.Nom}} </h2>
+                <h2>{{item.firstName}} {{item.lastName}} </h2>
                 <span class="location">
                   <ion-icon name="pin"></ion-icon>
-                  {{item.Place}} ,
+                  {{item.gov}} ,
                   <strong>{{item.Age}}</strong>
                 </span>
               </div>

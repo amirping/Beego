@@ -65,7 +65,7 @@
     </div>
   </div>
 </div>
-<div #content class="home-wrapper" [class.open-menu]="isMenuOpen" [class.close-menu]="!isMenuOpen" (swipe)="contentSwipe($event)">
+<div #content class="home-wrapper" [class.open-menu]="isMenuOpen" [class.close-menu]="!isMenuOpen&&connected" (swipe)="contentSwipe($event)">
   <ion-header>
     <ion-navbar color="trans" [class.onsearch]="search" [class.cleaner]="hide_cleaner_button">
       <div class="header-acceuil-container space hide-onserach">
@@ -316,7 +316,7 @@
 
               <span class="name">{{item.lastName}} {{item.firstName}} </span>
               <span class="location">{{item.gov}}</span>
-              <button ion-button small round icon-start>
+              <button ion-button small round icon-start (click)="sendFriendRequest(item)" [disabled]="item.waiting">
                 <ion-icon name="person-add"></ion-icon>
                 S'abonner</button>
             </div>

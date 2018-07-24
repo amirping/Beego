@@ -44,35 +44,33 @@ export class TabsPage {
     });
   }  
   ionViewDidEnter(){
-    console.log("eeeeeeeeeeeeeeeeeeeeeeeeeeeeee88888888888888");
-    this.userProvider.setTabsCtrl((connect,firstLoad=false)=>{
-      if(!firstLoad){
-        if(!connect){
-          console.log("prevent to enter");
-          this.alertCtrl.create({
-            title:'connect',
-            message:'login or register ',
-            buttons:[{
-              text:'login',
-              handler:()=>{
-                this.navCtrl.setRoot(LoginPage)
-              }
-            },{
-              text:'cancel'
-            }]
-          }).present();
-          setTimeout(() => {
-            this.tabs.select(0)
-          }, 0);
-        }
+    console.log("did enter to tabs");
+    this.userProvider.setTabsCtrl(connect=>{
+      if(connect){
+        this.userProvider.startObserveUser();
       }else{
-        if(connect){
-          this.userProvider.startObserveUser();
-
-        }
+        console.log("prevent to enter");
+        this.alertCtrl.create({
+          title:'connect',
+          message:'login or register ',
+          buttons:[{
+            text:'login',
+            handler:()=>{
+              this.navCtrl.setRoot(LoginPage)
+            }
+          },{
+            text:'cancel'
+          }]
+        }).present();
+        setTimeout(() => {
+          this.tabs.select(0)
+        }, 0);
       }
     });
   }
+
+
+
   ionViewWillLeave() {
     this.userProvider.stopObserveUser();
     this.userProvider.removeTabsCtrl();

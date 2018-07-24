@@ -50,7 +50,7 @@ export class LoginPage {
       load.dismiss();
       console.log(res);
       if(res){
-        this.appCtrl.getRootNav().setRoot(TabsPage);        
+        this.appCtrl.getRootNav().setRoot(TabsPage);
       }else{
         this.alertCtrl.create({
           title:"ERREUR",

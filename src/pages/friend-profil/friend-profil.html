@@ -13,7 +13,7 @@
           <ion-col>
            
               <img class="img-friend" 
-              src="../../assets/imgs/friend-profil/friendPhoto.png" alt="">
+              [src]="friend?.coverURL" alt="">
                 <div class="x-friend-profil">
                     <button class="x-friend-button"
                     (click)="back()">
@@ -27,10 +27,10 @@
         <ion-row class="position-info" >
           <ion-col >
               <div class="abonnes">
-                  <label class="abonnes-number" for="">16K abonnés </label>
+                  <label class="abonnes-number" for="">{{formatFollows(friend?.follower)}} abonnés </label>
                 </div>
                 <div class="suivis">
-                <label class="suivis-number" for="">1,2K suivis </label>
+                <label class="suivis-number" for="">{{formatFollows(friend?.following)}} suivis </label>
               </div>
             <div class="info-friend">
                 <ion-row  >
@@ -38,7 +38,7 @@
                     <div class="photo-col">
                          <div class="bee-profile-image">
                            <div class="bee-hexagon">
-                             <img src="../../assets/imgs/photoDeProfil.png" alt="">
+                             <img [src]="friend?.photoURL" alt="">
                            </div>
                            
                              <div class="bee-edit-icon bee-edit-photo"></div>
@@ -47,12 +47,12 @@
                     </div>
                            <div class="name-lname">
                             <div >
-                                <label class="nom" for="">Nom prenom </label> 
+                                <label class="nom" for="">{{friend?.firstName}} {{friend?.lastName}}</label> 
                                </div>
                                <div class="lieuclass">
                                  <img class="lieu-img" src="../../assets/imgs/profil/Tracé.svg" alt="">
                                  <label class="lieu" for="">
-                                   le bardo , 24 ans</label> 
+                                   {{friend?.gov}} , {{friend?.age}} ans</label> 
                                </div>
                               </div>
                                   <!-- <div class="abonne"> -->
@@ -66,28 +66,28 @@
                     <ion-row>
                       <ion-col>
                     <div class="para">
-                        <p class="para-style">Welcom to my world .. Tunisian Girl .. mom of  baby baya </p>
+                        <p class="para-style">{{friend?.bio?friend.bio:'Welcom to my world...'}} </p>
                       </div></ion-col></ion-row>
                       <ion-row>
                         <!-- <ion-col> -->
                           <div class="class-icons">
-                          <div class="fb-icon">
+                          <div class="fb-icon" *ngIf="friend?.fbLink">
                               <img class="img-fb"
                                src="../../assets/imgs/profil/fb-icon.svg" alt="">
-                              <span class="nomprenom" for="">NomPrenom</span>
+                               <a [href]="'https://'+friend.fbLink" class="nomprenom" target="_blank"> Facebook</a>
                             </div>
                           <!-- </ion-col> -->
                           <!-- <ion-col> -->
-                            <div class="insta-icon">
+                            <div class="insta-icon" *ngIf="friend?.instaLink">
                                 <img class="img-insta"
                                  src="../../assets/imgs/profil/insta.svg" alt="">
-                                <span class="nomprenom" for="">NomPrenom</span>
+                                 <a [href]="'https://'+friend.instaLink" target="_new" class="nomprenom" for=""> Instagram</a>
                               </div>
                             <!-- </ion-col><ion-col> -->
-                              <div class="snap-icon">
+                              <div class="snap-icon" *ngIf="friend?.snapLink">
                                   <img class="img-snap"
                                    src="../../assets/imgs/profil/snap-icon.svg" alt="">
-                                  <span class="nomprenom" for="">NomPrenom</span>
+                                   <a [href]="'https://'+friend.snapLink" class="nomprenom" target="_new" for=""> Snapchat</a>
                                 </div>
                               </div>
                               <!-- </ion-col> -->
