@@ -1,3 +1,46 @@
 page-to-explore {
-
+  .header-syle {
+    background: linear-gradient(104deg, #fb4b7d 0%, #fe757b 100%);
+    .toolbar-background {
+      background: transparent;
+    }
+    .toolbar-title {
+      color: white;
+    }
+    ion-icon {
+      color: white;
+    }
+    .special-btn {
+      vertical-align: middle;
+    }
+  }
+  .beego-map {
+    height: 100vh;
+    width: 100vw;
+    z-index: 1;
+  }
+  #map {
+    width: 100%;
+    height: 100%;
+  }
+  .marker {
+    background-color: #fb4b7d;
+    background-size: cover;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  .mapboxgl-ctrl-bottom-left {
+    display: none;
+  }
+  .mapboxgl-ctrl-bottom-right {
+    display: none
+  }
+  .mapboxgl-user-location-dot {
+    background-image: url('../../assets/imgs/to_Exploer/location-cursor.svg');
+    background-position: 2px 3px;
+    background-repeat: no-repeat;
+    background-size: 10px;
+  }
 }

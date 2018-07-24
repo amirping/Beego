@@ -4,15 +4,35 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header>
+<ion-header no-border class="header-syle">
 
   <ion-navbar>
-    <ion-title>to_explore</ion-title>
+    <ion-buttons start>
+      <button ion-button icon-only small>
+        <ion-icon name="options">
+        </ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>Explorer
+      <button ion-button icon-only small clear (click)="opt=!opt" class="special-btn">
+        <ion-icon name="arrow-down" [hidden]="opt">
+        </ion-icon>
+        <ion-icon name="arrow-up" [hidden]="!opt">
+        </ion-icon>
+      </button>
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only small>
+        <ion-icon name="search">
+        </ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
-
+  <div [hidden]="!opt">hello denia</div>
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
+  <div id='map'></div>
 
 </ion-content>

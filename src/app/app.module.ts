@@ -24,19 +24,17 @@ import { ListOfFollowsPage } from "../pages/list-of-follows/list-of-follows";
 import { SettingProfilPage } from "../pages/setting_profil/setting_profil";
 import { ChilloutPage } from "../pages/chillout/chillout";
 
-
-import { BlockPage} from '../pages/block/block'
-import {SettingProfil2Page } from '../pages/setting-profil2/setting-profil2';
-import {SettingSecurityPage} from '../pages/setting-security/setting-security'
-import {PersonalHistoryPage} from '../pages/personal-history/personal-history';
-import {FriendProfilPage } from '../pages/friend-profil/friend-profil';
-import {FriendFollowPage} from '../pages/friend-follow/friend-follow';
-import { PopupPage} from '../pages/popup/popup';
-import {EventPage} from '../pages/event/event';
-import {UpdateProgramPage} from "../pages/update-program/update-program";
-import {DislikeListPage} from '../pages/dislike-list/dislike-list';
-import {SpaceDetailPage} from '../pages/space-detail/space-detail';
-
+import { BlockPage } from "../pages/block/block";
+import { SettingProfil2Page } from "../pages/setting-profil2/setting-profil2";
+import { SettingSecurityPage } from "../pages/setting-security/setting-security";
+import { PersonalHistoryPage } from "../pages/personal-history/personal-history";
+import { FriendProfilPage } from "../pages/friend-profil/friend-profil";
+import { FriendFollowPage } from "../pages/friend-follow/friend-follow";
+import { PopupPage } from "../pages/popup/popup";
+import { EventPage } from "../pages/event/event";
+import { UpdateProgramPage } from "../pages/update-program/update-program";
+import { DislikeListPage } from "../pages/dislike-list/dislike-list";
+import { SpaceDetailPage } from "../pages/space-detail/space-detail";
 
 import { Ionic2RatingModule } from "ionic2-rating";
 import { AngularFireModule } from "angularfire2";
@@ -52,11 +50,13 @@ import { UserProvider } from "../providers/user/user";
 
 import { IonicSwipeAllModule } from "ionic-swipe-all";
 
-import { SpacesProvider } from '../providers/spaces/spaces';
+import { SpacesProvider } from "../providers/spaces/spaces";
 import { EvenementPage } from "../pages/evenement/evenement";
+import { ToExplorePage } from "../pages/to-explore/to-explore";
+import { Geolocation } from "@ionic-native/geolocation";
 
-
-
+// import { CRS, latLng, LatLngBounds } from "leaflet";
+// import { YagaModule } from "@yaga/leaflet-ng2";
 @NgModule({
   declarations: [
     MyApp,
@@ -89,7 +89,8 @@ import { EvenementPage } from "../pages/evenement/evenement";
     EvenementPage,
     UpdateProgramPage,
     DislikeListPage,
-    SpaceDetailPage
+    SpaceDetailPage,
+    ToExplorePage
   ],
   imports: [
     BrowserModule,
@@ -103,7 +104,7 @@ import { EvenementPage } from "../pages/evenement/evenement";
 
     IonicSwipeAllModule,
 
-    HttpClientModule,
+    HttpClientModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -134,7 +135,8 @@ import { EvenementPage } from "../pages/evenement/evenement";
     EvenementPage,
     UpdateProgramPage,
     DislikeListPage,
-    SpaceDetailPage
+    SpaceDetailPage,
+    ToExplorePage
   ],
   providers: [
     StatusBar,
@@ -143,8 +145,8 @@ import { EvenementPage } from "../pages/evenement/evenement";
     UserProvider,
     SearchRadioPipe,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
-    SpacesProvider
-
+    SpacesProvider,
+    Geolocation
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
