@@ -373,7 +373,7 @@ export class UserProvider {
   }
   canEnter(){
     if(this.connected){
-      if(this.lastConnectionCheck + 6000 < Date.now()){
+      if(this.lastConnectionCheck + 6000 > Date.now()){
         this.lastConnectionCheck = Date.now();
         this.stateSubscription = this.auth.authState.pipe(
           catchError(e=>{
