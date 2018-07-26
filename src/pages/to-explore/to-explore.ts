@@ -33,7 +33,7 @@ export class ToExplorePage {
         name: "Le Bon Coin",
         picPin: "https://logo.clearbit.com/cafemom.com",
         picCOver: "https://source.unsplash.com/900x900/?coffe,bar",
-        location: [10.163411, 36.8540321],
+        location: [10.147603, 36.85459],
         rating: "4",
         startHour: "8am",
         endHour: "6pm"
@@ -43,7 +43,7 @@ export class ToExplorePage {
         name: "Le Bon Coin",
         picPin: "https://logo.clearbit.com/cafemom.com",
         picCOver: "https://source.unsplash.com/900x900/?coffe,bar",
-        location: [10.163411, 36.8641221],
+        location: [10.148847, 36.853388],
         rating: "4",
         startHour: "8am",
         endHour: "6pm"
@@ -96,19 +96,30 @@ export class ToExplorePage {
       trackUserLocation: true
     });
     this.map.addControl(geoTracker);
-    let this_map = this.map;
-
     // drop the location pins on the map
     this.locationLists.forEach(marker => {
       // create a DOM element for the marker
-      //marker.location = [this.coordsData.longitude, this.coordsData.latitude];
-      var el = document.createElement("div");
-      el.className = "marker";
-      el.addEventListener("click", function() {
-        window.alert(marker.name);
-      });
-      // add marker to map
-      new mapboxgl.Marker().setLngLat(marker.location).addTo(this.map);
+      let marki = this.pinProvider(marker);
+      new mapboxgl.Marker(marki).setLngLat(marker.location).addTo(this.map);
     });
+  }
+  randomColor() {
+    return (
+      "#" +
+      Math.random()
+        .toString(16)
+        .slice(2, 8)
+    );
+  }
+  pinProvider(marker) {
+    var el = document.createElement("div");
+    el.className = "marker";
+    el.style.backgroundImage = "url(" + marker.picPin + ")";
+    el.style.backgroundColor = this.randomColor();
+    el.style.clipPath = "url(#pathOfPin)";
+    el.addEventListener("click", function() {
+      window.alert(marker.name);
+    });
+    return el;
   }
 }
