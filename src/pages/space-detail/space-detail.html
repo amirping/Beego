@@ -100,10 +100,10 @@
                   <ion-row class=" row_note">
                     <ion-col col-3>
                       <div class="note">
-                       <span> 4,5</span>
+                       <span> {{moyenneRating}}</span>
                       </div>
                       <div class="avis">
-                          <span>234 avis</span>
+                          <span>{{nbAvis}} avis</span>
                       </div>
                     </ion-col>
                     <ion-col col-9>
@@ -318,10 +318,10 @@
                                   <div class="name">
                                     {{item.firstName}} {{item.lastName}}
                                   </div>
-                                  <div class="rating-ex">
+                                  <div class="rating-ex" readonly>
                                       <rating [(ngModel)]="item.rating" emptyStarIconName="star-outline" halfStarIconName="star-half"
                                        starIconName="star" nullable="false"
-                                        (ngModelChange)="null" onlyread>
+                                        (ngModelChange)="null" >
                                       </rating>
                                     </div>
                                     <div class="com">

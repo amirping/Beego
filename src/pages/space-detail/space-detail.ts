@@ -114,7 +114,9 @@ export class SpaceDetailPage {
 
   index_news = "events";
   nbFollowers;
+  moyenneRating  =0.0;
   listFollowerss: any[]
+  nbAvis ;
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
@@ -156,6 +158,17 @@ export class SpaceDetailPage {
       this.listFollowerss= Object.keys(data.followers)
       .map(i => data.followers[i]);
      this.nbFollowers = this.listFollowerss.length
+     this.nbAvis = this.reviewsArray.length
+     this.reviewsArray.forEach(
+      item=>
+      this.moyenneRating= this.moyenneRating + item.rating
+    )
+      this.moyenneRating =Math.round(this.moyenneRating/this.reviewsArray.length
+      )
+     
+     
+
+
       
 
 
@@ -208,6 +221,9 @@ export class SpaceDetailPage {
 
     alert.present()
     
+    
+  }
+  calculer(){
     
   }
 
