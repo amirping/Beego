@@ -47,33 +47,13 @@ export class SpaceDetailPage {
   follower : any;
   idEspace: string;
   rating = 5;
+  espaceDescription;
 
  
 
   dualValue2 = 30;
   listFollowers : AngularFireList<any>;
-  notes = [
-    {
-      value: 40,
-      index: 5
-    },
-    {
-      value: 25,
-      index: 4
-    },
-    {
-      value: 2,
-      index: 3
-    },
-    {
-      value: 10,
-      index: 2
-    },
-    {
-      value: 15,
-      index: 1
-    }
-  ]
+  notes = [];
   show = false;
   showabout() {
     this.show = !this.show;
@@ -117,6 +97,12 @@ export class SpaceDetailPage {
   moyenneRating  =0.0;
   listFollowerss: any[]
   nbAvis ;
+  espaceImage;
+  val1 = 0 ;
+  val2 = 0 ; 
+  val3 = 0 ; 
+  val4 = 0 ;
+  val5 = 0 ; 
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
@@ -131,6 +117,7 @@ export class SpaceDetailPage {
       this.espace = Object(data)
       console.log(this.espace)
       this.espaceName = data.espaceName
+      this.espaceImage = data.espaceImage
       this.espacePlace = data.espacePlace
       this.espaceRegion = data.espaceRegion
       this.espaceSpecialite = Object.keys(data.espaceSpecialite)
@@ -149,7 +136,9 @@ export class SpaceDetailPage {
       this.espaceMusique = data.espaceMusique
       this.espaceAdresse = data.espaceAdresse
       this.espaceTelephone = data.espaceTelephone
+      this.espaceDescription = data.espaceDescription
       this.espaceMeilleureSpecialite=data.espaceMeilleureSpecialite
+      
       this.reviewsArray = Object.keys(data.Reviews)
       .map(i => data.Reviews[i]);
       console.log(this.reviewsArray)
@@ -161,8 +150,44 @@ export class SpaceDetailPage {
      this.nbAvis = this.reviewsArray.length
      this.reviewsArray.forEach(
       item=>
-      this.moyenneRating= this.moyenneRating + item.rating
+     {this.moyenneRating= this.moyenneRating + item.rating;
+      if(item.rating == 1 ) 
+      this.val1++
+      else if(item.rating == 2)
+      this.val2++
+      else if(item.rating == 3)
+      this.val3++
+      else if(item.rating == 4)
+      this.val4++
+      else if(item.rating == 5)
+      this.val5++
+      
+    }
+
+      
     )
+    this.notes = [
+      {
+        value: this.val5,
+        index: 5
+      },
+      {
+        value: this.val4,
+        index: 4
+      },
+      {
+        value: this.val3,
+        index: 3
+      },
+      {
+        value: this.val2,
+        index: 2
+      },
+      {
+        value: this.val1,
+        index: 1
+      }
+    ]
       this.moyenneRating =Math.round(this.moyenneRating/this.reviewsArray.length
       )
      

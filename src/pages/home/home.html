@@ -211,7 +211,7 @@
           </div>
           <ion-slides class="slide-home" [slidesPerView]="2" [pager]="true" [spaceBetween]="10">
             <ion-slide *ngFor="let item of espacesListRef$ | async" class="slider-specialement" (click)="navigateTo('space-detail',item.key)">
-              <img src="https://loremflickr.com/900/900/dinner,food">
+              <img src="{{item.espaceImage}}">
               <div class="content">
                 <div class="layer"></div>
                 <span class="title" text-left>

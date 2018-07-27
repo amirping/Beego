@@ -11,7 +11,7 @@
   <ion-grid>
       <ion-row class="photo-row">
           <ion-col >
-            <img  class="img-space" src="../../assets/imgs/space_detail/whats-up.png" alt="">
+            <img  class="img-space" src="{{espaceImage}}" alt="">
             <div class="space_back_param">
               <button class="buttn" (click)="back()">
                 <img src="../../assets/imgs/arrow-back.png" alt="" class="back-img">
@@ -34,7 +34,7 @@
                               <div class="bee-image">
                                 <div class="bee-hexagon">
                                   <img class="bee-img-size"
-                                  src="../../assets/imgs/space_detail/whats-up.png" alt="">
+                                  src="{{espaceImage}}" alt="">
                                 </div>
                                 
                                 </div>
@@ -188,15 +188,7 @@
                   </ion-row>
                   <ion-row class="about"  [class.about-transition]="show">
                       <p>
-                          Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. 
-                          Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500,
-                           quand un peintre anonyme assembla ensemble des morceaux de texte pour réaliser
-                            un livre spécimen de polices de texte. 
-                           Il n'a pas fait que survivre cinq siècles, mais s'est aussi adapté à la bureautique informatique, 
-                           sans que son contenu n'en soit modifié. Il a été popularisé dans les années 1960 
-                           grâce à la vente de feuilles Letraset contenant des passages du Lorem Ipsum, 
-                          et, plus récemment, par son inclusion dans des applications de mise en page de texte, 
-                          comme Aldus PageMaker.
+                          {{espaceDescription}}
                       </p>
                       <div class="whitediv" *ngIf="!show"></div>
                   </ion-row>
@@ -321,7 +313,7 @@
                                   <div class="rating-ex" readonly>
                                       <rating [(ngModel)]="item.rating" emptyStarIconName="star-outline" halfStarIconName="star-half"
                                        starIconName="star" nullable="false"
-                                        (ngModelChange)="null" >
+                                        (ngModelChange)="null" ng-readonly="true">
                                       </rating>
                                     </div>
                                     <div class="com">
