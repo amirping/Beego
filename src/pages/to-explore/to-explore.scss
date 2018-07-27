@@ -25,11 +25,12 @@ page-to-explore {
   }
   .marker {
     //background-color: #fb4b7d;
-    background-size: 50%;
-    background-position: center 5px;
+    background-size: 45%;
+    background-position: center 7px;
     background-repeat: no-repeat;
     width: 50px;
-    height: 50px; //clip-path: url(#pathOfPin); //border-radius: 50%;
+    height: 50px;
+    border-radius: 50%;
     cursor: pointer;
   }
   .mapboxgl-ctrl-bottom-left {
@@ -43,5 +44,174 @@ page-to-explore {
     background-position: 2px 3px;
     background-repeat: no-repeat;
     background-size: 10px;
+  }
+  .bottom-box {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    overflow: visible;
+    .box-suggestion {
+      padding: 15px;
+      .closed {
+        height: 0px !important;
+        transition: all 500ms;
+        overflow: hidden;
+      }
+      .row-scroller {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+      }
+      .box-header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        h2 {
+          margin: auto;
+          margin-left: 0px;
+          color: black;
+          font-size: 20px;
+        }
+        .ctrl-btns {
+          display: flex;
+          flex-direction: row;
+          justify-content: flex-end;
+          .sly-round {
+            border-radius: 50%;
+            width: 28px;
+          }
+        }
+      }
+      ion-card {
+        margin: 0px 10px 0px 0px;
+        height: 200px;
+        width: 45%;
+        min-width: 45%;
+        padding: 8px 5px 5px 5px;
+        img {
+          height: 40%;
+          object-fit: cover;
+          border-radius: 10px 10px 10px 0px;
+        }
+        ion-card-title {
+          font-size: 13px
+        }
+        ion-card-content {
+          padding: 3px;
+        }
+        p {
+          font-size: 10px
+        }
+        .row-data {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          vertical-align: middle;
+          .stat {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            color: green;
+            font-size: 12px;
+          }
+          .sug-btn {
+            width: auto;
+            max-width: 60%;
+          }
+          .rating-suggest {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+          }
+          .rating-suggest ul {
+            padding: 0px;
+            text-align: center;
+            margin: 0px;
+            &.rating li {
+              padding: 5px 0px !important;
+              background: none;
+              color: #ffb400;
+              text-align: center;
+              ion-icon {
+                font-size: 12px;
+              }
+            }
+          }
+          .distance {
+            margin: auto;
+            margin-right: 0;
+            font-size: 10px;
+          }
+        }
+      }
+    }
+    .box-selected {
+      ion-card {
+        padding: 10px;
+        border-radius: 10px;
+        ion-avatar {
+          img {
+            height: 50px;
+            width: 50px;
+            box-shadow: 0px 0px 5px gray;
+          }
+        }
+        p {
+          font-size: 10px;
+        }
+        ion-card-content {
+          .row-data {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+          }
+          .spaced-row {
+            margin-bottom: 5px;
+          }
+          .rating-selected {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+          }
+          .stat {
+            color: green;
+          }
+          .distance,
+          .tel {
+            color: gray;
+            font-size: 12px;
+          }
+          .avis {
+            color: gray;
+            font-size: 8px;
+            margin: auto
+          }
+          .rating-selected ul {
+            padding: 0px;
+            text-align: center;
+            margin: 0px;
+            &.rating li {
+              padding: 5px 0px !important;
+              background: none;
+              color: #ffb400;
+              text-align: center;
+              ion-icon {
+                font-size: 12px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .top-box {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    overflow: visible;
   }
 }

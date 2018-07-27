@@ -28,13 +28,108 @@
       </button>
     </ion-buttons>
   </ion-navbar>
-  <div [hidden]="!opt">hello denia</div>
+  <div [hidden]="!opt">
+    <ion-buttons>
+      <button ion-button clear (click)="bottom_ctn=1">My friends</button>
+      <button ion-button clear (click)="bottom_ctn=2">My events</button>
+      <button ion-button clear (click)="bottom_ctn=3">suggested</button>
+      <button ion-button clear (click)="bottom_ctn=4">near to here</button>
+    </ion-buttons>
+  </div>
 </ion-header>
 
 
 <ion-content>
   <div id='map'></div>
-
+  <div class="top-box"></div>
+  <div class="bottom-box" [ngSwitch]="bottom_ctn">
+    <div *ngSwitchCase="1">
+      friends
+    </div>
+    <div *ngSwitchCase="2">
+      events
+    </div>
+    <div *ngSwitchCase="3" class="box-suggestion">
+      <div class="box-header">
+        <h2>Suggestion</h2>
+        <div class="ctrl-btns">
+          <button ion-button icon-only class="sly-round" small>
+            <ion-icon name="brush"></ion-icon>
+          </button>
+          <button ion-button icon-only class="sly-round" small>
+            <ion-icon name="locate"></ion-icon>
+          </button>
+          <button ion-button icon-only color="light" class="sly-round" small raised (click)="suggest.shown = !suggest.shown">
+            <ion-icon *ngIf="suggest.shown" name="arrow-down"></ion-icon>
+            <ion-icon *ngIf="!suggest.shown" name="arrow-up"></ion-icon>
+          </button>
+        </div>
+      </div>
+      <div class="row-scroller" [class.closed]="!suggest.shown">
+        <ion-card *ngFor="let item of locationLists">
+          <img src="{{item.picCover}}" />
+          <ion-card-content>
+            <ion-card-title>
+              {{item.name}}
+            </ion-card-title>
+            <p>
+              {{item.place}}
+            </p>
+            <div class="row-data">
+              <div class="rating-suggest">
+                <rating [(ngModel)]="item.rating" emptyStarIconName="star-outline" halfStarIconName="star-half" starIconName="star" nullable="false"
+                  (ngModelChange)="null">
+                </rating>
+              </div>
+              <div class="distance">
+                <ion-icon name="paper-plane"></ion-icon> 5km
+              </div>
+            </div>
+            <div class="row-data">
+              <span class="stat">ouverts</span>
+              <button class="sug-btn" ion-button round small> detaills</button>
+            </div>
+          </ion-card-content>
+        </ion-card>
+      </div>
+    </div>
+    <div *ngSwitchCase="4">
+      near
+    </div>
+    <div *ngSwitchCase="5" class="box-selected">
+      <ion-card>
+        <ion-item>
+          <ion-avatar item-start>
+            <img src="{{locationLists[selectedPlace].picPin}}">
+          </ion-avatar>
+          <h2>{{locationLists[selectedPlace].name}}</h2>
+          <p>{{locationLists[selectedPlace].place}}</p>
+        </ion-item>
+        <ion-card-content>
+          <div class="row-data spaced-row">
+            <span class="stat">ouverte maintenant</span>
+            <div class="rating-selected">
+              <rating [(ngModel)]="locationLists[selectedPlace].rating" emptyStarIconName="star-outline" halfStarIconName="star-half" starIconName="star"
+                nullable="false" (ngModelChange)="null">
+              </rating>
+              <span class="avis">(255 avis)</span>
+            </div>
+          </div>
+          <div class="row-data spaced-row">
+            <span class="tel">Num de tel: 71 254 857</span>
+            <div class="distance">
+              Distance:
+              <ion-icon name="paper-plane"></ion-icon> 5km
+            </div>
+          </div>
+          <div class="row-data">
+            <button class="sug-btn" ion-button round small> cree un programme</button>
+            <button class="sug-btn" ion-button round small> voir espace</button>
+          </div>
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </div>
 </ion-content>
 <svg height="0" width="0">
   <defs>
