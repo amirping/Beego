@@ -54,6 +54,7 @@ import { SpacesProvider } from "../providers/spaces/spaces";
 import { EvenementPage } from "../pages/evenement/evenement";
 import { ToExplorePage } from "../pages/to-explore/to-explore";
 import { Geolocation } from "@ionic-native/geolocation";
+import { MapProvider } from '../providers/map/map';
 
 // import { CRS, latLng, LatLngBounds } from "leaflet";
 // import { YagaModule } from "@yaga/leaflet-ng2";
@@ -146,7 +147,8 @@ import { Geolocation } from "@ionic-native/geolocation";
     SearchRadioPipe,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     SpacesProvider,
-    Geolocation
+    Geolocation,
+    MapProvider
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

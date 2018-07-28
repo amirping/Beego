@@ -2,6 +2,7 @@ import { Component, ViewChild, AfterViewInit } from "@angular/core";
 import { IonicPage, NavController, NavParams } from "ionic-angular";
 import mapboxgl from "mapbox-gl/dist/mapbox-gl.js";
 import { Geolocation, Geoposition } from "@ionic-native/geolocation";
+import { MapProvider } from "../../providers/map/map";
 /**
  * Generated class for the ToExplorePage page.
  *
@@ -25,10 +26,12 @@ export class ToExplorePage {
   suggest = {
     shown: true
   };
+  direction: any;
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    private geolocation: Geolocation
+    private geolocation: Geolocation,
+    private _mapProvider: MapProvider
   ) {
     console.log("hello crash");
     // loading all location from db etc
@@ -141,7 +144,73 @@ export class ToExplorePage {
     el.addEventListener("click", function() {
       sel.selectedPlace = marker.id;
       sel.bottom_ctn = "5";
+      sel.directionHundler(marker.id, marker.location);
     });
     return el;
+  }
+  directionHundler(idPlace, target) {
+    this._mapProvider
+      .getDirectionWay(
+        [this.coordsData.longitude, this.coordsData.latitude],
+        target
+      )
+      .then(response => {
+        if (response.body.code === "Ok") {
+          console.log(response.body);
+          let route = response.body.routes[0];
+          this.locationLists[idPlace].distance = route.distance / 1000;
+          this.direction = route.geometry.coordinates;
+          // draw on map
+          var geojson = {
+            type: "FeatureCollection",
+            features: [
+              {
+                type: "Feature",
+                properties: {},
+                geometry: { coordinates: this.direction, type: "LineString" }
+              }
+            ]
+          };
+          // in case we are called the 2 time
+          try {
+            this.map.removeLayer("line");
+            this.map.removeSource("line");
+          } catch (err) {
+            console.log(
+              "its ok dude i know it hurt as fuck but u have to do it"
+            );
+          }
+          this.map.addSource("line", {
+            type: "geojson",
+            lineMetrics: true,
+            data: geojson
+          });
+          this.map.addLayer({
+            id: "line",
+            type: "line",
+            source: "line",
+            layout: {
+              "line-join": "round",
+              "line-cap": "round"
+            },
+            paint: {
+              "line-color": "gray",
+              "line-width": 8,
+              "line-gradient": [
+                "interpolate",
+                ["linear"],
+                ["line-progress"],
+                0,
+                "#79a7f2",
+                1,
+                "#31af4a"
+              ]
+            }
+          });
+        } else {
+          // no response show error msg here ya m3alem
+          console.log("fail motherfucker");
+        }
+      });
   }
 }

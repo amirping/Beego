@@ -148,6 +148,9 @@ page-to-explore {
       }
     }
     .box-selected {
+      .blue-btn {
+        background-color: blue;
+      }
       ion-card {
         padding: 10px;
         border-radius: 10px;

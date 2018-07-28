@@ -112,18 +112,18 @@
               <rating [(ngModel)]="locationLists[selectedPlace].rating" emptyStarIconName="star-outline" halfStarIconName="star-half" starIconName="star"
                 nullable="false" (ngModelChange)="null">
               </rating>
-              <span class="avis">(255 avis)</span>
+              <span class="avis"> (255 avis)</span>
             </div>
           </div>
           <div class="row-data spaced-row">
             <span class="tel">Num de tel: 71 254 857</span>
             <div class="distance">
               Distance:
-              <ion-icon name="paper-plane"></ion-icon> 5km
+              <ion-icon name="paper-plane"></ion-icon> {{locationLists[selectedPlace].distance}} km
             </div>
           </div>
           <div class="row-data">
-            <button class="sug-btn" ion-button round small> cree un programme</button>
+            <button class="sug-btn blue-btn" ion-button round small> cree un programme</button>
             <button class="sug-btn" ion-button round small> voir espace</button>
           </div>
         </ion-card-content>
