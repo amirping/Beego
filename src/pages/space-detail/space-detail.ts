@@ -252,4 +252,11 @@ export class SpaceDetailPage {
     
   }
 
+  navigateToFacebook(){
+    window.location.href = 'https://www.facebook.com';
+  }
+  navigateToInstagram(){
+    window.location.href = 'https://www.instagram.com';
+  }
+
 }
