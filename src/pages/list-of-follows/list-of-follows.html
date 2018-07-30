@@ -42,13 +42,15 @@
       </div>
       <div class="listOfFollows-part">
           <ion-list>
-                <ion-item>
+                <ion-item *ngFor="let friend of friends">
                   <ion-avatar item-start>
-                    <img src="../../assets/imgs/photoDeProfil.png">
+                    <img [src]="friend.photoURL">
                   </ion-avatar>
-                  <h3>nom prenom</h3>
-                  <p class="lieu-listfollows">Bardo, Tunis</p>
-                  <button (click)="confirmDelete()"
+                  <div (click)="viewProfile(friend.uid)" >
+                    <h3>{{friend.firstName}} {{friend.lastName}}</h3>
+                    <p class="lieu-listfollows">{{friend.gov}}</p>
+                  </div>
+                  <button (click)="confirmDelete(friends)"
                    class="delete-follow-button">
                     <img 
                      src="../../assets/imgs/listOfFollows/delete.svg"

@@ -1,101 +1,94 @@
-<!--
-  Generated template for the FriendProfilPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
-
-
-
-<ion-content class="back-color">
-    <ion-grid  no-padding class="grid-size" >
-        <ion-row class="photo-row">
-          <ion-col>
-           
-              <img class="img-friend" 
-              [src]="friend?.coverURL" alt="">
-                <div class="x-friend-profil">
-                    <button class="x-friend-button"
-                    (click)="paramPage()" >
-                      <img src="../../assets/imgs/friend-profil/xmlid.svg"
-                       alt="" class="x-friend-img">
-                    </button>
-                 
-            </div>
-          </ion-col>
-        </ion-row>
-        <ion-row class="position-info" >
-          <ion-col >
-              <div class="abonnes">
-                  <label class="abonnes-number" for="">{{formatFollows(friend?.follower)}} abonnés </label>
+<ion-content class="back-color" [class.blur]="disabled">
+  <ion-grid no-padding class="grid-size">
+    <ion-row class="photo-row">
+      <ion-col>
+        <img class="img-friend" [src]="friend?.coverURL" alt="">
+        <div class="x-friend-profil">
+          <button class="x-friend-button" (click)="back()">
+            <img src="../../assets/imgs/friend-profil/xmlid.svg" alt="" class="x-friend-img">
+          </button>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row class="position-info">
+      <ion-col>
+        <div class="abonnes">
+          <span class="abonnes-number" for="">{{formatFollows(friend?.follower)}} abonnés </span>
+        </div>
+        <div class="suivis">
+          <span class="suivis-number" for="">{{formatFollows(friend?.following)}} suivis </span>
+        </div>
+        <div class="info-friend">
+          <ion-row>
+            <div class="flex-row">
+              <div class="photo-col">
+                <div class="bee-profile-image">
+                  <div class="bee-hexagon">
+                    <img [src]="friend?.photoURL" alt="">
+                  </div>
+                  <div class="bee-edit-icon bee-edit-photo"></div>
                 </div>
-                <div class="suivis">
-                <label class="suivis-number" for="">{{formatFollows(friend?.following)}} suivis </label>
               </div>
-            <div class="info-friend">
-                <ion-row  >
-                    <div class="flex-row">
-                    <div class="photo-col">
-                         <div class="bee-profile-image">
-                           <div class="bee-hexagon">
-                             <img [src]="friend?.photoURL" alt="">
-                           </div>
-                           
-                             <div class="bee-edit-icon bee-edit-photo"></div>
-                           </div>
-                           
-                    </div>
-                           <div class="name-lname">
-                            <div >
-                                <label class="nom" for="">{{friend?.firstName}} {{friend?.lastName}}</label> 
-                               </div>
-                               <div class="lieuclass">
-                                 <img class="lieu-img" src="../../assets/imgs/profil/Tracé.svg" alt="">
-                                 <label class="lieu" for="">
-                                   {{friend?.gov}} , {{friend?.age}} ans</label> 
-                               </div>
-                              </div>
-                                  <!-- <div class="abonne"> -->
-                                     <button ion-button round class="abonne-button" (click)="requestFriend(friend)" [disabled]="friend?.waiting" >
-                                       S'abonner
-                                     </button>
-                                   <!-- </div> -->
-                                  <!-- </ion-col> -->
-                                  </div>
-                    </ion-row>
-                    <ion-row>
-                      <ion-col>
-                    <div class="para">
-                        <p class="para-style">{{friend?.bio?friend.bio:'Welcom to my world...'}} </p>
-                      </div></ion-col></ion-row>
-                      <ion-row>
-                        <!-- <ion-col> -->
-                          <div class="class-icons">
-                          <div class="fb-icon" *ngIf="friend?.fbLink">
-                              <img class="img-fb"
-                               src="../../assets/imgs/profil/fb-icon.svg" alt="">
-                               <a [href]="'https://'+friend.fbLink" class="nomprenom" target="_blank"> Facebook</a>
-                            </div>
-                          <!-- </ion-col> -->
-                          <!-- <ion-col> -->
-                            <div class="insta-icon" *ngIf="friend?.instaLink">
-                                <img class="img-insta"
-                                 src="../../assets/imgs/profil/insta.svg" alt="">
-                                 <a [href]="'https://'+friend.instaLink" target="_new" class="nomprenom" for=""> Instagram</a>
-                              </div>
-                            <!-- </ion-col><ion-col> -->
-                              <div class="snap-icon" *ngIf="friend?.snapLink">
-                                  <img class="img-snap"
-                                   src="../../assets/imgs/profil/snap-icon.svg" alt="">
-                                   <a [href]="'https://'+friend.snapLink" class="nomprenom" target="_new" for=""> Snapchat</a>
-                                </div>
-                              </div>
-                              <!-- </ion-col> -->
-                            </ion-row>
-                               
+              <div class="name-lname">
+                <div>
+                  <label class="nom" for="">{{friend?.firstName}} {{friend?.lastName}}</label>
+                </div>
+                <div class="lieuclass">
+                  <img class="lieu-img" src="../../assets/imgs/profil/Tracé.svg" alt="">
+                  <label class="lieu" for="">
+                    {{friend?.gov}} , {{friend?.age}} ans</label>
+                </div>
+              </div>
+              <!-- <div class="abonne"> -->
+              <button ion-button round class="abonne-button" 
+                (click)="requestFriend(friend)" 
+                [disabled]="friend?.state=='waiting' || friend?.waiting" 
+                *ngIf="friend?.state=='unknown'||friend?.state=='waiting'; else afriend">
+                S'abonner
+              </button>
+              <ng-template #afriend>
+                <button ion-button round class="abonne-button followed" (click)="show()">
+                  Abonné(e)
+                </button>
+              </ng-template>
+              <!-- </div> -->
+              <!-- </ion-col> -->
             </div>
-          </ion-col>
-        </ion-row>      
-    </ion-grid>
-
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <div class="para">
+                <p class="para-style">{{friend?.bio?friend.bio:'Welcom to my world...'}} </p>
+              </div>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <!-- <ion-col> -->
+            <div class="class-icons">
+              <div class="fb-icon" *ngIf="friend?.fbLink">
+                <img class="img-fb" src="../../assets/imgs/profil/fb-icon.svg" alt="">
+                <a [href]="'https://'+friend.fbLink" class="nomprenom" target="_blank"> Facebook</a>
+              </div>
+              <!-- </ion-col> -->
+              <!-- <ion-col> -->
+              <div class="insta-icon" *ngIf="friend?.instaLink">
+                <img class="img-insta" src="../../assets/imgs/profil/insta.svg" alt="">
+                <a [href]="'https://'+friend.instaLink" target="_new" class="nomprenom" for=""> Instagram</a>
+              </div>
+              <!-- </ion-col><ion-col> -->
+              <div class="snap-icon" *ngIf="friend?.snapLink">
+                <img class="img-snap" src="../../assets/imgs/profil/snap-icon.svg" alt="">
+                <a [href]="'https://'+friend.snapLink" class="nomprenom" target="_new" for=""> Snapchat</a>
+              </div>
+            </div>
+            <!-- </ion-col> -->
+          </ion-row>
+          <ion-row class=" space-cols" *ngIf="friend?.state=='friend'">
+            <button round ion-button class="demander loacalisation"> Demander son localisation</button>
+            <button round ion-button class="partager loacalisation"> Partager mon localisation</button>
+          </ion-row>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

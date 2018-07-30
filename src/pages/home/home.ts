@@ -38,7 +38,10 @@ import { SpaceDetailPage } from "../space-detail/space-detail";
   selector: "page-home",
   templateUrl: "home.html"
 })
-export class HomePage {  
+export class HomePage {
+  profil() {
+    this.navCtrl.push(ProfilPage);
+  }
   scaleDragger = 100;
   DynamicHi = { height: this.scaleDragger + " vh" };
   search = false;
@@ -176,6 +179,7 @@ export class HomePage {
       this.friends=friends;
     })
     .catch(e=>{
+      console.log("----------------------------------");
       console.log(e);
     });
     this.connected = this.userpovider.isConnected;
@@ -290,7 +294,11 @@ export class HomePage {
         break;
       case "headlines":
         this.navCtrl.push(HeadlinesPage, { category: "evenement" });
-        break;      
+        break;
+      case "FriendProfil":
+        console.log(data);
+        this.navCtrl.push(FriendProfilPage, { uid: data });
+        break;
         case"space-detail": 
         this.navCtrl.push(SpaceDetailPage,{cle : data});
       default:
@@ -411,9 +419,6 @@ export class HomePage {
     console.log("ok")
 
   }
-
-
-
   sendFriendRequest(friend){
     if(this.userpovider.canEnter()){
       friend.waiting = true;
@@ -424,14 +429,10 @@ export class HomePage {
             break;
           }
         }
+        console.log(t);
       }).catch(e=>{
-        friend.waiting = false;
         console.log(e);
       });
     }
-  }
-  friendProfile(uid){
-    console.log(uid);
-    this.navCtrl.push(FriendProfilPage, { uid });
   }
 }

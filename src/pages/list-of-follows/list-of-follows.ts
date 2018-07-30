@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import {ProfilPage} from '../profil/profil';
 import { Dialogs } from '@ionic-native/dialogs';
+import { FriendsProvider } from '../../providers/friends/friends';
+import { FriendProfilPage } from '../friend-profil/friend-profil';
 
 /**
  * Generated class for the ListOfFollowsPage page.
@@ -16,26 +17,39 @@ import { Dialogs } from '@ionic-native/dialogs';
   templateUrl: 'list-of-follows.html',
 })
 export class ListOfFollowsPage {
-  back(){
+  friends = [];
+  constructor(public navCtrl: NavController,
+    public navParams: NavParams,
+    public friendsProviders: FriendsProvider,
+    private dialogs: Dialogs) 
+  { 
+    this.friendsProviders.getFriends(friends=>{
+      this.friends = friends;
+      console.log(friends);
+    })
+  }
+  log(u){
+    console.log(u);
+  }
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad ListOfFollowsPage');
+  }
+  viewProfile(uid){
+    this.navCtrl.push(FriendProfilPage, { uid });
+  }
+  back() {
     this.navCtrl.pop();
   }
 
-  
-  
-  confirmDelete(){
+
+
+  confirmDelete(u) {
+    console.log(u);
     this.dialogs.confirm("Si vous le supprimer il ne sera plus sur votre list de follows "
-    , "Vouler vous supprimer prenom", ['Supprimer','Annuler']);// ajouter then pour terminer l action 
+      , "Vouler vous supprimer prenom", ['Supprimer', 'Annuler']);// ajouter then pour terminer l action 
     // le prenon est un variable du user qui va etre supprimer
   }
 
 
-  constructor(public navCtrl: NavController,
-     public navParams: NavParams,
-     private dialogs: Dialogs) {
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ListOfFollowsPage');
-  }
 
 }

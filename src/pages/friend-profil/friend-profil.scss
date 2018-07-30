@@ -124,8 +124,25 @@ page-friend-profil {
       .abonne-button{
         background-color: rgb(242,40,118);
         margin-top: 40px;
-        margin-right: 6%;  
+        margin-right: 6%;
+        &.followed{
+          font-size: 12px;
+          background-color: rgb(229,229,229); 
+          width:100PX;
+          height: 32px;
+          margin-top: 41px;
+          margin-right: 6%;
+          background-image: url(../../assets/imgs/friend-follow/arrow-down.svg);
+          background-size: 7px 5px;
+          background-position: 81px 14px;
+          background-repeat: no-repeat;
+          color: black;
+        }
       }
+      .blur{
+        filter: blur(4px);
+      }
+      
       .para{
         margin-left: 27px;
         background-color: transparent;
@@ -170,5 +187,21 @@ page-friend-profil {
             width:16px ;
             height: 16px ;
           }
-        
+          .demander{
+            background-color: #1f9ed5;
+        }
+        .partager{
+           
+            background-color:   rgb(242,40,118);
+        }
+        .loacalisation{
+            height: 41px;
+            font-size: 10px;
+            padding: 0 12px;
+            margin: 3px 0;
+        }
+        .space-cols{
+            justify-content: space-around;
+            padding-bottom: 10%;//modifiable 
+        }
 }

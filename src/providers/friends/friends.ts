@@ -34,12 +34,11 @@ export class FriendsProvider {
         //   friends.push(friend);
         // }
         console.log(data);
-        this.lastScore = data.lastScore;
+        // this.lastScore = data.lastScore;
+        const friends = [];
         if(data.e){
-          clcbk(data.e)
+          console.log(data.e);
         }else{
-          const friends = [];
-          console.log(data);
           console.log(data.friends);
           for (const key in data.friends) {
             console.log(key);
@@ -48,8 +47,41 @@ export class FriendsProvider {
             // friend.uid = key; 
             friends.push(friend);
           }
-          clcbk(friends);
         }
+        clcbk(friends);
+      });
+  }
+  getFriends(clbk){
+    console.log("friendssssssss");
+    const tk = this.userProvider.idToken;
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${tk}`);
+    this.http.get('http://localhost:5000/test-3cdd6/us-central1/beegoapi/friendslist/',{headers})
+      .pipe(
+        retry(3), // retry a failed request up to 3 times
+        catchError(e=>{
+          return of({e});
+        }) // then handle the error
+      ).subscribe((data: any)=>{
+        // for (const friend of data.friends) {
+        //   friend.state = 0;
+        //   friends.push(friend);
+        // }
+        console.log(data);
+        // this.lastScore = data.lastScore;
+        const friends = [];
+        if(data.e){
+          console.log(data.e);
+        }else{
+          console.log(data.friends);
+          for (const key in data.friends) {
+            console.log(key);
+            const friend = data.friends[key];
+            console.log(friend);
+            // friend.uid = key; 
+            friends.push(friend);
+          }
+        }
+        clbk(friends);
       });
   }
   getSuggestedFriends(firstPage: boolean, method: "nearby"|"mutual"){
@@ -108,7 +140,19 @@ export class FriendsProvider {
     const url = `http://localhost:5000/test-3cdd6/us-central1/beegoapi/friend/${uid}`;
     console.log(url);
     const headers = new HttpHeaders().set('Authorization', `Bearer ${tk}`);
-    return this.http.get(url,{headers});
+    return new Promise((resolve, reject)=>{
+      this.http.get(url,{headers}).subscribe((data: any)=>{
+        if(data.done){
+          const friend = data.friend;
+          friend.uid = uid;
+          // friend.state = data.state;
+          friend.age = Math.abs(new Date(Date.now() - friend.birthday).getUTCFullYear() - 1970);
+          resolve(friend);
+        }else{
+          reject();
+        }
+      });
+    })
   }
   sendFriendRequest(uid, type){
     const tk = this.userProvider.idToken;
@@ -128,4 +172,26 @@ export class FriendsProvider {
       });
     });
   }
+  acceptFriendRequest(uid){
+    const tk = this.userProvider.idToken;
+    const url = `http://localhost:5000/test-3cdd6/us-central1/beegoapi/acceptfriendrequest`;
+    console.log(url);
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${tk}`);
+    const params = new HttpParams().set('uid', `${uid}`);
+    return new Promise((resolve, reject)=>{
+      this.http.post(url,params,{headers})
+      .pipe(retry(3),catchError(error=>{
+        console.log(error);
+        return of({error});
+      }))
+      .subscribe((data : any)=>{
+        if(data.error){
+          reject(data.error);
+        }else{
+          resolve(data);
+        }
+      });
+    });
+  }
+
 }
