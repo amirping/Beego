@@ -302,7 +302,7 @@
           </div>
           <div class="row row-scroller notYou">
             <div class="person-card" *ngFor="let item of friends">
-              <img [src]="item.photoURL" alt="" (click)="navigateTo('FriendProfil', item.uid)">
+              <img [src]="item.photoURL" alt="" (click)="friendProfile(item.uid)">
 
               <span class="name">{{item.lastName}} {{item.firstName}} </span>
               <span class="location">{{item.gov}}</span>
