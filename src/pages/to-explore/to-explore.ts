@@ -22,11 +22,12 @@ export class ToExplorePage {
   map: any;
   locationLists: any;
   bottom_ctn = "3";
-  selectedPlace = 0; // will take the index from locationLists
+  selectedPlace = -1; // will take the index from locationLists
   suggest = {
     shown: true
   };
   direction: any;
+  geoTracker: any;
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -45,7 +46,8 @@ export class ToExplorePage {
         place: "el manzeh7 , tunis",
         rating: "4",
         startHour: "8am",
-        endHour: "6pm"
+        endHour: "6pm",
+        distance: "0"
       },
       {
         id: 1,
@@ -56,7 +58,8 @@ export class ToExplorePage {
         place: "el manzeh8 , tunis",
         rating: "4",
         startHour: "8am",
-        endHour: "6pm"
+        endHour: "6pm",
+        distance: "0"
       },
       {
         id: 2,
@@ -67,13 +70,35 @@ export class ToExplorePage {
         place: "el manzeh8 , tunis",
         rating: "4",
         startHour: "8am",
-        endHour: "6pm"
+        endHour: "6pm",
+        distance: "0"
       }
     ];
   }
 
   ionViewDidLoad() {
     console.log("ionViewDidLoad ToExplorePage");
+  }
+  clearSelection() {
+    this.selectedPlace = -1;
+    this.bottom_ctn = "3";
+    // force remove
+    this.map.removeLayer("line");
+    this.map.removeSource("line");
+    this.direction = "";
+  }
+  locateUser() {
+    // ok look here dude
+    /**
+     * i can do it with own geolocation of ionic but we have to do more work to keep the pos visible on chnage
+     * for that i rather to use mapbox watcher (on the same biblio) but here i don't have to keep watching and rendring
+     * the only problem that we have to select and trigger the button .
+     */
+    let btn = document.getElementsByClassName("mapboxgl.ctrl.geolocate");
+    console.log(btn);
+    console.log(this.geoTracker);
+    //this.geoTracker._onClickGeolocate.bind(this.geoTracker);
+    this.geoTracker._geolocateButton.click();
   }
   ngOnInit() {}
   ionViewDidEnter() {
@@ -82,10 +107,11 @@ export class ToExplorePage {
       frequency: 3000,
       enableHighAccuracy: true
     };
-
+    let m = 0;
     this.watch = this.geolocation
       .watchPosition(options)
       .subscribe((position: Geoposition) => {
+        m++;
         console.log(position);
         if (
           this.coordsData == undefined ||
@@ -93,17 +119,22 @@ export class ToExplorePage {
           position.coords.longitude != this.coordsData.longitude
         ) {
           this.coordsData = position.coords;
-          this.executemap();
+          if (m <= 1) {
+            this.executemap();
+          }
         }
       });
+    //this.executemap();
   }
   executemap() {
     /*Initializing Map*/
+    console.log("called ex map");
+
     mapboxgl.accessToken =
       "pk.eyJ1IjoicGluZ2dob3N0IiwiYSI6ImNqanpoZnd4ZGFoMGMzd3I1dWpscWRxYTYifQ.lZRd3uq4m4g3U73uAX5h3g";
     this.map = new mapboxgl.Map({
       style: "mapbox://styles/pingghost/cjjznmwyr6edk2spfve2zuo3c",
-      center: this.locationLists[0].location,
+      center: [this.coordsData.longitude, this.coordsData.latitude],
       //[this.coordsData.longitude, this.coordsData.latitude]
       zoom: 15,
       minZoom: 7.5, //restrict map zoom - buildings not visible beyond 13
@@ -111,13 +142,13 @@ export class ToExplorePage {
       container: "map"
     });
 
-    let geoTracker = new mapboxgl.GeolocateControl({
+    this.geoTracker = new mapboxgl.GeolocateControl({
       positionOptions: {
         enableHighAccuracy: true
       },
       trackUserLocation: true
     });
-    this.map.addControl(geoTracker);
+    this.map.addControl(this.geoTracker);
     // drop the location pins on the map
     this.locationLists.forEach(marker => {
       // create a DOM element for the marker

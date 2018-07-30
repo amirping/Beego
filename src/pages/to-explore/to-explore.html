@@ -41,7 +41,18 @@
 
 <ion-content>
   <div id='map'></div>
-  <div class="top-box"></div>
+  <div class="top-box">
+    <div class="distanceProx" *ngIf="selectedPlace != -1">
+      <div class="row">
+        <img src="{{locationLists[selectedPlace].picPin}}" alt="img">
+        <span> elle est a {{locationLists[selectedPlace].distance | number}} km de votre position actuelle</span>
+      </div>
+      <button ion-button clear icon-only small (click)="clearSelection()">
+        <ion-icon name="close"></ion-icon>
+      </button>
+
+    </div>
+  </div>
   <div class="bottom-box" [ngSwitch]="bottom_ctn">
     <div *ngSwitchCase="1">
       friends
@@ -56,7 +67,7 @@
           <button ion-button icon-only class="sly-round" small>
             <ion-icon name="brush"></ion-icon>
           </button>
-          <button ion-button icon-only class="sly-round" small>
+          <button ion-button icon-only class="sly-round" small (click)="locateUser()">
             <ion-icon name="locate"></ion-icon>
           </button>
           <button ion-button icon-only color="light" class="sly-round" small raised (click)="suggest.shown = !suggest.shown">
@@ -82,7 +93,7 @@
                 </rating>
               </div>
               <div class="distance">
-                <ion-icon name="paper-plane"></ion-icon> 5km
+                <ion-icon name="paper-plane"></ion-icon> {{item.distance}} km
               </div>
             </div>
             <div class="row-data">
@@ -119,7 +130,7 @@
             <span class="tel">Num de tel: 71 254 857</span>
             <div class="distance">
               Distance:
-              <ion-icon name="paper-plane"></ion-icon> {{locationLists[selectedPlace].distance}} km
+              <ion-icon name="paper-plane"></ion-icon> {{locationLists[selectedPlace].distance | number}} km
             </div>
           </div>
           <div class="row-data">
