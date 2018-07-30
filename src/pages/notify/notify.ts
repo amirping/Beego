@@ -29,7 +29,11 @@ export class NotifyPage {
     })
   }
   accept(uid){
-    console.log(uid);
+    this.friendsProvider.acceptFriendRequest(uid).then(d=>{
+      console.log(d);
+    }).catch(e=>{
+      console.log(e);
+    })
   }
 
 }
