@@ -258,15 +258,15 @@ export class HomePage {
   }
   navigateToChilloutPage() {
     console.log("545");
-    this.navCtrl.push(ChilloutPage, { category: "chillout" });
+    this.navCtrl.push(ChilloutPage, { category: "Chillout" });
   }
   navigateToBeautyPage() {
     console.log("545");
-    this.navCtrl.push(ChilloutPage, { category: "beauty" });
+    this.navCtrl.push(ChilloutPage, { category: "Beauty" });
   }
   navigateToShoppingPage() {
     console.log("545");
-    this.navCtrl.push(ChilloutPage, { category: "shopping" });
+    this.navCtrl.push(ChilloutPage, { category: "Shopping" });
   }
   navigateTo(page,idEspace) {
     switch (page) {

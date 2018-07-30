@@ -64,17 +64,17 @@
             <div class="grid-viewr"   >
               <ng-container  *ngFor="let item of 
               pagesData | async | searchRadio : searchText : category">
-                <div class="card-ex animated flipInX" *ngIf="ShoworNot(item,searchText) "  >
+                <div class="card-ex animated flipInX" *ngIf="ShoworNot(item,searchText) " (click)="navigateToSpaceDetail(item.key)"  >
               
                 
                 
                   <div class="img">
-                    <img src="../../assets/imgs/{{item.photo}}" alt="">
+                    <img src="{{item.espaceImage}}" alt="">
                   </div>
-                  <span class="title">{{item.title}}</span>
-                  <span class="sub-title">{{item.subtitle}}</span>
+                  <span class="title">{{item.espaceName}}</span>
+                  <span class="sub-title">{{item.espacePlace}}</span>
                   <div class="rating-ex">
-                    <rating [(ngModel)]="item.rating" emptyStarIconName="star-outline" halfStarIconName="star-half" starIconName="star" nullable="false"
+                    <rating [(ngModel)]="moyenneRating" emptyStarIconName="star-outline" halfStarIconName="star-half" starIconName="star" nullable="false"
                       (ngModelChange)="null">
                     </rating>
                   </div>

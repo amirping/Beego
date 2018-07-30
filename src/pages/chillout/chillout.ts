@@ -5,6 +5,7 @@ import { Observable } from 'rxjs/Observable';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { SearchRadioPipe } from '../../providers/user/pipe_search'
 import { SpacesProvider } from "../../providers/spaces/spaces";
+import { SpaceDetailPage } from "../space-detail/space-detail";
 
 
 /**
@@ -33,7 +34,13 @@ export class ChilloutPage {
 
   chilloutListRef$: Observable<any[]>;
   rechercher$: Observable<any[]>;
-  
+  moyenneRating  =0.0;
+ 
+  val1 = 0 ;
+  val2 = 0 ; 
+  val3 = 0 ; 
+  val4 = 0 ;
+  val5 = 0 ; 
 
   categories : Observable<any[]>;
   pagesData : any = [];
@@ -63,6 +70,7 @@ export class ChilloutPage {
    
    
     this.pagesData = spacesProvider.listPagesDataChillout(this.category)
+    
 
     
     
@@ -83,15 +91,18 @@ export class ChilloutPage {
 
     
    
-    if(!item.title.toLocaleLowerCase().includes(text.toLocaleLowerCase()))
+    if(!item.espaceName.toLocaleLowerCase().includes(text.toLocaleLowerCase()))
     return false
     if(this.indexPage !="ALL")
     {
-      if(item.type !== this.indexPage)
+      if(item.espaceType !== this.indexPage)
       return false
     }
     
     return true;
+  }
+  navigateToSpaceDetail(idEspace){
+    this.navCtrl.push(SpaceDetailPage,{cle : idEspace});
   }
 
   

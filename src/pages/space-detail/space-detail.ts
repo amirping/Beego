@@ -48,6 +48,7 @@ export class SpaceDetailPage {
   idEspace: string;
   rating = 5;
   espaceDescription;
+  testDate ; 
 
  
 
@@ -113,6 +114,11 @@ export class SpaceDetailPage {
   ) {
     this.idEspace = this.navParams.get('cle');
     this.db.object(`espace/${this.idEspace}`).valueChanges().subscribe((data: any) => {
+      this.testDate = new Date();
+      console.log("date : ",this.testDate.toISOString().substring(11, 19))
+      if(this.testDate.toISOString().substring(11, 19)<"15:00:00")
+      console.log("ok")
+    
       
       this.espace = Object(data)
       console.log(this.espace)

@@ -20,9 +20,9 @@ export class SearchRadioPipe implements PipeTransform {
     console.log(data);
     console.log(category);
     switch (category) {
-      case "shopping":
-      case "beauty":
-      case "chillout": {
+      case "Shopping":
+      case "Beauty":
+      case "Chillout": {
         if (name && name != "")
           return this.filterChillout(data, name);
         return data;
@@ -48,8 +48,8 @@ export class SearchRadioPipe implements PipeTransform {
 
   private filterChillout(data: any, name: string) {
     console.log("ee", name);
-    return data.filter(d => d.title.toLocaleLowerCase().includes(name.toLocaleLowerCase())
-      || d.subtitle.toLocaleLowerCase().includes(name.toLocaleLowerCase()));
+    return data.filter(d => d.espaceName.toLocaleLowerCase().includes(name.toLocaleLowerCase())
+      || d.espacePlace.toLocaleLowerCase().includes(name.toLocaleLowerCase()));
   }
   private filterEspace(data: any, name: string) {
     console.log("", name);

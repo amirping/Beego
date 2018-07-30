@@ -81,8 +81,10 @@ export class SpacesProvider {
   }
   listPagesDataChillout(cat:string){
     this.pagesData = this.database
-      .list(cat)
-      .valueChanges();
+      .list("espace",item => item.orderByChild('espaceCategorie').equalTo(cat))
+      .snapshotChanges().map(changes => {
+        return changes.map( c => ({key : c.payload.key,...c.payload.val()}))
+      }); 
       return this.pagesData;
   }
 
