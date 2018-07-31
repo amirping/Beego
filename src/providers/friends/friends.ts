@@ -17,7 +17,6 @@ export class FriendsProvider {
   constructor(private http: HttpClient,
     private userProvider: UserProvider,
   ) {
-    console.log('Hello FriendsProvider Provider');
   }
   getFriendsRequest(clcbk){
     const tk = this.userProvider.idToken;
@@ -33,17 +32,13 @@ export class FriendsProvider {
         //   friend.state = 0;
         //   friends.push(friend);
         // }
-        console.log(data);
         // this.lastScore = data.lastScore;
         const friends = [];
         if(data.e){
           console.log(data.e);
         }else{
-          console.log(data.friends);
           for (const key in data.friends) {
-            console.log(key);
             const friend = data.friends[key];
-            console.log(friend);
             // friend.uid = key; 
             friends.push(friend);
           }
@@ -52,7 +47,6 @@ export class FriendsProvider {
       });
   }
   getFriends(clbk){
-    console.log("friendssssssss");
     const tk = this.userProvider.idToken;
     const headers = new HttpHeaders().set('Authorization', `Bearer ${tk}`);
     this.http.get('http://localhost:5000/test-3cdd6/us-central1/beegoapi/friendslist/',{headers})
@@ -66,17 +60,13 @@ export class FriendsProvider {
         //   friend.state = 0;
         //   friends.push(friend);
         // }
-        console.log(data);
         // this.lastScore = data.lastScore;
         const friends = [];
         if(data.e){
           console.log(data.e);
         }else{
-          console.log(data.friends);
           for (const key in data.friends) {
-            console.log(key);
             const friend = data.friends[key];
-            console.log(friend);
             // friend.uid = key; 
             friends.push(friend);
           }
@@ -102,7 +92,6 @@ export class FriendsProvider {
         //   friend.state = 0;
         //   friends.push(friend);
         // }
-        console.log(data);
         this.lastScore = data.lastScore;
         if(data.e){
           reject(data.e)

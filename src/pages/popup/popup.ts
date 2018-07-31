@@ -14,10 +14,11 @@ import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angul
   templateUrl: 'popup.html',
 })
 export class PopupPage {
-
+  friend:any;
   constructor(public navCtrl: NavController,
     private viewCtrl : ViewController,
      public navParams: NavParams) {
+       this.friend = this.navParams.get('friend');
   }
 
   ionViewDidLoad() {

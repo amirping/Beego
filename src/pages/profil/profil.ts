@@ -59,6 +59,8 @@ export class ProfilPage {
     public userProvider: UserProvider,
     public loadCtrl: LoadingController) {
       this.hiddenPage = false;
+      this.user = this.userProvider.currentUser;
+      this.user.coverURL = this.user.coverURL?this.user.coverURL:"../../assets/imgs/default/cover.jpg";
   }
   // ionViewCanEnter(){
   //   console.log("can enter");
@@ -73,7 +75,7 @@ export class ProfilPage {
   }
   ionViewDidLoad() {
     console.log("did load");
-    this.user = this.userProvider.currentUser;
+    
   }
   ionViewWillEnter(){
     console.log("will enter");

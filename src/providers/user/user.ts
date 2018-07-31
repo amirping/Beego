@@ -27,7 +27,6 @@ export class UserProvider {
     this.connected = false;
     this.lastConnectionCheck = Date.now();
     const sub = this.auth.authState.subscribe(state=>{
-      console.log(state);
       if(state && state.emailVerified){
           const sub2 = this.db.object(`users/${this.auth.auth.currentUser.uid}`)
           .valueChanges()
@@ -51,14 +50,12 @@ export class UserProvider {
   }
   _updateEmail(user){
     if(user["email"] != this.auth.auth.currentUser.email){
-      console.log("diff mail");
       this.user.email = this.auth.auth.currentUser.email;
       this.db.list('users').update(this.auth.auth.currentUser.uid, {email:this.user.email})
       .catch(err=>{
         console.log(err);
       });
     }
-    console.log("in update mail");
     this.auth.auth.currentUser.getIdToken().then(tk=>{
       this.token = tk;
     });
@@ -71,7 +68,6 @@ export class UserProvider {
       this.user = user as User;
       this.user.email = this.auth.auth.currentUser.email;
       this.user.uid = this.auth.auth.currentUser.uid;
-      console.log("we set user");
       this.auth.auth.currentUser.getIdToken().then(tk=>{
         this.token = tk;
       });
@@ -342,7 +338,6 @@ export class UserProvider {
   }
   logout() {
     this.auth.auth.signOut();
-    console.log("signout");
   }
   get idToken(){
     return this.token;
@@ -385,9 +380,7 @@ export class UserProvider {
             return of(null);
           })
         ).subscribe(state=>{
-          console.log(state);
           if(!state || !state.emailVerified || state.email != this.user.email){
-            console.error("is not connect");
             this.connected = false;
             if(this.tabsCtrl){
               this.tabsCtrl(false);

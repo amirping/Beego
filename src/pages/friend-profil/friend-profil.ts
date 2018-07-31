@@ -30,15 +30,14 @@ export class FriendProfilPage {
     private modalCtrl : ModalController,
     public navParams: NavParams) {
       const uid = this.navParams.get("uid");
-    console.log(uid);
     this.friendsProvider.getFriend(this.navParams.get('uid')).then((friend: User)=>{
       this.friend = friend;
-      console.log(this.friend)
+      this.friend.photoURL = this.friend.photoURL?this.friend.photoURL:"../../assets/imgs/default/cover.jpg";
+      this.friend.coverURL = this.friend.coverURL?this.friend.coverURL:"../../assets/imgs/default/cover.jpg";
     });
     
   }
   ionViewDidLoad() {
-    console.log('ionViewDidLoad FriendProfilPage');
     
   }
   formatFollows(nbr:number):string{
