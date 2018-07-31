@@ -152,19 +152,19 @@
                   </ion-row>
                   <ion-row class="service_detail">
                     <ion-col class="servises" col-6>
-                      <div>Spécialité : <span>{{espaceMeilleureSpecialite}} </span>
+                      <div *ngIf="espaceMeilleureSpecialite">Spécialité : <span>{{espaceMeilleureSpecialite}} </span>
                       </div>
-                      <div>Parking : <span>{{espaceParking}}</span>
+                      <div *ngIf="espaceParking">Parking : <span>{{espaceParking}}</span>
                       </div>
-                      <div>Fouchette de prix : <span>$$$</span>
+                      <div *ngIf="espaceMeilleureSpecialite">Fouchette de prix : <span>$$$</span>
                       </div>
                     </ion-col>
                     <ion-col class="servises" col-6>
-                      <div>Loisirs : <span>{{loisirArray}} </span>
+                      <div *ngIf="loisirArray">Loisirs : <span>{{loisirArray}} </span>
                       </div>
-                      <div>Terasse : <span>{{espaceTerasse}}</span>
+                      <div *ngIf="espaceTerasse">Terasse : <span>{{espaceTerasse}}</span>
                       </div>
-                      <div>Cuisine : <span>{{espaceCuisine}}</span>
+                      <div *ngIf="espaceCuisine">Cuisine : <span>{{espaceCuisine}}</span>
                       </div>
                     </ion-col>
                   </ion-row>
@@ -174,7 +174,7 @@
                       ios="ios-add" md="md-add"></ion-icon>
                   </button>
                   </ion-row>
-                  <ion-row class="row_title ">
+                  <ion-row class="row_title " *ngIf="espaceSpecialite">
                     Nos gouts
                   </ion-row>
                   <ion-row class="row_taste" >

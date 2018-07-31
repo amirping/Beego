@@ -126,6 +126,7 @@ export class SpaceDetailPage {
       this.espaceImage = data.espaceImage
       this.espacePlace = data.espacePlace
       this.espaceRegion = data.espaceRegion
+      if(data.espaceSpecialite)
       this.espaceSpecialite = Object.keys(data.espaceSpecialite)
       .map(i => data.espaceSpecialite[i]);
       this.espaceCuisine = data.espaceCuisine
@@ -148,8 +149,10 @@ export class SpaceDetailPage {
       this.reviewsArray = Object.keys(data.Reviews)
       .map(i => data.Reviews[i]);
       console.log(this.reviewsArray)
+      if(data.espaceLoisir)
       this.loisirArray = Object.keys(data.espaceLoisir)
       .map(i => data.espaceLoisir[i]);
+      if(data.followers)
       this.listFollowerss= Object.keys(data.followers)
       .map(i => data.followers[i]);
      this.nbFollowers = this.listFollowerss.length
