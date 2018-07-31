@@ -15,9 +15,9 @@
         </ion-row>
         <ion-row class="feedback3_thirdStep">
           <div class="thirdStep">
-              <div class="blueCircle" (click)="backToFeedback1()"></div>
+              <div class="blueCircle"></div>
               <div class="blueLine"></div>
-              <div class="blueCircle" (click)="backToFeedback2()"></div>
+              <div class="blueCircle"></div>
               <div class="blueLine"></div>
               <div class="blueCircle"></div>
           </div>
@@ -27,7 +27,8 @@
             pour votre rasds sdflm !
         </ion-row>
         <ion-row class="feedback_btn_row">
-            <button class="feedback_btn">
+            <button (click)="opinionDone()" 
+             class="feedback_btn">
                 Okey
             </button>
         </ion-row>

@@ -32,7 +32,7 @@
 </ion-header>
 
 
-<ion-content class="opinion_back_color">
+<ion-content noscroll class="opinion_back_color">
   <div class="opinions_info">
     <ion-grid>
       <ion-row class="feedback_row">
@@ -94,36 +94,38 @@
           <ion-col col-1></ion-col>
           <ion-row class="comments_row " *ngIf="item.commentShow">
             <div class="fullWidth animated bounceInDown ">
-            <ion-row class="comments Reviews_row" *ngFor="let comment of item.comments">
-              <ion-col col-2>
-                <div class="bee-img-reviews ">
-                  <div class="bee-hexagon-reviews">
-                    <img class="bee-img-size" [src]="item.picUrl" alt="">    <!-- another url -->
+              <ion-row class="comments Reviews_row" *ngFor="let comment of item.comments">
+                <ion-col col-2>
+                  <div class="bee-img-reviews ">
+                    <div class="bee-hexagon-reviews">
+                      <img class="bee-img-size" [src]="item.picUrl" alt="">
+                      <!-- another url -->
+                    </div>
                   </div>
+
+                </ion-col>
+                <ion-col col-8>
+                  <div class="com_detail ">
+                    <div class="name">
+                      {{item.name}}
+                    </div>
+                    <div class="com">
+                      {{item.comment}}
+                    </div>
+                  </div>
+                </ion-col>
+                <div class="com_time">
+                  {{item.date}}
                 </div>
 
-              </ion-col>
-              <ion-col col-8>
-                <div class="com_detail ">
-                  <div class="name">
-                    {{item.name}}
-                  </div>
-                  <div class="com">
-                    {{item.comment}}
-                  </div>
-                </div>
-               </ion-col>
-              <div class="com_time">
-                {{item.date}}
-              </div>
-            
-            </ion-row>
-          </div>
+              </ion-row>
+            </div>
             <ion-row class="ur_comment">
               <ion-col col-2>
                 <div class="bee-img-reviews ">
                   <div class="bee-hexagon-reviews">
-                    <img class="bee-img-size" [src]="item.picUrl" alt=""> <!-- same url -->
+                    <img class="bee-img-size" [src]="item.picUrl" alt="">
+                    <!-- same url -->
                   </div>
                 </div>
               </ion-col>
@@ -133,7 +135,7 @@
             </ion-row>
           </ion-row>
         </ion-row>
-        </ion-row>
+      </ion-row>
     </ion-grid>
   </div>
 </ion-content>

@@ -35,7 +35,7 @@ import { UserProvider } from '../providers/user/user';
 export class MyApp {
 
 
-  rootPage: any= SpaceDetailOpinionsPage;
+  rootPage: any= SpaceDetailPage;
   constructor(
     platform: Platform,
     statusBar: StatusBar,

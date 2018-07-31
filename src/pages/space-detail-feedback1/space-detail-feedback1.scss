@@ -1,6 +1,9 @@
 page-space-detail-feedback1 {
+ 
     ion-content{
-        background-color: rgba(0, 0, 0, 0.3) !important;
+        background-color:transparent !important;
+        // rgba(0, 0, 0, 0.3) !important
+        box-shadow: none !important;
     }
     .feedback1_container{
         height: 385px;
@@ -262,6 +265,16 @@ page-space-detail-feedback1 {
                 font-family: Raleway;
                 font-size: 14px;
                 font-weight: 400;
+            }
+        }
+        .laterbtn{
+            margin-top: 22px;
+            button{
+                background-color: transparent;
+                color: rgb(46, 96, 161);
+                position: absolute;
+                right: 25px;
+                font-size: 13px;
             }
         }
     }

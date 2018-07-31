@@ -1,9 +1,11 @@
 page-space-detail {
+  .blur{
+    filter: blur(4px);
+  }
   .grid{
     padding: 0 !important;
   }
-  // .padd_row{
-  // }
+ 
   .col{
     padding: 0;
     margin: 0;

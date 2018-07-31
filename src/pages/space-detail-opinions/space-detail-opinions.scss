@@ -1,6 +1,9 @@
 page-space-detail-opinions {
+  .scroll-content {
+    overflow: auto;
+}
   .opinion_back_color {
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: transparent;
   }
   .nav_title {
     height: 70px;
@@ -140,6 +143,7 @@ page-space-detail-opinions {
           box-shadow: none ;
           width: 86px;
           height: 118px;
+          border-radius: 5px;
           margin-top: 11px;
           z-index: 2;
         }

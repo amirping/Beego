@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { IonicPage, NavController, NavParams , AlertController,ModalController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams , AlertController,ModalController,Events } from 'ionic-angular';
 import { Observable } from '../../../node_modules/rxjs/Observable';
 import { AngularFireDatabase, AngularFireList } from '../../../node_modules/angularfire2/database';
 
@@ -21,6 +21,8 @@ import { SpaceDetailOpinionsPage } from '../space-detail-opinions/space-detail-o
   templateUrl: 'space-detail.html',
 })
 export class SpaceDetailPage {
+  disabled=false;
+  blurr;
 
   espace: Observable<any[]>
   espaceName: string;
@@ -50,11 +52,21 @@ export class SpaceDetailPage {
 
   goToOpinions(){
     // this.navCtrl.push(SpaceDetailOpinionsPage);
-    // this.disabled=true;
-    const modal1= this.modalCtrl.create(SpaceDetailOpinionsPage);
+    this.disabled=true;
+    // console.log('dropblur' , open)
+  //  this.events.publish('dropblur',true);
+    const modal1= this.modalCtrl.create(SpaceDetailOpinionsPage );
     modal1.present();
-    modal1.onDidDismiss(()=>{
-      // this.disabled=false;
+    modal1.onDidDismiss((data)=>{
+      // this.disabled=false
+      
+      console.log("test", data);
+      if (data && data.otherOpen === true){
+        this.disabled = true;
+      }
+      else{
+        this.disabled = false;
+      }
     });
   }
 
@@ -128,9 +140,15 @@ export class SpaceDetailPage {
     public navParams: NavParams,
     private db: AngularFireDatabase,
     private alertController : AlertController,
-    private modalCtrl: ModalController
+    private modalCtrl: ModalController,
+    private events : Events
 
   ) {
+    // this.disabled=false;
+     events.subscribe('otherOpen', val => {
+         this.disabled=val;
+     });
+   
     this.idEspace = this.navParams.get('cle');
     this.db.object(`espace/${this.idEspace}`).valueChanges().subscribe((data: any) => {
       
