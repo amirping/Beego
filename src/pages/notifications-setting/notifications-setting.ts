@@ -15,12 +15,16 @@ import { NotificationsPage } from '../notifications/notifications';
   templateUrl: 'notifications-setting.html',
 })
 export class NotificationsSettingPage {
-  btnTranformation= false;
+  allbtns=false;
+  btns= [false,false,false,false,false,false];
 
-  btnTrans(){
-    this.btnTranformation = !this.btnTranformation;
+  btnTrans(i){
+    this.btns[i]=!this.btns[i];
   }
-
+  togglebtns(){
+    this.allbtns=!this.allbtns;
+    this.btns = this.btns.map(btn=>this.allbtns)
+  }
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
   backToNotificationList(){

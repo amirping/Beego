@@ -16,12 +16,15 @@ page-notifications-setting {
     margin-top: -440px;
   }
   .notifications {
+    background-image: url(../../assets/imgs/notification/bell.svg);
+    background-repeat: no-repeat;
+    background-size: 63px 69px ;
+    background-position: center 73px;
     width: 100%;
     left: 0px;
-    min-height: 449px; // height: auto;
+    min-height: 449px; 
     background-color: #ffffff;
-    border-top-right-radius: 47px;
-    border-top-left-radius: 47px;
+    border-radius: 30px 30px 0 0;
     position: relative;
   }
   .profil_img {
@@ -151,8 +154,8 @@ page-notifications-setting {
   }
   .btnTranformation {
  
-    background-color: #f22876;
-    color: #ffffff;
+    background-color: #f22876 !important;
+    color: #ffffff !important;
  
 }
 }

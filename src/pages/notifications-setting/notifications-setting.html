@@ -40,18 +40,18 @@
                 <span>
                     Tous les notifications
                 </span>
-                <ion-toggle class="not_setting_toggle"
-                 color="secondary" checked="true"></ion-toggle>
+                <ion-toggle class="not_setting_toggle" (ionChange)="togglebtns()" 
+                 color="secondary" checked="allbtns"></ion-toggle>
               </ion-row>
               <ion-row class="not_setting_type"  >
-                <button (click)="btnTrans()" >Trafic's</button>
-                <button>Favoris</button>
-                <button>Follow's</button>
+                <button (click)="btnTrans(0)" [class.btnTranformation]="btns[0]">Trafic's</button>
+                <button (click)="btnTrans(1)" [class.btnTranformation]="btns[1]">Favoris</button>
+                <button (click)="btnTrans(2)" [class.btnTranformation]="btns[2]">Follow's</button>
               </ion-row>
-              <ion-row class="not_setting_type" [class.btnTranformation]="btnTrans()">
-                  <button>Event's</button>
-                  <button>Amis</button>
-                  <button>Promotion's</button>
+              <ion-row class="not_setting_type" >
+                  <button (click)="btnTrans(3)" [class.btnTranformation]="btns[3]">Event's</button>
+                  <button (click)="btnTrans(4)" [class.btnTranformation]="btns[4]">Amis</button>
+                  <button (click)="btnTrans(5)" [class.btnTranformation]="btns[5]">Promotion's</button>
                 </ion-row>
                 <ion-row class="not_setting_btn">
                   <button (click)="backToNotificationList()" class="btn_finish">
