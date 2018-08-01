@@ -1,0 +1,158 @@
+page-notifications-setting {
+  .photo-row {
+    height: 644px;
+    flex-grow: 1;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    .img-cover {
+      background-repeat: no-repeat;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  .position-info {
+    margin-top: -440px;
+  }
+  .notifications {
+    width: 100%;
+    left: 0px;
+    min-height: 449px; // height: auto;
+    background-color: #ffffff;
+    border-top-right-radius: 47px;
+    border-top-left-radius: 47px;
+    position: relative;
+  }
+  .profil_img {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    .bee-hexagon_bg {
+      clip-path: url(#hexagonPath);
+      background-repeat: no-repeat;
+      background-position: -3px -15px;
+      background-color: white;
+      height: 100%;
+    }
+    .bee-image_bg {
+      height: 120px;
+      width: 120px;
+      position: absolute;
+      top: -40px;
+      transform: scale(1.03);
+      margin: auto;
+    }
+    .bee-hexagon {
+      clip-path: url(#hexagonPath);
+      background-repeat: no-repeat;
+      background-position: -3px -15px;
+      background-color: transparent;
+      height: 100%;
+    }
+    .bee-image {
+      height: 120px;
+      width: 120px;
+      transform: scale(0.87);
+    }
+    .bee-img-size {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .not_setting_title {
+    color: #5c6877;
+    font-family: Raleway;
+    font-size: 18px;
+    font-weight: 500;
+    margin-top: 90px;
+    display: flex;
+    justify-content: center;
+  }
+  .not_setting_com {
+    color: #9eaacc;
+    font-family: Raleway;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.13px;
+    display: flex;
+    justify-content: center;
+    padding-left: 37px;
+    padding-right: 30px;
+    margin-top: 8px;
+  }
+  .all_not_setting {
+    margin-top: 26px;
+    width: 100%;
+    height: 52px;
+    background-color: #f2f2f2;
+    position: relative;
+    padding-top: 17px;
+    padding-left: 39px;
+    padding-right: 38px;
+    span {
+      color: #c9c9c9;
+      font-family: Raleway;
+      font-size: 14px;
+      font-weight: 400;
+    }
+    .not_setting_toggle {
+      position: absolute;
+      right: 25px;
+      top: 7px;
+    }
+  }
+  .not_setting_type {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 33px;
+    button {
+      width: 98px;
+      height: 35px;
+      border-radius: 18px;
+      border: 1px solid #e2e2e2;
+      background-color: #ffffff;
+      color: #8e8e93;
+      font-family: Raleway;
+      font-size: 12px;
+      font-weight: 500;
+    }
+  }
+  .not_setting_btn {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 57px;
+    .btn_finish {
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
+      border-radius: 17px;
+      border: 1px solid #1f9ed5;
+      background-color: #1f9ed5;
+      width: 165px;
+      height: 35px;
+      color: #ffffff;
+      font-family: Raleway;
+      font-size: 14px;
+      font-weight: 500;
+    }
+    .btn_cancel {
+      border-radius: 18px;
+      border: 1px solid #e2e2e2;
+      background-color: #ffffff;
+      width: 98px;
+      height: 35px;
+      color: #8e8e93;
+      font-family: Raleway;
+      font-size: 14px;
+      font-weight: 500;
+    }
+  }
+  .btnTranformation {
+ 
+    background-color: #f22876;
+    color: #ffffff;
+ 
+}
+}

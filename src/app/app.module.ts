@@ -40,6 +40,8 @@ import {SpaceDetailOpinionsPage} from '../pages/space-detail-opinions/space-deta
 import {SpaceDetailFeedback1Page} from '../pages/space-detail-feedback1/space-detail-feedback1';
 import {SpaceDetailFeedback2Page} from '../pages/space-detail-feedback2/space-detail-feedback2';
 import {SpaceDetailFeedback3Page} from '../pages/space-detail-feedback3/space-detail-feedback3';
+import {NotificationsPage} from '../pages/notifications/notifications';
+import {NotificationsSettingPage} from '../pages/notifications-setting/notifications-setting'
 
 
 
@@ -102,6 +104,8 @@ import { HttpClientModule } from "../../node_modules/@angular/common/http";
     SpaceDetailFeedback1Page,
     SpaceDetailFeedback2Page,
     SpaceDetailFeedback3Page,
+    NotificationsPage,
+    NotificationsSettingPage,
 
 
     MyTastesPage,
@@ -160,6 +164,8 @@ import { HttpClientModule } from "../../node_modules/@angular/common/http";
     SpaceDetailFeedback1Page,
     SpaceDetailFeedback2Page,
     SpaceDetailFeedback3Page,
+    NotificationsPage,
+    NotificationsSettingPage,
 
 
     MyTastesPage,

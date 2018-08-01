@@ -1,0 +1,68 @@
+<!--
+  Generated template for the NotificationsSettingPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+
+
+<ion-content>
+  <ion-grid no-padding>
+      <ion-row class="photo-row">
+          <ion-col>
+              <img class="img-cover" 
+              src="../../assets/imgs/friend-profil/friendPhoto.png" alt="">
+          </ion-col>
+        </ion-row>
+        <ion-row class="position-info">
+          <div class="notifications">
+              <ion-row class="profil_img">
+                  <div class="bee-image_bg">
+                      <div class="bee-hexagon_bg">
+                          <div class="bee-image">
+                              <div class="bee-hexagon">
+                                  <img class="bee-img-size"
+                                  src="../../assets/imgs/notification/friendsphoto.png" alt="">
+                                </div>
+                          </div>
+                      </div>
+                  </div>                  
+              </ion-row>
+              <ion-row class="not_setting_title">
+                  Personnaliser vos notifications
+              </ion-row>
+              <ion-row class="not_setting_com">
+                  Le Lorem Ipsum est simplement du faux texte employé 
+                  dans la composition et la mise en page
+              </ion-row>
+              <ion-row class="all_not_setting">
+                <span>
+                    Tous les notifications
+                </span>
+                <ion-toggle class="not_setting_toggle"
+                 color="secondary" checked="true"></ion-toggle>
+              </ion-row>
+              <ion-row class="not_setting_type"  >
+                <button (click)="btnTrans()" >Trafic's</button>
+                <button>Favoris</button>
+                <button>Follow's</button>
+              </ion-row>
+              <ion-row class="not_setting_type" [class.btnTranformation]="btnTrans()">
+                  <button>Event's</button>
+                  <button>Amis</button>
+                  <button>Promotion's</button>
+                </ion-row>
+                <ion-row class="not_setting_btn">
+                  <button (click)="backToNotificationList()" class="btn_finish">
+                      Terminer
+                  </button>
+                  <button (click)="backToNotificationList()" class="btn_cancel">
+                      Annuler
+                  </button>
+                </ion-row>
+          </div>          
+        </ion-row>
+  </ion-grid>
+
+</ion-content>

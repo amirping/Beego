@@ -1,0 +1,226 @@
+page-notifications {
+  overflow-y: hidden;
+  .photo-row {
+    height: 644px;
+    flex-grow: 1;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    .img-cover {
+      background-repeat: no-repeat;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  .position-info {
+    margin-top: -440px;
+  }
+  .notifications {
+    width: 100%;
+    left: 0px;
+    min-height: 449px; // height: auto;
+    background-color: #ffffff;
+    border-top-right-radius: 47px;
+    border-top-left-radius: 47px;
+    position: relative;
+  }
+  .profil_img {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    .bee-hexagon_bg {
+      clip-path: url(#hexagonPath);
+      background-repeat: no-repeat;
+      background-position: -3px -15px;
+      background-color: white;
+      height: 100%;
+    }
+    .bee-image_bg {
+      height: 120px;
+      width: 120px;
+      position: absolute;
+      top: -40px;
+      transform: scale(1.03);
+      margin: auto;
+    }
+    .bee-hexagon {
+      clip-path: url(#hexagonPath);
+      background-repeat: no-repeat;
+      background-position: -3px -15px;
+      background-color: transparent;
+      height: 100%;
+    }
+    .bee-image {
+      height: 120px;
+      width: 120px;
+      transform: scale(0.87);
+    }
+    .bee-img-size {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+    .setting {
+      position: absolute;
+      right: 33px;
+      top: 26px;
+      color: #b2b1b2;
+      font-size: 25px;
+    }
+  }
+  .notification_title {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    margin-top: 92px;
+    .titlesbox {
+      padding: 4px 39px;
+      color: #656667;
+      font-family: Raleway;
+      font-size: 16px;
+      font-weight: 700;
+      /* Text style for "Notification" */
+      font-family: "Segoe UI";
+      font-weight: 400;
+      width: 163px;
+      height: 34px;
+      border-radius: 17px;
+      border: 1px solid #e1e1e1;
+    }
+    .line {
+      width: calc( ( 100% - 163px) / 2);
+      height: 1px;
+      border: 0.5px solid #e1e1e1;
+      position: absolute;
+      top: 16px;
+    }
+    .left_line {
+      left: 0;
+    }
+    .right_line {
+      right: 0;
+    }
+  }
+  .notification_list {
+    width: 100%;
+    position: relative;
+    margin-top: 9px;
+    .item_height{
+    min-height: 92px;
+    }
+    .list-ios-notification {
+      width: 100%;
+      overflow-y: scroll;
+      max-height: 250px;
+    }
+    .theNotification {
+      /* Text style for "a partager" */
+      color: #95989a;
+      font-family: "Segoe UI";
+      font-weight: 400;
+      font-size: 12px;
+    }
+    span {
+      /* Text style for "Med limaym" */
+      font-family: Lato;
+      font-weight: 700;
+      color: #606263;
+    }
+     ion-avatar {
+      img {
+        width: 50px;
+        height: 50px;
+        margin: 8px 7px 8px 0px !important;
+      }
+      .dot{
+        position: absolute;
+        left: 59px;
+        top: 39px;
+        border-radius: 50px;
+        width: 14px   ;
+        height: 14px;
+        border: 2px solid #ffffff;        
+      }
+      .orange_dot{
+        background-color: #eeb23b;
+      }
+      .green_dot{
+        background-color: #75df77;
+      }
+      .red_dot{
+        background-color: #ee3b3b;
+      }
+    }
+    .item-ios ion-avatar[item-left],
+    .item-ios ion-thumbnail[item-left],
+    .item-ios ion-avatar[item-start],
+    .item-ios ion-thumbnail[item-start] {
+      margin: 8px 7px 8px 0px !important;
+    }
+    .time {
+      color: #a8a9aa;
+      font-family: Lato;
+      font-size: 10px;
+      font-weight: 400;
+      position: absolute;
+      right: 36px;
+      bottom: 13px;
+    }
+    .line {
+      width: calc( 100% - 32px );
+      height: 1px;
+      border: 0.5px solid #e1e1e1;
+      position: absolute;
+      left: 16px;
+      bottom: 0;
+    }
+    .div_btn{    
+        position: absolute;
+        bottom: 12px;        
+        width: 44%;
+        left: 28%;     
+        display: flex;
+        justify-content: space-around;
+        .separate{
+            width: 1px;
+            height: 16px;
+            border: 1px solid #dadada;
+        }
+        .btn{
+            background-color: transparent;            
+            font-family: "SFNS Display";
+            font-size: 12px;
+            font-weight: 400;
+            width: 79px;
+            height: 16px;
+            position: relative;            
+        }
+        .green_btn{
+            span{
+                color: #60d460;
+                padding-left: 14px !important;
+            }            
+            .ion-icon-btn{
+                color: #60d460;
+                font-size: 28px;
+                position: absolute;
+                bottom: -6px;
+                left: 0px;
+            }
+        }
+        .red_btn{
+            color: #e63f40;
+            padding-left: 13px !important;
+            margin-left: 8px;
+            .ion-icon-btn{
+                font-size: 22px;
+                position: absolute;
+                bottom: -3px;
+                left: 0px;            
+            }
+        }
+    }
+  }
+}

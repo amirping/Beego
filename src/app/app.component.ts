@@ -25,6 +25,8 @@ import {SpaceDetailOpinionsPage} from '../pages/space-detail-opinions/space-deta
 import {SpaceDetailFeedback1Page} from '../pages/space-detail-feedback1/space-detail-feedback1';
 import {SpaceDetailFeedback2Page} from '../pages/space-detail-feedback2/space-detail-feedback2';
 import {SpaceDetailFeedback3Page} from '../pages/space-detail-feedback3/space-detail-feedback3';
+import {NotificationsPage} from '../pages/notifications/notifications';
+import {NotificationsSettingPage} from '../pages/notifications-setting/notifications-setting'
 
 import { UserProvider } from '../providers/user/user';
 
@@ -35,7 +37,7 @@ import { UserProvider } from '../providers/user/user';
 export class MyApp {
 
 
-  rootPage: any= SpaceDetailPage;
+  rootPage: any= NotificationsSettingPage;
   constructor(
     platform: Platform,
     statusBar: StatusBar,
