@@ -21,13 +21,18 @@ export class ToExplorePage {
   watch: any;
   map: any;
   locationLists: any;
+  friendLists: any;
+  eventList: any;
   bottom_ctn = "3";
   selectedPlace = -1; // will take the index from locationLists
+  selectedFriend = -1; // will take the index from friendLists
+  selectedEvent = -1; // will take the index from eventLists
   suggest = {
     shown: true
   };
   direction: any;
   geoTracker: any;
+  activeMarker: Array<any> = [];
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -74,6 +79,81 @@ export class ToExplorePage {
         distance: "0"
       }
     ];
+    this.friendLists = [
+      {
+        id: 0,
+        name: "Lamine Ben Zekri",
+        pic: "https://api.adorable.io/avatars/100/abott@aqsddosrabxle.io.png",
+        locationID: 0
+      },
+      {
+        id: 1,
+        name: "azdin hamema",
+        pic: "https://api.adorable.io/avatars/100/abott@aqsddosrabxle.io.png",
+        locationID: 1
+      },
+      {
+        id: 2,
+        name: "lasaad zitouna",
+        pic: "https://api.adorable.io/avatars/100/abott@aqsddosrabxle.io.png",
+        locationID: 2
+      }
+    ];
+    this.eventList = [
+      {
+        id: 0,
+        name: "Yma Winter Shit",
+        pic: "https://api.adorable.io/avatars/100/abott@aqsddosrabxle.io.png",
+        locationID: "0",
+        stat: "open",
+        interstedList: [
+          {
+            id: 0,
+            pic: "https://api.adorable.io/avatars/100/abt@aqsdsrabxle.io.png"
+          },
+          {
+            id: 1,
+            pic: "https://api.adorable.io/avatars/100/abt@aqsdsrabxle.io.png"
+          },
+          {
+            id: 2,
+            pic: "https://api.adorable.io/avatars/100/abt@aqsdsrabxle.io.png"
+          },
+          {
+            id: 3,
+            pic: "https://api.adorable.io/avatars/100/abt@aqsdsrabxle.io.png"
+          },
+          {
+            id: 4,
+            pic: "https://api.adorable.io/avatars/100/abt@aqsdsrabxle.io.png"
+          },
+          {
+            id: 5,
+            pic: "https://api.adorable.io/avatars/100/abt@aqsdsrabxle.io.png"
+          },
+          {
+            id: 6,
+            pic: "https://api.adorable.io/avatars/100/abt@aqsdsrabxle.io.png"
+          },
+          {
+            id: 7,
+            pic: "https://api.adorable.io/avatars/100/abt@aqsdsrabxle.io.png"
+          },
+          {
+            id: 8,
+            pic: "https://api.adorable.io/avatars/100/abt@aqsdsrabxle.io.png"
+          },
+          {
+            id: 9,
+            pic: "https://api.adorable.io/avatars/100/abt@aqsdsrabxle.io.png"
+          },
+          {
+            id: 10,
+            pic: "https://api.adorable.io/avatars/100/abt@aqsdsrabxle.io.png"
+          }
+        ]
+      }
+    ];
   }
 
   ionViewDidLoad() {
@@ -107,24 +187,38 @@ export class ToExplorePage {
       frequency: 3000,
       enableHighAccuracy: true
     };
-    let m = 0;
-    this.watch = this.geolocation
-      .watchPosition(options)
-      .subscribe((position: Geoposition) => {
-        m++;
-        console.log(position);
-        if (
-          this.coordsData == undefined ||
-          position.coords.latitude != this.coordsData.latitude ||
-          position.coords.longitude != this.coordsData.longitude
-        ) {
-          this.coordsData = position.coords;
-          if (m <= 1) {
-            this.executemap();
-          }
-        }
+    /*let m = 0;
+     this.watch = this.geolocation
+       .watchPosition(options)
+       .subscribe((position: Geoposition) => {
+         m++;
+         console.log(position);
+         if (
+           this.coordsData == undefined ||
+           position.coords.latitude != this.coordsData.latitude ||
+           position.coords.longitude != this.coordsData.longitude
+         ) {
+           this.coordsData = position.coords;
+           if (m <= 1) {
+             this.executemap();
+           }
+         }
+       });*/
+    /**
+     * we have removed the native watcher since we do it know with mapbox API (see locatUser function)
+     */
+    this.geolocation
+      .getCurrentPosition(options)
+      .then(resp => {
+        // resp.coords.latitude
+        // resp.coords.longitude
+        this.coordsData = resp.coords;
+        this.executemap();
+      })
+      .catch(error => {
+        console.log("Error getting location", error);
+        // we have to hundle the case that we have no GPS data back
       });
-    //this.executemap();
   }
   executemap() {
     /*Initializing Map*/
@@ -149,12 +243,9 @@ export class ToExplorePage {
       trackUserLocation: true
     });
     this.map.addControl(this.geoTracker);
-    // drop the location pins on the map
-    this.locationLists.forEach(marker => {
-      // create a DOM element for the marker
-      let marki = this.pinProvider(marker);
-      new mapboxgl.Marker(marki).setLngLat(marker.location).addTo(this.map);
-    });
+    // drop the location pins on the map at start
+    // since the map can take time to load the pins drop at the first time will be fired here then it will be form it own hundler
+    this.pinDroper(3);
   }
   randomColor() {
     return (
@@ -164,9 +255,8 @@ export class ToExplorePage {
         .slice(2, 8)
     );
   }
-  pinProvider(marker) {
+  pinProviderLocation(marker) {
     let sel = this;
-    let btctn = this.bottom_ctn;
     var el = document.createElement("div");
     el.className = "marker";
     el.style.backgroundImage = "url(" + marker.picPin + ")";
@@ -176,6 +266,33 @@ export class ToExplorePage {
       sel.selectedPlace = marker.id;
       sel.bottom_ctn = "5";
       sel.directionHundler(marker.id, marker.location);
+    });
+    return el;
+  }
+  /**
+   * this provider have basicly the same role us pinProviderLocation
+   * expect that's its spec for events & freind
+   * @param toMark : event or freind object from lists above to marked
+   */
+  pinProvider(toMark, type) {
+    let sel = this;
+    var el = document.createElement("div");
+    el.className = "marker";
+    el.style.backgroundImage = "url(" + toMark.pic + ")";
+    el.style.backgroundColor = "#FFFFFF";
+    el.style.clipPath = "url(#pathOfPin)";
+    el.addEventListener("click", function() {
+      if (type === "event") {
+        sel.selectedEvent = toMark.id;
+        sel.bottom_ctn = "2";
+      } else if (type === "friend") {
+        sel.selectedFriend = toMark.id;
+        sel.bottom_ctn = "1";
+      } else {
+        throw "type not known";
+      }
+
+      //sel.directionHundler(toMark.id, toMark.location);
     });
     return el;
   }
@@ -243,5 +360,49 @@ export class ToExplorePage {
           console.log("fail motherfucker");
         }
       });
+  }
+  /**
+   * @param cat integer from 1 to 3 for wich the pin map droping coming from
+   * @returns fill activeMarker with markers and drop theme
+   */
+  pinDroper(cat) {
+    // clear other pin on the map
+    this.activeMarker.forEach(marker => {
+      marker.remove();
+    });
+    switch (cat) {
+      case 1:
+        // drop friends pin
+        this.friendLists.forEach(marker => {
+          // create a DOM element for the marker
+          let marki = this.pinProvider(marker, "friend");
+          let pinMarker = new mapboxgl.Marker(marki)
+            .setLngLat(this.locationLists[marker.locationID].location)
+            .addTo(this.map);
+          this.activeMarker.push(pinMarker);
+        });
+        break;
+      case 2:
+        // drop events pin
+        break;
+      case 3:
+        // drop location pin
+        this.locationLists.forEach(marker => {
+          // create a DOM element for the marker
+          let marki = this.pinProviderLocation(marker);
+          let pinMarker = new mapboxgl.Marker(marki)
+            .setLngLat(marker.location)
+            .addTo(this.map);
+          this.activeMarker.push(pinMarker);
+        });
+        break;
+
+      default:
+        break;
+    }
+  }
+  viewrChnager(type) {
+    this.bottom_ctn = type;
+    this.pinDroper(type);
   }
 }

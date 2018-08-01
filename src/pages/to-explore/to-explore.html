@@ -30,10 +30,10 @@
   </ion-navbar>
   <div [hidden]="!opt">
     <ion-buttons>
-      <button ion-button clear (click)="bottom_ctn=1">My friends</button>
-      <button ion-button clear (click)="bottom_ctn=2">My events</button>
-      <button ion-button clear (click)="bottom_ctn=3">suggested</button>
-      <button ion-button clear (click)="bottom_ctn=4">near to here</button>
+      <button ion-button clear (click)="viewrChnager(1)">My friends</button>
+      <button ion-button clear (click)="viewrChnager(2)">My events</button>
+      <button ion-button clear (click)="viewrChnager(3)">suggested</button>
+      <button ion-button clear (click)="viewrChnager(4)">near to here</button>
     </ion-buttons>
   </div>
 </ion-header>
@@ -54,10 +54,18 @@
     </div>
   </div>
   <div class="bottom-box" [ngSwitch]="bottom_ctn">
-    <div *ngSwitchCase="1">
-      friends
+    <div *ngSwitchCase="1" class="box-friends">
+      <ion-card *ngIf="selectedFriend != -1">
+        <ion-item>
+          <ion-avatar item-start>
+            <img src="{{friendLists[selectedFriend].pic}}">
+          </ion-avatar>
+          <h2>{{friendLists[selectedFriend].name}}</h2>
+          <p>{{locatioLists[friendLists[selectedFriend].locationID].place}}</p>
+        </ion-item>
+      </ion-card>
     </div>
-    <div *ngSwitchCase="2">
+    <div *ngSwitchCase="2" class="box-events">
       events
     </div>
     <div *ngSwitchCase="3" class="box-suggestion">

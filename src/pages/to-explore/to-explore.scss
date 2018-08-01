@@ -40,10 +40,10 @@ page-to-explore {
     display: none;
   }
   .mapboxgl-ctrl-bottom-right {
-    display: none
+    display: none;
   }
   .mapboxgl-user-location-dot {
-    background-image: url('../../assets/imgs/to_Exploer/location-cursor.svg');
+    background-image: url("../../assets/imgs/to_Exploer/location-cursor.svg");
     background-position: 2px 3px;
     background-repeat: no-repeat;
     background-size: 10px;
@@ -99,13 +99,13 @@ page-to-explore {
           border-radius: 10px 10px 10px 0px;
         }
         ion-card-title {
-          font-size: 13px
+          font-size: 13px;
         }
         ion-card-content {
           padding: 3px;
         }
         p {
-          font-size: 10px
+          font-size: 10px;
         }
         .row-data {
           display: flex;
@@ -192,7 +192,7 @@ page-to-explore {
           .avis {
             color: gray;
             font-size: 8px;
-            margin: auto
+            margin: auto;
           }
           .rating-selected ul {
             padding: 0px;
@@ -210,6 +210,12 @@ page-to-explore {
           }
         }
       }
+    }
+    .box-friends {
+      // friends box style
+    }
+    .box-events {
+      // events box style
     }
   }
   .top-box {
