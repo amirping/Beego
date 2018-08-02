@@ -29,7 +29,7 @@
     </ion-buttons>
   </ion-navbar>
   <div [hidden]="!opt">
-    <ion-buttons>
+    <ion-buttons class="top-buttons">
       <button ion-button clear (click)="viewrChnager(1)">My friends</button>
       <button ion-button clear (click)="viewrChnager(2)">My events</button>
       <button ion-button clear (click)="viewrChnager(3)">suggested</button>
@@ -55,24 +55,101 @@
   </div>
   <div class="bottom-box" [ngSwitch]="bottom_ctn">
     <div *ngSwitchCase="1" class="box-friends">
+      <div class="box-header">
+        <h2>Mes amis</h2>
+        <div class="ctrl-btns">
+          <button ion-button icon-only class="sly-round act-btn" small (click)="bottom_ctn='6'">
+            <ion-icon name="brush"></ion-icon>
+          </button>
+          <button ion-button icon-only class="sly-round" small (click)="locateUser()">
+            <ion-icon name="locate"></ion-icon>
+          </button>
+        </div>
+      </div>
       <ion-card *ngIf="selectedFriend != -1">
         <ion-item>
           <ion-avatar item-start>
             <img src="{{friendLists[selectedFriend].pic}}">
           </ion-avatar>
-          <h2>{{friendLists[selectedFriend].name}}</h2>
-          <p>{{locatioLists[friendLists[selectedFriend].locationID].place}}</p>
+          <h2>{{friendLists[selectedFriend].name}}
+            <span class="soft">et a</span> {{locationLists[friendLists[selectedFriend].locationID].name}}</h2>
+          <div class="row-data spaced-row">
+            <span class="location">
+              {{locationLists[friendLists[selectedFriend].locationID].place}}
+            </span>
+            <span class="distance">distance :
+              <ion-icon name="paper-plane"></ion-icon> {{locationLists[friendLists[selectedFriend].locationID].distance | number}} km</span>
+          </div>
         </ion-item>
+        <ion-card-content>
+          <div class="row-data">
+            <span class="stat">Ouverte maintenant</span>
+            <div class="rating row-data">
+              <rating [(ngModel)]="locationLists[friendLists[selectedFriend].locationID].rating" emptyStarIconName="star-outline" halfStarIconName="star-half"
+                starIconName="star" nullable="false" (ngModelChange)="null">
+              </rating>
+              <span class="avis"> (255 avis)</span>
+            </div>
+          </div>
+          <div class="row-data">
+            <button class="sug-btn blue-btn" ion-button round small> cree un programme</button>
+            <button class="sug-btn act-btn" ion-button round small> voir profile</button>
+          </div>
+        </ion-card-content>
       </ion-card>
     </div>
     <div *ngSwitchCase="2" class="box-events">
-      events
+      <div class="box-header">
+        <h2>Evenement</h2>
+        <div class="ctrl-btns">
+          <button ion-button icon-only class="sly-round act-btn" small (click)="bottom_ctn='6'">
+            <ion-icon name="brush"></ion-icon>
+          </button>
+          <button ion-button icon-only class="sly-round" small (click)="locateUser()">
+            <ion-icon name="locate"></ion-icon>
+          </button>
+        </div>
+      </div>
+      <ion-card *ngIf="selectedEvent != -1">
+        <ion-item>
+          <ion-avatar item-start>
+            <img src="{{eventList[selectedEvent].pic}}">
+          </ion-avatar>
+          <h2>{{eventList[selectedEvent].name}}
+            <span class="soft"> au </span> {{locationLists[eventList[selectedEvent].locationID].name}}</h2>
+          <div class="row-data spaced-row">
+            <span class="location">
+              {{locationLists[eventList[selectedEvent].locationID].place}}
+            </span>
+            <span class="stat">Ouverte</span>
+          </div>
+        </ion-item>
+        <ion-card-content>
+          <div class="row-data spaced-row">
+            <div class="interseted">
+              <ul>
+                <li *ngFor="let item of eventList[selectedEvent].interstedList | slice:0:6">
+                  <img src="{{item.pic}}" alt="">
+                </li>
+              </ul>
+              <span *ngIf="eventList[selectedEvent].interstedList.length - 6 != 0">+{{eventList[selectedEvent].interstedList.length - 6}} interessees</span>
+            </div>
+            <span class="distance">
+              <ion-icon name="paper-plane"></ion-icon> {{locationLists[eventList[selectedEvent].locationID].distance | number}} km
+            </span>
+          </div>
+          <div class="row-data">
+            <button class="sug-btn blue-btn" ion-button round small (click)="bottom_ctn='6'"> cree un programme</button>
+            <button class="sug-btn act-btn" ion-button round small> voir l'event</button>
+          </div>
+        </ion-card-content>
+      </ion-card>
     </div>
     <div *ngSwitchCase="3" class="box-suggestion">
       <div class="box-header">
         <h2>Suggestion</h2>
         <div class="ctrl-btns">
-          <button ion-button icon-only class="sly-round" small>
+          <button ion-button icon-only class="sly-round act-btn" small (click)="bottom_ctn='6'">
             <ion-icon name="brush"></ion-icon>
           </button>
           <button ion-button icon-only class="sly-round" small (click)="locateUser()">
@@ -101,7 +178,7 @@
                 </rating>
               </div>
               <div class="distance">
-                <ion-icon name="paper-plane"></ion-icon> {{item.distance}} km
+                <ion-icon name="paper-plane"></ion-icon> {{item.distance | number}} km
               </div>
             </div>
             <div class="row-data">
@@ -142,11 +219,82 @@
             </div>
           </div>
           <div class="row-data">
-            <button class="sug-btn blue-btn" ion-button round small> cree un programme</button>
-            <button class="sug-btn" ion-button round small> voir espace</button>
+            <button class="sug-btn blue-btn" ion-button round small (click)="bottom_ctn='6'"> cree un programme</button>
+            <button class="sug-btn act-btn" ion-button round small> voir espace</button>
           </div>
         </ion-card-content>
       </ion-card>
+    </div>
+    <div *ngSwitchCase="6" class="box-create">
+      <div class="box-header" *ngIf="selectedStep == 0">
+        <h2>Cree un programme</h2>
+      </div>
+      <div class="sec-worker" [ngSwitch]="selectedStep">
+        <div *ngSwitchCase="1" class="ou">
+          <ion-list>
+            <ion-list-header>
+              <ion-searchbar placeholder="Trouver votre espaces" (ionInput)="null"></ion-searchbar>
+            </ion-list-header>
+            <ion-item *ngFor="let item of locationLists" (click)="programCreation.where = item.id">
+              <ion-avatar item-start>
+                <img src="{{item.picCover}}" alt="">
+              </ion-avatar>
+              <h2>{{item.name}}</h2>
+              <p>{{item.place}}</p>
+            </ion-item>
+          </ion-list>
+        </div>
+        <div *ngSwitchCase="2" class="quand nowrap-row">
+          <button ion-button round color="light" small>apres 1 hr</button>
+          <button ion-button round color="light" small>5:00 pm</button>
+          <button ion-button round color="light" small>6:00 pm</button>
+        </div>
+        <div *ngSwitchCase="3" class="avec">
+          <ion-list radio-group [(ngModel)]="programCreation.friends">
+            <ion-list-header>
+              <ion-searchbar placeholder="Trouver votre espaces" (ionInput)="null"></ion-searchbar>
+            </ion-list-header>
+            <ion-item *ngFor="let item of friendLists">
+              <!-- <ion-avatar item-start>
+                <img src="{{item.pic}}" alt="">
+              </ion-avatar> -->
+              <ion-label>{{item.name}}</ion-label>
+              <ion-radio value="{{item.id}}"></ion-radio>
+
+            </ion-item>
+          </ion-list>
+        </div>
+      </div>
+      <div class="main-worker">
+        <ion-card>
+          <ion-card-content>
+            <div class="row-data around-spacing">
+              <div class="selector-btn" [class.active-selector]="selectedStep == '1'">
+                <button (click)="selectedStep = 1">
+                  <ion-icon name="pin"></ion-icon>
+                </button>
+                <span>Ou ?</span>
+              </div>
+              <div class="selector-btn" [class.active-selector]="selectedStep == '2'">
+                <button (click)="selectedStep = 2">
+                  <ion-icon name="clock"></ion-icon>
+                </button>
+                <span>Quand ?</span>
+              </div>
+              <div class="selector-btn" [class.active-selector]="selectedStep == '3'">
+                <button (click)="selectedStep = 3">
+                  <ion-icon name="people"></ion-icon>
+                </button>
+                <span>Avec ?</span>
+              </div>
+            </div>
+            <div class="row-data">
+              <button class="sug-btn" color="light" ion-button round small (click)="bottom_ctn='3'"> Annuler</button>
+              <button class="sug-btn act-btn" ion-button round small> valider</button>
+            </div>
+          </ion-card-content>
+        </ion-card>
+      </div>
     </div>
   </div>
 </ion-content>

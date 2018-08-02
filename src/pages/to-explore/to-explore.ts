@@ -23,7 +23,13 @@ export class ToExplorePage {
   locationLists: any;
   friendLists: any;
   eventList: any;
-  bottom_ctn = "3";
+  selectedStep = 0;
+  programCreation = {
+    friends : [],
+    time: "",
+    where:-1
+  }
+  bottom_ctn = "6"; //def = 3
   selectedPlace = -1; // will take the index from locationLists
   selectedFriend = -1; // will take the index from friendLists
   selectedEvent = -1; // will take the index from eventLists
@@ -49,6 +55,30 @@ export class ToExplorePage {
         picCover: "https://source.unsplash.com/900x900/?coffe,bar",
         location: [10.147603, 36.85459],
         place: "el manzeh7 , tunis",
+        rating: "4",
+        startHour: "8am",
+        endHour: "6pm",
+        distance: "0"
+      },
+      {
+        id: 1,
+        name: "Disny spacy",
+        picPin: "http://www.zachalbert.com/images/ruf-s2.png",
+        picCover: "https://source.unsplash.com/900x900/?coffe,bar",
+        location: [10.148847, 36.853388],
+        place: "el manzeh8 , tunis",
+        rating: "4",
+        startHour: "8am",
+        endHour: "6pm",
+        distance: "0"
+      },
+      {
+        id: 2,
+        name: "Rolem spacy",
+        picPin: "http://www.zachalbert.com/images/ruf-s2.png",
+        picCover: "https://source.unsplash.com/900x900/?coffe,bar",
+        location: [10.148847, 36.853488],
+        place: "el manzeh8 , tunis",
         rating: "4",
         startHour: "8am",
         endHour: "6pm",
@@ -105,6 +135,59 @@ export class ToExplorePage {
         name: "Yma Winter Shit",
         pic: "https://api.adorable.io/avatars/100/abott@aqsddosrabxle.io.png",
         locationID: "0",
+        stat: "open",
+        interstedList: [
+          {
+            id: 0,
+            pic: "https://api.adorable.io/avatars/100/abt@aqsdsrabxle.io.png"
+          },
+          {
+            id: 1,
+            pic: "https://api.adorable.io/avatars/100/abt@aqsdsrabxle.io.png"
+          },
+          {
+            id: 2,
+            pic: "https://api.adorable.io/avatars/100/abqt@aqsdsrabxle.io.png"
+          },
+          {
+            id: 3,
+            pic: "https://api.adorable.io/avatars/100/abtz@aqsdsrabxle.io.png"
+          },
+          {
+            id: 4,
+            pic: "https://api.adorable.io/avatars/100/abtl@aqsdsrabxle.io.png"
+          },
+          {
+            id: 5,
+            pic: "https://api.adorable.io/avatars/100/abjt@aqsdsrabxle.io.png"
+          },
+          {
+            id: 6,
+            pic: "https://api.adorable.io/avatars/100/abft@aqsdsrabxle.io.png"
+          },
+          {
+            id: 7,
+            pic: "https://api.adorable.io/avatars/100/arbt@aqsdsrabxle.io.png"
+          },
+          {
+            id: 8,
+            pic: "https://api.adorable.io/avatars/100/abt@aqsdsrabxle.io.png"
+          },
+          {
+            id: 9,
+            pic: "https://api.adorable.io/avatars/100/abt@aqsdsrabxle.io.png"
+          },
+          {
+            id: 10,
+            pic: "https://api.adorable.io/avatars/100/abt@aqsdsrabxle.io.png"
+          }
+        ]
+      },
+      {
+        id: 1,
+        name: "Winter Comming",
+        pic: "https://api.adorable.io/avatars/100/abott@aqsddosrabxle.io.png",
+        locationID: "1",
         stat: "open",
         interstedList: [
           {
@@ -277,10 +360,15 @@ export class ToExplorePage {
   pinProvider(toMark, type) {
     let sel = this;
     var el = document.createElement("div");
-    el.className = "marker";
-    el.style.backgroundImage = "url(" + toMark.pic + ")";
-    el.style.backgroundColor = "#FFFFFF";
-    el.style.clipPath = "url(#pathOfPin)";
+    if (type == "friend") {
+      el.className = "friendMarker";
+      el.style.backgroundImage = "url(" + toMark.pic + ")";
+    } else {
+      el.className = "marker";
+      el.style.backgroundImage = "url(" + toMark.pic + ")";
+      el.style.backgroundColor = "#FFFFFF";
+      el.style.clipPath = "url(#pathOfPin)";
+    }
     el.addEventListener("click", function() {
       if (type === "event") {
         sel.selectedEvent = toMark.id;
@@ -384,6 +472,14 @@ export class ToExplorePage {
         break;
       case 2:
         // drop events pin
+        this.eventList.forEach(marker => {
+          // create a DOM element for the marker
+          let marki = this.pinProvider(marker, "event");
+          let pinMarker = new mapboxgl.Marker(marki)
+            .setLngLat(this.locationLists[marker.locationID].location)
+            .addTo(this.map);
+          this.activeMarker.push(pinMarker);
+        });
         break;
       case 3:
         // drop location pin
