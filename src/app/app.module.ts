@@ -42,7 +42,7 @@ import {SpaceDetailFeedback2Page} from '../pages/space-detail-feedback2/space-de
 import {SpaceDetailFeedback3Page} from '../pages/space-detail-feedback3/space-detail-feedback3';
 import {NotificationsPage} from '../pages/notifications/notifications';
 import {NotificationsSettingPage} from '../pages/notifications-setting/notifications-setting'
-
+import {ContactUsPage} from '../pages/contact-us/contact-us';
 
 
 
@@ -106,6 +106,7 @@ import { HttpClientModule } from "../../node_modules/@angular/common/http";
     SpaceDetailFeedback3Page,
     NotificationsPage,
     NotificationsSettingPage,
+    ContactUsPage,
 
 
     MyTastesPage,
@@ -166,6 +167,7 @@ import { HttpClientModule } from "../../node_modules/@angular/common/http";
     SpaceDetailFeedback3Page,
     NotificationsPage,
     NotificationsSettingPage,
+    ContactUsPage,
 
 
     MyTastesPage,
