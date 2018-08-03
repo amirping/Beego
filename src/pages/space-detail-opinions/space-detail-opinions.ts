@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController, ViewController, Events } from 'ionic-angular';
 import { SpaceDetailFeedback1Page } from '../space-detail-feedback1/space-detail-feedback1';
-import { AngularFireDatabase } from '../../../node_modules/angularfire2/database';
+import { AngularFireDatabase,AngularFireList } from '../../../node_modules/angularfire2/database';
 import { Observable } from '../../../node_modules/rxjs/Observable';
 
 /**
@@ -19,7 +19,8 @@ import { Observable } from '../../../node_modules/rxjs/Observable';
 export class SpaceDetailOpinionsPage {
   backrdropblur;
   reviews: Observable<any[]>
-
+  comments: any;
+  commentsPush:AngularFireList<any>;
   disabled;
   openIndex: number = 0;
   indexSwipe = -1;
@@ -46,6 +47,8 @@ export class SpaceDetailOpinionsPage {
       .snapshotChanges().map(changes => {
         return changes.map(c => ({ key: c.payload.key, ...c.payload.val() }))
       });
+      
+      console.log(this.comments)
   }
 
   goToFeefback1() {
@@ -69,6 +72,7 @@ export class SpaceDetailOpinionsPage {
 
   }
   opencomment(item, index) {
+    this.comments= this.db.list(`reviews/${index}/comments`).valueChanges();
     if (item.commentShow) {
       item.commentShow = false;
       return;
@@ -86,6 +90,21 @@ export class SpaceDetailOpinionsPage {
   }
   ionViewDidLoad() {
     console.log('ionViewDidLoad SpaceDetailOpinionsPage');
+  }
+  addComment(index,comment=""){
+    this.commentsPush= this.db.list(`reviews/${index}/comments`);
+    this.commentsPush.push({
+      comment:comment,
+      date: new Date().toISOString().substring(0, 10),
+      firstName:"Hatem",
+      lastName:"Abbes"
+
+    });
+    console.log(comment)
+    comment = "hatem"
+    console.log(comment)
+    
+    
   }
 
 }

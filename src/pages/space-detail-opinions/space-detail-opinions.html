@@ -76,7 +76,7 @@
               <div class="com">
                 {{item.description}}
               </div>
-              <div class="com_number" (click)="opencomment(item,i)">
+              <div class="com_number" (click)="opencomment(item,item.key)">
                 {{commentNbr}} commentaire
               </div>
 
@@ -94,7 +94,7 @@
           <ion-col col-1></ion-col>
           <ion-row class="comments_row " *ngIf="item.commentShow">
             <div class="fullWidth animated bounceInDown ">
-              <ion-row class="comments Reviews_row" *ngFor="let comment of item.comments">
+              <ion-row class="comments Reviews_row" *ngFor="let comment of comments | async;let list">
                 <ion-col col-2>
                   <div class="bee-img-reviews ">
                     <div class="bee-hexagon-reviews">
@@ -107,6 +107,7 @@
                 <ion-col col-8>
                   <div class="com_detail ">
                     <div class="name">
+                      {{list.length}}
                       {{comment.firstName}}{{comment.lastName}}
                     </div>
                     <div class="com">
@@ -129,8 +130,15 @@
                   </div>
                 </div>
               </ion-col>
-              <ion-col col-8>
-                <input placeholder="Répondez ..." type="text">
+              <ion-col col-6>
+                <input placeholder="Répondez ..." type="text" [(ngModel)]="comment">
+              </ion-col>
+              <ion-col col-4>
+                  <button class="button" (click)="addComment(item.key,comment)" >
+                      <ion-icon class=""
+                        name="add"></ion-icon>
+                     
+                    </button>
               </ion-col>
             </ion-row>
           </ion-row>
