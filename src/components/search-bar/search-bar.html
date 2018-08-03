@@ -1,4 +1,21 @@
 <!-- Generated template for the SearchBarComponent component -->
-<div>
-  {{text}}
+<div class="searchwrapper">
+  <div class="search-comp">
+    <div class="back-btn">
+      <button>
+        <ion-icon>arrow_back</ion-icon>
+      </button>
+    </div>
+    <div class="input-wrapper">
+      <input type="text" placeholder="search for some hting" [(ngModel)]="searchTerm" />
+    </div>
+    <div class="right-ctrl">
+      <button [hidden]="searchTerm.length == 0" (click)="searchTerm = ''">
+        <ion-icon>clear</ion-icon>
+      </button>
+      <button>
+        <ion-icon>search</ion-icon>
+      </button>
+    </div>
+  </div>
 </div>

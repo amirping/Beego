@@ -1,4 +1,53 @@
 search-bar {
-  position: absolute;
-  top: 10px;
+button{
+  height: 24px;
+  width: 24px;
+}
+.searchwrapper{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.search-comp{
+  width: 90%;
+  padding: 5px;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.back-btn{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.back-btn button{
+  background: transparent;
+  padding: 0px;
+  border:none;
+}
+.input-wrapper{
+  display: flex;
+  flex-grow: 1;
+  padding: 0px 0px 0px 10px;
+}
+.input-wrapper input {
+  flex-grow:1;
+  background: transparent;
+  border: none;
+  color: white;
+}
+.right-ctrl{
+  display: flex;
+  flex-direction: row;
+}
+.right-ctrl button{
+  background: transparent;
+  padding: 0px;
+  border:none;
+  margin: auto;
+  height: auto;
+}
 }

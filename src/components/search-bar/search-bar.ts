@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
 
 /**
  * Generated class for the SearchBarComponent component.
@@ -7,16 +7,12 @@ import { Component } from '@angular/core';
  * Components.
  */
 @Component({
-  selector: 'search-bar',
-  templateUrl: 'search-bar.html'
+  selector: "search-bar",
+  templateUrl: "search-bar.html"
 })
 export class SearchBarComponent {
-
-  text: string;
-
+  public searchTerm: string = "";
   constructor() {
-    console.log('Hello SearchBarComponent Component');
-    this.text = 'Hello World';
+    console.log("Hello SearchBarComponent Component");
   }
-
 }
