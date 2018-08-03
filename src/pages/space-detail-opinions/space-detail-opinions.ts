@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ModalController, ViewController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController, ViewController, Events } from 'ionic-angular';
 import { SpaceDetailFeedback1Page } from '../space-detail-feedback1/space-detail-feedback1';
+import { AngularFireDatabase } from '../../../node_modules/angularfire2/database';
+import { Observable } from '../../../node_modules/rxjs/Observable';
 
 /**
  * Generated class for the SpaceDetailOpinionsPage page.
@@ -15,28 +17,73 @@ import { SpaceDetailFeedback1Page } from '../space-detail-feedback1/space-detail
   templateUrl: 'space-detail-opinions.html',
 })
 export class SpaceDetailOpinionsPage {
-  dismiss=false;
-  rating = 5 ;
-  nom : string;
+  backrdropblur;
+  reviews: Observable<any[]>
+
+  disabled;
+  openIndex: number = 0;
+  indexSwipe = -1;
+  listItems: Array<any> = [];
+  dismiss = false;
+  rating = 5;
+  otherOpen = false;
+  nom;
   idEspace;
-  back(){
-    this.navCtrl.pop();
+  back() {
+    this.events.publish('dropblur', false);
+    this.viewCtrl.dismiss();
+
   }
 
-  constructor(public navCtrl: NavController,  private modalCtrl : ModalController,
-    public navParams: NavParams, private viewCtrl:ViewController ) {
-      this.nom = this.navParams.get('nom');
-      this.idEspace = this.navParams.get('cle');
-      
+  constructor(public navCtrl: NavController, private modalCtrl: ModalController,
+    public navParams: NavParams, private viewCtrl: ViewController,
+    private events: Events, private db: AngularFireDatabase) {
+    this.nom = this.navParams.get('nom')
+    this.idEspace = this.navParams.get('cle');
+    console.log("cle espace opinions", this.idEspace)
+    this.reviews = this.db.list('reviews', item =>
+      item.orderByChild('idEspace').equalTo(this.idEspace))
+      .snapshotChanges().map(changes => {
+        return changes.map(c => ({ key: c.payload.key, ...c.payload.val() }))
+      });
   }
-  goToFeedback1(){
-    const modal1= this.modalCtrl.create(SpaceDetailFeedback1Page,{ nom: this.nom, cle:this.idEspace });
+
+  goToFeefback1() {
+    this.otherOpen = true;
+    const modal1 = this.modalCtrl.create(SpaceDetailFeedback1Page, { nom: this.nom, cle: this.idEspace });
     modal1.present();
-    this.viewCtrl.dismiss();
-    modal1.onDidDismiss(()=>{
+    this.viewCtrl.dismiss({ 'otherOpen': this.otherOpen });
+    modal1.onDidDismiss((data) => {
+      console.log("test2" + data);
+      if (data && data.otherOpen === true) {
+        this.events.publish('otherOpen', true);
+      }
+      else {
+        this.events.publish('otherOpen', false);
+      }
     });
   }
+  openItem(event, index) {
+    console.log(event);
+    this.indexSwipe = index;
 
+  }
+  opencomment(item, index) {
+    if (item.commentShow) {
+      item.commentShow = false;
+      return;
+    }
+    if (this.listItems[this.openIndex]) {
+      this.listItems[this.openIndex].commentShow = false;
+    }
+    this.openIndex = index;
+    item.commentShow = true;
+    console.log("test");
+
+  }
+  log(r) {
+    console.log(r)
+  }
   ionViewDidLoad() {
     console.log('ionViewDidLoad SpaceDetailOpinionsPage');
   }

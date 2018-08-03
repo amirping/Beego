@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { IonicPage, NavController, NavParams , AlertController,ModalController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, ModalController } from 'ionic-angular';
 import { Observable } from '../../../node_modules/rxjs/Observable';
 import { AngularFireDatabase, AngularFireList } from '../../../node_modules/angularfire2/database';
 
@@ -23,37 +23,38 @@ import { SpaceDetailOpinionsPage } from '../space-detail-opinions/space-detail-o
 export class SpaceDetailPage {
 
   espace: Observable<any[]>
+  reviews: Observable<any[]>
   espaceName: string;
   espaceRegion: string;
   espacePlace: string;
-  espaceSpecialite: any[] ;
-  espaceCuisine : string;
+  espaceSpecialite: any[];
+  espaceCuisine: string;
   espaceHoraire: string;
-  espaceTelephone : string;
+  espaceTelephone: string;
   espaceParking: string;
   espaceTerasse: string;
   espaceKaraoke: string;
   espaceStyle: string;
   espaceClimatisation: string;
-  espaceAccesWifi:string;
+  espaceAccesWifi: string;
   espaceReservation: string;
   espaceMeilleureSpecialite: string;
-  espaceVue : string;
-  espaceMatch : string;  
-  espaceMusique : string;
-  espaceAdresse : string;
-  loisirArray: any[] ;
-  reviewsArray: any[] ;
-  follower : any;
+  espaceVue: string;
+  espaceMatch: string;
+  espaceMusique: string;
+  espaceAdresse: string;
+  loisirArray: any[];
+
+  follower: any;
   idEspace: string;
   rating = 5;
   espaceDescription;
-  testDate ; 
+  testDate;
 
- 
+
 
   dualValue2 = 30;
-  listFollowers : AngularFireList<any>;
+  listFollowers: AngularFireList<any>;
   notes = [];
   show = false;
   showabout() {
@@ -95,40 +96,51 @@ export class SpaceDetailPage {
 
   index_news = "events";
   nbFollowers;
-  moyenneRating  =0.0;
+  moyenneRating = 0;
   listFollowerss: any[]
-  nbAvis ;
+  nbAvis;
   espaceImage;
-  val1 = 0 ;
-  val2 = 0 ; 
-  val3 = 0 ; 
-  val4 = 0 ;
-  val5 = 0 ; 
+  val1;
+  val2;
+  val3;
+  val4;
+  val5;
+  nbreviews = 0;
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     private db: AngularFireDatabase,
-    private alertController : AlertController,
+    private alertController: AlertController,
     private modalCtrl: ModalController
 
   ) {
+
+    console.log("ancienne", this.moyenneRating)
+
     this.idEspace = this.navParams.get('cle');
+    console.log("cle espace", this.idEspace)
+    this.reviews = this.db.list('reviews', item =>
+      item.orderByChild('idEspace').equalTo(this.idEspace))
+      .snapshotChanges().map(changes => {
+        return changes.map(c => ({ key: c.payload.key, ...c.payload.val() }))
+      });
+
     this.db.object(`espace/${this.idEspace}`).valueChanges().subscribe((data: any) => {
       this.testDate = new Date();
-      console.log("date : ",this.testDate.toISOString().substring(11, 19))
-      if(this.testDate.toISOString().substring(11, 19)<"15:00:00")
-      console.log("ok")
-    
-      
+      console.log("date : ", this.testDate.toISOString().substring(11, 19))
+      if (this.testDate.toISOString().substring(11, 19) < "15:00:00")
+        console.log("ok")
+
+
       this.espace = Object(data)
-      console.log(this.espace)
+
       this.espaceName = data.espaceName
       this.espaceImage = data.espaceImage
       this.espacePlace = data.espacePlace
       this.espaceRegion = data.espaceRegion
-      if(data.espaceSpecialite)
-      this.espaceSpecialite = Object.keys(data.espaceSpecialite)
-      .map(i => data.espaceSpecialite[i]);
+      if (data.espaceSpecialite)
+        this.espaceSpecialite = Object.keys(data.espaceSpecialite)
+          .map(i => data.espaceSpecialite[i]);
       this.espaceCuisine = data.espaceCuisine
       this.espaceHoraire = data.espaceHoraire
       this.espaceParking = data.espaceParking
@@ -144,127 +156,134 @@ export class SpaceDetailPage {
       this.espaceAdresse = data.espaceAdresse
       this.espaceTelephone = data.espaceTelephone
       this.espaceDescription = data.espaceDescription
-      this.espaceMeilleureSpecialite=data.espaceMeilleureSpecialite
-      
-      this.reviewsArray = Object.keys(data.Reviews)
-      .map(i => data.Reviews[i]);
-      console.log(this.reviewsArray)
-      if(data.espaceLoisir)
-      this.loisirArray = Object.keys(data.espaceLoisir)
-      .map(i => data.espaceLoisir[i]);
-      if(data.followers)
-      this.listFollowerss= Object.keys(data.followers)
-      .map(i => data.followers[i]);
-     this.nbFollowers = this.listFollowerss.length
-     this.nbAvis = this.reviewsArray.length
-     this.reviewsArray.forEach(
-      item=>
-     {this.moyenneRating= this.moyenneRating + item.rating;
-      if(item.rating == 1 ) 
-      this.val1++
-      else if(item.rating == 2)
-      this.val2++
-      else if(item.rating == 3)
-      this.val3++
-      else if(item.rating == 4)
-      this.val4++
-      else if(item.rating == 5)
-      this.val5++
-      
-    }
+      this.espaceMeilleureSpecialite = data.espaceMeilleureSpecialite
 
-      
-    )
-    this.notes = [
-      {
-        value: this.val5,
-        index: 5
-      },
-      {
-        value: this.val4,
-        index: 4
-      },
-      {
-        value: this.val3,
-        index: 3
-      },
-      {
-        value: this.val2,
-        index: 2
-      },
-      {
-        value: this.val1,
-        index: 1
-      }
-    ]
-      this.moyenneRating =Math.round(this.moyenneRating/this.reviewsArray.length
+
+
+      if (data.espaceLoisir)
+        this.loisirArray = Object.keys(data.espaceLoisir)
+          .map(i => data.espaceLoisir[i]);
+      if (data.followers)
+        this.listFollowerss = Object.keys(data.followers)
+          .map(i => data.followers[i]);
+      this.nbFollowers = this.listFollowerss.length
+
+      this.reviews.forEach(
+
+        item => {
+        this.nbreviews = 0;
+          this.moyenneRating = 0;
+          this.val1 = 0;
+          this.val2 = 0;
+          this.val3 = 0;
+          this.val4 = 0;
+          this.val5 = 0;
+          item.forEach(element => {
+
+            this.nbreviews++;
+
+            this.moyenneRating = this.moyenneRating + element.rating;
+
+
+            if (element.rating == 1)
+              this.val1++
+            else if (element.rating == 2)
+              this.val2++
+            else if (element.rating == 3)
+              this.val3++
+            else if (element.rating == 4)
+              this.val4++
+            else if (element.rating == 5)
+              this.val5++
+
+            this.notes = [
+              {
+                value: this.val5,
+                index: 5
+              },
+              {
+                value: this.val4,
+                index: 4
+              },
+              {
+                value: this.val3,
+                index: 3
+              },
+              {
+                value: this.val2,
+                index: 2
+              },
+              {
+                value: this.val1,
+                index: 1
+              }
+            ]
+          })
+          this.moyenneRating = Math.trunc(this.moyenneRating / this.nbreviews)
+
+        }
+
       )
-     
-     
-
-
-      
-
 
     })
-   
+
     console.log(this.idEspace)
 
 
     this.data = this.evenement;
-    this.listFollowers= this.db.list(`espace/${this.idEspace}/followers`);
-    
+    this.listFollowers = this.db.list(`espace/${this.idEspace}/followers`);
+
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SpaceDetailPage');
   }
-  back()
-  {
+  back() {
     this.navCtrl.pop()
   }
-  goToOpinions(espaceNom){
+  goToOpinions(espaceNom) {
     // this.navCtrl.push(SpaceDetailOpinionsPage);
     // this.disabled=true;
-    const modal1= this.modalCtrl.create(SpaceDetailOpinionsPage,{ nom: espaceNom, cle : this.idEspace });
+    const modal1 = this.modalCtrl.create(SpaceDetailOpinionsPage, { nom: espaceNom, cle: this.idEspace });
     console.log(espaceNom)
     modal1.present();
-    modal1.onDidDismiss(()=>{
+    modal1.onDidDismiss(() => {
       // this.disabled=false;
     });
   }
-  suivre(){
+  suivre() {
     this.listFollowers.push({
-      firstName:"Ghassen",
-      lastName:"ASKRI"}
+      firstName: "Ghassen",
+      lastName: "ASKRI"
+    }
     )
     /* Se désabonner 
     this.follower= this.db.list(`espace/${this.idEspace}/followers` ,ref => ref.child('firstName').equalTo('hatemaaa'))
     console.log("follower : ", this.follower)
     this.listFollowers.remove(this.follower)
     console.log(this.listFollowers) */
-      let alert = this.alertController.create({
-      title :this.espaceName,
-      message : "Vous êtes maintenant abonner à nous",
-      buttons : [
+    let alert = this.alertController.create({
+      title: this.espaceName,
+      message: "Vous êtes maintenant abonner à nous",
+      buttons: [
         {
-          text : "Ok"
+          text: "Ok"
         }
       ]
     })
 
     alert.present()
-    
-    
+
+
   }
-  calculer(){
-    
+  calculer() {
+
   }
 
-  navigateToFacebook(){
+  navigateToFacebook() {
     window.location.href = 'https://www.facebook.com';
   }
-  navigateToInstagram(){
+  navigateToInstagram() {
     window.location.href = 'https://www.instagram.com';
   }
 

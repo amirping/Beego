@@ -27,7 +27,8 @@ export class SpaceDetailFeedback2Page {
     this.r=navParams.get('ratingg');
     this.nom = this.navParams.get('nom');
     this.idEspace = this.navParams.get('cle')
-    this.listReviews= this.db.list(`espace/${this.idEspace}/Reviews`);
+    console.log("cle espace feedback 2",this.idEspace)
+    this.listReviews= this.db.list(`reviews`);
     console.log(this.date)
     // console.log('ratingg', navParams.get('ratingg'));
     // console.log(this.r);
@@ -36,6 +37,7 @@ export class SpaceDetailFeedback2Page {
     this.listReviews.push({
       firstName:"Ghassen",
       lastName:"ASKRI",
+      idEspace:this.idEspace,
       description: description,
       date : this.date.toISOString().substring(0, 10),
       rating : this.r}

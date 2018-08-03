@@ -103,7 +103,7 @@
                        <span> {{moyenneRating}}</span>
                       </div>
                       <div class="avis">
-                          <span>{{nbAvis}} avis</span>
+                          <span>{{nbreviews}} avis</span>
                       </div>
                     </ion-col>
                     <ion-col col-9>
@@ -292,7 +292,7 @@
                       </button>
                   </ion-row>
                   <ion-slides centeredSlides="true" zoom="false"  spaceBetween="5" >
-                      <ion-slide *ngFor="let item of reviewsArray" >
+                      <ion-slide *ngFor="let item of reviews | async" >
                           <ion-row class="Reviews_row">
                               <ion-col col-3>
                                   <div class="bee-img-reviews">
