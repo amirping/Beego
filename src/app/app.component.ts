@@ -28,6 +28,7 @@ import {SpaceDetailFeedback3Page} from '../pages/space-detail-feedback3/space-de
 import {NotificationsPage} from '../pages/notifications/notifications';
 import {NotificationsSettingPage} from '../pages/notifications-setting/notifications-setting';
 import {ContactUsPage} from '../pages/contact-us/contact-us';
+import {ContactUsConversatoinPage} from '../pages/contact-us-conversatoin/contact-us-conversatoin';
 
 import { UserProvider } from '../providers/user/user';
 
@@ -38,7 +39,7 @@ import { UserProvider } from '../providers/user/user';
 export class MyApp {
 
 
-  rootPage: any= ContactUsPage;
+  rootPage: any= ContactUsConversatoinPage;
   constructor(
     platform: Platform,
     statusBar: StatusBar,

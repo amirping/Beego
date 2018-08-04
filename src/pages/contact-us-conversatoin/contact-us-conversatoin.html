@@ -1,0 +1,74 @@
+<!--
+  Generated template for the ContactUsConversatoinPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-icon class="back" ios="ios-arrow-round-back" md="ios-arrow-round-back"></ion-icon>
+  <span>
+      What's up Coffee
+  </span>
+  <div class="bee-image">
+    <div class="bee-hexagon">
+      <img class="bee-img-size" src="../../assets/imgs/space_detail/whats-up.png" alt="">
+    </div>
+  </div>
+
+</ion-header>
+
+
+<ion-content>
+  
+  <ion-grid no-padding>
+    <ion-row class="conversation_row">
+      <ion-col col-3 class="img_space">
+          <div class="bee-image">
+              <div class="bee-hexagon">
+                <img class="bee-img-size" src="../../assets/imgs/space_detail/whats-up.png" alt="">
+              </div>
+            </div>
+          </ion-col>  
+        <div  class="space_messages_place">
+           <span>
+              Le Lorem Ipsum est simplement faux  texte employé dans la composition et la mise en page 
+              Le Lorem Ipsum est simplement faux texte employé dans la composition et la mise en page avant
+              Le Lorem Ipsum est simplement faux texte employé dans la composition et la mise en page avant
+              Le Lorem Ipsum est simplement faux texte employé dans la composition et la mise en page avant
+           </span> 
+            <div class="tri-right left-in"></div>
+          </div>
+       
+    </ion-row>
+    <ion-row class="conversation_user animated fadeInUp  " *ngFor="let msg of MsgList;">
+      <ion-col col-3 class="img_space">
+          <div class="bee-image">
+              <div class="bee-hexagon">
+                <img class="bee-img-size" src="../../assets/imgs/photoDeProfil.png" alt="">
+              </div>
+            </div>
+          </ion-col>  
+        <div  class="space_messages_place ">
+           <span>
+              {{msg}} 
+              <!-- Le Lorem Ipsum est simplement faux texte employé dans la composition et la mise en page avant
+              Le Lorem Ipsum est simplement faux texte employé dans la composition et la mise en page avant
+              Le Lorem Ipsum est simplement faux texte employé dans la composition et la mise en page avant -->
+           </span> 
+            <div class="tri-right left-in"></div>
+          </div>
+        </ion-row>
+        <!-- <ion-row  id="target"></ion-row> -->
+
+
+   
+  </ion-grid>
+
+</ion-content>
+<ion-footer>
+  <div class="writingsPlace">
+    <input type="text" [(ngModel)]="editorMsg" class="send_text">
+    <ion-icon (click)="sendMsg()"
+    class="sent_btn" ios="md-send" md="md-send"></ion-icon>
+  </div>
+</ion-footer>

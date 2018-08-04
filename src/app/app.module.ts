@@ -43,7 +43,7 @@ import {SpaceDetailFeedback3Page} from '../pages/space-detail-feedback3/space-de
 import {NotificationsPage} from '../pages/notifications/notifications';
 import {NotificationsSettingPage} from '../pages/notifications-setting/notifications-setting'
 import {ContactUsPage} from '../pages/contact-us/contact-us';
-
+import {ContactUsConversatoinPage} from '../pages/contact-us-conversatoin/contact-us-conversatoin';
 
 
 import { Ionic2RatingModule } from "ionic2-rating";
@@ -107,6 +107,7 @@ import { HttpClientModule } from "../../node_modules/@angular/common/http";
     NotificationsPage,
     NotificationsSettingPage,
     ContactUsPage,
+    ContactUsConversatoinPage,
 
 
     MyTastesPage,
@@ -168,6 +169,7 @@ import { HttpClientModule } from "../../node_modules/@angular/common/http";
     NotificationsPage,
     NotificationsSettingPage,
     ContactUsPage,
+    ContactUsConversatoinPage,
 
 
     MyTastesPage,
