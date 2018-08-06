@@ -235,12 +235,17 @@
             <ion-list-header>
               <ion-searchbar placeholder="Trouver votre espaces" (ionInput)="null"></ion-searchbar>
             </ion-list-header>
-            <ion-item *ngFor="let item of locationLists" (click)="programCreation.where = item.id">
+            <ion-item *ngFor="let item of locationLists" (click)="programCreation.where = item.id" class="small-item">
               <ion-avatar item-start>
                 <img src="{{item.picCover}}" alt="">
               </ion-avatar>
               <h2>{{item.name}}</h2>
               <p>{{item.place}}</p>
+              <div class="rating-suggest" item-end>
+                <rating [(ngModel)]="item.rating" emptyStarIconName="star-outline" halfStarIconName="star-half" starIconName="star" nullable="false"
+                  (ngModelChange)="null">
+                </rating>
+              </div>
             </ion-item>
           </ion-list>
         </div>
@@ -260,7 +265,6 @@
               </ion-avatar> -->
               <ion-label>{{item.name}}</ion-label>
               <ion-radio value="{{item.id}}"></ion-radio>
-
             </ion-item>
           </ion-list>
         </div>

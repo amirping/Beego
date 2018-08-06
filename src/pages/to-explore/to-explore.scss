@@ -416,6 +416,27 @@ page-to-explore {
           display: flex;
           flex-direction: row;
           flex-wrap: nowrap;
+          overflow-x: scroll !important;
+        }
+        .rating-suggest {
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          margin: 0px;
+        }
+        .rating-suggest ul {
+          padding: 0px;
+          text-align: center;
+          margin: 0px;
+          &.rating li {
+            padding: 5px 0px !important;
+            background: none;
+            color: #ffb400;
+            text-align: center;
+            ion-icon {
+              font-size: 12px;
+            }
+          }
         }
         z-index: 8;
         padding: 0px 15px 0px 15px;
@@ -434,6 +455,14 @@ page-to-explore {
           max-height: 300px;
           overflow-y: scroll;
           margin: 0px;
+          .small-item {
+            h2 {
+              font-size: 13px;
+            }
+            p {
+              font-size: 10px;
+            }
+          }
         }
         .ou,
         .avec,
