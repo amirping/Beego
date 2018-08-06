@@ -1,9 +1,11 @@
 page-space-detail {
+  .blur{
+    filter: blur(4px);
+  }
   .grid{
     padding: 0 !important;
   }
-  // .padd_row{
-  // }
+ 
   .col{
     padding: 0;
     margin: 0;
@@ -26,7 +28,7 @@ page-space-detail {
     justify-content: space-between;
     width: 100%; 
     position: absolute;
-    top :37px;
+    top :20px;
     color: white;
     height: 22px;
     vertical-align: middle;
@@ -54,7 +56,7 @@ margin-top: 3px;
     left: 0px;
     height: 45%;
     height: auto;
-    background-color: whitesmoke;
+    background-color: #ffffff;;
     border-top-right-radius: 47px;
     border-top-left-radius: 47px;
   }
@@ -96,8 +98,8 @@ font-family: Raleway;
 font-size: 14px;
 font-weight: 600;
 /* Text style for "What's Up" */
-font-family: "Segoe UI";
-font-weight: 400;
+// font-family: "Segoe UI";
+// font-weight: 400;
 }
 .space-place{
 margin-top: 4px;
@@ -133,16 +135,23 @@ margin-top: -5px;
   width: 100%;
   height: 50px;
   border-radius: 15px;
-  background-color: #e2e0e0;
+  background-color: #f2f2f2;
   margin-left:  21px;
   margin-right: 21px;
   display: flex;
   justify-content: space-around;
   padding-top: 11px;
   padding-bottom: 9px;
+  .heart_part{
+    margin-left: 6%;
+  }
+  .person_part{
+    margin-right: 7%;
+  }
   button{
     padding: 0 !important;
     margin: 0 !important;
+    background-color: transparent;
   }
   span{
     color: #808083;
@@ -181,8 +190,8 @@ margin-top: -5px;
   font-size: 18px;
   font-weight: 600;
   /* Text style for "Horaire" */
-  font-family: "Segoe UI";
-  font-weight: 400;
+  // font-family: "Segoe UI";
+  // font-weight: 400;
 }
 .row_note{
   margin-left: 20px;
@@ -199,8 +208,8 @@ margin-top: -5px;
     font-size: 14px;
     font-weight: 400;
     /* Text style for "257 avis" */
-    font-family: "Segoe UI";
-    font-weight: 400;
+    // font-family: "Segoe UI";
+    // font-weight: 400;
     margin-left: 2px;
   }
 }
@@ -214,8 +223,8 @@ margin-top: -5px;
   font-size: 10px;
   font-weight: 400;
   /* Text style for "1" */
-  font-family: "Segoe UI";
-  font-weight: 400;
+  // font-family: "Segoe UI";
+  // font-weight: 400;
 }
 ion-range.range-md, ion-range.range-wp,ion-range.range-ios{
   display:inline;
@@ -262,7 +271,7 @@ ion-range.range-md, ion-range.range-wp,ion-range.range-ios{
   font-size: 26px;
   font-weight: 600;
   letter-spacing: 0.31px;
-  /* Text style for "18°" */
+  /* Text style for "18�" */
   
   margin-left: 13px;
   top: -8px;
@@ -293,8 +302,8 @@ ion-range.range-md, ion-range.range-wp,ion-range.range-ios{
     font-size: 12px;
     font-weight: 400;
     /* Text style for "Ouverte" */
-    font-family: "Segoe UI";
-    font-weight: 400;
+    // font-family: "Segoe UI";
+    // font-weight: 400;
   }
 }
 .service_detail{
@@ -344,12 +353,16 @@ ion-range.range-md, ion-range.range-wp,ion-range.range-ios{
   justify-content: center;
   display: flex;
   flex-direction: column;
+  margin-bottom: 20px;
   span{
     color: #ffffff;
     font-family: Raleway;
     font-size: 12px;
     font-weight: 500;
   }
+}
+.about_row_title{
+  margin-top : 0 !important;
 }
 .about{
   position: relative;
@@ -520,8 +533,8 @@ ion-range.range-md, ion-range.range-wp,ion-range.range-ios{
   font-size: 12px;
   font-weight: 400;
   letter-spacing: 0.14px;
-  font-family: "Segoe UI";
-  font-weight: 400;
+  // font-family: "Segoe UI";
+  // font-weight: 400;
   background-color: transparent;
   float: right;
   margin-top: 26px;
@@ -557,8 +570,8 @@ ion-range.range-md, ion-range.range-wp,ion-range.range-ios{
       font-size: 10px;
       font-weight: 400;
       /* Text style for "6 Mar 2018" */
-      font-family: "Segoe UI";
-      font-weight: 400;
+      // font-family: "Segoe UI";
+      // font-weight: 400;
       position: absolute;
       top: 88px;
       padding-left: 14px;
@@ -579,8 +592,8 @@ ion-range.range-md, ion-range.range-wp,ion-range.range-ios{
         font-size: 12px;
         font-weight: 700;
         /* Text style for "Mohamed Li" */
-        font-family: "Segoe UI";
-        font-weight: 400;
+        // font-family: "Segoe UI";
+        // font-weight: 400;
         margin-top: 10px;
         margin-left: 5%;
       }
@@ -614,8 +627,8 @@ ion-range.range-md, ion-range.range-wp,ion-range.range-ios{
       font-size: 10px;
       font-weight: 400;
       /* Text style for "Le Lorem I" */
-      font-family: "Segoe UI";
-      font-weight: 400;
+      // font-family: "Segoe UI";
+      // font-weight: 400;
       margin-top: 34px;
       position: absolute;
       left: 5%;
@@ -717,8 +730,8 @@ ion-range.range-md, ion-range.range-wp,ion-range.range-ios{
     font-size: 12px;
     font-weight: 400;
     /* Text style for "Donner un" */
-    font-family: "Segoe UI";
-    font-weight: 400;
+    // font-family: "Segoe UI";
+    // font-weight: 400;
     .add_opinion{
       margin-left: -15px;
       font-size: 14px;
