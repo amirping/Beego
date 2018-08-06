@@ -43,7 +43,7 @@
   <div id='map'></div>
   <div class="top-box">
     <div class="distanceProx" *ngIf="selectedPlace != -1">
-      <div class="row">
+      <div class="row nowrap">
         <img src="{{locationLists[selectedPlace].picPin}}" alt="img">
         <span> elle est a {{locationLists[selectedPlace].distance | number}} km de votre position actuelle</span>
       </div>
