@@ -29,7 +29,7 @@ export class ToExplorePage {
     time: "",
     where:-1
   }
-  bottom_ctn = "6"; //def = 3
+  bottom_ctn = "3"; //def = 3
   selectedPlace = -1; // will take the index from locationLists
   selectedFriend = -1; // will take the index from friendLists
   selectedEvent = -1; // will take the index from eventLists
