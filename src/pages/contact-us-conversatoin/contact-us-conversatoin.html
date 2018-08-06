@@ -22,25 +22,33 @@
   
   <ion-grid no-padding>
     <ion-row class="conversation_row">
+        <div class="time">
+            17 Dec 2017
+          </div> 
       <ion-col col-3 class="img_space">
           <div class="bee-image">
               <div class="bee-hexagon">
                 <img class="bee-img-size" src="../../assets/imgs/space_detail/whats-up.png" alt="">
               </div>
             </div>
-          </ion-col>  
+          </ion-col>
+           
         <div  class="space_messages_place">
            <span>
               Le Lorem Ipsum est simplement faux  texte employé dans la composition et la mise en page 
               Le Lorem Ipsum est simplement faux texte employé dans la composition et la mise en page avant
-              Le Lorem Ipsum est simplement faux texte employé dans la composition et la mise en page avant
-              Le Lorem Ipsum est simplement faux texte employé dans la composition et la mise en page avant
+              <!-- Le Lorem Ipsum est simplement faux texte employé dans la composition et la mise en page avant
+              Le Lorem Ipsum est simplement faux texte employé dans la composition et la mise en page avant -->
            </span> 
             <div class="tri-right left-in"></div>
           </div>
        
     </ion-row>
     <ion-row class="conversation_user animated fadeInUp  " *ngFor="let msg of MsgList;">
+        <div class="time">
+            <ion-datetime displayFormat="MMM DD YYYY " [(ngModel)]="msg.date"></ion-datetime>
+            <!-- {{msg.date}} -->
+          </div>
       <ion-col col-3 class="img_space">
           <div class="bee-image">
               <div class="bee-hexagon">
@@ -48,9 +56,10 @@
               </div>
             </div>
           </ion-col>  
+          
         <div  class="space_messages_place ">
            <span>
-              {{msg}} 
+              {{msg.newmsg}} 
               <!-- Le Lorem Ipsum est simplement faux texte employé dans la composition et la mise en page avant
               Le Lorem Ipsum est simplement faux texte employé dans la composition et la mise en page avant
               Le Lorem Ipsum est simplement faux texte employé dans la composition et la mise en page avant -->

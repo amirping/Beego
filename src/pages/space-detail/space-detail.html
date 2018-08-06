@@ -60,7 +60,7 @@
                   </ion-row>
                   <ion-row>
                     <div class="follow_row">
-                      <div>
+                      <div class="heart_part">
                         <button icon-only (click)="suivre()">
                             <ion-icon class="size_icon"
                             ios="ios-heart" md="md-heart"></ion-icon>
@@ -81,10 +81,10 @@
                            <span class="call_position">{{espaceTelephone}}</span>
                       </div>
                       <div class="separation"></div>
-                      <div>
+                      <div class="person_part">
                         <button icon-only>
                             <ion-icon class="size_icon"
-                            ios="ios-person" md="md-person"></ion-icon>
+                            ios="md-person" md="md-person"></ion-icon>
                         </button>
                           
                            <span class="person_position">{{nbFollowers}} </span>
@@ -180,10 +180,9 @@
                   <ion-row class="row_taste" >
                       <div class="taste" *ngFor="let item of espaceSpecialite">
                         <span>{{item}}</span>
-                      </div>
-                      
+                      </div>                     
                   </ion-row>
-                  <ion-row class="row_title ">
+                  <ion-row class="row_title about_row_title">
                       A propos:
                   </ion-row>
                   <ion-row class="about"  [class.about-transition]="show">
@@ -379,12 +378,13 @@
                           </button>
                     </ion-col>
                     <ion-col class="mail_col" >
-                        <ion-icon class="mail_opinion"
-                        ios="ios-mail" md="md-mail"></ion-icon>
+                        <ion-icon (click)="contact_us()"
+                        class="mail_opinion"
+                        ios="ios-mail" md="ios-mail"></ion-icon>
                        </ion-col>
                        <ion-col class="person_col" >
                         <ion-icon class="person_opinion"
-                        ios="ios-person" md="md-person"></ion-icon>
+                        ios="md-person" md="md-person"></ion-icon>
                     </ion-col>
                   </ion-row>
             </div>

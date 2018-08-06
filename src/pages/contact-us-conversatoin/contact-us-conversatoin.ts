@@ -17,13 +17,18 @@ export class ContactUsConversatoinPage {
   @ViewChild(Content) content: Content;
   el:HTMLElement ;
   editorMsg ='';
-  MsgList = ["test","test","test","test","test","Lasttest"];
-
+  //  time:number;
+  MsgList : Array<any> = [];
+  date:String;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
   sendMsg(){
     if (!this.editorMsg.trim()) return;
-    this.MsgList.push(this.editorMsg);
+    this.MsgList.push({
+      newmsg: this.editorMsg,
+      date:   new Date().toISOString(),
+    })
+    // push(this.editorMsg );
     this.editorMsg = '';
     // this.el = document.getElementById("target") as HTMLElement;      
     // this.el.scrollIntoView();
@@ -44,7 +49,12 @@ export class ContactUsConversatoinPage {
       
       // this.el.scrollIntoView();
       
-     this.scrollToBottom();
+    //  this.scrollToBottom();
+    setTimeout(() => {
+      if (this.content.scrollToBottom) {
+        this.content.scrollToBottom();
+      }
+    }, 400)
   }
 
 }

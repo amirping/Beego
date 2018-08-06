@@ -6,6 +6,7 @@ import { AngularFireDatabase, AngularFireList } from '../../../node_modules/angu
 
 
 import { SpaceDetailOpinionsPage } from '../space-detail-opinions/space-detail-opinions';
+import { ContactUsPage } from '../contact-us/contact-us';
 
 
 /**
@@ -97,6 +98,9 @@ export class SpaceDetailPage {
   show = false;
   showabout() {
     this.show = !this.show;
+  }
+  contact_us(){
+    this.navCtrl.push(ContactUsPage);
   }
   data: any = [];
   evenement: any = [

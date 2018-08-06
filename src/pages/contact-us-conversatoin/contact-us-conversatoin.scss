@@ -48,6 +48,7 @@ page-contact-us-conversatoin {
     background-color: #f4f8fc !important;
   }
   .conversation_row {
+    position: relative;
     margin-top: 44px;
   }
   .grid{
@@ -79,6 +80,17 @@ page-contact-us-conversatoin {
       height: 100%;
     }
   }
+  .time{
+    position: absolute;
+    justify-content: center;
+    display: flex;
+    width: 100%;
+    top: -28px;
+    color: #c9c9c9;
+    font-family: Raleway;
+    font-size: 10px;
+    font-weight: 400;
+  }
   .space_messages_place {
     position: relative;
     max-width: 70%;
@@ -97,6 +109,9 @@ page-contact-us-conversatoin {
       font-size: 11px;
       font-weight: 400;
       z-index: 2;
+      direction: ltr;
+      display: inline-block;
+  
     }
   
     .tri-right.left-in:after {
@@ -115,7 +130,8 @@ page-contact-us-conversatoin {
   
   }
   .conversation_user{
-    margin-top: 23px;
+    position: relative;
+    margin-top: 27px;
     direction: rtl;
     text-align: left;
     .space_messages_place{
