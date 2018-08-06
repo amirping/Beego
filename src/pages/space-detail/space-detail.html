@@ -100,10 +100,10 @@
                   <ion-row class=" row_note">
                     <ion-col col-3>
                       <div class="note">
-                       <span> {{moyenneRating}}</span>
+                       <span *ngIf="moyenneRating>0"> {{moyenneRating}}</span>
                       </div>
                       <div class="avis">
-                          <span>{{nbreviews}} avis</span>
+                          <span >{{nbreviews}} avis</span>
                       </div>
                     </ion-col>
                     <ion-col col-9>
@@ -150,7 +150,16 @@
                       <span>Services</span>
                     </ion-col>
                   </ion-row>
-                  <ion-row class="service_detail">
+                  <ion-row class="service_detail" *ngIf="
+                    !espaceTerasse&&!espaceMeilleureSpecialite
+                  &&!espaceParking&&!loisirArray
+                  &&!espaceTerasse&&!espaceCuisine">
+                  Aucun Service disponible
+                  </ion-row>
+                  <ion-row class="service_detail" *ngIf="
+                    espaceTerasse||espaceMeilleureSpecialite
+                  ||espaceParking||loisirArray
+                  ||espaceTerasse||espaceCuisine">
                     <ion-col class="servises" col-6>
                       <div *ngIf="espaceMeilleureSpecialite">Spécialité : <span>{{espaceMeilleureSpecialite}} </span>
                       </div>
@@ -168,12 +177,15 @@
                       </div>
                     </ion-col>
                   </ion-row>
-                  <ion-row class="btn_add_row">
+                  <!--
+                    <ion-row class="btn_add_row">
                     <button  class="add_btn">
                       <ion-icon class="add_icon"
                       ios="ios-add" md="md-add"></ion-icon>
                   </button>
                   </ion-row>
+                  -->
+                  
                   <ion-row class="row_title " *ngIf="espaceSpecialite">
                     Nos gouts
                   </ion-row>
