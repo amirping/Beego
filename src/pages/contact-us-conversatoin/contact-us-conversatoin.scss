@@ -1,0 +1,214 @@
+page-contact-us-conversatoin {
+  ion-header {
+    height: 70px;
+    background-image: linear-gradient(96deg, #fb4b7d 0%, #fe757b 100%);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+    display: flex;
+    justify-content: center;
+    span {
+      color: #ffffff;
+      font-family: Raleway;
+      font-size: 16px;
+      font-weight: 500;
+      letter-spacing: 0.19px;
+      margin-top: 33px;
+    }
+    .back {
+      position: absolute;
+      left: 20px;
+      top: 22px;
+      color: white;
+      font-size: 41px;
+    }
+    .bee-hexagon {
+      clip-path: url(#hexagonPath);
+      background-repeat: no-repeat;
+      background-position: -3px -15px;
+      background-color: transparent;
+      height: 100%;
+    }
+    .bee-image {
+      position: absolute;
+      right: -21px;
+      top: -17px;
+      height: 120px;
+      width: 120px;
+      transform: scale(0.26);
+    }
+    .bee-img-size {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .content-ios {
+    background-color: #f4f8fc !important;
+  }
+  .content-md {
+    background-color: #f4f8fc !important;
+  }
+  .conversation_row {
+    position: relative;
+    margin-top: 44px;
+  }
+  .grid{
+    margin-bottom: 60px;
+    
+  }
+  .img_space {
+    justify-content: flex-end;
+    display: flex;
+    flex-direction: column;
+    width: 80px;
+    flex: 0 0 0% !important;
+    .bee-hexagon {
+      clip-path: url(#hexagonPath);
+      background-repeat: no-repeat;
+      background-position: -3px -15px;
+      background-color: transparent;
+      height: 188%;
+    }
+    .bee-image {
+      height: 64px;
+      width: 120px;
+      transform: scale(0.48);
+      margin-left: -12px;
+    }
+    .bee-img-size {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .time{
+    position: absolute;
+    justify-content: center;
+    display: flex;
+    width: 100%;
+    top: -28px;
+    color: #c9c9c9;
+    font-family: Raleway;
+    font-size: 10px;
+    font-weight: 400;
+  }
+  .space_messages_place {
+    position: relative;
+    max-width: 70%;
+    width: auto;
+    height: 100%;
+    min-height: 58px;
+    border-radius: 15px;
+    // left: 80px;
+    padding: 15px 15px ; 
+    padding-bottom: 17px;
+    background-image: linear-gradient(257deg, #fb4b7d 0%, #fe757b 100%);
+    z-index: 1;
+    span {
+      color: #ffffff;
+      font-family: "Segoe UI";
+      font-size: 11px;
+      font-weight: 400;
+      z-index: 2;
+      direction: ltr;
+      display: inline-block;
+  
+    }
+  
+    .tri-right.left-in:after {
+      content: ' ';
+      position: absolute;
+      width: 0;
+      height: 0;
+      left: -16px;
+      bottom: -4px;
+      border: 16px solid;
+      border-color: #fe6f7c #fe737b transparent transparent;
+      transform: rotate(64deg);
+      border-radius: 11px 8px 0px 0px;
+      z-index: 0;
+    }
+  
+  }
+  .conversation_user{
+    position: relative;
+    margin-top: 27px;
+    direction: rtl;
+    text-align: left;
+    .space_messages_place{
+      background-color: #dedede;
+      background-image: none;
+      span{
+        color: #1d1c1c;
+      }
+      
+    }
+    .img_space {
+      justify-content: flex-end;
+      display: flex;
+      flex-direction: column;
+      width: 80px;
+      flex: 0 0 0% !important;
+      .bee-hexagon {
+        clip-path: url(#hexagonPath);
+        background-repeat: no-repeat;
+        background-position: -3px -15px;
+        background-color: transparent;
+        height: 188%;
+      }
+      .bee-image {
+        height: 64px;
+        width: 120px;
+        transform: scale(0.48);
+        margin-right: -13px;
+      }
+      .bee-img-size {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+      }
+    }
+    
+    .tri-right.left-in:after {
+    content: ' ';
+    position: absolute;
+    width: 0;
+    height: 0;
+    right: -16px;
+    bottom: -5px;
+    border: 16px solid;
+    border-color: transparent transparent #dedede #dedede;
+    transform: rotate(29deg);
+    border-radius: 11px 8px 0px 0px;
+    z-index: 0;
+    }
+  }
+  .writingsPlace{
+    position: fixed;
+    width: 100%;
+    height: 42px;
+    bottom: 0;
+    background-color: WHITE;
+    z-index: 10;
+    padding-top: 5px;
+    padding-left: 6px;
+    .send_text{
+      width: 85%;
+      height: 32px;
+      border-radius: 16px;
+      border: 1px solid #c9c9c9;
+      background-color: #ffffff;
+      font-family: Raleway;
+      font-size: 14px;
+      font-weight: 400;
+      padding-left: 17px;
+    }
+    .sent_btn{
+      color: #1f9ed5;
+      font-size: 23px;
+      margin-top: 0px;
+      position: absolute;
+      left: 88%;
+      top: 10px;
+    }
+  }
+}

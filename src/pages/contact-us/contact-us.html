@@ -1,0 +1,46 @@
+<!--
+  Generated template for the ContactUsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <span>
+    Contactez nous
+  </span>
+  <ion-icon class="back"
+   ios="ios-arrow-round-back" md="ios-arrow-round-back" (click)="back()"></ion-icon>
+
+</ion-header>
+
+
+<ion-content >
+<div class="contact_us_container">
+  <div class="contact_us_message">
+  <ion-grid>
+    <ion-row class="img_contact">
+      <img src="../../assets/imgs/contactUs/contact.png" alt="">
+    </ion-row>
+    <ion-row class="title_contact">
+      Contactez-nous
+    </ion-row>
+    <ion-row class="contact_welcome">
+       {{nom}}
+    </ion-row>
+    <ion-row class="ur_message">
+      Votre message :
+    </ion-row>
+    <ion-row class="write_ur_message">
+      <textarea class="wrighting_part" name="" id="" cols="30" rows="10" [(ngModel)]="message"></textarea>
+    </ion-row>
+    <ion-row class="contact_btn">
+      <button (click)="contact(message)">Envoyer</button>
+    </ion-row>
+  </ion-grid>
+  </div>
+  <div class="left_triangle"></div>
+  <div class="right_triangle"></div>
+  <div class="low_triangle"></div>
+  <div class="back_contact"></div>
+</div>
+</ion-content>

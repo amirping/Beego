@@ -40,6 +40,8 @@ import {SpaceDetailOpinionsPage} from '../pages/space-detail-opinions/space-deta
 import {SpaceDetailFeedback1Page} from '../pages/space-detail-feedback1/space-detail-feedback1';
 import {SpaceDetailFeedback2Page} from '../pages/space-detail-feedback2/space-detail-feedback2';
 import {SpaceDetailFeedback3Page} from '../pages/space-detail-feedback3/space-detail-feedback3';
+import { ContactUsPage } from "../pages/contact-us/contact-us";
+import { ContactUsConversatoinPage } from "../pages/contact-us-conversatoin/contact-us-conversatoin";
 
 
 
@@ -108,7 +110,9 @@ import { HttpClientModule } from "../../node_modules/@angular/common/http";
     EvenementPage,
     UpdateProgramPage,
     DislikeListPage,
-    SpaceDetailPage
+    SpaceDetailPage,
+    ContactUsPage,
+    ContactUsConversatoinPage
 
   ],
   imports: [
@@ -166,7 +170,9 @@ import { HttpClientModule } from "../../node_modules/@angular/common/http";
     EvenementPage,
     UpdateProgramPage,
     DislikeListPage,
-    SpaceDetailPage
+    SpaceDetailPage,
+    ContactUsPage,
+    ContactUsConversatoinPage
 
   ],
   providers: [

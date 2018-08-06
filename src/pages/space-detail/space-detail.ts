@@ -6,6 +6,7 @@ import { AngularFireDatabase, AngularFireList } from '../../../node_modules/angu
 
 
 import { SpaceDetailOpinionsPage } from '../space-detail-opinions/space-detail-opinions';
+import { ContactUsPage } from "../contact-us/contact-us";
 
 
 /**
@@ -286,5 +287,8 @@ export class SpaceDetailPage {
   navigateToInstagram() {
     window.location.href = 'https://www.instagram.com';
   }
+  navigateToContact(){
+    this.navCtrl.push(ContactUsPage,{ nom: this.espaceName, cle: this.idEspace });
+   }
 
 }
