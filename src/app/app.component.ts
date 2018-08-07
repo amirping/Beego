@@ -28,7 +28,7 @@ import { ToExplorePage } from "../pages/to-explore/to-explore";
   templateUrl: "app.html"
 })
 export class MyApp {
-  rootPage: any = ToExplorePage;
+  rootPage: any;
   constructor(
     platform: Platform,
     statusBar: StatusBar,
@@ -44,9 +44,9 @@ export class MyApp {
 
     this.userProvider.isConnect(state => {
       if (state) {
-        //this.rootPage = TabsPage;
+        this.rootPage = TabsPage;
       } else {
-        //this.rootPage = LandingPage;
+        this.rootPage = LandingPage;
       }
     });
   }

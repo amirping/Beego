@@ -9,7 +9,8 @@ import {
   NavController,
   NavParams,
   Tabs,
-  Events
+  Events,
+  ModalController
 } from "ionic-angular";
 import { ViewChild } from "@angular/core";
 import { Observable } from "rxjs/Observable";
@@ -22,6 +23,7 @@ import { SpacesProvider } from "../../providers/spaces/spaces";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { FriendProfilPage } from "../friend-profil/friend-profil";
 import { MyTastesPage } from "../my-tastes/my-tastes";
+import { ExpolreCircularPage } from "../expolre-circular/expolre-circular";
 
 /**
  * Generated class for the HomePage page.
@@ -59,8 +61,8 @@ export class HomePage {
   allNewsData: any;
   ratingStatic = 4;
   index_news: any = "events";
-  listAttendees : AngularFireList<any>;
-  
+  listAttendees: AngularFireList<any>;
+
   /**
    * used for animation of news slides
    */
@@ -78,11 +80,10 @@ export class HomePage {
     private userpovider: UserProvider,
     public menuCtrl: MenuController,
     private spacesProvider: SpacesProvider,
-     private http: HttpClient,
-    private events: Events
+    private http: HttpClient,
+    private events: Events,
+    private _modal: ModalController
   ) {
-    
-    
     /* Liste des espaces */
     this.espacesListRef$ = spacesProvider.listEspaces();
     // don't
@@ -100,9 +101,9 @@ export class HomePage {
     //   this.http.get('http://localhost:5000/test-3cdd6/us-central1/helloBeego/',{headers})
     //   // .map(res => res.json())
     //   .subscribe(data => {
-  
+
     //       console.log(data);
-  
+
     //   });
     // });
     this.espacesListRef$ = this.database
@@ -110,7 +111,6 @@ export class HomePage {
       .valueChanges(); /*map(changes => {
         return changes.map( c => ({key : c.payload.key,...c.payload.val()}))
       });*/
-
 
     /* Liste des suggestions */
     this.suggestionListRef$ = spacesProvider.listSuggestion();
@@ -153,11 +153,10 @@ export class HomePage {
       .subscribe(news => {
         this.news = news.map((espace, index) => {
           const e = espace.payload.val() as any;
-          e.key = espace.key
-  
+          e.key = espace.key;
+
           return e;
         });
-        
       }) /*.map(changes => {
         return changes.map( c => ({key : c.payload.key,...c.payload.val()}))
       })*/;
@@ -172,7 +171,6 @@ export class HomePage {
 
   ionViewDidLoad() {
     console.log("ionViewDidLoad AcceuilPage");
-
   }
   promotionClicked() {
     /* Liste des promotions */
@@ -198,7 +196,7 @@ export class HomePage {
       this.allNewsData = this.promotionListRef$;
     }
   }
-  
+
   nextSlide() {
     if (this.newSlider_indicators.show_index_slide < this.news.length - 1) {
       this.newSlider_indicators.show_index_slide++;
@@ -372,18 +370,28 @@ export class HomePage {
     this.isMenuOpen = !this.isMenuOpen;
     this.events.publish("MenuOpen", this.isMenuOpen);
   }
-  ionViewCanLeave(){
+  ionViewCanLeave() {
     // this.userpovider.isStillConnect();
     // this.userpovider.isUser();
     return true;
   }
-  interesser(id:string){
-    this.listAttendees= this.database.list(`evenement/${id}/Attendees`);
+  interesser(id: string) {
+    this.listAttendees = this.database.list(`evenement/${id}/Attendees`);
     this.listAttendees.push({
-      lastname :"Outlaw",
-      name:"Adem"
+      lastname: "Outlaw",
+      name: "Adem"
     });
-    console.log("ok")
-    
+    console.log("ok");
+  }
+  /**
+   * testing need only (remove this func when in prod )
+   */
+  showcircular() {
+    let circul = this._modal.create(
+      ExpolreCircularPage,
+      {},
+      { cssClass: "modal-fullscreen" }
+    );
+    circul.present();
   }
 }

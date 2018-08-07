@@ -1,0 +1,144 @@
+page-expolre-circular {
+  font-family: "Raleway";
+  ion-content {
+    background: rgba(0, 0, 0, 0.5) !important;
+    .holder {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      height: calc(100vh);
+    }
+  }
+  .main-wrapper {
+    background-color: white;
+    background-image: url("../../assets/imgs/explore-circular/Rectangle_159.png");
+    background-position: 50% 10px;
+    background-repeat: no-repeat;
+    background-size: 100px;
+    border-radius: 45px 45px 0px 0px;
+    display: flex;
+    flex-direction: column;
+    padding-top: 30px;
+    .circular {
+      display: flex;
+      flex-direction: column;
+      margin-top: 10px;
+      .top {
+        .heading {
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          vertical-align: middle;
+          span {
+            font-size: 18px;
+            font-weight: 400;
+            margin-right: 10px;
+          }
+          ion-icon {
+            font-size: 18px;
+            color: gray;
+          }
+        }
+        .texting {
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          p {
+            width: 80%;
+            color: gray;
+            font-size: 12px;
+            text-align: center;
+          }
+        }
+        .dotted-row {
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          img {
+            margin: 0px 10px 0px 10px;
+          }
+        }
+        .arc-holder {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-evenly;
+          margin-top: 20px;
+          margin-bottom: 20px;
+          background: rgba($color: #000000, $alpha: 0.1);
+          padding: 10px 0px 10px 0px;
+          border-top: 1px solid gray;
+          border-bottom: 1px solid gray;
+          .elem {
+            display: flex;
+            flex-direction: column;
+            img {
+              width: auto;
+              object-fit: contain;
+            }
+            span {
+              font-size: 12px;
+              color: gray;
+              margin-top: 7px;
+            }
+          }
+        }
+        .range-holder {
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          ion-range {
+            width: 70%;
+            .range-bar-active,
+            .range-tick-active {
+              background: #bdbdbd;
+            }
+            .range-knob {
+              width: 20px;
+              height: 20px;
+              background: #fd8493;
+              top: 11px;
+              left: 11px;
+            }
+            .range-pin {
+              //padding: 8px 0;
+              text-align: center;
+              //border-radius: 50%;
+              //background: #fd8493;
+              color: white;
+              //top: -30px;
+              display: inline-block;
+              min-width: 28px;
+              height: 28px;
+              font-size: 12px;
+              //transition: transform 120ms ease, background-color 120ms ease,
+              // -webkit-transform 120ms ease;
+            }
+          }
+        }
+        .bottom-ctrl {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          button {
+            color: gray !important;
+          }
+        }
+        .bottom-btn {
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          button {
+            width: 115px;
+            height: 55px;
+            border-radius: 115px 115px 0 0;
+            background: #1f9ed5;
+            color: white;
+            font-size: 14px;
+            border: none;
+            padding-top: 15px;
+          }
+        }
+      }
+    }
+  }
+}

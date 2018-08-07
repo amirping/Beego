@@ -258,7 +258,7 @@
           <!-- <button (click)="nextSlide()">we will add swipe to make next </button> -->
           <div class="wrap-holder row row-space-around" (swipe)="swipeEvent($event)">
             <div class="holder">
-                    
+
               <!-- dynamique things -->
               <div class="slider not-yet" *ngFor="let item of news ; let i=index" [class.active]="i==newSlider_indicators.show_index_slide"
                 [class.next]="i==newSlider_indicators.next_index_show" [class.after-next]="i==newSlider_indicators.after_index_show">
@@ -513,6 +513,8 @@
     <button (click)="profil()">
       profil
     </button>
-
+    <button (click)="showcircular()">
+      circular
+    </button>
   </ion-content>
 </div>

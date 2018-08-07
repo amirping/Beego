@@ -1,3 +1,4 @@
+import { ExpolreCircularPage } from "./../pages/expolre-circular/expolre-circular";
 import { MyTastesPage } from "./../pages/my-tastes/my-tastes";
 import { HeadlinesPage } from "./../pages/headlines/headlines";
 import { SpecialForYouPage } from "./../pages/special-for-you/special-for-you";
@@ -54,7 +55,7 @@ import { SpacesProvider } from "../providers/spaces/spaces";
 import { EvenementPage } from "../pages/evenement/evenement";
 import { ToExplorePage } from "../pages/to-explore/to-explore";
 import { Geolocation } from "@ionic-native/geolocation";
-import { MapProvider } from '../providers/map/map';
+import { MapProvider } from "../providers/map/map";
 
 // import { CRS, latLng, LatLngBounds } from "leaflet";
 // import { YagaModule } from "@yaga/leaflet-ng2";
@@ -91,7 +92,8 @@ import { MapProvider } from '../providers/map/map';
     UpdateProgramPage,
     DislikeListPage,
     SpaceDetailPage,
-    ToExplorePage
+    ToExplorePage,
+    ExpolreCircularPage
   ],
   imports: [
     BrowserModule,
@@ -137,7 +139,8 @@ import { MapProvider } from '../providers/map/map';
     UpdateProgramPage,
     DislikeListPage,
     SpaceDetailPage,
-    ToExplorePage
+    ToExplorePage,
+    ExpolreCircularPage
   ],
   providers: [
     StatusBar,

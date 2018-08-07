@@ -1,0 +1,67 @@
+<!--
+  Generated template for the ExpolreCircularPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-content>
+  <div class="holder">
+    <div class="main-wrapper" [ngSwitch]="currentView">
+      <div class="circular" *ngSwitchCase="1">
+        <div class="top">
+          <div class="heading">
+            <span>Explore</span>
+            <ion-icon name="search"></ion-icon>
+          </div>
+          <div class="texting">
+            <p>
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. At earum reiciendis quod aliquam maiores .
+            </p>
+          </div>
+          <div class="dotted-row">
+            <img src="../../assets/imgs/explore-circular/Ellipse_2500.png" alt="">
+            <img src="../../assets/imgs/explore-circular/Ellipse_2500.png" alt="">
+            <img src="../../assets/imgs/explore-circular/Ellipse_2500.png" alt="">
+          </div>
+          <div class="arc-holder">
+            <div class="elem">
+              <img src="../../assets/imgs/explore-circular/beer.png" alt="">
+              <span>Bar</span>
+            </div>
+            <div class="elem">
+              <img src="../../assets/imgs/explore-circular/clock_1_.png" alt="">
+              <span>promo</span>
+            </div>
+            <div class="elem">
+              <img src="../../assets/imgs/explore-circular/cocktail.png" alt="">
+              <span>cocktail</span>
+            </div>
+            <div class="elem">
+              <img src="../../assets/imgs/explore-circular/coffee-cup.png" alt="">
+              <span>coffee</span>
+            </div>
+            <div class="elem">
+              <img src="../../assets/imgs/explore-circular/hearts-and-arrow.png" alt="">
+              <span>dating</span>
+            </div>
+          </div>
+          <div class="range-holder">
+            <ion-range min="1" max="20" step="5" snaps="true" color="primary" pin="true" [(ngModel)]="distance"></ion-range>
+          </div>
+          <div class="bottom-ctrl">
+            <button ion-button clear>Region</button>
+            <button ion-button clear icon-only>
+              <ion-icon name="repeat"></ion-icon>
+            </button>
+          </div>
+          <div class="bottom-btn">
+            <button>Terminer</button>
+          </div>
+        </div>
+      </div>
+      <div class="region" *ngSwitchCase="2">
+        <div class="top"></div>
+      </div>
+    </div>
+  </div>
+</ion-content>
