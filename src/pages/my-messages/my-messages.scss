@@ -1,3 +1,100 @@
 page-my-messages {
-
+  ion-header {
+    height: 70px;
+    background-image: linear-gradient(96deg, #fb4b7d 0%, #fe757b 100%);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+    display: flex;
+    justify-content: center;
+    span {
+      color: #ffffff;
+      font-family: Raleway;
+      font-size: 16px;
+      font-weight: 500;
+      letter-spacing: 0.19px;
+      margin-top: 33px;
+    }
+    .back {
+      position: absolute;
+      left: 20px;
+      top: 22px;
+      color: white;
+      font-size: 41px;
+    }
+  }
+  .content-ios {
+    background-color: #f4f8fc !important;
+  }
+  .content-md {
+    background-color: #f4f8fc !important;
+  }
+  .grid{
+    padding: 0;
+    padding-top: 14px !important;
+}
+  .unreadMess{
+    background-color: transparent !important;
+  }
+  .message_row { 
+    background-color: #ebebeb ;       
+    .img_space {
+      width: 80px;
+      flex: 0 0 0% !important;
+      .bee-hexagon {
+        clip-path: url(#hexagonPath);
+        background-repeat: no-repeat;
+        background-position: -3px -15px;
+        background-color: transparent;
+        height: 188%;
+      }
+      .bee-image {
+        height: 64px;
+        width: 120px;
+        transform: scale(0.48);
+        margin-right: -13px;
+      }
+      .bee-img-size {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .message_info {      
+      width: 100%;
+      padding-left: 25px !important;
+      position: relative;
+      .friend_name {
+        position: absolute;
+        top: 24px;
+        color: #535353;
+        font-family: Raleway;
+        font-size: 14px;
+        font-weight: 600;
+      }
+      .message {
+        color: #8e8e93;
+        font-family: Raleway;
+        font-size: 10px;
+        font-weight: 400;
+        position: absolute;
+        top: 49px;
+      }
+      .messages_time {
+        color: #c9c9c9;
+        font-family: Raleway;
+        font-size: 10px;
+        font-weight: 400;
+        position: absolute;
+        right: 2%;
+        top: 28px;
+      }
+    }
+    .separation{
+      width: 88%;
+      margin-left: 6%;
+      height: 1px;
+      border: 0.5px solid #c9c9c9;
+      margin-top: 31px;
+  }
+  }
+ 
 }

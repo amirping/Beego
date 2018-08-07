@@ -14,8 +14,24 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'my-messages.html',
 })
 export class MyMessagesPage {
+  listItems: Array<any> = [];
+  varMess=false;
+  readMessage(){
+    this.varMess=true;
+  }
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.listItems.push({
+      name: 'Folen ben folen',
+      date: '6 mar 2018',
+      msg: 'Le Lorem Ipsum est simplement faux texte employé dans la composition et la mise en page avant impression.',
+    },
+    
+      {
+        name: 'Folena ben folen',
+        date: '6 mar 2018',
+        msg: 'Le Lorem Ipsum est simplement faux texte employé dans la composition et la mise en page avant impression.',
+      })
   }
 
   ionViewDidLoad() {

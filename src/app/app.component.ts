@@ -29,6 +29,7 @@ import {NotificationsPage} from '../pages/notifications/notifications';
 import {NotificationsSettingPage} from '../pages/notifications-setting/notifications-setting';
 import {ContactUsPage} from '../pages/contact-us/contact-us';
 import {ContactUsConversatoinPage} from '../pages/contact-us-conversatoin/contact-us-conversatoin';
+import {MyMessagesPage} from '../pages/my-messages/my-messages';
 
 import { UserProvider } from '../providers/user/user';
 
