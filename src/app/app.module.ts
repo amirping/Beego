@@ -45,6 +45,7 @@ import {NotificationsSettingPage} from '../pages/notifications-setting/notificat
 import {ContactUsPage} from '../pages/contact-us/contact-us';
 import {ContactUsConversatoinPage} from '../pages/contact-us-conversatoin/contact-us-conversatoin';
 import {MyMessagesPage} from '../pages/my-messages/my-messages';
+import {PrincipalEventPage} from '../pages/principal-event/principal-event';
 
 
 import { Ionic2RatingModule } from "ionic2-rating";
@@ -110,6 +111,8 @@ import { HttpClientModule } from "../../node_modules/@angular/common/http";
     ContactUsPage,
     ContactUsConversatoinPage,
     MyMessagesPage,
+    PrincipalEventPage,
+    
 
 
     MyTastesPage,
@@ -173,6 +176,7 @@ import { HttpClientModule } from "../../node_modules/@angular/common/http";
     ContactUsPage,
     ContactUsConversatoinPage,
     MyMessagesPage,
+    PrincipalEventPage,
 
 
     MyTastesPage,

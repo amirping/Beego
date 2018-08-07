@@ -30,6 +30,7 @@ import {NotificationsSettingPage} from '../pages/notifications-setting/notificat
 import {ContactUsPage} from '../pages/contact-us/contact-us';
 import {ContactUsConversatoinPage} from '../pages/contact-us-conversatoin/contact-us-conversatoin';
 import {MyMessagesPage} from '../pages/my-messages/my-messages';
+import {PrincipalEventPage} from '../pages/principal-event/principal-event';
 
 import { UserProvider } from '../providers/user/user';
 
@@ -40,7 +41,7 @@ import { UserProvider } from '../providers/user/user';
 export class MyApp {
 
 
-  rootPage: any= ContactUsConversatoinPage;
+  rootPage: any= PrincipalEventPage;
   constructor(
     platform: Platform,
     statusBar: StatusBar,
