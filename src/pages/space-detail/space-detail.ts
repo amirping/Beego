@@ -107,7 +107,12 @@ export class SpaceDetailPage {
   val4;
   val5;
   nbreviews = 0;
-
+  horaire : Observable<any>;
+  horaireOuverture;
+  horaireFermeture;
+  dateDuJour;
+  ouverte = "Fermée";
+  horaireDuJour;
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     private db: AngularFireDatabase,
@@ -115,6 +120,13 @@ export class SpaceDetailPage {
     private modalCtrl: ModalController
 
   ) {
+    
+    this.dateDuJour=new Date().toDateString().substring(0,3)
+    this.horaireDuJour=new Date().toISOString().substring(11, 19);
+    console.log("horaire",this.horaireDuJour)
+
+    
+    console.log("la date d'aujourd'hui est",this.dateDuJour)
 
     console.log("ancienne", this.moyenneRating)
 
@@ -158,6 +170,22 @@ export class SpaceDetailPage {
       this.espaceTelephone = data.espaceTelephone
       this.espaceDescription = data.espaceDescription
       this.espaceMeilleureSpecialite = data.espaceMeilleureSpecialite
+      if(data.jourDeTravail)
+      this.horaire= data.jourDeTravail
+      if(data.horaireOuverture)
+      this.horaireOuverture=data.horaireOuverture
+      if(data.horaireFermeture)
+      this.horaireFermeture=data.horaireFermeture
+      if(data.jourDeTravail){
+      this.horaire.forEach(element => {
+        console.log(element)
+        if(this.dateDuJour==element)
+         {
+           if (this.horaireDuJour>this.horaireOuverture && this.horaireDuJour<this.horaireFermeture)
+           this.ouverte="Ouverte"
+         }
+        
+      });}
 
 
 
