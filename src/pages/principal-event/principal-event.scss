@@ -166,9 +166,9 @@ page-principal-event {
       }
       .about{
         position: relative;
-        margin-top: 10px;
-        margin-left: 20px;
-        margin-right: 20px;
+        margin-top: -2px;
+        margin-left: 4%;
+        width:92%;
         color: #8e8e93;
         font-family: Raleway;
         font-size: 12px;
@@ -200,6 +200,162 @@ page-principal-event {
           font-size: 20px;
           font-weight: 600;
           color: #8e8e93;
+        }
+      }
+      .photo_row{
+        height: 190px;
+        margin-top: 10px;
+        margin-left: 20px;
+       background-color: gray;
+      }
+      .localisation_row{
+        margin-top: 10px;
+        margin-left: 20px;
+        margin-right: 10px;
+        height: 130px;
+        position: relative;
+        .adress_title{
+          color: #535353;
+          font-family: Raleway;
+          font-size: 12px;
+          font-weight: 500;
+          position: absolute;
+          top: 10px;
+          left: 3%;
+        }
+        .adress{
+          position: absolute;
+          margin-left: 3%;
+          margin-top: 28px;
+          
+          span{
+            color: #95989a;
+          font-family: Raleway;
+          font-size: 10px;
+          font-weight: 500;
+          padding-left: 2px;
+          }
+        }
+        .trac_img{
+          width: 7px;
+          height: 8px;
+          // padding-right: 3px;
+        }
+        .btn_map{
+          button{
+            width: 160px;
+            height: 30px;
+            box-shadow: 0 3px 6px rgba(255, 81, 156, 0.22);
+            border-radius: 118px;
+            background-image: linear-gradient(100deg, #fb4b7d 0%, #fe757b 100%);
+            position: absolute;
+            top: 57px;
+            left: 3%;
+            color: #ffffff;
+            font-family: Raleway;
+            font-size: 12px;
+            font-weight: 500;
+            padding-bottom: 4px;
+            .icon_map{
+              font-size: 10px;
+              font-weight: 100;
+              margin-left: 18px;
+            }
+          }
+        }
+      }
+      .organisation_row{
+        width: 92%;
+        margin-left: 4%;
+        .img_col{
+          max-width: 80px !important;
+          .bee-hexagon {
+            clip-path: url(#hexagonPath);
+            background-repeat: no-repeat;
+            background-position: -3px -15px;
+            background-color: transparent;
+            height: 100%;
+          }
+          .bee-image {
+            height: 120px;
+            width: 120px;
+            transform: scale(0.52);
+            margin-left: -29px;
+            margin-top: -24px;
+          }
+          .bee-img-size {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+          }
+        }
+        .organisation_description{
+          position: relative;
+          height: 100%;
+          span{
+            position: absolute;
+            top: 22px;
+            left: 0;
+            color: #333333;            
+            font-size: 14px;             
+            letter-spacing: 0.17px;           
+            font-family: "Segoe UI";
+            font-weight: 400;
+          }
+          .spaces_place{
+            position: absolute;
+            top: 42px;
+            left: 0;
+            color: #8e8e93;
+            font-size: 8px;
+            letter-spacing: 0.1px;
+            font-family: "Segoe UI";
+            font-weight: 400;
+          }
+        }
+        img{
+          margin-top: 17px;
+        }
+        .find_us_fb{
+          width: 31px;
+        }
+        .find_us_insta{
+          width: 31px;
+        }
+      }
+      .interrested_row{
+        width: 100%;
+        position: relative;
+        padding-left: 4%;
+        padding-top: 9px;
+        height: 50px;
+        box-shadow: 0 0 7px rgba(0, 0, 0, 0.3);
+        background-color: #fcfcfc;
+        button{
+          width: 199px;
+          height: 32px;
+          box-shadow: 0 3px 6px rgba(255, 81, 156, 0.38);
+          border-radius: 118px;
+          background-image: linear-gradient(99deg, #fb4b7d 0%, #fe757b 100%);
+          color: #ffffff;
+          font-size: 14px;
+          font-family: "Segoe UI";
+          font-weight: 400;
+        }
+        .icons_place{
+          justify-content: center;
+          display: flex;
+          width:calc( 100% - ( 199px + 8%) );
+          height: 100%;
+          margin-left: 4%;
+          ion-icon{
+            color: #c1c1c1;
+            font-size: 23px;
+            margin-top: 5px;
+          }
+        }
+        .separation{
+          width: 22%;
         }
       }
       
