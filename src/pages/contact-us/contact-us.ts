@@ -36,15 +36,19 @@ export class ContactUsPage {
   redirectToConversation(){
     
   }
+  salut(){
+    console.log('show me your tits')
+  }
   contact(message){
     this.listContact.push(
      { firstName : "hatem",
        lastName: "Abbes",
        message : message,
-       date : new Date().toISOString().substring(0, 10)
+       date : new Date().toISOString().substring(0,10)
 
     }
     )
+    console.log(Date.now())
     this.navCtrl.push(ContactUsConversatoinPage,{ nom: this.nom, cle: this.idEspace })
   }
 

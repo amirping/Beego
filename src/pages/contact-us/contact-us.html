@@ -33,14 +33,18 @@
     <ion-row class="write_ur_message">
       <textarea class="wrighting_part" name="" id="" cols="30" rows="10" [(ngModel)]="message"></textarea>
     </ion-row>
-    <ion-row class="contact_btn">
-      <button (click)="contact(message)">Envoyer</button>
-    </ion-row>
+    <!-- <ion-row class="contact_btn">
+      
+    </ion-row> -->
   </ion-grid>
   </div>
   <div class="left_triangle"></div>
   <div class="right_triangle"></div>
   <div class="low_triangle"></div>
   <div class="back_contact"></div>
+  <div class="contact_btn">
+    <button (click)="contact(message)">Envoyer</button>
+  </div>
+  
 </div>
 </ion-content>

@@ -22,14 +22,17 @@ export class ContactUsConversatoinPage {
   //  time:number;
   MsgList : Array<any> = [];
   date:String;
-  conversation : Observable<any>
+  conversation_user : Observable<any>
+  conversation_espace : Observable<any>
   idEspace
   nom
   constructor(public navCtrl: NavController, public navParams: NavParams, private db :AngularFireDatabase) {
     this.idEspace = this.navParams.get('cle')
     this.nom = this.navParams.get('nom')
-    this.conversation = this.db.list(`espace/${this.idEspace}/contact`,
+    this.conversation_user = this.db.list(`espace/${this.idEspace}/contact`,
     item=>item.orderByChild('firstName').equalTo('hatem')).valueChanges()
+    this.conversation_espace = this.db.list(`espace/${this.idEspace}/contact`,
+    item=>item.orderByChild('firstName').equalTo(this.nom)).valueChanges()
   }
   sendMsg(){
     if (!this.editorMsg.trim()) return;

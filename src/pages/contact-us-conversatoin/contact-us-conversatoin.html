@@ -21,7 +21,7 @@
 <ion-content>
   
   <ion-grid no-padding>
-    <ion-row class="conversation_row" *ngFor="let item of conversation | async">
+    <ion-row class="conversation_row" *ngFor="let item of conversation_espace | async">
         <div class="time">
             {{item.date}}
           </div> 
@@ -41,10 +41,12 @@
           </div>
        
     </ion-row>
-    <ion-row class="conversation_user animated fadeInUp  " *ngFor="let msg of MsgList;">
+    <ion-row class="conversation_user animated fadeInUp  " *ngFor="let item of conversation_user | async">
         <div class="time">
-            <ion-datetime displayFormat="MMM DD YYYY " [(ngModel)]="msg.date"></ion-datetime>
-            <!-- {{msg.date}} -->
+            {{item.date}}
+          <!--
+            <ion-datetime displayFormat="MMM DD YYYY " [(ngModel)]="item.date"></ion-datetime>
+            {{msg.date}} -->
           </div>
       <ion-col col-3 class="img_space">
           <div class="bee-image">
@@ -56,7 +58,7 @@
           
         <div  class="space_messages_place ">
            <span>
-              {{msg.newmsg}} 
+              {{item.message}} 
               <!-- Le Lorem Ipsum est simplement faux texte employé dans la composition et la mise en page avant
               Le Lorem Ipsum est simplement faux texte employé dans la composition et la mise en page avant
               Le Lorem Ipsum est simplement faux texte employé dans la composition et la mise en page avant -->
