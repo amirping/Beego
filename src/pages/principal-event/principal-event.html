@@ -6,7 +6,7 @@
 -->
 
 <ion-content [hidden]="hiddenPage">
-  <ion-grid no-padding>
+  <ion-grid no-padding [class.grid-blur]="varGrid" >
     <ion-row class="photo-row">
         <img  class="img-space" src="../../assets/imgs/principal_event/cover.png" alt="">
         <div class="photo_row_icons">
@@ -73,6 +73,13 @@
               </ion-row>
               <ion-row class="separation_row">
                   <div class="sep"></div>
+                </ion-row>
+                <!-- ghassen's job -->
+                <ion-row class="participants_row ">
+                  <div></div>
+                  <label (click)="nbrPart()" >+2,456K
+                    <button>Participants</button>
+                  </label>
                 </ion-row>
                 <!-- ghassen's job -->
                 <ion-row class="row_title">
@@ -166,86 +173,76 @@
               </div>
             </ion-row>
               </div>
+              
             </ion-col>
           </ion-row>
           
           
           
   </ion-grid>
-  <input type="file" #uploader (change)="updateImage($event)" style="display: none;">
+
+  <div class="hidden_div" [class.clear-div]="clear" >
+    <button (click)="clearBtn()" ></button>
+  </div>
+
+  <div class="participants animated fadeInUp" [class.participants-display]="varDisplay" >
+      <ion-grid no-padding>
+        <ion-row class="part_nbr_row">
+          <div class="part_nbr">
+            <span>+2,456K </span> 
+            Participants
+          </div>
+        </ion-row>
+        <ion-row>
+            <ion-list no-lines class="list-ios-notification">
+              <ion-item class="item_height" text-wrap>
+                  <ion-avatar item-start>
+                      <img src="../../assets/imgs/photoDeProfil.png">                                
+                  </ion-avatar>
+                  <div class="theNotification"> 
+                      <span> Med limayma</span>
+                  </div>
+                  <div class="place">
+                      <ion-icon ios="ios-pin" md="ios-pin"></ion-icon>
+                    Zahrouni, Tunis
+                  </div>
+                  <div class="line"></div>
+              </ion-item>
+              <ion-item class="item_height" text-wrap>
+                  <ion-avatar item-start>
+                      <img src="../../assets/imgs/photoDeProfil.png">                                
+                  </ion-avatar>
+                  <div class="theNotification"> 
+                      <span> Med limayma</span>
+                  </div>
+                  <div class="place">
+                      <ion-icon ios="ios-pin" md="ios-pin"></ion-icon>
+                    Zahrouni, Tunis
+                  </div>
+                  <ion-icon item-end class="add_person" 
+                   ios="md-person" md="md-person"></ion-icon>
+                  <div class="line"></div>
+              </ion-item>
+              <ion-item class="item_height" text-wrap>
+                  <ion-avatar item-start>
+                      <img src="../../assets/imgs/photoDeProfil.png">                                
+                  </ion-avatar>
+                  <div class="theNotification"> 
+                      <span> Med limayma</span>
+                  </div>
+                  <div class="place">
+                      <ion-icon ios="ios-pin" md="ios-pin"></ion-icon>
+                    Zahrouni, Tunis
+                  </div>
+                  <ion-icon item-end class="add_person" 
+                   ios="md-person" md="md-person"></ion-icon>
+                  <div class="line"></div>
+              </ion-item>
+            </ion-list>
+        </ion-row>
+      </ion-grid>
+    </div>
+  <!-- <input type="file" #uploader (change)="updateImage($event)" style="display: none;"> -->
 </ion-content>
 
  
-
-<!-- <ion-row>
-          </ion-row>
-          <ion-row>
-            <ion-col class="text_1"> -->
-              <!-- <img src="../../assets/imgs/param/Date icon.svg" class="icon_under"> {{event.date_debut}}-{{event.date_fin}} -->
-            <!-- </ion-col>S -->
-              <!-- <img src="../../assets/imgs/param/clock (1).svg" class="icon_under"> {{event.heure_debut}} PM-{{event.heure_fin}} PM -->
-            <!-- </ion-col>
-          </ion-row>
-          <div class="ligne"> </div> -->
-
-          <!-- <ion-col *ngIf="peopleArray.length>0" style="float:left" >
-            <div *ngFor="let picture of peopleArray"><img class="picture" [src]="picture.picture"></div>
-          </ion-col> -->
-
-          <!-- <ion-col *ngIf="peopleArray.length>1 ">
-            <div style="float:left" *ngFor="let picture of peopleArray |slice : 0:1">
-              <img class="picture" [src]="picture.picture">
-            </div> -->
-            <!-- <div class="picture_std" style="float:left"> + {{peopleArray.length }}</div> -->
-          <!-- </ion-col>
-          <ion-col *ngIf="peopleArray.length == 2" style="float:left">
-            <div>empty</div>
-          </ion-col>
-          <ion-row>
-            <div style="font-size: 20px">Description</div>
-            <ion-row class="about" [class.about-transition]="show">
-              <p> -->
-                <!-- {{event.Description}} -->
-              <!-- </p>
-              <div class="whitediv" *ngIf="!show">
-              </div>
-            </ion-row>
-            <ion-row class="arrow_down_row">
-              <button (click)="showabout()">
-                <ion-icon *ngIf="!show" class="arrow-down-icon" name="arrow-down"></ion-icon>
-                <ion-icon *ngIf="show" class="arrow-down-icon" name="arrow-up"></ion-icon>
-              </button>
-            </ion-row>
-          </ion-row>
-          <div style="font-size: 20px"> Localisation </div>
-          <ion-row class="localisation_row">
-            <div class="adress_title">
-              Adresse :
-            </div>
-            <div class="adress">
-              <img class="trac_img" src="../../assets/imgs/space_detail/trac.svg" alt="">
-              <span> -->
-                <!-- {{espaceAdresse}} -->
-              <!-- </span>
-            </div>
-            <div class="btn_map">
-              <button> Voir dans la map
-                <ion-icon class="icon_map" name=arrow-forward></ion-icon>
-              </button>
-            </div>
-          </ion-row>
-          <div style="font-size: 20px">Organise par </div>
-          
-            <div style="float: left;">
-                <div class="bee-image">
-                    <div class="bee-hexagon">
-                      <img class="bee-img-size" src="../../assets/imgs/photoDeProfil.png" alt="">
-                    </div>
-                  </div>
-            </div>
-            <div>B</div>
-
-          
-        </div>
-      </ion-col>
-    </ion-row> -->

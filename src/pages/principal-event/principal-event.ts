@@ -16,6 +16,11 @@ import { Observable } from "rxjs/Observable";
   templateUrl: 'principal-event.html',
 })
 export class PrincipalEventPage {
+  varDisplay =false;
+  varGrid = false;
+  clear = false;
+
+
   collection:any= [
     {pic:'https://scontent.ftun2-1.fna.fbcdn.net/v/t1.0-9/29541752_1859626400715645_3747510599580385280_n.jpg?_nc_cat=0&oh=73dee5f036a3780c2e8ba385a27cb5ae&oe=5BA1EACF'},
     {pic:'https://scontent.ftun2-1.fna.fbcdn.net/v/t1.0-9/15078663_10211006009933479_4984560874955007153_n.jpg?_nc_cat=0&oh=307dbf50c3b1d08e01744ef0660b41b4&oe=5BD5349A'},
@@ -48,6 +53,17 @@ export class PrincipalEventPage {
     
     
 
+  }
+
+  nbrPart(){
+    this.varDisplay = true;
+    this.varGrid = true;
+    this.clear = true;
+  }
+  clearBtn(){
+    this.varDisplay = false;
+    this.varGrid = false;
+    this.clear = false;
   }
   ionViewDidLoad() {
     console.log('ionViewDidLoad PrincipalEventPage');

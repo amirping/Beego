@@ -1,6 +1,7 @@
 page-principal-event {
   ::-webkit-scrollbar {
     display: none;
+    
   }
   .photo-row {
     height: auto;
@@ -163,6 +164,26 @@ page-principal-event {
         font-size: 20px;
         font-family: "Segoe UI";
         font-weight: 400;
+      }
+      .participants_row{
+        margin-top: 13px;
+        margin-left: 4%;  
+        width: 92%;
+        display: flex;
+        justify-content: space-between;
+        label{
+          font-family: "Segoe UI";
+          font-weight: 700;
+          color: #8e8e93;
+          font-size: 14px;
+          button{
+            background-color: transparent;
+            font-weight: 500;
+            font-family: Raleway;
+            color: #8e8e93;
+            font-size: 14px;
+          }
+        }
       }
       .about{
         position: relative;
@@ -360,454 +381,131 @@ page-principal-event {
       }
       
     }
+    
+    
   }
+.grid-blur{
+  filter: blur(3px);
+}
+.participants-display{
+  display: flex !important;
+}
 
-
-
-
-
-
-
-  .beego-container-profil {
-    position: relative;
+.hidden_div{
+  position: fixed;
+  top: 0;
+  left: -11px;
+  height: 210px;
+  width: 103%;
+  background-color: transparent;
+  display: none;
+  button{
+    height: 193px;
+    position: absolute;
+    top: 0;
     width: 100%;
-    height: 100%;
-  }
-  .bee-hexagon {
-    clip-path: url(#hexagonPath);
-    background-repeat: no-repeat;
-    background-position: -3px -15px;
     background-color: transparent;
-    height: 188%;
   }
-  .bee-image {
-    height: 120px;
-    width: 120px;
-    transform: scale(0.48);
-    margin-left: -29px;
-    margin-top: -10px;
-  }
-  .bee-img-size {
-    object-fit: cover;
+}
+.clear-div{
+  display: flex !important;
+}
+
+  .participants{  
+    display: none;
+    position: fixed;
+    height: calc( 100vh - 193px);
     width: 100%;
-    height: 100%;
-  }
-  .back-button-right {
-    background-color: transparent;
-  }
-  .img-right {
-    width: 63%;
-  }
-  .take-photo {
-    position: absolute;
-    top: 23px;
-    right: 44px;
-  }
-  .take-photo-button {
-    background-color: transparent;
-  }
-  .take-photo-img {
-    width: 29px;
-    height: 29;
-  }
-  .take-photo-img:active {
-    transform: scale(0.8);
-  }
-  .param-profil {
-    position: absolute;
-    top: 28px;
-    right: 14px;
-  }
-  .button-param {
-    background-color: transparent;
-  }
-  .img-param {
-    width: 20px;
-    height: 19px;
-  }
-  .abonnés {
-    position: absolute;
-    top: 75%;
-    left: 10%;
-  }
-  .suivis {
-    position: absolute;
-    top: 75%;
-    left: 73%;
-  }
-  .abonnés-number {
-    color: white;
-  }
-  .suivis-number {
-    color: white;
-  }
-  .back-color {
-    background-color: whitesmoke;
-  }
-  .profil-photo-part {
-    position: fixed; // background-image: url(../../assets/imgs/photoDeProfil.png);
-    // background-repeat: no-repeat;
-    // background-size: cover;
-    // background-position: center bottom;
-    width: 100%;
-    height: 270px;
-  }
-  .bee-inner-cover {
-    display: block;
-    position: relative;
-  }
-  .cover-unset .bee-inner-cover {
-    height: 100%;
-    background-image: url(../../assets/imgs/photoDeProfil.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-  }
-  .bee-cover {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    height: 100%;
-    overflow: hidden;
-    .bee-inner-cover {
-      width: 95%;
-      max-width: 700px;
-      margin: auto;
-      img {
-        width: 100%;
-      }
-    }
-  }
-  .bee-cover-blur {
-    display: flex;
-    position: absolute;
-    left: -6px;
-    right: -6px;
-    height: 100%;
-    justify-content: center;
-    flex-direction: column;
-    filter: blur(8px);
-    overflow: hidden;
-    .bee-inner-cover {
+    background-color: white;
+    border: solid #d2d1d1 0.5px;
+    top: 193px;
+    border-radius: 20px 20px 0 0;
+    z-index: 3;
+    padding-top: 19px;
+    overflow-y: scroll;
+    .part_nbr_row{
       width: 100%;
-      img {
-        width: 100%;
-        min-height: 270px;
-      }
-    }
-  }
-  .bee-hexagon {
-    clip-path: url(#hexagonPath);
-    background-repeat: no-repeat;
-    background-position: -3px -15px;
-    background-color: transparent;
-    background-image: url(../../assets/imgs/homme.png);
-    height: 100%;
-    img {
-      min-height: 100%;
-      min-width: 100%;
-    }
-  }
-  .bee-profile-image {
-    height: 120px;
-    width: 120px;
-    transform: scale(0.6) translate(-40px, -40px);
-  }
-  .name-lname {
-    margin-top: 20px;
-  }
-  .nom {
-    font-weight: bolder;
-    font-size: 16px;
-  }
-  .lieu-class {
-    margin-top: 2px;
-  }
-  .lieu-img {
-    width: 11px;
-    height: 12px;
-  }
-  .lieu {
-    font-size: 10px;
-  }
-  .para {
-    background-color: rgba(218, 223, 233, 0.993);
-    border-radius: 10px;
-    width: 100%;
-    height: 50px;
-    margin-bottom: 20px;
-  }
-  .para-style {
-    margin-top: 2%;
-    font-size: 12px;
-  }
-  .nomprenom {
-    font-size: 9px;
-    bottom: 28%;
-    position: absolute;
-    padding-left: 16px;
-    color: inherit;
-    text-decoration: none;
-  }
-  .fb-icon {
-    position: absolute;
-    margin-left: 32%;
-    bottom: 1%;
-  }
-  .img-fb {
-    width: 15px;
-    height: 15px;
-  }
-  .insta-icon {
-    position: absolute;
-    bottom: 1%;
-    margin-left: 16%;
-  }
-  .img-insta {
-    width: 15px;
-    height: 16px;
-  }
-  .snap-icon {
-    bottom: 1%;
-    position: absolute;
-    margin-left: 0%;
-  }
-  .img-snap {
-    width: 16px;
-    height: 16px;
-  }
-  .ligne {
-    width: 100%;
-    height: 1px;
-    background: #C9C9C9;
-    margin-bottom: 10px;
-  }
-  .mesfavoris {
-    position: relative;
-    margin-top: 3%;
-    left: 19px;
-    font-size: 18px;
-    font-weight: 600;
-  }
-  .first-photo {
-    margin-top: 12%;
-    margin-left: 6%;
-    width: 180px;
-    height: 180px;
-    border-radius: 30px;
-    background-image: url(../../assets/imgs/whats_up.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-  .photo-col {
-    top: 0px;
-    padding: 0px !important;
-  }
-  .take-photo-2 {
-    position: relative;
-    margin-top: -32%;
-    margin-left: 57%;
-  }
-  .bee-profile-image-holder {
-    width: 72px;
-    height: 72px;
-    margin: 10px 0px 0 19px;
-  }
-  /* The Masonry Container */
-  .masonry {
-    // display: flex;
-    margin: auto; //max-width: 768px;
-    column-gap: auto;
-    justify-content: center; // flex-wrap: nowrap;
-    // flex-direction: row;
-  }
-  /* The Masonry Brick */
-  .item {
-    position: relative;
-    background: #fff; //padding: 1em; //margin: 0 0 1.5em;
-    margin-bottom: 7px;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
-    img {
-      height: auto;
-      width: 100%;
-      object-fit: cover;
-    }
-    .data {
-      position: absolute;
-      bottom: 5px;
-      left: 5px;
-      right: 5px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.16);
-      border-radius: 15px;
-      background-color: rgba($color: #535353, $alpha: 0.63);
-      padding: 5px 11px 5px 11px;
-      .name {
-        color: #ffffff;
-        font-family: "Raleway";
+      display: flex;
+      justify-content: center;
+      .part_nbr{
+        width: 222px;
+        height: 52px;
+        border-radius: 15px;
+        background-color: #f1f1f1;
+        opacity: 0.6;  
+        color: #535353;
+        font-family: Raleway;
         font-size: 18px;
-        font-weight: 400;
-        letter-spacing: 0.22px;
-        margin: 0px;
-      }
-      .location {
-        color: #ffffff;
-        font-family: "Raleway";
-        font-size: 10px;
-        font-weight: 400;
-        letter-spacing: 0.12px;
-      }
-    }
-  }
-  .whitediv {
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, whitesmoke 100%);
-    position: absolute;
-    bottom: 0px;
-    width: 100%;
-    height: 30px;
-  }
-  .arrow_down_row {
-    justify-content: center;
-    button {
-      background-color: transparent;
-      z-index: 1;
-    }
-    .arrow-down-icon {
-      font-size: 20px;
-      font-weight: 600;
-      color: #8e8e93;
-    }
-  }
-  .localisation_row {
-    border: black;
-    height: 130px;
-    position: relative;
-    .adress_title {
-      color: #535353;
-      font-family: Raleway;
-      font-size: 12px;
-      font-weight: 500;
-      position: absolute;
-      top: 10px;
-      left: 3%;
-    }
-    .adress {
-      position: absolute;
-      margin-left: 3%;
-      margin-top: 28px;
-      span {
-        color: #95989a;
-        font-family: Raleway;
-        font-size: 10px;
         font-weight: 500;
-        padding-left: 2px;
-      }
-    }
-    .trac_img {
-      width: 7px;
-      height: 8px; // padding-right: 3px;
-    }
-    .btn_map {
-      button {
-        width: 160px;
-        height: 30px;
-        box-shadow: 0 3px 6px rgba(255, 81, 156, 0.22);
-        border-radius: 118px;
-        background-image: linear-gradient(100deg, #fb4b7d 0%, #fe757b 100%);
-        position: absolute;
-        top: 57px;
-        left: 3%;
-        color: #ffffff;
-        font-family: Raleway;
-        font-size: 12px;
-        font-weight: 500;
-        .icon_map {
-          font-size: 10px;
-          font-weight: 100;
-          margin-left: 18px;
-          padding-top: 9px;
+        padding-left: 27px;
+        padding-top: 16px;
+        span{
+          font-family: "SFNS Display";
+          font-weight: 700;
         }
+        
       }
+      
     }
+    
   }
-  .about {
-    position: relative;
-    color: #8e8e93;
-    font-family: Raleway;
-    font-size: 12px;
-    font-weight: 500;
-    height: 90px;
-    overflow: hidden; // box-shadow:inset  0px -20px 0px 0px rgba(255, 0, 255, 0.45);
-  }
-  .about-transition {
-    overflow: visible !important;
-    height: auto !important;
-  }
-  .arrow_down_row {
-    display: flex;
-    justify-content: center;
+  .list-ios-notification {
+    .label-md{
+      line-height: 3.4;
+    }
+    .label-ios{
+      line-height: 3.4;
+    }
     width: 100%;
-    height: 15px;
-    margin-bottom: 15px;
+    overflow-y: scroll;
+    .item_height{
+      min-height: 70px;
+      }
+      .theNotification {
+        /* Text style for "a partager" */            
+        color: #95989a;
+        font-family: "Segoe UI";
+        font-weight: 400;
+        font-size: 12px;
+        margin-top: -4px;
+      }
+      span {
+        font-family: Raleway;
+        font-size: 14px;
+        color: #535353;
+        font-weight: 500;
+        letter-spacing: -0.2px;
+        line-height: 22px;
+      }
+      .place {
+        color: #c9c9c9;
+        font-family: Raleway;
+        font-size: 10px;
+        font-weight: 400;
+        letter-spacing: -0.14px;
+        line-height: 22px;
+        margin-top: -10px;
+        ion-icon {
+          font-size: 1.5em;
+          padding-right: 3px;
+      }
+      }
+      .line {
+        width: 92%;
+        height: 1px;
+        border: 0.5px solid #95989a;
+        position: absolute;
+        top: 68px;
+        left: 4%;
+      }
+      .add_person{
+        color: #f22876;
+        font-size: 27px;
+      }
   }
-  .picture {
-    overflow: hidden;
-    -webkit-border-radius: 50px;
-    -moz-border-radius: 50px;
-    border-radius: 50px;
-    width: 35px;
-    height: 35px;
-    display: inline-block;
-  }
-  .picture_std {
-    overflow: hidden;
-    -webkit-border-radius: 50px;
-    -moz-border-radius: 50px;
-    border-radius: 50px;
-    width: 35px;
-    height: 35px;
-    background-color: palevioletred;
-  }
-  .vr {
-    width: 0.75px;
-    margin: 6px 0;
-    background: #C9C9C9;
-  }
-  .icon {
-    width: 15px;
-    height: 15px;
-    margin-bottom: 10px;
-  }
-  .icon_under {
-    width: 15px;
-    height: 15px;
-    margin-right: 5px;
-  }
-  .text {
-    font-size: 12px;
-    color: #8E8E93;
-  }
-  .text_1 {
-    font-size: 10px;
-    color: #8E8E93;
-  }
-  /* Masonry on large screens */
-  @media only screen and (min-width: 1024px) {
-    .masonry {
-      column-count: 4;
-    }
-  }
-  /* Masonry on medium-sized screens */
-  @media only screen and (max-width: 1023px) and (min-width: 768px) {
-    .masonry {
-      column-count: 3;
-    }
-  }
-  /* Masonry on small screens */
-  @media only screen and (max-width: 767px) and (min-width: 300px) {
-    .masonry {
-      column-count: 2;
-    }
-  }
+
+
+
+
+
 }
