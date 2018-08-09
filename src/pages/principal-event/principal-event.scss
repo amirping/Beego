@@ -33,7 +33,7 @@ page-principal-event {
       .share_icon {
         font-size: 23px;
         margin-right: calc( 5% + 6px);
-        margin-top: 1px;
+        margin-top: 5px;
       }
     }
   }
@@ -106,9 +106,11 @@ page-principal-event {
         .heart_position {
           margin-left: -14px;
           font-family: Raleway;
+          margin-top: 3px;
         }
         .call_position {
           font-family: "SFNS Display";
+          margin-top: 3px;
         }
         .ticket_icon {
           width: 22px;
@@ -118,7 +120,8 @@ page-principal-event {
         }
         .person_position {
           margin-left: -5px;
-          font-family: "SFNS Display";
+          font-family: Raleway;
+          margin-top: -2px;
         }
         .separation {
           width: 1px;
@@ -386,6 +389,7 @@ page-principal-event {
   }
 .grid-blur{
   filter: blur(3px);
+  transition: all 1s;
 }
 .participants-display{
   display: flex !important;
@@ -424,6 +428,7 @@ page-principal-event {
     padding-top: 19px;
     overflow-y: scroll;
     .part_nbr_row{
+      min-height: 52px;
       width: 100%;
       display: flex;
       justify-content: center;
@@ -502,6 +507,69 @@ page-principal-event {
         color: #f22876;
         font-size: 27px;
       }
+  }
+
+  .show-share{
+    display:block !important;
+  }
+  .share{
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    height: 144px;
+    border-radius: 20px 20px 0 0;
+    background-color: white; 
+    border: solid #d2d1d1 0.5px; 
+    display: none;  
+    .share_title{
+      display: flex;
+      justify-content: center;
+      text-align: center;
+      width: 100%;
+      height: 21px;
+      color: #535353;
+      font-family: Raleway;
+      font-size: 18px;
+      font-weight: 500;
+      letter-spacing: 0.22px;
+      margin-top: 24px;
+    }
+    .share_icon{
+      margin-top: 24px;
+      justify-content: center;
+      display: flex;
+      width: 100%;
+      height: auto;
+      .share_icons_place{
+        width: 115px;
+        display: flex;
+        justify-content: space-between;
+        img{
+          width: 37px;
+          height: 37px;      
+        }
+      }
+    }
+  }
+  
+  .clear-div-share{
+    display: block !important;
+  }
+  .hidden_div_share{
+    height: calc( 100vh - 127px ) ;
+    position: fixed;
+    top: 0;
+    background-color: transparent;
+    width: 100%;
+    display: none;    
+    z-index: 4;
+    button{
+      width: 100%;
+      height: calc( 100vh - 134px );
+      position: absolute;
+      top: 0;
+      background-color: transparent;
+    }
   }
 
 

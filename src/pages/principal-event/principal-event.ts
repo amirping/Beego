@@ -19,6 +19,8 @@ export class PrincipalEventPage {
   varDisplay =false;
   varGrid = false;
   clear = false;
+  varShare = false;
+  clearShare = false;
 
 
   collection:any= [
@@ -64,6 +66,16 @@ export class PrincipalEventPage {
     this.varDisplay = false;
     this.varGrid = false;
     this.clear = false;
+  }
+  showDivShare(){
+    this.varShare=true;
+    this.varGrid = true;
+    this.clearShare = true;
+  }
+  clearBtnShare(){
+    this.varShare=false;
+    this.varGrid = false;
+    this.clearShare = false;
   }
   ionViewDidLoad() {
     console.log('ionViewDidLoad PrincipalEventPage');

@@ -12,7 +12,7 @@
         <div class="photo_row_icons">
             <ion-icon class="back_icon"
             ios="ios-arrow-round-back" md="ios-arrow-round-back"></ion-icon>
-            <ion-icon class="share_icon"
+            <ion-icon class="share_icon" (click)="showDivShare()"
             ios="md-share" md="md-share"></ion-icon>
         </div>
     </ion-row>
@@ -157,11 +157,11 @@
               </ion-col>
               <ion-col col-2 >
                   <img class="find_us_fb"
-                  src="../../assets/imgs/space_detail/Facebook.svg" alt="" (click)="back()">
+                  src="../../assets/imgs/space_detail/Facebook.svg" alt="" >
                 </ion-col>
                 <ion-col col-2 >
                   <img class="find_us_insta" 
-                  src="../../assets/imgs/param/insta.svg" alt="" (click)="back()">
+                  src="../../assets/imgs/param/insta.svg" alt="" >
               </ion-col>
             </ion-row>
             <ion-row class="interrested_row">
@@ -242,6 +242,24 @@
         </ion-row>
       </ion-grid>
     </div>
+
+    <div class="share animated fadeInUp" [class.show-share]="varShare" >
+      <div class="share_title">
+          Partager sur :
+      </div>
+      <div class="share_icon">
+          <div class="share_icons_place">
+              <img class="find_us_fb"
+              src="../../assets/imgs/space_detail/Facebook.svg" alt="" >
+              <img class="find_us_insta" 
+                  src="../../assets/imgs/param/insta.svg" alt="" >
+          </div>
+      </div>
+    </div>
+    <div class="hidden_div_share" [class.clear-div-share]="clearShare" >
+        <button (click)="clearBtnShare()" ></button>
+      </div>
+
   <!-- <input type="file" #uploader (change)="updateImage($event)" style="display: none;"> -->
 </ion-content>
 
