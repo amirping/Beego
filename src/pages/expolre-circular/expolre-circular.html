@@ -19,34 +19,57 @@
             </p>
           </div>
           <div class="dotted-row">
+            <div class="dot">
+              <div *ngIf="selected[0]" (click)="removeTaste(selected[0])">
+                <img src="../../assets/imgs/explore-circular/{{selected[0].pic}}" alt="">
+              </div>
+            </div>
+            <div class="dot">
+              <div *ngIf="selected[1]" (click)="removeTaste(selected[1])">
+                <img src="../../assets/imgs/explore-circular/{{selected[1].pic}}" alt="">
+              </div>
+            </div>
+            <div class="dot">
+              <div *ngIf="selected[2]" (click)="removeTaste(selected[2])">
+                <img src="../../assets/imgs/explore-circular/{{selected[2].pic}}" alt="">
+              </div>
+            </div>
+
+            <!-- <img src="../../assets/imgs/explore-circular/Ellipse_2500.png" alt="">
             <img src="../../assets/imgs/explore-circular/Ellipse_2500.png" alt="">
-            <img src="../../assets/imgs/explore-circular/Ellipse_2500.png" alt="">
-            <img src="../../assets/imgs/explore-circular/Ellipse_2500.png" alt="">
+            <img src="../../assets/imgs/explore-circular/Ellipse_2500.png" alt=""> -->
           </div>
           <div class="arc-holder">
-            <div class="elem">
-              <img src="../../assets/imgs/explore-circular/beer.png" alt="">
-              <span>Bar</span>
-            </div>
-            <div class="elem">
-              <img src="../../assets/imgs/explore-circular/clock_1_.png" alt="">
-              <span>promo</span>
-            </div>
-            <div class="elem">
-              <img src="../../assets/imgs/explore-circular/cocktail.png" alt="">
-              <span>cocktail</span>
-            </div>
-            <div class="elem">
-              <img src="../../assets/imgs/explore-circular/coffee-cup.png" alt="">
-              <span>coffee</span>
-            </div>
-            <div class="elem">
-              <img src="../../assets/imgs/explore-circular/hearts-and-arrow.png" alt="">
-              <span>dating</span>
+            <div class="arc">
+              <div class="elem" *ngFor="let item of tastes | slice:0:5" (click)="selectTaste(item.id)">
+                <img src="../../assets/imgs/explore-circular/{{item.pic}}" alt="">
+                <span>{{item.name}}</span>
+              </div>
+              <!-- <div class="elem">
+                <img src="../../assets/imgs/explore-circular/clock_1_.png" alt="">
+                <span>promo</span>
+              </div>
+              <div class="elem">
+                <img src="../../assets/imgs/explore-circular/cocktail.png" alt="">
+                <span>cocktail</span>
+              </div>
+              <div class="elem">
+                <img src="../../assets/imgs/explore-circular/coffee-cup.png" alt="">
+                <span>coffee</span>
+              </div>
+              <div class="elem">
+                <img src="../../assets/imgs/explore-circular/hearts-and-arrow.png" alt="">
+                <span>dating</span>
+              </div> -->
+              <div class="hidden-arc"></div>
+
             </div>
           </div>
           <div class="range-holder">
-            <ion-range min="1" max="20" step="5" snaps="true" color="primary" pin="true" [(ngModel)]="distance"></ion-range>
+            <ion-range min="1" max="20" snaps="true" color="primary" pin="true" [(ngModel)]="distance">
+              <ion-label range-left>1</ion-label>
+              <ion-label range-right>20</ion-label>
+            </ion-range>
           </div>
           <div class="bottom-ctrl">
             <button ion-button clear>Region</button>
