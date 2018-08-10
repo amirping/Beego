@@ -64,8 +64,14 @@ page-expolre-circular {
             background: url('../../assets/imgs/explore-circular/Ellipse_2500.png');
             background-size: cover;
             margin: 0px 10px 0px 10px;
-            img{
-              margin:auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            div {
+              margin: auto;
+              img {
+                object-fit: cover;
+              }
             }
           }
         }
@@ -168,7 +174,8 @@ page-expolre-circular {
               transform: rotate(-65deg) translate(310px) rotate(65deg);
             }
             .elem:nth-child(1n+6) {
-              display: none !important;
+              //display: none !important;
+              transform: rotate(0deg) translate(310px) rotate(0deg);
             }
           }
         }
@@ -230,6 +237,74 @@ page-expolre-circular {
             border: none;
             padding-top: 15px;
           }
+        }
+      }
+    }
+    .region {
+      .top {
+        .heading {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-evenly;
+          vertical-align: middle;
+          padding: 0px 15px 0px 15px;
+          span {
+            font-size: 16px;
+            font-weight: 700;
+            margin-right: 10px;
+            text-align: left;
+            flex-grow: 1;
+          }
+          .selection {
+            font-size: 14px;
+            color: gray;
+          }
+        }
+      }
+      .contain {
+        padding: 15px;
+        .row {
+          display: flex;
+          flex-direction: row;
+        }
+        ion-grid {
+          max-height: 300px;
+          overflow-y: scroll;
+        }
+        ion-searchbar {
+          width: 70%;
+          padding: 0px;
+          background: transparent;
+          .searchbar-input-container {
+            border-radius: 20px;
+            overflow: hidden;
+            .searchbar-input {
+              background: #f3f3f3;
+            }
+          }
+        }
+      }
+      .bottom-ctrl {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        button {
+          color: gray !important;
+        }
+      }
+      .bottom-btn {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        button {
+          width: 115px;
+          height: 55px;
+          border-radius: 115px 115px 0 0;
+          background: #1f9ed5;
+          color: white;
+          font-size: 14px;
+          border: none;
+          padding-top: 15px;
         }
       }
     }

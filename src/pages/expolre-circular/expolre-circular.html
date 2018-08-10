@@ -20,17 +20,17 @@
           </div>
           <div class="dotted-row">
             <div class="dot">
-              <div *ngIf="selected[0]" (click)="removeTaste(selected[0])">
+              <div *ngIf="selected[0]" (click)="removeTaste(selected[0],'0')">
                 <img src="../../assets/imgs/explore-circular/{{selected[0].pic}}" alt="">
               </div>
             </div>
             <div class="dot">
-              <div *ngIf="selected[1]" (click)="removeTaste(selected[1])">
+              <div *ngIf="selected[1]" (click)="removeTaste(selected[1],'1')">
                 <img src="../../assets/imgs/explore-circular/{{selected[1].pic}}" alt="">
               </div>
             </div>
             <div class="dot">
-              <div *ngIf="selected[2]" (click)="removeTaste(selected[2])">
+              <div *ngIf="selected[2]" (click)="removeTaste(selected[2],'2')">
                 <img src="../../assets/imgs/explore-circular/{{selected[2].pic}}" alt="">
               </div>
             </div>
@@ -39,30 +39,13 @@
             <img src="../../assets/imgs/explore-circular/Ellipse_2500.png" alt="">
             <img src="../../assets/imgs/explore-circular/Ellipse_2500.png" alt=""> -->
           </div>
-          <div class="arc-holder">
+          <div class="arc-holder" (swipeleft)="swipeLeft($event)" (swiperight)="swipeRight($event)">
             <div class="arc">
-              <div class="elem" *ngFor="let item of tastes | slice:0:5" (click)="selectTaste(item.id)">
+              <div class="elem animated fadeIn" *ngFor="let item of tastes | slice:0:5 ; index as i" (click)="selectTaste(item)">
                 <img src="../../assets/imgs/explore-circular/{{item.pic}}" alt="">
                 <span>{{item.name}}</span>
               </div>
-              <!-- <div class="elem">
-                <img src="../../assets/imgs/explore-circular/clock_1_.png" alt="">
-                <span>promo</span>
-              </div>
-              <div class="elem">
-                <img src="../../assets/imgs/explore-circular/cocktail.png" alt="">
-                <span>cocktail</span>
-              </div>
-              <div class="elem">
-                <img src="../../assets/imgs/explore-circular/coffee-cup.png" alt="">
-                <span>coffee</span>
-              </div>
-              <div class="elem">
-                <img src="../../assets/imgs/explore-circular/hearts-and-arrow.png" alt="">
-                <span>dating</span>
-              </div> -->
               <div class="hidden-arc"></div>
-
             </div>
           </div>
           <div class="range-holder">
@@ -72,18 +55,43 @@
             </ion-range>
           </div>
           <div class="bottom-ctrl">
-            <button ion-button clear>Region</button>
-            <button ion-button clear icon-only>
+            <button ion-button clear (click)="currentView = '2'">Region</button>
+            <button ion-button clear icon-only (click)="swipeLeft($event)">
               <ion-icon name="repeat"></ion-icon>
             </button>
           </div>
-          <div class="bottom-btn">
+          <div class="bottom-btn" (click)="_view.dismiss()">
             <button>Terminer</button>
           </div>
         </div>
       </div>
       <div class="region" *ngSwitchCase="2">
-        <div class="top"></div>
+        <div class="top">
+          <div class="heading">
+            <span>Region</span>
+            <div class="selection">({{selectedCount()}})selectionner</div>
+          </div>
+        </div>
+        <div class="contain">
+          <div class="row">
+            <ion-searchbar (ionInput)="null"></ion-searchbar>
+            <button ion-button clear small (click)="currentView = '1'">Annuler</button>
+          </div>
+          <ion-grid>
+            <ion-row>
+              <ion-col *ngFor="let item of regions" col-6>
+                <ion-item>
+                  <ion-label>{{item.name}}</ion-label>
+                  <ion-checkbox [(ngModel)]="item.selected"></ion-checkbox>
+                </ion-item>
+              </ion-col>
+              <ion-col></ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+        <div class="bottom-btn" (click)="_view.dismiss()">
+          <button>Explorez</button>
+        </div>
       </div>
     </div>
   </div>
