@@ -22,6 +22,8 @@ import { ContactUsPage } from '../contact-us/contact-us';
   templateUrl: 'space-detail.html',
 })
 export class SpaceDetailPage {
+  varOpCol =false;
+  varClCol = false;
   disabled=false;
   blurr;
 
@@ -229,6 +231,14 @@ export class SpaceDetailPage {
     alert.present()
     
     
+  }
+  closeCol(){
+    this.varOpCol = true;
+    this.varClCol = true;
+  }
+  openCol(){
+    this.varOpCol = false;
+    this.varClCol = false;
   }
 
 }

@@ -41,7 +41,7 @@ import { UserProvider } from '../providers/user/user';
 export class MyApp {
 
 
-  rootPage: any= PrincipalEventPage;
+  rootPage: any= SpaceDetailPage;
   constructor(
     platform: Platform,
     statusBar: StatusBar,
