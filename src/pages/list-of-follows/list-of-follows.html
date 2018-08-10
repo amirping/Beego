@@ -6,20 +6,11 @@
 -->
 <ion-header no-border >
 
-  <ion-navbar hideBackButton="true" color="bar-color">
-   
-    <div class="back">
-        
-        
-            <button class="back-button-followlist" (click)="back()">
-              <img src="../../assets/imgs/arrow-back.png" alt="" 
-              class="back-img">
-            </button>
-
-    </div>
-    <div class="beego-title-list-follows">
-     Liste de follows</div>
-  </ion-navbar>
+  <span>
+      Liste de follows
+    </span>
+    <ion-icon class="back" (click)="back()"
+     ios="ios-arrow-round-back" md="ios-arrow-round-back"></ion-icon>
 
 </ion-header>
 
@@ -41,13 +32,13 @@
   
       </div>
       <div class="listOfFollows-part">
-          <ion-list>
+          <ion-list no-lines>
                 <ion-item>
                   <ion-avatar item-start>
                     <img src="../../assets/imgs/photoDeProfil.png">
                   </ion-avatar>
-                  <h3>nom prenom</h3>
-                  <p class="lieu-listfollows">Bardo, Tunis</p>
+                  <span class="name-lastname">nom prenom</span>
+                  <span class="lieu-listfollows">Bardo, Tunis</span>
                   <button (click)="confirmDelete()"
                    class="delete-follow-button">
                     <img 
@@ -56,6 +47,21 @@
                      alt="">
                   </button>
                 </ion-item>
+                <ion-item>
+                    <ion-avatar item-start>
+                      <img src="../../assets/imgs/photoDeProfil.png">
+                    </ion-avatar>
+                    <span class="name-lastname">nom prenom</span>
+                    <span class="lieu-listfollows">Bardo, Tunis</span>
+                    <button (click)="confirmDelete()"
+                     class="delete-follow-button">
+                      <img 
+                       src="../../assets/imgs/listOfFollows/delete.svg"
+                       
+                       alt="">
+                    </button>
+                  </ion-item>
+                
              
             </ion-list>
       </div>

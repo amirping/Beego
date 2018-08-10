@@ -10,11 +10,12 @@
     <ion-row>
       <ion-col>
         <div class="profil-photo-part no-padding">
-          <div class="arrow-right">
+          <img [src]="user.coverURL" alt="" class="img-space">
+          <!-- <div class="arrow-right">
             <button class="back-button-right" (click)="back()">
               <img src="../../assets/imgs/arrow-back.png" alt="" class="img-right">
             </button>
-          </div>
+          </div> -->
           <div class="take-photo">
             <button class="take-photo-button" (click)="uploadImage('cover',uploader)">
               <img src="../../assets/imgs/profil/takePhoto.svg" alt="" class="take-photo-img">
@@ -40,7 +41,7 @@
       <ion-col class="position-info">
         <div class="info-profil">
           <ion-row class="first-row">
-            <div class="first-row">
+            <ion-col col-9>
               <div class="bee-profile-image-holder">
                 <div class="bee-profile-image">
                   <div class="bee-hexagon">
@@ -53,7 +54,7 @@
                   </div>
                 </div>
               </div>
-              <div>
+              <div class="name_place">
                 <div class="name-lname">
                   <span class="nom" for="">{{user.firstName}} {{user.lastName}} </span>
                 </div>
@@ -63,17 +64,16 @@
                     {{user.gov}}</span>
                 </div>
               </div>
+            </ion-col>
+            <ion-col col-3>
               <div>
-                <div class="follows">
-
-                  <button class="follows-button" (click)="logout()">
+                  <button class="follows-button" (click)="folowsPage()">
                     Follows
                     <img class="follows-img" src="../../assets/imgs/profil/icon-user.svg" alt="">
                   </button>
-                </div>
               </div>
+            </ion-col>
 
-            </div>
 
 
           </ion-row>
@@ -84,30 +84,32 @@
               </div>
             </ion-col>
           </ion-row>
-          <ion-row>
-            <ion-col *ngIf="user.fbLink">
+          <ion-row class="icons_row">
+            <ion-col col-4  *ngIf="user.fbLink">
               <div class="fb-icon">
                 <img class="img-fb" src="../../assets/imgs/profil/fb-icon.svg" alt="">
-                <a [href]="'https://'+user.fbLink" class="nomprenom" target="_blank"> Facebook</a>
+                <a [href]="'https://'+user.fbLink" class="nomprenom" target="_blank"> 
+                  facebook </a>
               </div>
             </ion-col>
-            <ion-col *ngIf="user.instaLink">
+            <ion-col col-4 *ngIf="user.instaLink">
               <div class="insta-icon">
                 <img class="img-insta" src="../../assets/imgs/profil/insta.svg" alt="">
-                <a [href]="'https://'+user.instaLink" target="_new" class="nomprenom" for=""> Instagram</a>
+                <a [href]="'https://'+user.instaLink" target="_new" class="nomprenom" for="">
+                  instagram</a>
               </div>
             </ion-col>
-            <ion-col *ngIf="user.snapLink">
+            <ion-col col-4 *ngIf="user.snapLink">
               <div class="snap-icon">
                 <img class="img-snap" src="../../assets/imgs/profil/snap-icon.svg" alt="">
-                <a [href]="'https://'+user.snapLink" class="nomprenom" target="_new" for=""> Snapchat</a>
+                <a [href]="'https://'+user.snapLink" class="nomprenom" target="_new" for="">
+                  snapchat</a>
               </div>
             </ion-col>
           </ion-row>
-          <ion-row>
+          <ion-row class="line_row">
             <ion-col>
               <div class="ligne">
-                <hr>
               </div>
             </ion-col>
           </ion-row>

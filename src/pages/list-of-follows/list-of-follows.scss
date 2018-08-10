@@ -1,76 +1,137 @@
 page-list-of-follows {
+    ion-header{
+        width: 100%;
+        height: 70px;
+        box-shadow: 0 0 6px rgba(0, 0, 0, 0.16);
+        border: 1px solid rgba(0, 0, 0, 0);
+        background-image: linear-gradient(98deg, #fb4b7d 0%, #fe757b 100%);
+        justify-content: center;
+        display: flex;
+        span{
+            color: #ffffff;
+            font-family: Raleway;
+            font-size: 16px;
+            font-weight: 500;
+            letter-spacing: 0.19px;
+            margin-top: 33px;
+        }
+        .back{
+            position: absolute;
+            left:20px;
+            top: 22px;
+            color: white;
+            font-size: 41px;
+        }
+
+    }
     
-    .beego-title-list-follows{
-        position: relative;
-        font-size: 14PX;
-        text-align: center;
-        color: white;
-    }
-    .back{
-        position: absolute;
-        top: 37%;
-        z-index: 99;
-    }
-    .back-button-followlist{
-        background-color: transparent;
-        width: 65px;
+    // .beego-title-list-follows{
+    //     position: relative;
+    //     font-size: 14PX;
+    //     text-align: center;
+    //     color: white;
+    // }
+    // .back{
+    //     position: absolute;
+    //     top: 37%;
+    //     z-index: 99;
+    // }
+    // .back-button-followlist{
+    //     background-color: transparent;
+    //     width: 65px;
         
         
-     } 
-      .back-img{
-        width: 64%;
+    //  } 
+    //   .back-img{
+    //     width: 64%;
           
-      }
+    //   }
     .for-search-listfollows{
          position: relative;
         }
         .text-search-listfollows{
-            background-color: rgba(0,0,0,0.1);
-            border-radius: 12px;
-           
-           height: 27px;
-           width: 100%;
+            border-radius: 18px;
+            width: 100%;
             border:none;
-            padding-left: 37px;
-            color:black !important;
+            height: 34px;
+            border-radius: 18px;
+            background-color: #e2e2e2;
+            padding-left: 26px;
+            // color:black !important;
+            color: #8e8e93;
+            font-family: "SF Pro Text";
+            font-size: 14px;
+            font-weight: 400;
+            letter-spacing: -0.15px;
         }
         .text-search-listfollows::placeholder {
-            color: rgb(59, 52, 52);
-            font-size: 13px;
+            color: #8e8e93;
+            font-family: "Segoe UI";
+            font-weight: 400;
             }
             .search-text-icon-listfollows{
                 position: absolute;
                 background-color: transparent;
-                top: 5px;
+                top: 9px;
             }
             .search-text-icon-listfollows:active{
                 position: absolute;
                 background-color: transparent;
-                top: 6px;
+                top: 10px;
                 
             }
             .clear-text{
                 position: absolute;
                 background-color: transparent;
-                top: 6px;
-                right: 6px;
+                top: 9px;
+                right: 11px;
+            }
+            .name-lastname{
+                color: #535353;
+                font-family: Raleway;
+                font-size: 14px;
+                font-weight: 400;
+                letter-spacing: -0.2px;
+                line-height: 22px;
+                text-transform: capitalize;
             }
             .cleaner-listfollows{
-                width: 13px;
-                height: 13px;
+                width: 15px;
+                height: 15px;
             }
             .listOfFollows-part{
                 margin-top:7%;
                 margin-left: -2%;
             }
             .lieu-listfollows{
+                color: #c9c9c9;
+                font-family: Raleway;
                 font-size: 10px;
+                font-weight: 400;
+                letter-spacing: -0.14px;
+                line-height: 9px;
+                text-transform: capitalize;
+                position: absolute;
+                left: 72px;
+                top: 39px;
             }
             .delete-follow-button{
                 position: absolute;
                 right:0%;
-                top:27%;
+                top:19px;
                 background-color: transparent;
+            }
+            .item-ios ion-avatar img {
+                border-radius: 50%;
+                overflow: hidden;
+                width: 40px;
+                height: 40px;
+            }
+            .item-md ion-avatar img {
+                border-radius: 50%;
+                overflow: hidden;
+                width: 40px;
+                height: 40px;
             }
             
 

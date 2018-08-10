@@ -7,22 +7,22 @@ page-profil {
     width: 100%;
     height: 100%;
   }
-  .arrow-right {
-    position: absolute;
-    top: 30px;
-    left: 4px;
-  }
+  // .arrow-right {
+  //   position: absolute;
+  //   top: 30px;
+  //   left: 4px;
+  // }
   .first-row {
     display: flex;
     justify-content: space-between;
     width: 100%;
   }
-  .back-button-right {
-    background-color: transparent;
-  }
-  .img-right {
-    width: 63%;
-  }
+  // .back-button-right {
+  //   background-color: transparent;
+  // }
+  // .img-right {
+  //   width: 63%;
+  // }
   .take-photo {
     position: absolute;
     top: 23px;
@@ -33,22 +33,26 @@ page-profil {
   }
   .take-photo-img {
     width: 29px;
-    height: 29;
+    height: 29px;
   }
   .take-photo-img:active {
     transform: scale(0.8);
   }
   .param-profil {
     position: absolute;
-    top: 28px;
+    top: 24px;
     right: 14px;
+    height: 29px;
+    width: 29px;
+    border-radius: 50px;
+    background-color: rgba(0, 0, 0, 0.6);
   }
   .button-param {
     background-color: transparent;
   }
   .img-param {
     width: 20px;
-    height: 19px;
+    height: 26px;
   }
   .abonnés {
     position: absolute;
@@ -72,21 +76,23 @@ page-profil {
   .info-profil {
     width: 100%;
     left: 0px;
-    background-color: whitesmoke;
-    border-top-right-radius: 47px;
-    border-top-left-radius: 47px;
+    background-color: white;
+    border-top-right-radius: 35px;
+    border-top-left-radius: 35px;
   }
   .back-color {
     background-color: whitesmoke;
   }
   .profil-photo-part {
     position: fixed;
-    // background-image: url(../../assets/imgs/photoDeProfil.png);
-    // background-repeat: no-repeat;
-    // background-size: cover;
-    // background-position: center bottom;
     width: 100%;
     height: 270px;
+    .img-space{
+      background-repeat: no-repeat;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
   }
   .bee-inner-cover {
     display: block;
@@ -150,12 +156,22 @@ page-profil {
     width: 120px;
     transform: scale(0.6) translate(-40px, -40px);
   }
-  .name-lname {
-    margin-top: 20px;
+  .name_place{
+    width: 58%;
+    position: absolute;
+    top: 31px;
+    left: 82px;
   }
+  // .name-lname {
+  //   margin-top: 20px;
+  // }
   .nom {
-    font-weight: bolder;
-    font-size: 16px;
+    color: #333333;
+    font-family: Raleway;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.19px;
+    text-transform: capitalize;
   }
   .lieu-class {
     margin-top: 2px;
@@ -165,24 +181,28 @@ page-profil {
     height: 12px;
   }
   .lieu {
-    font-size: 10px;
-  }
-  .follows {
-    border-radius: 23px;
-    background-color: rgba(218, 223, 233, 0.993);
-    width: 85PX;
-    height: 28px;
-    margin: 20px 25px 0 0;
+    color: #8e8e93;
+    font-family: Montserrat;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.14px;
   }
   .follows-button {
-    background-color: transparent;
-    padding-top: 10%;
-    padding-left: 18%;
-    font-size: 12px;
+    margin: 20px 0 0 0;
+    position: absolute;
+    right: 9px;
+    width: 106px;
+    height: 34px;
+    border-radius: 26px;
+    background-color: #eeeeee;
+    color: #8e8e93;
+    font-family: Raleway;
+    font-size: 13px;
+    font-weight: 500;
   }
   .follows-img {
     padding-left: 9%;
-    width: 14px;
+    width: 19px;
   }
   .para {
     margin-left: 27px;
@@ -191,20 +211,33 @@ page-profil {
   }
   .para-style {
     margin-top: 2%;
+    color: #5f5f63;
+    font-family: "SFNS Display";
     font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.14px;
+  }
+  .icons_row{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
   }
   .nomprenom {
-    font-size: 9px;
     bottom: 28%;
     position: absolute;
-    padding-left: 16px;
-    color: inherit;
+    padding-left: 2px;
     text-decoration: none;
+    color: #5f5f63;
+    font-family: "SFNS Display";
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 0.12px;
   }
   .fb-icon {
     position: absolute;
     margin-left: 32%;
-    bottom: 1%;
+    bottom: 1%;    
+    width: 100%;
   }
   .img-fb {
     width: 15px;
@@ -214,6 +247,7 @@ page-profil {
     position: absolute;
     bottom: 1%;
     margin-left: 16%;
+    width: 100%;
   }
   .img-insta {
     width: 15px;
@@ -223,21 +257,30 @@ page-profil {
     bottom: 1%;
     position: absolute;
     margin-left: 0%;
+    width: 100%;
   }
   .img-snap {
     width: 16px;
     height: 16px;
   }
+  .line_row{
+    margin-top: 10px;
+  }
   .ligne {
-    position: absolute;
-    left: 10%;
-    right: 13%;
-    margin-top: 1%;
+    height: 0;
+    border: 1px solid #dadada;
+    width: 88%;
+    margin-left: 6%;
   }
   .mesfavoris {
-    position: absolute;
-    margin-top: 3%;
-    left: 10%;
+    // position: absolute;
+    // margin-top: 3%;
+    // left: 10%;
+    color: #333333;
+    font-family: Montserrat;
+    font-size: 18px;
+    font-weight: 600;
+    margin-left: 15px;
   }
   .first-photo {
     margin-top: 12%;
@@ -261,6 +304,6 @@ page-profil {
   .bee-profile-image-holder {
     width: 72px;
     height: 72px;
-    margin: 10px 0px 0 19px;
+    margin: 10px 0px 0 0px;  
   }
 }
