@@ -19,12 +19,46 @@ import { Subscription } from 'rxjs/Subscription';
   templateUrl: 'profil.html',
 })
 export class ProfilPage {
+  // favoris = ["../../assets/imgs/space_detail/whats-up.png",2,"../../assets/imgs/aziza.png",4,"../../assets/imgs/space_detail/whats-up.png"];
+  
+  data: any = [];
+  favoris: any = [
+    {
+      id: 0,
+      pic: "https://source.unsplash.com/1080x600/?food"
+    },
+    {
+      id: 1,
+      pic: "https://source.unsplash.com/600x1080/?movie"
+    },
+    {
+      id: 2,
+      pic: "https://source.unsplash.com/900x900/?party"
+    },
+    {
+      id: 3,
+      pic: "https://source.unsplash.com/1000x900/?events"
+    },
+    {
+      id: 4,
+      pic: "https://source.unsplash.com/1080x600/?music part"
+    },
+    {
+      id: 5,
+      pic: "https://source.unsplash.com/900x900/?desko"
+    }
+  ];
+  goToSpace(){
+    
+  }
+
   user = {} as User;
   updateImageType: string;
   userSubscription : Subscription;
   constructor(public navCtrl: NavController,
     public userProvider: UserProvider,
     public loadCtrl: LoadingController) {
+      this.data = this.favoris;
   }
   
   ionViewDidLoad() {
