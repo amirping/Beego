@@ -14,31 +14,32 @@
 <ion-content >
   <ion-grid>
     <ion-row class="top-classer">
-      <ion-col text-center class="folder-shower">
+      <ion-col text-center class="folder-shower" (click)="navigateToDislikePage('liked')">
         <img src="../../assets/imgs/myTastes_img/folder.svg" alt="">
         <span>like it</span>
       </ion-col>
-      <ion-col text-center class="folder-shower">
+      <ion-col text-center class="folder-shower" (click)="navigateToDislikePage('disliked')">
         <img src="../../assets/imgs/myTastes_img/folder.svg" alt="">
         <span>dislike</span>
       </ion-col>
     </ion-row>
     <ion-row justify-content-center>
       <div class="fit-box">
-        <ng-container *ngFor="let item of collection;let i=index">
-          <div swipeAll (swipeleft)="likeItem(i)" (swiperight)="dislikeItem(i)" (swipedown)="ignore(i)" class="taste-item" [class.active]="i == active"
+        <ng-container *ngFor="let item of collection ;let i=index">
+          <div swipeAll (swipeleft)="traitItem(i,1)" (swiperight)="traitItem(i,-1)" (swipedown)="traitItem(i,2)" class="taste-item" [class.active]="i == active"
             [class.slide-tl]="item.stat && item.stat === 1" [class.slide-tr]="item.stat && item.stat == -1" [class.slide-bck-bottom]="item.stat && item.stat ==2"
-            *ngIf="collection.length != traitedCollection.length">
-            <img src="{{item.pic}}" alt="">
+            *ngIf="collection.length != active">
+            <img [src]="item.pic" alt="">
             <div class="ask-box">
               <h2>
+
                 <ion-icon name="timer"></ion-icon> {{item.name}}</h2>
               <div class="btn-holder">
-                <button ion-button clear color="secondary" small (click)="likeItem(i)">like
+                <button ion-button clear color="secondary" small (click)="traitItem(i,1)">like
                   <ion-icon name="checkmark"></ion-icon>
                 </button>
                 <div class="sip"></div>
-                <button ion-button clear color="danger" small (click)="dislikeItem(i)">dislike
+                <button ion-button clear color="danger" small (click)="traitItem(i,-1)">dislike
                   <ion-icon name="close"></ion-icon>
                 </button>
               </div>

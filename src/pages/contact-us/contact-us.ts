@@ -20,10 +20,12 @@ export class ContactUsPage {
   listContact : AngularFireList<any>
   idEspace ;
   nom;
+  photo;
   constructor(public navCtrl: NavController, public navParams: NavParams,private db:AngularFireDatabase) {
-    
+    this.photo = this.navParams.get('photo')
     this.idEspace=this.navParams.get('cle')
     this.nom=this.navParams.get('nom')
+
     this.listContact=this.db.list(`espace/${this.idEspace}/contact`)
     }
 
@@ -49,7 +51,7 @@ export class ContactUsPage {
     }
     )
     console.log(Date.now())
-    this.navCtrl.push(ContactUsConversatoinPage,{ nom: this.nom, cle: this.idEspace })
+    this.navCtrl.push(ContactUsConversatoinPage,{ nom: this.nom, cle: this.idEspace , photo:this.photo })
   }
 
 }

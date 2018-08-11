@@ -15,10 +15,14 @@ export class UserProvider {
   user = {} as User;
   userObserverClbk : any;
   userSubscription : any;
+  token 
   constructor(
     public auth: AngularFireAuth,
     public db: AngularFireDatabase
   ) {
+  }
+  get idToken() {
+    return this.token || 0;
   }
   isConnect(clbk) {
     const sub = this.auth.authState.subscribe(state=>{
@@ -29,6 +33,9 @@ export class UserProvider {
             if (user) {
               this.user = user;
               this.user.uid = this.auth.auth.currentUser.uid;
+              this.auth.auth.currentUser.getIdToken().then(t=>{
+                this.token = t;
+              })
               clbk(true);
             } else {
               clbk(false);

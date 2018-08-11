@@ -316,7 +316,7 @@ export class SpaceDetailPage {
     window.location.href = 'https://www.instagram.com';
   }
   navigateToContact(){
-    this.navCtrl.push(ContactUsPage,{ nom: this.espaceName, cle: this.idEspace });
+    this.navCtrl.push(ContactUsPage,{ nom: this.espaceName, cle: this.idEspace,photo : this.espaceImage });
    }
 
 }

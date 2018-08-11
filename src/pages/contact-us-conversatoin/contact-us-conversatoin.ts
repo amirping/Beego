@@ -26,7 +26,9 @@ export class ContactUsConversatoinPage {
   conversation_espace : Observable<any>
   idEspace
   nom
-  constructor(public navCtrl: NavController, public navParams: NavParams, private db :AngularFireDatabase) {
+  photo;
+  constructor(public navCtrl: NavController, public navParams: NavParams,private db:AngularFireDatabase) {
+    this.photo = this.navParams.get('photo')
     this.idEspace = this.navParams.get('cle')
     this.nom = this.navParams.get('nom')
     this.conversation_user = this.db.list(`espace/${this.idEspace}/contact`,

@@ -87,5 +87,16 @@ export class SpacesProvider {
       }); 
       return this.pagesData;
   }
+  moyenneRating(cat:string,idEspace){
+    let moyenne = 0;
+
+    this.pagesData = this.database
+    .list('reviews',item => item.orderByChild('idEspace').equalTo(idEspace))
+    .valueChanges().subscribe((data: any) => {
+
+    })
+  return moyenne;
+  }
+  
 
 }

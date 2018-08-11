@@ -12,11 +12,11 @@
           <ion-col >
             <img  class="img-dislike" src="../../assets/imgs/dislike_list/dislike_list_cover.png" alt="">
             <div class="disliketitle">
-              <button class="buttn">
+              <button class="buttn" (click)="back()">
                 <img src="../../assets/imgs/arrow-back.png" alt="" class="back-img">
               </button>
               <div class="title">
-                  Dislike liste
+                 {{type}} liste
               </div>
               <button class="buttn">
                 <img src="../../assets/imgs/event/search.png" alt="" class="searchevent">
@@ -35,15 +35,15 @@
                   employé dans la composition .
               </div>
               <div class="envelope">
-                <button class="btn-envelope"> 
+                <button class="btn-envelope" (click)="navigateToDislikePage(btn1)"> 
                   <img class="folder"
                    src="../../assets/imgs/dislike_list/folder-like.svg" alt=""> 
-                   <span class="actionbtn">Like it</span>
+                   <span class="actionbtn">{{btn1}}</span>
                 </button>
-                <button class="btn-envelope">
+                <button class="btn-envelope" (click)="navigateToDislikePage(btn2)">
                     <img class="folder"
                     src="../../assets/imgs/dislike_list/folder-like.svg" alt="">
-                    <span class="actionbtn">Ignorer</span>
+                    <span class="actionbtn">{{btn2}}</span>
                   </button>
               </div>
               <div class="masonry">
@@ -55,16 +55,16 @@
                         src="../../assets/imgs/dislike_list/clock.svg" alt="">
                       
                       <span class="hp">
-                          Happy hour
+                          {{item.name}}
                       </span>
                       <div class="line"></div>
                       <div class="btndata">
-                        <button class="btnhp btnlike">Like
+                        <button class="btnhp btnlike" (click)="traiter(btn1,item.id)">{{btn1}}
                           <img class="imglike"
                            src="../../assets/imgs/dislike_list/like.svg" alt="">
                         </button>
                         <div class="separation"></div>
-                        <button class="btnhp btnignore">Ignorer
+                        <button class="btnhp btnignore"  (click)="traiter(btn2,item.id)">{{btn2}}
                           <img class="imgignore"
                           src="../../assets/imgs/dislike_list/ignore.svg" alt="">
                         </button>

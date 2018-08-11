@@ -22,6 +22,7 @@ import { SpacesProvider } from "../../providers/spaces/spaces";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { FriendProfilPage } from "../friend-profil/friend-profil";
 import { SpaceDetailPage } from "../space-detail/space-detail";
+import { MyTastesPage } from "../my-tastes/my-tastes";
 
 
 /**
@@ -407,5 +408,8 @@ export class HomePage {
     });
     console.log("ok")
     
+  }
+  navigateToMyTastes(){
+    this.navCtrl.push(MyTastesPage)
   }
 }

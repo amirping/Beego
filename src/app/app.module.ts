@@ -65,6 +65,8 @@ import { SpacesProvider } from '../providers/spaces/spaces';
 import { EvenementPage } from "../pages/evenement/evenement";
 import { HttpClientModule } from "../../node_modules/@angular/common/http";
 
+import { TasteProvider } from '../providers/taste/taste';
+
 
 
 
@@ -182,7 +184,9 @@ import { HttpClientModule } from "../../node_modules/@angular/common/http";
     UserProvider,
     SearchRadioPipe,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
-    SpacesProvider
+    SpacesProvider,
+    
+    TasteProvider
   ],
   
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
