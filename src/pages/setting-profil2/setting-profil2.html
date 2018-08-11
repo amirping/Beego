@@ -7,25 +7,19 @@
 <ion-header>
 
  
-  <ion-navbar hideBackButton="true" color="bar-color">
-    <div class="back">
-        
-        
-      <button class="back-button-param" (click)="back()">
-        <img src="../../assets/imgs/arrow-back.png" alt="" 
-        class="back-img">
-      </button>
-
-</div>
-<div class="beego-title-param">
-Parametre du compte</div>
-  </ion-navbar>
+  <span>
+    Parametre du compte
+  </span>
+  <ion-icon class="back" (click)="back()"
+   ios="ios-arrow-round-back" md="ios-arrow-round-back"></ion-icon>
 
 </ion-header>
 
 
 <ion-content padding>
-    <div class="paramGenerale"><h3>Parametre du profil</h3></div>
+  <div class="paramGenerale">
+    Parametre du profil
+  </div>
     <form (submit)="updateProfile()" [formGroup]="updateForm">
       <ion-grid>
         <ion-row class="row-param">
@@ -84,14 +78,7 @@ Parametre du compte</div>
                     [class.invalid]="!updateForm.controls.email.valid && updateForm.controls.email.touched"
                     class="text-search icon-email">
               </ion-col>
-            </ion-row>
-            <!-- <ion-row class="row-param ">
-                <ion-col>
-                    <input type="text" name="email2" value="" placeholder="Email" 
-                    class="text-search icon-email"   >
-                </ion-col>
-              </ion-row > -->
-              
+            </ion-row>                          
               <ion-row class="row-param" >
                         <ion-col class="bee-input-container" col-4>
                           <div  class="beego-input-transparent color-row select" (click)="setDate(picker)"> {{day}} </div>

@@ -6,25 +6,19 @@
 -->
 <ion-header>
 
-  <ion-navbar hideBackButton="true" color="bar-color">
-    <div class="back">
-        
-        
-      <button class="back-button-param" (click)="back()">
-        <img src="../../assets/imgs/arrow-back.png" alt="" 
-        class="back-img">
-      </button>
-
-</div>
-<div class="beego-title-param">
-Securite</div>
-  </ion-navbar>
+  <span>
+    Sécurite
+  </span>
+  <ion-icon class="back" (click)="back()"
+   ios="ios-arrow-round-back" md="ios-arrow-round-back"></ion-icon>
 
 </ion-header>
 
 
 <ion-content padding>
-    <div class="paramGenerale"><h3>Changer votre mot de passe </h3></div>
+  <div class="paramGenerale">
+    Changer votre mot de passe 
+  </div>
     <div class="para-security">le lorem lpsum est simplement de faux texte employer dans la composition </div>
     <form (submit)="updatePassword()" [formGroup]="updateForm">
       <ion-grid class="gird-security">

@@ -16,12 +16,16 @@ import { Dialogs } from '@ionic-native/dialogs';
   templateUrl: 'block.html',
 })
 export class BlockPage {
-  index;
-
+  index = "1";
+  // list="friends";
+  // console.log();
+  
+  
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               private dialogs: Dialogs) {
-      this.index=1;
+      // this.index=1; 
+      console.log(this.index);
   }
   back(){
     this.navCtrl.pop();

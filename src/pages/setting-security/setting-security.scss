@@ -1,33 +1,48 @@
 page-setting-security {
-  .beego-title-param {
-    position: relative;
-    font-size: 14PX;
-    text-align: center;
-    color: white;
-  }
-  .back {
-    position: absolute;
-    top: 40%;
-    z-index: 99;
-  }
-  .back-button-param {
-    background-color: transparent;
-    width: 65px;
-  }
-  .back-img {
-    width: 64%;
+  ion-header {
+    width: 100%;
+    height: 70px;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.16);
+    border: 1px solid rgba(0, 0, 0, 0);
+    background-image: linear-gradient(98deg, #fb4b7d 0%, #fe757b 100%);
+    justify-content: center;
+    display: flex;
+    span {
+      color: #ffffff;
+      font-family: Raleway;
+      font-size: 16px;
+      font-weight: 500;
+      letter-spacing: 0.19px;
+      margin-top: 33px;
+    }
+    .back {
+      position: absolute;
+      left: 20px;
+      top: 22px;
+      color: white;
+      font-size: 41px;
+    }
   }
   .paramGenerale {
     position: relative;
     margin-top: 3%;
-    margin-bottom: 6%;
-    color: rgb(105, 103, 103);
+    margin-bottom: 22px;
+    color: #535353;
+    font-family: Raleway;
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 0.24px;
+    margin-left: 4px;
   }
   .para-security {
     position: relative;
     margin-top: -1%;
     margin-bottom: 6%;
-    color: rgb(105, 103, 103);
+    color: #9eaacc;
+    font-family: Raleway;
+    font-size: 12px;
+    font-weight: 500;
+    margin-left: 4px;
   }
   .gird-security {
     padding-top: 2%;
@@ -35,15 +50,15 @@ page-setting-security {
     padding-right: 10%;
   }
   .text-search {
-    background-color: rgba(196, 191, 191, 0.39);
-    border-radius: 20px;
     height: 30px;
     width: 100%;
     border: none;
     padding-left: 5%;
-    color: black !important;
+    border-radius: 15px;
+    background-color: #ececec;
+    color: #535353;
     &.invalid {
-        border: solid 1px #a22d2d;
+      border: solid 1px #a22d2d;
     }
   }
   .text-search::placeholder {
@@ -52,7 +67,11 @@ page-setting-security {
   }
   .para-row {
     padding-bottom: 2%;
-    font-size: 13px;
+    margin-left: 5px;
+    color: #535353;
+    font-family: Raleway;
+    font-size: 12px;
+    font-weight: 400;
   }
   .input-row {
     padding-bottom: 7%;
@@ -60,8 +79,15 @@ page-setting-security {
   .valider {
     width: 126px;
     height: 41px;
-    border-radius: 30px;
-    background-color: rgb(31, 158, 213);
+    box-shadow: 0 0 10px rgba(31, 158, 213, 0.31);
+    border-radius: 17px;
+    border: 1px solid #1f9ed5;
+    border-radius: 17px;
+    background-color: #1f9ed5;
+    color: #ffffff;
+    font-family: Raleway;
+    font-size: 14px;
+    font-weight: 500;
   }
   .annuler {
     width: 126px;
@@ -69,6 +95,10 @@ page-setting-security {
     border-radius: 30px;
     background-color: transparent;
     color: black;
+    color: #7a82a5;
+    font-family: Raleway;
+    font-size: 14px;
+    font-weight: 500;
   }
   .space-cols {
     justify-content: space-around;

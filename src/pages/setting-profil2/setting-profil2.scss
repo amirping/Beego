@@ -1,37 +1,52 @@
 page-setting-profil2 {
-    .beego-title-param{
-        position: relative;
-        font-size: 14PX;
-        text-align: center;
-        color: white;
+    ion-header{
+        width: 100%;
+        height: 70px;
+        box-shadow: 0 0 6px rgba(0, 0, 0, 0.16);
+        border: 1px solid rgba(0, 0, 0, 0);
+        background-image: linear-gradient(98deg, #fb4b7d 0%, #fe757b 100%);
+        justify-content: center;
+        display: flex;
+        span{
+            color: #ffffff;
+            font-family: Raleway;
+            font-size: 16px;
+            font-weight: 500;
+            letter-spacing: 0.19px;
+            margin-top: 33px;
+        }
+        .back{
+            position: absolute;
+            left:20px;
+            top: 22px;
+            color: white;
+            font-size: 41px;
+        }
+    
     }
+
+
+   
     .invalid {
         border: solid 1px red;
     }
-    .back{
-        position: absolute;
-        top: 40%;
-        z-index: 99;
-    }
-    .back-button-param{
-        background-color: transparent;
-        width: 65px;
-        
-        
-     } 
-      .back-img{
-        width: 64%;
-          
-      }
+   
       .paramGenerale{
         position: relative;
         margin-top: 3%;
-        margin-bottom: 6%;
-        color: rgb(105, 103, 103);
-    }
+        margin-bottom: 22px;
+        color: #535353;
+        font-family: Raleway;
+        font-size: 20px;
+        font-weight: 500;
+        letter-spacing: 0.24px;
+        margin-left: 4px;    }
     .genrepara{
         margin-left:15%;
-        font-size: 13px;
+        font-size: 14px;
+        font-weight: 400;
+        color: #535353;
+        font-family: Raleway;
     }
     .bee-label{
         position: relative;
@@ -39,7 +54,9 @@ page-setting-profil2 {
         width: 60%;
         font-size: 12px;
         left: -19px;
-        font-weight: 100;
+        font-weight: 400;
+        color: #535353;
+        font-family: Raleway;
     }
 
     .bee-radio {
@@ -73,14 +90,16 @@ page-setting-profil2 {
         background-repeat: no-repeat;
     }
     .text-search{
-        background-color: rgba(196, 191, 191, 0.39);
-        border-radius: 20px;
-       
-       height: 35px;
-       width: 100%;
+        border-radius: 20px;       
+        height: 35px;
+        width: 100%;
         border:none;
         padding-left: 15%;
-        color:black !important;
+        background-color: rgba(236, 236, 236, 0.68);
+        color: #535353;
+        font-family: Raleway;
+        font-size: 12px;
+        font-weight: 400;    
     }
     .icon-name{
         background-image: url(../../assets/imgs/param/param2/Icon.svg) ;
@@ -92,7 +111,7 @@ page-setting-profil2 {
         background-image: url(../../assets/imgs/param/param2/email-icon.svg) ;
         background-repeat: no-repeat;  
         background-position: 6% center;
-        background-size: 16px 10px;
+        background-size: 16px 12px;
     }
     .text-search::placeholder {
         color: rgb(59, 52, 52);
@@ -123,7 +142,7 @@ page-setting-profil2 {
         }
         select.beego-input-transparent, .select.beego-input-transparent{
             -webkit-appearance: none;
-            background-color: rgba(196, 191, 191, 0.39);
+            background-color: rgba(236, 236, 236, 0.68);
             background-image: url(../../assets/imgs/param/param2/arrow-donw.svg);
             background-repeat: no-repeat;
             background-position: right 15px top 16px;
@@ -132,7 +151,7 @@ page-setting-profil2 {
             background-size: 6px 6px;
          }
          .select.beego-input-transparent{
-             padding: 8px;
+             padding: 10px;
              
     
          }
@@ -161,7 +180,7 @@ page-setting-profil2 {
         .tel-decoration{
             width: 135px;
             padding-left: 37px !important;
-            background-color:  rgba(196, 191, 191, 0.39);
+            background-color: rgba(236, 236, 236, 0.68);
             &::placeholder {
                
                 font-size: 14px  !important;
@@ -173,7 +192,10 @@ page-setting-profil2 {
 
         }
         .color-row{
-            color: black !important;
+            color: #535353;
+            font-family: Raleway;
+            font-size: 12px;
+            font-weight: 400;
             &::placeholder {
                 color: black !important;
               }
@@ -182,25 +204,35 @@ page-setting-profil2 {
             width: 100%;
             padding-left: 4% !important;
             padding-top: 3%;
-            background-color:  rgba(196, 191, 191, 0.39);
+            background-color: rgba(236, 236, 236, 0.68);
             height: 70px;
-            color: black !important;
+            color: #535353;
+            font-family: Raleway;
+            font-size: 12px;
+            font-weight: 400;
             &::placeholder {
-                color: black !important;
+                color: #535353;
               }
         }
         .valider{
             width: 126px;
-            height: 41px;
+            height: 38px;
             border-radius: 30px;
             background-color: rgb(31,158,213);
+            color: #ffffff;
+            font-family: Raleway;
+            font-size: 14px;
+            font-weight: 500;
         }
         .annuler{
             width: 126px;
-            height: 41px;
+            height: 36px;
             border-radius: 30px;
             background-color: transparent;
-            color: black;
+            color: #7a82a5;
+            font-family: Raleway;
+            font-size: 14px;
+            font-weight: 500;
         }
         .row-param2{
             padding-bottom: 3%;
