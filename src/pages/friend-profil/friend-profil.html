@@ -1,101 +1,97 @@
-<!--
-  Generated template for the FriendProfilPage page.
+<ion-content class="back-color" [class.blur]="disabled">
+  <ion-grid no-padding class="grid-size">
+    <ion-row class="photo-row">
+      <ion-col>
+        <img class="img-friend" [src]="friend?.coverURL" alt="">
+        <div class="x-friend-profil">
+          <button class="x-friend-button" (click)="back()">
+            <img src="../../assets/imgs/friend-profil/xmlid.svg" alt="" class="x-friend-img">
+          </button>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row class="position-info">
+      <ion-col>
+        <div class="abonnes">
+          <span class="abonnes-number" for="">{{formatFollows(friend?.follower)}} abonnés </span>
+        </div>
+        <div class="suivis">
+          <span class="suivis-number" for="">{{formatFollows(friend?.following)}} suivis </span>
+        </div>
+        <div class="info-friend">
+          <ion-row class="first-row ">
+            <ion-col col-8>
 
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
-
-
-
-<ion-content class="back-color">
-    <ion-grid  no-padding class="grid-size" >
-        <ion-row class="photo-row">
-          <ion-col>
-           
-              <img class="img-friend" 
-              src="../../assets/imgs/friend-profil/friendPhoto.png" alt="">
-                <div class="x-friend-profil">
-                    <button class="x-friend-button"
-                    (click)="paramPage()" >
-                      <img src="../../assets/imgs/friend-profil/xmlid.svg"
-                       alt="" class="x-friend-img">
-                    </button>
-                 
-            </div>
-          </ion-col>
-        </ion-row>
-        <ion-row class="position-info" >
-          <ion-col >
-              <div class="abonnes">
-                  <label class="abonnes-number" for="">16K abonnés </label>
+              <div class="bee-profile-image">
+                <div class="bee-hexagon">
+                  <img [src]="friend.photoURL" alt="">
                 </div>
-                <div class="suivis">
-                <label class="suivis-number" for="">1,2K suivis </label>
               </div>
-            <div class="info-friend">
-                <ion-row  >
-                    <div class="flex-row">
-                    <div class="photo-col">
-                         <div class="bee-profile-image">
-                           <div class="bee-hexagon">
-                             <img src="../../assets/imgs/photoDeProfil.png" alt="">
-                           </div>
-                           
-                             <div class="bee-edit-icon bee-edit-photo"></div>
-                           </div>
-                           
-                    </div>
-                           <div class="name-lname">
-                            <div >
-                                <label class="nom" for="">Nom prenom </label> 
-                               </div>
-                               <div class="lieuclass">
-                                 <img class="lieu-img" src="../../assets/imgs/profil/Tracé.svg" alt="">
-                                 <label class="lieu" for="">
-                                   le bardo , 24 ans</label> 
-                               </div>
-                              </div>
-                                  <!-- <div class="abonne"> -->
-                                     <button ion-button round class="abonne-button">
-                                       S'abonner
-                                     </button>
-                                   <!-- </div> -->
-                                  <!-- </ion-col> -->
-                                  </div>
-                    </ion-row>
-                    <ion-row>
-                      <ion-col>
-                    <div class="para">
-                        <p class="para-style">Welcom to my world .. Tunisian Girl .. mom of  baby baya </p>
-                      </div></ion-col></ion-row>
-                      <ion-row>
-                        <!-- <ion-col> -->
-                          <div class="class-icons">
-                          <div class="fb-icon">
-                              <img class="img-fb"
-                               src="../../assets/imgs/profil/fb-icon.svg" alt="">
-                              <span class="nomprenom" for="">NomPrenom</span>
-                            </div>
-                          <!-- </ion-col> -->
-                          <!-- <ion-col> -->
-                            <div class="insta-icon">
-                                <img class="img-insta"
-                                 src="../../assets/imgs/profil/insta.svg" alt="">
-                                <span class="nomprenom" for="">NomPrenom</span>
-                              </div>
-                            <!-- </ion-col><ion-col> -->
-                              <div class="snap-icon">
-                                  <img class="img-snap"
-                                   src="../../assets/imgs/profil/snap-icon.svg" alt="">
-                                  <span class="nomprenom" for="">NomPrenom</span>
-                                </div>
-                              </div>
-                              <!-- </ion-col> -->
-                            </ion-row>
-                               
-            </div>
-          </ion-col>
-        </ion-row>      
-    </ion-grid>
 
+              <div class="name_place">
+                <div class="name-lname">
+                  <span>{{friend?.firstName}} {{friend?.lastName}}</span>
+                </div>
+                <div class="lieu-class">
+                  <img class="lieu-img" src="../../assets/imgs/profil/Tracé.svg" alt="">
+                  <span class="lieu">
+                    {{friend?.gov}} , </span>
+                  <span class="age">{{friend?.age}} ans</span>
+
+                </div>
+              </div>
+            </ion-col>
+            <ion-col col-4>
+
+              <button class="abonne-button" (click)="requestFriend(friend)" [disabled]="friend?.state=='waiting' || friend?.waiting" *ngIf="friend?.state=='unknown'||friend?.state=='waiting'; else afriend">
+                S'abonner
+              </button>
+              <ng-template #afriend>
+                <button class="abonne-button followed" (click)="show()">
+                  Abonné(e)
+                </button>
+              </ng-template>
+
+            </ion-col>
+          </ion-row>
+          <ion-row class="para_row">
+            <ion-col>
+              <div class="para">
+                <p class="para-style">{{friend?.bio?friend.bio:'Welcom to my world...'}} </p>
+              </div>
+            </ion-col>
+          </ion-row>
+          <ion-row class="icons_row">
+
+            <ion-col col-4 class="icons_col" *ngIf="friend?.fbLink">
+              <div class="fb-icon">
+                <img class="img-fb" src="../../assets/imgs/profil/fb-icon.svg" alt="">
+                <a [href]="'https://'+friend.fbLink" class="icons_name" target="_blank"> Facebook</a>
+              </div>
+            </ion-col>
+            <ion-col col-4 class="icons_col" *ngIf="friend?.instaLink">
+              <div class="insta-icon">
+                <img class="img-insta" src="../../assets/imgs/profil/insta.svg" alt="">
+                <a [href]="'https://'+friend.instaLink" target="_new" class="icons_name" for=""> Instagram</a>
+              </div>
+            </ion-col>
+            <ion-col col-4 class="icons_col" *ngIf="friend?.snapLink">
+              <div class="snap-icon">
+                <img class="img-snap" src="../../assets/imgs/profil/snap-icon.svg" alt="">
+                <a [href]="'https://'+friend.snapLink" class="icons_name" target="_new" for=""> Snapchat</a>
+              </div>
+            </ion-col>
+          </ion-row>
+          <ion-row class=" space-cols" *ngIf="friend?.state=='friend'">
+            <ion-col class="button_col">
+              <button class="demander loacalisation"> Demander son localisation</button>
+            </ion-col>
+            <ion-col class="button_col">
+              <button  class="partager loacalisation"> Partager mon localisation</button>
+            </ion-col>
+          </ion-row>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

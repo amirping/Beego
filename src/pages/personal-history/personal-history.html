@@ -6,7 +6,7 @@
 -->
 <ion-header>
 
-  <ion-navbar hideBackButton="true" color="bar-color">
+  <!-- <ion-navbar hideBackButton="true" color="bar-color">
    
     <div class="back">
         
@@ -19,7 +19,12 @@
     </div>
     <div class="beego-title-historic">
       Historique personnel</div>
-  </ion-navbar>
+  </ion-navbar> -->
+  <span>
+    Historique personnel
+  </span>
+  <ion-icon class="back" (click)="back()"
+   ios="ios-arrow-round-back" md="ios-arrow-round-back"></ion-icon>
 
 </ion-header>
 
@@ -27,18 +32,14 @@
 <ion-content >
   <ion-grid>
     <ion-row>
-     <ion-col class="motd">
-       <div>
-         
+     <ion-col class="motd">               
          <p>L'historique personnel n'est visible 
-            que par <span>vous</span>  </p> 
-         
-       </div>
+            que par <span>vous</span>  </p>     
      </ion-col>
    </ion-row>
-   <ion-row >
+   <ion-row class="list_row" >
      <ion-col>
-        <ion-list>
+        <ion-list no-lines>
             <ion-item text-wrap >
               <ion-avatar item-start class="avatar-height">
                 <img src="../../assets/imgs/photoDeProfil.png">
@@ -55,7 +56,7 @@
                  alt="">
               </button>
               <p class="timing-historic"  > il ya 65 min</p>
-             
+             <div class="line"></div>
               
             </ion-item>
           

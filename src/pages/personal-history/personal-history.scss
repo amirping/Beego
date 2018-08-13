@@ -1,59 +1,50 @@
 page-personal-history {
-    .beego-title-historic{
-        position: relative;
-        font-size: 14PX;
-        text-align: center;
-        color: white;
+  ion-header{
+    width: 100%;
+    height: 70px;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.16);
+    border: 1px solid rgba(0, 0, 0, 0);
+    background-image: linear-gradient(98deg, #fb4b7d 0%, #fe757b 100%);
+    justify-content: center;
+    display: flex;
+    span{
+        color: #ffffff;
+        font-family: Raleway;
+        font-size: 16px;
+        font-weight: 500;
+        letter-spacing: 0.19px;
+        margin-top: 33px;
     }
     .back{
         position: absolute;
-        top: 37%;
-        z-index: 99;
+        left:20px;
+        top: 22px;
+        color: white;
+        font-size: 41px;
     }
-    .back-button-historic{
-        background-color: transparent;
-        width: 65px;
-        
-        
-     } 
-      .back-img{
-        width: 64%;
-          
-      }
-      .grid{
-          padding-top: 0 ;
 
+}
+      .grid{
+          padding-top: 0 ;        
       }
       .motd {
         margin-left: 20px;
-        margin-right: 20px;
-        background: url("../../assets/imgs/homePage_img/2-layers.svg") right top
-          no-repeat; // not sure about it let's try it later
-        background-size: contain;
-        box-shadow: 0 0 20px rgba(0, 0, 0, 0.13);
-        border-radius: 0 0 15px 15px;
-        h2 {
-          color: #333333;
-          font-family: "Raleway";
-          font-size: 21px;
-          font-weight: 400;
-          letter-spacing: 1.25px;
-        }
+        margin-right: 20px;                      
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+        border-radius: 0 0 10px 10px;
+        background-color: #ffffff;         
+        padding-left: 11px;
+        padding-right: 22px;
         p {
-          color: black;
-          font-family: "Raleway";
+          color: #535353;
+          font-family:  "Raleway - Medium";
           font-size: 14px;
-          font-weight: 400;
-          letter-spacing: 0.12px;
-        }
-        span {
-          color: #333333;
-          font-family: "Raleway";
-          font-size: 14px;
-          font-weight: 600;
-          letter-spacing: 0.17px;
-          
-        }
+          font-weight: 500; 
+          span{
+            font-family: Raleway !important;
+            font-weight: 700 !important;
+          }
+        }     
       }
     .delete-historic-button{
         position: absolute;
@@ -64,15 +55,17 @@ page-personal-history {
     .historic{
       width: 75%;
       .gray-text{
-      
-        font-size: 11px;
-        color: rgb(142,142, 147);
-        
+        color: #95989a;
+        font-family: "Lato - Regular";
+        font-weight: 400;      
+        font-size: 12px;
       }
       .dark-text{
-        font-size: 13px;
-        font-weight: 600;
-        color: black;
+        font-size: 12px;
+        font-weight: 700;
+        color: #606263;
+        font-family: Lato;
+        text-transform: capitalize; 
       }
 
     }
@@ -80,11 +73,24 @@ page-personal-history {
       margin-top: 3%;
       float: right;
       margin-right: 7%;
-      font-size: 9px;
+      color: #a8a9aa;
+      font-family: Lato;
+      font-size: 10px;
+      font-weight: 400;
     }
     .avatar-height{
       margin-top: -3% !important;
     }
-   
+   .list_row{
+     margin-top: 12px;
+   }
+   .line{
+     position: absolute;
+     width: 88%;
+     left: 6%;
+     border: 0.5px solid #ccccd0;
+     height: 0;
+     bottom: 0;
+   }
 
 }
