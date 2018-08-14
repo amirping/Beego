@@ -271,7 +271,7 @@ ion-range.range-md, ion-range.range-wp,ion-range.range-ios{
   font-size: 26px;
   font-weight: 600;
   letter-spacing: 0.31px;
-  /* Text style for "18�" */
+  /* Text style for "18°" */
   
   margin-left: 13px;
   top: -8px;
@@ -296,15 +296,33 @@ ion-range.range-md, ion-range.range-wp,ion-range.range-ios{
     font-size: 14px;
     font-weight: 500;
   }
+  .opened-col{
+    display: none;
+  }
   .opened{
     color: #60d460;
     font-family: "SFNS Display";
     font-size: 12px;
     font-weight: 400;
-    /* Text style for "Ouverte" */
-    // font-family: "Segoe UI";
-    // font-weight: 400;
-  }
+    }
+    .closed-col{
+      display: none;
+      .closed{
+        color: red;
+        font-family: "SFNS Display";
+        font-size: 12px;
+        font-weight: 400; 
+      }
+    }
+    .show-closed-col{
+      display: flex;
+      ion-icon{
+        color: red;
+        margin-top: -3px;
+        font-size: 21px;
+        padding-right: 5px;
+      }
+    }
 }
 .service_detail{
   margin-top: 22px;
