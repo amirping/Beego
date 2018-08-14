@@ -172,6 +172,8 @@ export class SpaceDetailPage {
       this.espaceTelephone = data.espaceTelephone
       this.espaceDescription = data.espaceDescription
       this.espaceMeilleureSpecialite = data.espaceMeilleureSpecialite
+      this.varOpCol = true;
+        this.varClCol = true;
       if(data.jourDeTravail)
       this.horaire= data.jourDeTravail
       if(data.horaireOuverture)
@@ -180,11 +182,14 @@ export class SpaceDetailPage {
       this.horaireFermeture=data.horaireFermeture
       if(data.jourDeTravail){
       this.horaire.forEach(element => {
+        
         console.log(element)
         if(this.dateDuJour==element)
          {
            if (this.horaireDuJour>this.horaireOuverture && this.horaireDuJour<this.horaireFermeture)
-           this.ouverte="Ouverte"
+           console.log("saut")
+           this.varOpCol = false;
+           this.varClCol = false; 
          }
         
       });}
