@@ -51,15 +51,18 @@
             <ion-col col-4>
                 <!-- [disabled]="friend?.state=='waiting' || friend?.waiting" -->
                 <!-- ||friend?.state=='waiting' -->
-                <button class="abonne-button"   *ngIf="friend?.state=='waiting'">
-                    Annuler
+                <button class="abonne-button arrowBtn"   (click)="WaitingOption()" *ngIf="friend?.state=='waiting'">
+                   <span> En attente</span> 
+                   <ion-icon ios="ios-arrow-down" md="ios-arrow-down"></ion-icon>
                   </button>
-              <button class="abonne-button" (click)="requestFriend(friend)"  *ngIf="friend?.state=='unknown'">
+              <button class="abonne-button" (click)="requestFriend(friend)"
+                *ngIf="friend?.state=='unknown'">
                 S'abonner
               </button>
               <!-- <ng-template #afriend> -->
                 <button class="abonne-button followed" *ngIf="friend?.state=='friend'" (click)="show()">
-                  Abonné(e)
+                <span> Abonné(e)</span>   
+                <ion-icon ios="ios-arrow-down" md="ios-arrow-down"></ion-icon>
                 </button>
               <!-- </ng-template> -->
 

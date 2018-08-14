@@ -21,27 +21,28 @@ import { PopupPage } from '../popup/popup';
   templateUrl: 'friend-profil.html',
 })
 export class FriendProfilPage {
-  friend:any;
+  friend: any;
   disabled: boolean = false;
   constructor(public navCtrl: NavController,
     // public friendsProvider: FriendsProvider,
     public actionSheetCtrl: ActionSheetController,
+    public actionSheetCtrl2: ActionSheetController,
     private dialogs: Dialogs,
-    private modalCtrl : ModalController,
+    private modalCtrl: ModalController,
     public navParams: NavParams) {
-      const uid = this.navParams.get("uid");
-    this.friend={
+    const uid = this.navParams.get("uid");
+    this.friend = {
       uid,
-      photoURL:"../../assets/imgs/friend-profil/friendPhoto.png",
-      email:"",
-      firstName:"lamya",
-      lastName:"ben zekri",
-      coverURL:"../../assets/imgs/friend-profil/friendPhoto.png",
-      follower:34,
-      following:12,
-      state:"unknown",      
-      gov : "le bardo",
-      age:23
+      photoURL: "../../assets/imgs/friend-profil/friendPhoto.png",
+      email: "",
+      firstName: "lamya",
+      lastName: "ben zekri",
+      coverURL: "../../assets/imgs/friend-profil/friendPhoto.png",
+      follower: 34,
+      following: 12,
+      state: "waiting",
+      gov: "le bardo",
+      age: 23
     }
     // this.friendsProvider.getFriend(this.navParams.get('uid')).then((friend: User)=>{
     //   this.friend = friend;
@@ -50,93 +51,118 @@ export class FriendProfilPage {
     // }).catch(e=>{
     //   console.log(e);
     // });
-    
+
   }
   ionViewDidLoad() {
-    
+
   }
-  formatFollows(nbr:number):string{
-    return nbr+"";
+  formatFollows(nbr: number): string {
+    return nbr + "";
   }
-  folowsPage(){
+  folowsPage() {
     this.navCtrl.push(ProfilPage);
   }
-  back(){
+  back() {
     this.navCtrl.pop();
   }
-  requestFriend(friend){
-      friend.waiting = true;
-      // this.friendsProvider.sendFriendRequest(friend.uid).then(t=>{
-      //   friend.state = "waiting";
-      // }).catch(e=>{
-      //   friend.waiting = false;
-      //   console.log(e);
-      // });
+  requestFriend(friend) {
+    friend.waiting = true;
+    // this.friendsProvider.sendFriendRequest(friend.uid).then(t=>{
+    //   friend.state = "waiting";
+    // }).catch(e=>{
+    //   friend.waiting = false;
+    //   console.log(e);
+    // });
   }
-  show(){
-    
+  show() {
+
     this.presentActionSheet();
-}
-presentActionSheet() {
-  let actionSheet = this.actionSheetCtrl.create({
-    // title: 'Modify your album',
-    buttons: [
-      {
-        text: 'supprimer',
-        role: 'destructive',
-        handler: () => {
-          this.dialogs.confirm("Si vous le supprimer   ... "
-          , "Voulez vous supprimer prenom ?", ['Supprimer','Annuler']);
-        }
-      },
-      {
-        text: 'signaler',
-      
-        handler: () => {
-          this.disabled=true;
-        const modal1= this.modalCtrl.create(PopupPage, {friend:this.friend}, { cssClass: 'popup-modal' });
-        modal1.present();
-        modal1.onDidDismiss(()=>{
-          this.disabled=false;
-        });
-          
-        }
-      },
-      {
-        text: 'bloquer',
-        
-        handler: () => {
-          this.dialogs.confirm("Si vous le débloquer ... "
-          , "Voulez vous bloqué prenom ?", ['Bloquer','Annuler']);
-          
-        }
-      },
-      {
-        text: 'bloquer les notifications',
-        handler: () => {
-          this.dialogs.confirm("Si vous les débloquer les notification  ... "
-          , "Voulez vous bloqué les notification du prenom ?", ['Bloquer','Annuler']);
-          
-        }
-      },
-      {
-        text: 'Cancel',
-        role: 'cancel',
-        handler: () => {
-            
-          console.log('Cancel clicked');
-        }
-      }
-    ]
-  });
+  }
+  presentActionSheet() {
+    let actionSheet = this.actionSheetCtrl.create({
+      // title: 'Modify your album',
+      buttons: [
+        {
+          text: 'supprimer',
+          role: 'destructive',
+          handler: () => {
+            this.dialogs.confirm("Si vous le supprimer   ... "
+              , "Voulez vous supprimer prenom ?", ['Supprimer', 'Annuler']);
+          }
+        },
+        {
+          text: 'signaler',
 
-  actionSheet.present();
-}
-  
-  
+          handler: () => {
+            this.disabled = true;
+            const modal1 = this.modalCtrl.create(PopupPage, { friend: this.friend }, { cssClass: 'popup-modal' });
+            modal1.present();
+            modal1.onDidDismiss(() => {
+              this.disabled = false;
+            });
+
+          }
+        },
+        {
+          text: 'bloquer',
+
+          handler: () => {
+            this.dialogs.confirm("Si vous le débloquer ... "
+              , "Voulez vous bloqué prenom ?", ['Bloquer', 'Annuler']);
+
+          }
+        },
+        {
+          text: 'bloquer les notifications',
+          handler: () => {
+            this.dialogs.confirm("Si vous les débloquer les notification  ... "
+              , "Voulez vous bloqué les notification du prenom ?", ['Bloquer', 'Annuler']);
+
+          }
+        },
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          handler: () => {
+
+            console.log('Cancel clicked');
+          }
+        }
+      ]
+    });
+
+    actionSheet.present();
+  }
+
+  WaitingOption(){
+    this.presentActionSheet2();
+  }
+  presentActionSheet2() {
+    let actionSheet = this.actionSheetCtrl2.create({
+      buttons: [
+        {
+          text: 'Annuler la demande',
+          role: 'destructive',
+          handler: () => {
+            this.dialogs.confirm("Si vous le supprimer   ... "
+              , "Voulez vous annuler la demande pour "+this.friend.firstName+" ?" , ['Supprimer', 'Annuler']);
+              console.log(this.friend.firstName);
+          }
+        },
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          handler: () => {
+
+            console.log('Cancel clicked');
+          }
+        }
+      ]
+    });
+    actionSheet.present();
+  }
 
 
-  
 
 }
 

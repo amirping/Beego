@@ -174,6 +174,24 @@ page-friend-profil {
         font-family: "SFNS Display";
         font-size: 13px;
         font-weight: 400;
+        span{
+          margin-left: -14px;
+        }
+        ion-icon{
+          position: absolute;
+          top: 12px;
+          right: 10px;
+        }
+      }
+      .arrowBtn{
+        span{
+          margin-left: -14px;
+        }
+        ion-icon{
+          position: absolute;
+          top: 12px;
+          right: 10px;
+        }
       }
       .para_row{
         margin-top: -23px;

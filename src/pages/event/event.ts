@@ -17,7 +17,7 @@ import {UpdateProgramPage} from '../update-program/update-program';
 export class EventPage {
   show=false;
   disabled=false;
-  index=1;
+  index="1";
   showInvitaion(){
     this.show = !this.show;
   }

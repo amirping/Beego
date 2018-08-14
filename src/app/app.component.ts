@@ -41,7 +41,7 @@ import { UserProvider } from '../providers/user/user';
 export class MyApp {
   // = ProfilPage
 
-  rootPage: any= FriendProfilPage;
+  rootPage: any= EventPage;
   constructor(
     platform: Platform,
     statusBar: StatusBar,

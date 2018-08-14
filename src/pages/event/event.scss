@@ -1,289 +1,344 @@
 page-event {
-  .blur{
+  .blur {
     filter: blur(4px);
   }
-  .add-btn{
+  .add-btn {
     position: fixed;
     bottom: 3%;
     right: 2%;
   }
-  .col{
+  .col {
     padding: 0;
     margin: 0;
   }
-    .photo-row{
-        height: auto;
-        flex-grow: 1;
-        position: relative;
-        overflow: hidden;
-        text-align: center;
-      }
-      .img-event{
-        background-repeat: no-repeat;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-      .eventitle{
-        display: flex;
-        justify-content: space-between;
-        width: 100%; 
-        position: absolute;
-        top :27px;
-        color: white;
-      }
-      .back{
-        color: white;
-        }
-      .buttn{
-        background-color: transparent;
-        width: 65px;
-         } 
-      .back-img{
-        width: 64%;
-         }
-      .title{
-        color: white;
-        font-size: 16px;
-      }
-      .searchevent{
-        widows: 18px;
-      }
-      .position-info{
-        margin-top: -47px;
-      }
-      .info-event{
-        width: 100%;
-        left: 0px;
-        height: auto;
-        background-color: whitesmoke;
-        border-top-right-radius: 47px;
-        border-top-left-radius: 47px;
-      }
-      .head-list-button{
-        display: flex;
-        justify-content: space-around;
-        width: 100%; 
-        .btn-behavior{
-          background-color: transparent;
-          color: black;
-          margin-top: 35px;
-          font-size: 10px;
-         
-        }
-     
-      }
-      .segment-activated{
-        font-size: 14px !important;
-        color: rgb(242,40,118)!important;
-        background-color: transparent !important;
-    }
-    .segment-ios .segment-button{
-      border: none !important;
-    }
-    .listInvitation{
-      background-color: #f5f5f5 !important;
-      border-top-right-radius: 10px;
-      border-bottom-right-radius: 10px;
-    }
-      .eventlist-part{
-        margin-top:7%;
-    }
-    ion-item-sliding.active-slide ion-item-options{
-      background-color: rgb(231,231,231) !important;
-      padding-left: 25px;
-      padding-right: 17px;
-    }
-    .lieu-event{
-      font-size: 10px;
+  .photo-row {
+    height: auto;
+    flex-grow: 1;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
   }
-  .accept-event-button{
+  .img-event {
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .eventitle {
+    height: 27px;
+    background-color: rgba(0, 0, 0, 0.26);
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
     position: absolute;
-    right:0%;
-    top:27%;
+    top: 27px;
+    color: white;
+    padding-top: 4px;
+  }
+  .back {
+    color: white;
+  }
+  .buttn {
+    background-color: transparent;
+    width: 65px;
+  }
+  .back-img {
+    width: 64%;
+  }
+  .title {
+    color: white;
+    font-family: Montserrat;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.19px;
+  }
+  .searchevent {
+    widows: 18px;
+  }
+  .position-info {
+    margin-top: -47px;
+  }
+  .info-event {
+    width: 100%;
+    left: 0px;
+    height: auto;
+    border-radius: 30px 30px 0 0;
+    background-color: #ffffff;
+  }
+  .head-list-button {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    .btn-behavior {
+      background-color: transparent;
+      margin-top: 35px;
+      font-size: 10px;
+      color: #8e8e93;
+      font-family: Raleway;
+      font-size: 11px;
+      font-weight: 500;
+    }
+  }
+  .segment-activated {
+    // font-size: 14px !important;
+    color: #f22876 !important;
+    background-color: transparent !important;
+    font-family: Raleway;
+    font-size: 19px !important;
+    font-weight: 700;
+  }
+  .segment-ios .segment-button {
+    border: none !important;
+  }
+  .listInvitation {
+    background-color: white !important;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+  .img_size {
+    img {
+      width: 40px;
+      height: 40px;
+    }
+  }
+  .eventlist-part {
+    margin-top: 7%;
+  }
+  ion-item-sliding.active-slide ion-item-options {
+    background-color: #dadada !important;
+    padding-left: 25px;
+    padding-right: 17px;
+  }
+  .name {
+    color: #535353;
+    font-family: Raleway;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: -0.2px;
+    line-height: 18px;
+    text-transform: capitalize;
+  }
+  .lieu-event {
+    color: #c9c9c9;
+    font-family: Raleway;
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: -0.14px;
+    line-height: 11px;
+  }
+  .accept-event-button {
+    position: absolute;
+    right: 0%;
+    top: 27%;
     right: 3%;
     top: 16%;
     width: 76px;
     height: 30px !important;
-    background-color: rgb(242,40,118);
-}
-.delete-invitation-button{
-  background-color: rgb(221,221,221);
-  color: black;
-  border: 1px rgb(70, 69, 69) solid;
-  width: 65px;
-  height: 28px;
-  margin-top: 14px;
-  border-radius: 18px;
-  font-size: 11px;
-
-}
-.delete-invitation-button:active{
-  background-color: rgb(242,40,118);
-}
-//suggetions
-.listsuggetion{
-  background-color: #f5f5f5 !important;
-  
-}
-.addPersonBtn{
-  background-color: transparent;
-  color: rgb(242,40,118);
-}
-.friendinvitation{
-  background-color:  #354e83;
-  border-radius: 14px;
-  color: white;
-  overflow: hidden;
-  padding: 0;
-  transition: width 0.3s;
-  font-size: 10px;
-  color: white;
-  right: 28px;
+    border-radius: 15px;
+    background-color: #f22876;
+    color: #ffffff;
+    font-family: Raleway;
+    font-size: 12px;
+    font-weight: 500;
+  }
+  .delete-invitation-button {
+    margin-top: 14px;
+    border-radius: 15px;
+    border: 1px solid #c9c9c9;
+    background-color: #dadada;
+    color: #2b2b2b;
+    font-family: Raleway;
+    font-size: 10px;
+    font-weight: 500;
+    width: 76px;
+    height: 30px;
+  }
+  .delete-invitation-button:active {
+    background-color: #dadada !important;
+  }
+  //suggetions
+  .listsuggetion {
+    background-color: white !important;
+  }
+  .addPersonBtn {
+    background-color: transparent;
+    color: rgb(242, 40, 118);
+  }
+  .friendinvitation {
+    background-color: #354e83;
+    border-radius: 14px;
+    color: white;
+    overflow: hidden;
+    padding: 0;
+    transition: width 0.3s;
+    font-size: 10px;
+    color: white;
+    right: 28px;
     position: absolute;
     top: 16px;
     width: 27px;
     height: 27px;
-}
-.friendinvitation-transition{
- width: 122px; 
-}
-.textinvitation{
-  font-size: 11px;
-}
-.fbaddPersonBtn {
-  background-color: transparent;
-  width: 27px;
-  padding: 0;
-  vertical-align: middle;
-}
-.iconfb{
-  width: 27px;
-  height: 27px;
-}
-//prorams
-.title-row{
-  font-size: 16px;
-  
-}
-.programs-and-invitaion{
-  padding-left: 20px;
-  padding-right: 20px;
-  padding-top: 0px !important;
-  
-}
-.slides-programs{
-  margin-top: 10px;
-  width: 99%;
-  height: 131px;
-}
-.swiper-slide {
-  padding-right: 2px;  
-  padding-left: 1px;
-  width: 100% !important ;
-}
-.programs{
-  -webkit-box-shadow: 0px 0px 5px 1px rgba(128, 124, 124, 0.45);
-  -moz-box-shadow: 0px 0px 5px 1px rgba(128, 124, 124, 0.45);
-  box-shadow: 0px 0px 2px 1px rgba(128, 124, 124, 0.45);
-  border-radius: 10px;
-  position: relative;
-  // width: 96% !important;
-  height: 127px !important;
-  margin-top: 1px;
-  // margin-left: 1%;
-  z-index: 1;
-  background-color: whitesmoke;
-
-}
-.bee-hexagon {
-  clip-path: url(#hexagonPath);
-  background-repeat: no-repeat;
-  background-position: -3px -15px;
-  background-color:transparent;
-  height: 100%;
-}
-.bee-profile-image {
-  position: absolute;
-  top: -12px;
- left:0%;
-height: 120px;
-width: 120px;
-
-transform: scale(0.6);
-}
-.cofeeTitle{
-  position: absolute;
-  top: 30px;
-  left: 110px;
-}
-.time{
-  position: absolute;
-  top: 52px;
-  left: 110px;
-  font-size: 10px;
-}
-.requestProg{
-  position: absolute;
-  top: 92px;
-  left: 29px;
-  font-size: 10px;
-  padding-right: 22px;
-}
-.btn-programs{
-  position: relative;
-  overflow: hidden;
-  height: 40px;
-  width: 200px;
-  // margin-left: calc(100% - 160px);
-  margin-top: -6px;
-  border-radius: 10px;
-  -webkit-box-shadow: 0px 0px 5px 1px rgba(128, 124, 124, 0.45);
-  -moz-box-shadow: 0px 0px 5px 1px rgba(128, 124, 124, 0.45);
-  box-shadow: 0px 0px 2px 1px rgba(128, 124, 124, 0.45);
-}
-.btn-style{
-  height: 98%;
-  width: 99px;
-  font-size: 13px;
-  padding-left: 5px;
-  background-color: transparent;
-  
-}
-.cancelbtn{
-  position: absolute;
-  left: 100px;
-  color: red;
-  background-image: url(../../assets/imgs/event/Annuler.svg);
-  background-size: 9px 9px;
-  background-position: 13px 15px;
-  background-repeat: no-repeat;
-}
-.updatebtn{
-  position: absolute;
-  left: 1px;
-  color:rgb(107, 99, 99);
-  background-image: url(../../assets/imgs/event/update-icon.svg);
-  background-size: 13px 13px;
-  background-position: 8px 13px;
-  background-repeat: no-repeat;
-  border-right: 1px solid rgba(128, 124, 124, 0.45);
-}
-.accepterbtn{
-  position: absolute;
-  left: 1px;
-  color:rgb(96,212,96);
-  background-image: url(../../assets/imgs/event/accepter.svg);
-  background-size: 13px 13px;
-  background-position: 8px 13px;
-  background-repeat: no-repeat;
-  border-right: 1px solid rgba(128, 124, 124, 0.45);
-}
-.btn-row{
-  justify-content: center;
-}
-.invite_row{
-  margin-top: 10px;
-}
-
+  }
+  .friendinvitation-transition {
+    width: 122px;
+  }
+  .textinvitation {
+    font-size: 11px;
+  }
+  .fbaddPersonBtn {
+    background-color: transparent;
+    width: 27px;
+    padding: 0;
+    vertical-align: middle;
+  }
+  .iconfb {
+    width: 27px;
+    height: 27px;
+  }
+  //prorams
+  .title-row {
+    color: #535353;
+    font-family: Montserrat;
+    font-size: 20px;
+    font-family: "Segoe UI";
+    font-weight: 400;
+  }
+  .programs-and-invitaion {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 0px !important;
+  }
+  .slides-programs {
+    margin-top: 10px;
+    width: 99%;
+    height: 131px;
+  }
+  .swiper-slide {
+    padding-right: 2px;
+    padding-left: 1px;
+    width: 100% !important;
+  }
+  .programs {
+    border-radius: 10px;
+    position: relative; // width: 96% !important;
+    height: 127px !important;
+    margin-top: 1px; // margin-left: 1%;
+    z-index: 1;    
+    background-color: white;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.16);
+  }
+  .bee-hexagon {
+    clip-path: url(#hexagonPath);
+    background-repeat: no-repeat;
+    background-position: -3px -15px;
+    background-color: transparent;
+    height: 100%;
+  }
+  .bee-profile-image {
+    position: absolute;
+    top: -12px;
+    left: 0%;
+    height: 120px;
+    width: 120px;
+    transform: scale(0.6);
+  }
+  .spaceTitle {
+    position: absolute;
+    top: 30px;
+    left: 110px;
+    color: #535353;
+    font-size: 16px;
+    font-family: "Segoe UI";
+    font-weight: 400;
+    text-transform: capitalize;
+  }
+  .time {
+    position: absolute;
+    top: 52px;
+    left: 110px;
+    color: #95989a;
+    font-family: "SFNS Display";
+    font-size: 12px;
+    font-weight: 400;
+    font-family: "Segoe UI";
+  }
+  .requestProg {
+    position: absolute;
+    top: 92px;
+    left: 19px;
+    padding-right: 22px;
+    color: #535353;
+    font-family: "Segoe UI";
+    font-size: 11px;
+    font-weight: 500;
+    text-align: left;
+    span{
+      text-transform: capitalize;
+    }
+  }
+  .btn-programs {
+    position: relative;
+    overflow: hidden;
+    height: 40px;
+    width: 200px; // margin-left: calc(100% - 160px);
+    margin-top: -6px;
+    border-radius: 10px;
+    -webkit-box-shadow: 0px 0px 5px 1px rgba(128, 124, 124, 0.45);
+    -moz-box-shadow: 0px 0px 5px 1px rgba(128, 124, 124, 0.45);
+    box-shadow: 0px 0px 2px 1px rgba(128, 124, 124, 0.45);
+  }
+  .btn-style {
+    height: 98%;
+    width: 99px;
+    font-size: 13px;
+    padding-left: 5px;
+    background-color: transparent;
+    span{
+      margin-left: 11px;
+    } 
+  }
+  .cancelbtn {
+    position: absolute;
+    left: 100px;
+    background-image: url(../../assets/imgs/event/Annuler.svg);
+    background-size: 10px 10px;
+    background-position: 13px 15px;
+    background-repeat: no-repeat;
+    color: #e63f40;
+    font-size: 14px;
+    font-weight: 400;
+    font-family: "Segoe UI";
+  }
+  .updatebtn {
+    position: absolute;
+    left: 1px;
+    background-image: url(../../assets/imgs/event/update-icon.svg);
+    background-size: 13px 13px;
+    background-position: 8px 13px;
+    background-repeat: no-repeat;
+    border-right: 1px solid rgba(128, 124, 124, 0.45);
+    color: #b2b1b2;
+    font-size: 14px;
+    font-weight: 400;
+    font-family: "Segoe UI";
+  }
+  .accepterbtn {
+    position: absolute;
+    left: 1px;
+    background-image: url(../../assets/imgs/event/accepter.svg);
+    background-size: 13px 13px;
+    background-position: 8px 13px;
+    background-repeat: no-repeat;
+    border-right: 1px solid rgba(128, 124, 124, 0.45);
+    color: #60d460;
+    font-family: "Segoe UI";
+    font-size: 14px;
+    font-weight: 400;      
+  }
+  .btn-row {
+    justify-content: center;
+  }
+  .invite_row {
+    margin-top: 10px;
+  }
 }
