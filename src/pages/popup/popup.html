@@ -15,14 +15,14 @@
     </div>
     <div class="popup-body">
       <div class="titlepopup">
-          Voulez vous signaler Prenon?
+          Voulez vous signaler <span> {{name}}</span> ?
       </div>
       <div class="textpopup">
         <textarea name="cause" id="cause" class="textsize"></textarea>
       </div>
       <div class="buttonpopup">
-        <button  class="popupbtn " (click)="dismiss()" >Annuler</button>
-        <button  class="popupbtn "  (click)="dismiss()"> Valider</button>
+        <button  class="popupbtn cancel" (click)="dismiss()" >Annuler</button>
+        <button  class="popupbtn signaler"  (click)="dismiss()"> Signaler</button>
       </div>
     </div>
   </div>

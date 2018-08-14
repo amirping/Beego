@@ -34,12 +34,12 @@ export class FriendProfilPage {
       uid,
       photoURL:"../../assets/imgs/friend-profil/friendPhoto.png",
       email:"",
-      firstName:"mohamed ",
-      lastName:"jouini",
+      firstName:"lamya",
+      lastName:"ben zekri",
       coverURL:"../../assets/imgs/friend-profil/friendPhoto.png",
       follower:34,
       following:12,
-      state:"friend",      
+      state:"unknown",      
       gov : "le bardo",
       age:23
     }

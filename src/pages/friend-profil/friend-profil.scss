@@ -39,17 +39,37 @@ page-friend-profil {
         margin-top: -28px;
         position: absolute;
         margin-left: 11%;
+        color: #ffffff;
+        font-family: "SFNS Display";
+        font-size: 14px;
+        font-weight: 400;
+        letter-spacing: 0.17px;
       }
       .suivis{
         position: absolute;
         margin-top: -28px;
         right: 11%; 
+        color: #ffffff;
+        font-family: "SFNS Display";
+        font-size: 14px;
+        font-weight: 400;
+        letter-spacing: 0.17px;
       }
-      .abonnes-number{
+      .number{
         color: white;
+        font-family: ". Helvetica Neue Desk Interface - Bold";
+        font-weight: 700;
+        letter-spacing: 0.17px;
+        font-size: 14px;
       }
-      .suivis-number{
-        color: white;
+      .hideclass{
+        position: absolute;
+        margin-top: -30px;
+        right: 115px;
+      }
+      .hideimg{
+        width: 23px;
+        height: 19px;
       }
       .position-info{
         margin-top: -47px;

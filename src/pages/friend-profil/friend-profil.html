@@ -12,12 +12,19 @@
     </ion-row>
     <ion-row class="position-info">
       <ion-col>
-        <div class="abonnes">
-          <span class="abonnes-number" for="">{{formatFollows(friend?.follower)}} abonnés </span>
+        <div class="abonnes" *ngIf="friend?.state!='friend'">
+          <span class="number" for="">{{formatFollows(friend?.follower)}} </span>   abonnés 
         </div>
-        <div class="suivis">
-          <span class="suivis-number" for="">{{formatFollows(friend?.following)}} suivis </span>
+        <div class="suivis" *ngIf="friend?.state!='friend'">
+          <span class="number" for="">{{formatFollows(friend?.following)}} </span>suivis 
         </div>
+        <div class="hideclass" *ngIf="friend?.state=='friend'">
+            <img class="hideimg"
+             src="../../assets/imgs/friend-follow/hide.svg" alt="">
+          </div>
+        <div class="suivis" *ngIf="friend?.state=='friend'">
+            <span class="number" for="">{{formatFollows(friend?.follower)}} </span>abonnés 
+          </div>
         <div class="info-friend">
           <ion-row class="first-row ">
             <ion-col col-8>
@@ -42,15 +49,19 @@
               </div>
             </ion-col>
             <ion-col col-4>
-
-              <button class="abonne-button" (click)="requestFriend(friend)" [disabled]="friend?.state=='waiting' || friend?.waiting" *ngIf="friend?.state=='unknown'||friend?.state=='waiting'; else afriend">
+                <!-- [disabled]="friend?.state=='waiting' || friend?.waiting" -->
+                <!-- ||friend?.state=='waiting' -->
+                <button class="abonne-button"   *ngIf="friend?.state=='waiting'">
+                    Annuler
+                  </button>
+              <button class="abonne-button" (click)="requestFriend(friend)"  *ngIf="friend?.state=='unknown'">
                 S'abonner
               </button>
-              <ng-template #afriend>
-                <button class="abonne-button followed" (click)="show()">
+              <!-- <ng-template #afriend> -->
+                <button class="abonne-button followed" *ngIf="friend?.state=='friend'" (click)="show()">
                   Abonné(e)
                 </button>
-              </ng-template>
+              <!-- </ng-template> -->
 
             </ion-col>
           </ion-row>
