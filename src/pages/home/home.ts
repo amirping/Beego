@@ -1,3 +1,4 @@
+import { EspaceHomePage } from "./../espace-home/espace-home";
 import { HeadlinesPage } from "./../headlines/headlines";
 import { SpecialForYouPage } from "./../special-for-you/special-for-you";
 import { SuggestPage } from "./../suggest/suggest";
@@ -47,7 +48,8 @@ export class HomePage {
   animateMenu = false;
   animateMenuClose = false;
   isMenuOpen = false;
-  @Output() menuSliding: EventEmitter<any> = new EventEmitter();
+  @Output()
+  menuSliding: EventEmitter<any> = new EventEmitter();
   searching() {
     this.search = !this.search;
   }
@@ -393,5 +395,8 @@ export class HomePage {
       { cssClass: "modal-fullscreen" }
     );
     circul.present();
+  }
+  homespace() {
+    this.navCtrl.setRoot(EspaceHomePage);
   }
 }

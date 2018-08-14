@@ -1,3 +1,4 @@
+import { EspaceHomePage } from "./../pages/espace-home/espace-home";
 import { MyTastesPage } from "./../pages/my-tastes/my-tastes";
 import { Component } from "@angular/core";
 import { Platform } from "ionic-angular";
@@ -28,7 +29,7 @@ import { ToExplorePage } from "../pages/to-explore/to-explore";
   templateUrl: "app.html"
 })
 export class MyApp {
-  rootPage: any;
+  rootPage: any = EspaceHomePage;
   constructor(
     platform: Platform,
     statusBar: StatusBar,
@@ -44,9 +45,9 @@ export class MyApp {
 
     this.userProvider.isConnect(state => {
       if (state) {
-        this.rootPage = TabsPage;
+        //this.rootPage = TabsPage;
       } else {
-        this.rootPage = LandingPage;
+        //this.rootPage = LandingPage;
       }
     });
   }
