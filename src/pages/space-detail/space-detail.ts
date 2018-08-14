@@ -23,6 +23,8 @@ import { ContactUsPage } from "../contact-us/contact-us";
 })
 export class SpaceDetailPage {
 
+  varOpCol =false;
+  varClCol = false;
   espace: Observable<any[]>
   reviews: Observable<any[]>
   espaceName: string;
@@ -318,5 +320,14 @@ export class SpaceDetailPage {
   navigateToContact(){
     this.navCtrl.push(ContactUsPage,{ nom: this.espaceName, cle: this.idEspace,photo : this.espaceImage });
    }
+   
+  closeCol(){
+    this.varOpCol = true;
+    this.varClCol = true;
+  }
+  openCol(){
+    this.varOpCol = false;
+    this.varClCol = false;
+  }
 
 }
