@@ -24,22 +24,25 @@ page-dislike-list {
             top :27px;
             color: white;
             height: 27px;
-            vertical-align: middle;
             background-color: rgba(0, 0, 0, 0.43);
           }
           .back{
             color: white;
+            font-size: 38px;
+            margin-top: -3px;
+            margin-left: 5%;
             }
-          .buttn{
-            background-color: transparent;
-            width: 65px;
-             } 
-          .back-img{
-            width: 64%;
-             }
+            .search{
+              font-size: 24px;
+              margin-right: 5%;
+            }
           .title{
-            font-size: 14px;
-            margin-top: 2px;
+            font-size: 14px;                      
+            margin-top: 3px;
+            font-size: 16px;
+            letter-spacing: 0.19px;
+            font-family: "Segoe UI";
+            font-weight: 400;        
           }
           .position-info{
             margin-top: -47px;
@@ -48,9 +51,8 @@ page-dislike-list {
             width: 100%;
             left: 0px;
             height: auto;
-            background-color: whitesmoke;
-            border-top-right-radius: 47px;
-            border-top-left-radius: 47px;
+            background-color: white;
+            border-radius: 30px 30px 0 0;
             padding: 0 5px;
           }
           .nbresult{
@@ -58,6 +60,10 @@ page-dislike-list {
             margin-top: -28px;
             position: absolute;
             right: 40px;
+            font-size: 12px;
+            letter-spacing: 0.14px;
+            font-family: "Segoe UI";
+            font-weight: 700;
           }
           .para-dislike{
             color: #8e8e93;
