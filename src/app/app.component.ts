@@ -41,7 +41,7 @@ import { UserProvider } from '../providers/user/user';
 export class MyApp {
   // = ProfilPage
 
-  rootPage: any= DislikeListPage;
+  rootPage: any= SpaceDetailPage;
   constructor(
     platform: Platform,
     statusBar: StatusBar,

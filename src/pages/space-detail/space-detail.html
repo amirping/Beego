@@ -287,13 +287,28 @@
                   <ion-row class="row_title">
                       Images
                   </ion-row>
-                  <ion-row class="photo_row">
-                      <!-- <div class="masonry">
-                          <div class="item animated pulse" *ngFor="let item of data">
-                            <img src="{{item.pic}}" alt="">
-                          </div>
-                        </div> -->
+
+                  <ion-row class="img_row">
+                    <div class="first_pic" (click)="goToSpace(0)">
+                        <img src="{{favoris[0].pic}}" 
+                        alt="">
+                    </div>
+                    <ng-container *ngFor=" let item of favoris; let i = index">
+                    <div class="other_pic" *ngIf="i%2!=0" >
+                        <div class="other_pic_one" (click)="goToSpace(i)" >
+                          <img src="{{item.pic}}" 
+                          alt="">
+                          <!-- src="../../assets/imgs/space_detail/whats-up.png"  -->
+                        </div>
+                        <div class="other_pic_two" *ngIf="i+1<favoris.length;" (click)="goToSpace(i+1)">
+                            <img src="{{favoris[i+1].pic}}"
+                            alt="">
+                        </div>
+                      </div>
+                    </ng-container>
+                    <div class="space"></div>
                   </ion-row>
+                  
                   <ion-row >
                     <ion-col class="row_title">
                         Reviews

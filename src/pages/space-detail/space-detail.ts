@@ -22,6 +22,7 @@ import { ContactUsPage } from '../contact-us/contact-us';
   templateUrl: 'space-detail.html',
 })
 export class SpaceDetailPage {
+  data: any = [];
   varOpCol =false;
   varClCol = false;
   disabled=false;
@@ -104,40 +105,7 @@ export class SpaceDetailPage {
   contact_us(){
     this.navCtrl.push(ContactUsPage);
   }
-  data: any = [];
-  evenement: any = [
-    {
-      id: 1,
-      // name: "YUMA - WInter tour",
-      // location: "Bon coin",
-      pic: "https://source.unsplash.com/600x1080/?movie"
-    },
-    {
-      id: 1,
-      // name: "YUMA - WInter tour",
-      // location: "Bon coin",
-      pic: "https://source.unsplash.com/900x900/?party"
-    },
-    {
-      id: 1,
-      // name: "YUMA - WInter tour",
-      // location: "Bon coin",
-      pic: "https://source.unsplash.com/1000x900/?events"
-    },
-    {
-      id: 1,
-      // name: "YUMA - WInter tour",
-      // location: "Bon coin",
-      pic: "https://source.unsplash.com/1080x600/?music part"
-    },
-    {
-      id: 1,
-      // name: "YUMA - WInter tour",
-      // location: "Bon coin",
-      pic: "https://source.unsplash.com/900x900/?desko"
-    }
-  ];
-
+ 
   index_news = "events";
   nbFollowers;
   listFollowerss: any[]
@@ -196,7 +164,7 @@ export class SpaceDetailPage {
     console.log(this.idEspace)
 
 
-    this.data = this.evenement;
+    this.data = this.favoris;
     this.listFollowers= this.db.list(`espace/${this.idEspace}/followers`);
     
   }
@@ -240,5 +208,32 @@ export class SpaceDetailPage {
     this.varOpCol = false;
     this.varClCol = false;
   }
+  
+  favoris: any = [
+    {
+      id: 0,
+      pic: "https://source.unsplash.com/1080x600/?food"
+    },
+    {
+      id: 1,
+      pic: "https://source.unsplash.com/600x1080/?movie"
+    },
+    {
+      id: 2,
+      pic: "https://source.unsplash.com/900x900/?party"
+    },
+    {
+      id: 3,
+      pic: "https://source.unsplash.com/1000x900/?events"
+    },
+    {
+      id: 4,
+      pic: "https://source.unsplash.com/1080x600/?music part"
+    },
+    {
+      id: 5,
+      pic: "https://source.unsplash.com/900x900/?desko"
+    }
+  ];
 
 }
