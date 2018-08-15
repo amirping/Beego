@@ -1,5 +1,12 @@
 import { Component, Output, EventEmitter } from "@angular/core";
-import { IonicPage, NavController, NavParams, Events } from "ionic-angular";
+import {
+  IonicPage,
+  NavController,
+  NavParams,
+  Events,
+  ModalController
+} from "ionic-angular";
+import { UserSwitcherPage } from "../user-switcher/user-switcher";
 
 /**
  * Generated class for the EspaceHomePage page.
@@ -18,12 +25,15 @@ export class EspaceHomePage {
   animateMenu = false;
   animateMenuClose = false;
   isMenuOpen = false;
+  userSelected = 1;
+  spaceState = 0;
   @Output()
   menuSliding: EventEmitter<any> = new EventEmitter();
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    private events: Events
+    private events: Events,
+    private modalCtrl: ModalController
   ) {}
 
   ionViewDidLoad() {
@@ -40,18 +50,17 @@ export class EspaceHomePage {
     console.log(Ev);
     // -> right
     if (Ev.direction == 4) {
-      // if (!this.isMenuOpen && this.checkerForGod(Ev) == true) {
-      //   this.isMenuOpen = !this.isMenuOpen;
-      //   this.menuSliding.emit(true);
-      //   this.events.publish("MenuOpen", true);
-      // }
+      this.isMenuOpen = !this.isMenuOpen;
+      this.menuSliding.emit(true);
+      this.events.publish("MenuOpen", true);
+
       // left <-
     } else if (Ev.direction == 2) {
-      // if (this.isMenuOpen) {
-      //   this.isMenuOpen = !this.isMenuOpen;
-      //   this.menuSliding.emit(false);
-      //   this.events.publish("MenuOpen", false);
-      // }
+      if (this.isMenuOpen) {
+        this.isMenuOpen = !this.isMenuOpen;
+        this.menuSliding.emit(false);
+        this.events.publish("MenuOpen", false);
+      }
     }
   }
   menuSwipe(Ev) {
@@ -70,5 +79,12 @@ export class EspaceHomePage {
   swipeByButton() {
     this.isMenuOpen = !this.isMenuOpen;
     this.events.publish("MenuOpen", this.isMenuOpen);
+  }
+  switchUser() {
+    this.modalCtrl.create(
+      UserSwitcherPage,
+      {},
+      { cssClass: "modal-fullscreen" }
+    ).present;
   }
 }

@@ -4,11 +4,13 @@ page-espace-home {
     width: 100%;
     height: 100%;
     background: #3f4a6e;
+
     .menu-stylesh {
       position: absolute;
       width: 100vw;
       left: 0;
       top: 0;
+      height: 100%; //perfomance fix
       .imgBack {
         position: absolute;
         width: 100vw;
@@ -19,9 +21,7 @@ page-espace-home {
         position: absolute;
         width: 100vw;
         height: 100vh;
-        background-image: url("../../assets/imgs/homePage_img/bottomHome.svg")
-          left bottom no-repeat;
-        /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#e5e5e5+0,fc5571+19,fd617c+100&0+0,0.71+19,0.87+34,1+100 */
+
         background: -moz-linear-gradient(
           top,
           rgba(229, 229, 229, 0) 0%,
@@ -48,19 +48,58 @@ page-espace-home {
         /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
         filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00e5e5e5', endColorstr='#394166', GradientType=0);
         /* IE6-9 */
-        .bottomLines {
-          position: absolute;
+        .beegoLogo {
+          height: 100%;
           width: 100%;
+          position: absolute;
+          background: url("../../assets/imgs/espaceHome_img/beggoBackLogo.svg");
+          background-repeat: no-repeat;
+          background-position: -50% 50%;
+          background-size: 100%;
+        }
+        .ctrl-bottom {
+          position: absolute;
           bottom: 0;
           left: 0;
-          object-fit: contain;
-        }
-        .cls-btn {
-          position: absolute;
-          bottom: 10px;
-          left: 10px;
-          ion-icon {
-            margin-right: 5px;
+          right: 0;
+          .switcher {
+            position: relative;
+            background: hsl(227, 32%, 23%);
+            display: flex;
+            flex-direction: row;
+            .box {
+              display: flex;
+              flex-direction: row;
+              position: relative;
+              flex-grow: 1;
+              font-size: 12px;
+              ion-select {
+                max-width: 100%;
+              }
+              button {
+                font-size: 12px;
+              }
+              .icon {
+                margin: auto;
+                margin-right: 0;
+                margin-left: 20px;
+                width: 15px;
+                height: 15px;
+              }
+              .logo {
+                height: 26px;
+                width: 26px;
+              }
+            }
+          }
+          .cls-dc-btn {
+            .button-inner {
+              justify-content: space-between !important;
+              flex-direction: row;
+            }
+            ion-icon {
+              margin-right: 5px;
+            }
           }
         }
       }
