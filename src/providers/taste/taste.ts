@@ -51,7 +51,7 @@ export class TasteProvider {
     const headers = new HttpHeaders().set("authorization", "Bearer "+idToken)
     this.http.get('http://localhost:5000/test-3cdd6/us-central1/beegoapi/selectedtastes',{headers,params})
     .subscribe((data:any) =>{
-      console.log('hedhi data', data)
+      console.log('hedhi selected Tastes ', data)
       callBack(data)
     })
   }

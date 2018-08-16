@@ -52,7 +52,7 @@ export class HomePage {
     this.search = !this.search;
   }
   evenementListRef$: Observable<any[]>;
-  espacesListRef$: Observable<any[]>;
+  espacesListRef$: any;
   promotionListRef$: Observable<any[]>;
   suggestionListRef$: Observable<any[]>;
   connaissanceListRef$: Observable<any[]>;
@@ -73,6 +73,8 @@ export class HomePage {
   };
 
   news = [] as any;
+  stat;
+  pageType;
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -83,10 +85,14 @@ export class HomePage {
      private http: HttpClient,
     private events: Events
   ) {
+    this.pageType ="only10"
     
     
     /* Liste des espaces */
-    this.espacesListRef$ = spacesProvider.listEspaces();
+    this.spacesProvider.listSpecificTastes("only10",(data)=>{
+      console.log("ahaya data",data)
+      this.espacesListRef$= data.spaces
+    })
     // don't
     this.menuSliding.emit(false);
     // this.tabBarElement = document.querySelector(".tabbar.show-tabbar");

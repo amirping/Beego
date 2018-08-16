@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from "ionic-angular";
 
 import { AngularFireDatabase } from "angularfire2/database";
 import { SpaceDetailPage } from "../../pages/space-detail/space-detail";
+import { SpacesProvider } from "../../providers/spaces/spaces";
 
 
 
@@ -24,21 +25,13 @@ export class SpecialForYouPage {
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
-    private database : AngularFireDatabase
+    private database : AngularFireDatabase,
+    private spacesProvider : SpacesProvider
   ) {
-    const espaces$ = this.database.list('espace').snapshotChanges().subscribe(espaces => {
-      this.data = espaces.map((espace,index)=>{
-        const e = espace.payload.val() as any;
-         e.id = index;
-         
-        e.key = espace.key
- 
-         return e;
-       })
-      // this.friends= friends;
-       console.log(this.data)
-       espaces$.unsubscribe();
-         });
+    this.spacesProvider.listSpecificTastes("ALL",(data)=>{
+      console.log("ahaya data",data)
+      this.data= data.spaces
+    })
 
   }
 

@@ -1,7 +1,8 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from "rxjs/Observable";
 import { AngularFireDatabase } from "angularfire2/database";
+import { UserProvider } from '../user/user';
 
 /*
   Generated class for the SpacesProvider provider.
@@ -23,8 +24,9 @@ export class SpacesProvider {
   pagesData : any = [];
   category : string;
   constructor(
-    
-    private database: AngularFireDatabase
+    private http : HttpClient,
+    private database: AngularFireDatabase,
+    private userProvider: UserProvider
 
   ) {
     console.log('Hello SpacesProvider Provider');
@@ -97,6 +99,32 @@ export class SpacesProvider {
     })
   return moyenne;
   }
-  
-
+  followSpace(idEspace){
+    const idToken = this.userProvider.idToken
+    const params = new HttpParams().set('space',idEspace)
+    const headers = new HttpHeaders().set("authorization", "Bearer "+idToken)
+    this.http.post('http://localhost:5000/test-3cdd6/us-central1/beegoapi/followspace', params ,{headers})
+    .subscribe(data=> {
+      console.log(data)
+    })
+  }
+  reviewSpace(idEspace,description,rating){
+    const idToken = this.userProvider.idToken
+    const params = new HttpParams().set('space',idEspace).set('description',description).set('rating',rating)
+    const headers = new HttpHeaders().set("authorization", "Bearer "+idToken)
+    this.http.post('http://localhost:5000/test-3cdd6/us-central1/beegoapi/reviewspace', params ,{headers})
+    .subscribe(data=> {
+      console.log(data)
+    })
+  }
+  listSpecificTastes(pageType,callBack){
+    const idToken = this.userProvider.idToken
+    const params = new HttpParams().set('display',pageType)
+    const headers = new HttpHeaders().set("authorization", "Bearer "+idToken)
+    this.http.get('http://localhost:5000/test-3cdd6/us-central1/beegoapi/specifictastes' ,{headers,params})
+    .subscribe((data:any) =>{
+      console.log('hedhi Specific Tastes', data)
+      callBack(data)
+    })
+  }
 }

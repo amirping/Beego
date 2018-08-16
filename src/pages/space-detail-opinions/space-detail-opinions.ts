@@ -42,11 +42,10 @@ export class SpaceDetailOpinionsPage {
     this.nom = this.navParams.get('nom')
     this.idEspace = this.navParams.get('cle');
     console.log("cle espace opinions", this.idEspace)
-    this.reviews = this.db.list('reviews', item =>
-      item.orderByChild('idEspace').equalTo(this.idEspace))
-      .snapshotChanges().map(changes => {
-        return changes.map(c => ({ key: c.payload.key, ...c.payload.val() }))
-      });
+    this.reviews = this.db.list(`reviews/${this.idEspace}`)
+    .snapshotChanges().map(changes => {
+      return changes.map(c => ({ key: c.payload.key, ...c.payload.val() }))
+    })
       
       console.log(this.comments)
   }

@@ -7,6 +7,7 @@ import { AngularFireDatabase, AngularFireList } from '../../../node_modules/angu
 
 import { SpaceDetailOpinionsPage } from '../space-detail-opinions/space-detail-opinions';
 import { ContactUsPage } from "../contact-us/contact-us";
+import { SpacesProvider } from '../../providers/spaces/spaces';
 
 
 /**
@@ -119,7 +120,8 @@ export class SpaceDetailPage {
     public navParams: NavParams,
     private db: AngularFireDatabase,
     private alertController: AlertController,
-    private modalCtrl: ModalController
+    private modalCtrl: ModalController,
+    private spaceProvider : SpacesProvider
 
   ) {
     
@@ -134,17 +136,15 @@ export class SpaceDetailPage {
 
     this.idEspace = this.navParams.get('cle');
     console.log("cle espace", this.idEspace)
-    this.reviews = this.db.list('reviews', item =>
-      item.orderByChild('idEspace').equalTo(this.idEspace))
+    this.reviews = this.db.list(`reviews/${this.idEspace}`)
       .snapshotChanges().map(changes => {
         return changes.map(c => ({ key: c.payload.key, ...c.payload.val() }))
       });
 
     this.db.object(`espace/${this.idEspace}`).valueChanges().subscribe((data: any) => {
-      this.testDate = new Date();
-      console.log("date : ", this.testDate.toISOString().substring(11, 19))
-      if (this.testDate.toISOString().substring(11, 19) < "15:00:00")
-        console.log("ok")
+      this.testDate = Date.now().toString()
+      console.log("date",this.testDate)
+      
 
 
       this.espace = Object(data)
@@ -200,9 +200,8 @@ export class SpaceDetailPage {
         this.loisirArray = Object.keys(data.espaceLoisir)
           .map(i => data.espaceLoisir[i]);
       if (data.followers)
-        this.listFollowerss = Object.keys(data.followers)
-          .map(i => data.followers[i]);
-      this.nbFollowers = this.listFollowerss.length
+      this.nbFollowers = data.followers
+      
 
       this.reviews.forEach(
 
@@ -288,11 +287,8 @@ export class SpaceDetailPage {
     });
   }
   suivre() {
-    this.listFollowers.push({
-      firstName: "Ghassen",
-      lastName: "ASKRI"
-    }
-    )
+    
+    this.spaceProvider.followSpace(this.idEspace)
     /* Se désabonner 
     this.follower= this.db.list(`espace/${this.idEspace}/followers` ,ref => ref.child('firstName').equalTo('hatemaaa'))
     console.log("follower : ", this.follower)
@@ -326,13 +322,6 @@ export class SpaceDetailPage {
     this.navCtrl.push(ContactUsPage,{ nom: this.espaceName, cle: this.idEspace,photo : this.espaceImage });
    }
    
-  closeCol(){
-    this.varOpCol = true;
-    this.varClCol = true;
-  }
-  openCol(){
-    this.varOpCol = false;
-    this.varClCol = false;
-  }
+ 
 
 }

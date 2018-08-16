@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams ,ModalController, ViewController } 
 import { SpaceDetailFeedback3Page } from '../space-detail-feedback3/space-detail-feedback3';
 import { SpaceDetailFeedback1Page } from '../space-detail-feedback1/space-detail-feedback1';
 import { AngularFireDatabase,AngularFireList } from '../../../node_modules/angularfire2/database';
+import { SpacesProvider } from '../../providers/spaces/spaces';
 
 /**
  * Generated class for the SpaceDetailFeedback2Page page.
@@ -23,7 +24,8 @@ export class SpaceDetailFeedback2Page {
   idEspace;
    date = new Date();
   constructor(public navCtrl: NavController, public navParams: NavParams
-  ,private modalCtrl : ModalController , private viewCtrl:ViewController, private db : AngularFireDatabase) {
+  ,private modalCtrl : ModalController , private viewCtrl:ViewController,
+   private db : AngularFireDatabase, private spaceProvider: SpacesProvider) {
     this.r=navParams.get('ratingg');
     this.nom = this.navParams.get('nom');
     this.idEspace = this.navParams.get('cle')
@@ -34,14 +36,15 @@ export class SpaceDetailFeedback2Page {
     // console.log(this.r);
   }
   goToFeefback3(description){
-    this.listReviews.push({
+    this.spaceProvider.reviewSpace(this.idEspace,description,this.r)
+   /* this.listReviews.push({
       firstName:"Ghassen",
       lastName:"ASKRI",
       idEspace:this.idEspace,
       description: description,
       date : this.date.toISOString().substring(0, 10),
       rating : this.r}
-    )
+    )*/
 
     const modal3= this.modalCtrl.create(SpaceDetailFeedback3Page , {ratingg:this.r});
     modal3.present();
