@@ -4,7 +4,6 @@ page-espace-home {
     width: 100%;
     height: 100%;
     background: #3f4a6e;
-
     .menu-stylesh {
       position: absolute;
       width: 100vw;
@@ -21,30 +20,11 @@ page-espace-home {
         position: absolute;
         width: 100vw;
         height: 100vh;
-
-        background: -moz-linear-gradient(
-          top,
-          rgba(229, 229, 229, 0) 0%,
-          rgba(57, 65, 102, 0.61) 19%,
-          rgba(57, 65, 102, 1) 30%,
-          rgba(57, 65, 102, 1) 100%
-        );
+        background: -moz-linear-gradient( top, rgba(229, 229, 229, 0) 0%, rgba(57, 65, 102, 0.61) 19%, rgba(57, 65, 102, 1) 30%, rgba(57, 65, 102, 1) 100%);
         /* FF3.6-15 */
-        background: -webkit-linear-gradient(
-          top,
-          rgba(229, 229, 229, 0) 0%,
-          rgba(57, 65, 102, 0.61) 19%,
-          rgba(57, 65, 102, 1) 30%,
-          rgba(57, 65, 102, 1) 100%
-        );
+        background: -webkit-linear-gradient( top, rgba(229, 229, 229, 0) 0%, rgba(57, 65, 102, 0.61) 19%, rgba(57, 65, 102, 1) 30%, rgba(57, 65, 102, 1) 100%);
         /* Chrome10-25,Safari5.1-6 */
-        background: linear-gradient(
-          to bottom,
-          rgba(229, 229, 229, 0) 0%,
-          rgba(57, 65, 102, 0.61) 19%,
-          rgba(57, 65, 102, 1) 30%,
-          rgba(57, 65, 102, 1) 100%
-        );
+        background: linear-gradient( to bottom, rgba(229, 229, 229, 0) 0%, rgba(57, 65, 102, 0.61) 19%, rgba(57, 65, 102, 1) 30%, rgba(57, 65, 102, 1) 100%);
         /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
         filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00e5e5e5', endColorstr='#394166', GradientType=0);
         /* IE6-9 */
@@ -168,8 +148,7 @@ page-espace-home {
     background: #394166;
   }
   .open-menu {
-    animation: slide-bck-right-esp 0.45s cubic-bezier(0.47, 0, 0.745, 0.715)
-      forwards;
+    animation: slide-bck-right-esp 0.45s cubic-bezier(0.47, 0, 0.745, 0.715) forwards;
   }
   .close-menu {
     animation: slide-off 0.45s cubic-bezier(0.47, 0, 0.745, 0.715) forwards;
@@ -255,13 +234,95 @@ page-espace-home {
   }
   ion-grid {
     padding: 0px !important;
+    .margin-neg {
+      margin-bottom: -15px;
+    }
+    .banner-col {
+      padding: 0;
+      background: url("https://source.unsplash.com/1600x900/?bar,coffe") center center no-repeat;
+      object-fit: contain;
+      .padding-row {
+        padding: 30px 0 45px 0;
+      }
+      .holding-space {
+        height: 90px;
+        width: 83px;
+      }
+    }
+    .main-box {
+      .curved-col {
+        border-radius: 20px 20px 10px 10px;
+        padding: 0;
+        background: #394166;
+        ion-list {
+          margin-bottom: 0;
+          ion-col {
+            padding: 0;
+          }
+          ion-item,
+          ion-list-header {
+            background: transparent;
+          }
+          ion-list-header {
+            border-top: none;
+            border-bottom: 1px solid rgba(gray, 0.5);
+            color: white;
+          }
+          ion-item {
+            margin-left: 10px;
+            margin-right: 10px;
+            border-bottom: 1px solid rgba(gray, 0.5);
+            width: 90%;
+            .fogme {
+              position: absolute;
+              top: 13px;
+              left: 0;
+              bottom: 13px;
+              right: 0;
+              background: url(../../assets/imgs/espaceHome_img/mask-fog.svg) top left no-repeat;
+              background-size: cover;
+            }
+            .item-inner {
+              border: none;
+            }
+            p {
+              font-size: 10px;
+              color: white;
+              flex-wrap: wrap;
+              white-space: normal;
+            }
+            p:nth-of-type(2) {
+              text-align: right;
+            }
+          }
+        }
+      }
+    }
+    .loading-btn-row {
+      ion-col {
+        padding: 0;
+      }
+      .row-center {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+      }
+      .half-rad-btn {
+        margin-top: 0;
+        border-radius: 0 0 10px 10px;
+        background: #F22876;
+        width: 144px;
+        font-size: 12px;
+        font-weight: 400;
+      }
+    }
   }
   .motd {
     margin-left: 20px;
     margin-right: 20px;
-    background: url("../../assets/imgs/homePage_img/2-layers.svg") right top
-      no-repeat; // not sure about it let's try it later
-    background-size: contain;
+    background: white url("../../assets/imgs/homePage_img/2-layers.svg") no-repeat; // not sure about it let's try it later
+    background-size: 50px;
+    background-position: 100% 40%;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.13);
     border-radius: 0 0 15px 15px;
     h2 {
@@ -289,7 +350,11 @@ page-espace-home {
   }
   .catego-wrapper {
     position: relative;
-    clip-path: url(#hexagonPathHome);
+    clip-path: url(#hexa);
+    height: 90px;
+    width: 83px;
+    background: #F22876;
+    margin: 0 5px 0 5px;
     div {
       position: absolute;
       display: flex;
@@ -298,29 +363,18 @@ page-espace-home {
       top: 0;
       bottom: 0;
       width: 100%;
-      .overlay {
-        top: 0;
-        bottom: 0;
-        width: 100%;
-        position: absolute;
-        width: 100%;
-        background-image: linear-gradient(
-          201deg,
-          rgba(255, 29, 93, 0) 0%,
-          #393939 100%
-        );
-        opacity: 0.5;
-        z-index: 9;
-      }
+      text-align: center;
       span {
+        margin: auto;
         text-align: center;
         color: #ffffff;
         font-family: Raleway;
-        font-size: 16px;
-        font-weight: 700;
+        font-size: 14px;
+        font-weight: 400;
         letter-spacing: 0.19px;
         z-index: 10;
         text-transform: capitalize;
+        width: 80%;
       }
     }
     .catego {

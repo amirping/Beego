@@ -4,15 +4,25 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header>
-
-  <ion-navbar>
-    <ion-title>userSwitcher</ion-title>
-  </ion-navbar>
-
-</ion-header>
-
-
-<ion-content padding>
-
+<ion-content>
+  <div class="holder">
+    <div class="main-wrapper">
+      <div class="icon-page"></div>
+      <div class="basic">
+        <div class="top">
+          <div class="heading">
+            <span>Vous etes a</span>
+          </div>
+        </div>
+        <ion-list>
+          <ion-item *ngFor="let item of spaceCol;let i = index" (click)="setSelected(item)" [class.selectedItem]="item.id==selectedSpace">
+            {{item.name}}
+          </ion-item>
+        </ion-list>
+        <div class="btn-holder">
+          <button ion-button round>Connecter en tant que utilisateur</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </ion-content>

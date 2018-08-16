@@ -13,7 +13,7 @@
         <div class="switcher">
           <div class="box">
             <img src="../../assets//imgs/espaceHome_img/user.svg" class="icon" alt="">
-            <button ion-button clear color="light">
+            <button ion-button clear color="light" (click)="switchUser()">
               Switch user
             </button>
           </div>
@@ -89,86 +89,82 @@
                 <span>Acceuil</span>
               </div>
             </ion-col>
-            <!--
-              <ion-col>
-              <div>
-                <button class="search" end>
-                  <img src="../../assets/imgs/Search.png" alt="" (click)="searching()">
-                </button>
-              </div>
-            </ion-col>
-            -->
+
           </ion-row>
         </ion-grid>
       </div>
       <div class="header-acceuil-container show-onserach">
         <ion-grid>
-          <ion-row>
-            <!-- <ion-col>
-              <div class="for-search">
-                <input type="text" name="text_search" value="" placeholder="Recherche" class="text-search" id="text_search" [(ngModel)]="text_search">
-
-                <button class="search-text-icon">
-                  <img src="../../assets/imgs/Search-Glyph.png" alt="">
-                </button>
-                <button class="clear-text" (click)="text_search=''">
-                  <img class="hide-cleaner" src="../../assets/imgs/Clear_button.png" alt="" *ngIf="text_search !=null && text_search.length>0">
-                </button>
-              </div>
-            </ion-col> -->
-            <!-- <ion-col>
-              <div class="cancel-search ">
-                <button class="cancel-search-action" style="padding-top: 5px;" (click)="searching()">Annuler</button>
-              </div>
-            </ion-col> -->
-          </ion-row>
         </ion-grid>
       </div>
     </ion-navbar>
   </ion-header>
   <ion-content>
     <ion-grid (swipe)="contentSwipe($event)">
-      <ion-row>
-        <ion-col class="motd">
-          <div>
-            <h2>Bonjour, Amine</h2>
-            <p>Nous espérons que vous passé une bonne journée.
-              <span text-right>18°</span>
-            </p>
-          </div>
+      <ion-row class="margin-neg">
+        <ion-col class="banner-col">
+          <ion-row>
+            <ion-col class="motd">
+              <div>
+                <h2>Bonjour, Amine</h2>
+                <p>Nous espérons que vous passé une bonne journée.
+                  <span text-right>18°</span>
+                </p>
+              </div>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col class="beego-row-center padding-row">
+              <div class="catego-wrapper">
+                <div>
+                  <span>Bee Sensor</span>
+                </div>
+              </div>
+              <div class="catego-wrapper">
+                <div>
+                  <span>Bee Database</span>
+                </div>
+              </div>
+              <div class="catego-wrapper">
+                <div>
+                  <span>bee Buisness</span>
+                </div>
+              </div>
+            </ion-col>
+          </ion-row>
         </ion-col>
       </ion-row>
-      <ion-row>
-        <ion-col class="beego-row-center">
-          <div class="catego-wrapper">
-            <div>
-              <span>
-                chill'out
-              </span>
-              <div class=overlay></div>
-            </div>
-            <img src="../../assets/imgs/homePage_img/chillout.png" class="catego">
-          </div>
-          <div class="catego-wrapper">
-            <div>
-              <span>beauty</span>
-              <div class=overlay></div>
-            </div>
-            <img src="../../assets/imgs/homePage_img/beauty.png" class="catego">
-          </div>
-          <div class="catego-wrapper">
-            <div>
-              <span>shopping</span>
-              <div class="overlay"></div>
-            </div>
-            <img src="../../assets/imgs/homePage_img/beauty.png" class="catego">
+      <ion-row class="main-box">
+        <ion-col class="curved-col">
+          <ion-list>
+            <ion-list-header>
+              Actualitées
+            </ion-list-header>
+            <ion-item *ngFor="let item of collectionAct | slice:0:howMuch;let lst = last;">
+              <div class="fogme" *ngIf="lst"></div>
+              <ion-avatar item-start>
+                <img src="http://i.pravatar.cc/60">
+              </ion-avatar>
+              <p>
+                <b>{{item.user}}</b> a partager avec vous localisation , il est a
+                <b>{{item.location}}</b>
+              </p>
+              <p>il y a {{item.time}}</p>
+            </ion-item>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+      <ion-row class="loading-btn-row">
+        <ion-col>
+          <div class="row-center">
+            <button class="half-rad-btn" ion-button small>voir tous</button>
           </div>
         </ion-col>
       </ion-row>
     </ion-grid>
     <svg height="0" width="0" viewbox="0 0 500 500">
       <defs>
-        <clipPath id="hexagonPathHome" transform="scale(0.9 0.9)">
+        <clipPath id="hexa" transform="scale(0.75 0.75)">
           <path id="sug1-2Home" data-name="sug1" class="cls-1" d="M98.434,37.981V68.895A22.732,22.732,0,0,1,87.045,88.419L60.2,103.875a22.032,22.032,0,0,1-22.371,0l-12.2-7.322L11.389,88.419h-.407A22.357,22.357,0,0,1,0,68.895V37.981A19.8,19.8,0,0,1,.407,33.1a20.822,20.822,0,0,1,4.068-8.542,20.247,20.247,0,0,1,6.915-6.1L38.235,3A22.032,22.032,0,0,1,60.606,3L87.452,18.457A22.851,22.851,0,0,1,98.434,37.981Z"
             transform="translate(9 6.05)" />
         </clipPath>
