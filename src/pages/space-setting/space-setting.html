@@ -1,0 +1,121 @@
+<!--
+  Generated template for the SpaceSettingPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header [class.scrollHeader]="showHeader"  >
+    <ion-icon ios="ios-arrow-round-back" md="ios-arrow-round-back"></ion-icon>  
+    Parametre
+</ion-header>
+
+
+<ion-content >
+  <ion-grid no-padding (scroll)="ons($event)">
+      <ion-row class="photo-row">
+          <ion-col >
+            <img  class="img-space" src="../../assets/imgs/space_setting/cover.png" alt="">            
+          </ion-col>
+          <div class="space_setting_header">
+              <ion-icon ios="ios-arrow-round-back" md="ios-arrow-round-back"></ion-icon>
+              <div class="bg_take_photo"></div>
+          </div>
+        </ion-row>
+        <ion-row class="position-info">
+          <div class="info-space">
+            <ion-row class="hexa_row">
+                <div class="bee-image_bg">
+                    <div class="bee-hexagon_bg">
+                        <div class="bee-image">
+                            <div class="bee-hexagon">
+                                <img class="bee-img-size"
+                                src="../../assets/imgs/space_detail/whats-up.png" alt="">                                
+                              </div>                              
+                        </div>
+                    </div>
+                    <div class="bg_take_photo"></div>
+                </div>
+            </ion-row>
+            <ion-row class="space_title">
+                What's Up
+            </ion-row>
+            <ion-row class="space_email">
+                WhatsUp@gmail.com
+            </ion-row>
+            <ion-row class="setting_title">
+                Parametre géneral
+            </ion-row>
+            <!-- le click sera sur le div  -->
+            <ion-row class="space_setting dark_row">
+              <div class="img_col">
+                <img src="../../assets/imgs/space_setting/setting_admin.svg" alt="">
+              </div>
+              <div class="setting_text">Parametre géneral</div>
+              <ion-icon ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
+              <div class="line"></div>
+            </ion-row>
+            <ion-row class="space_setting">
+                <div class="img_col">
+                    <img src="../../assets/imgs/space_setting/categorie_admin.svg" alt="">
+                </div>
+                <div class="setting_text">Categorie et Spécialité</div>
+              <ion-icon ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
+                <div class="line"></div>
+            </ion-row>
+            <ion-row class="space_setting dark_row">
+                <div class="img_col">
+                        <img src="../../assets/imgs/space_setting/horaire_admin.svg" alt="">
+                </div>
+                <div class="setting_text">Horaire</div>
+              <ion-icon ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>                
+                <div class="line"></div>
+            </ion-row>
+            <ion-row class="space_setting">
+                <div class="img_col">
+                        <img src="../../assets/imgs/space_setting/security.svg" alt="">
+                </div>
+                <div class="setting_text">Sécurité</div>
+              <ion-icon ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>                
+                <div class="line"></div>
+            </ion-row>
+            <ion-row class="space_setting dark_row">
+                <div class="img_col">
+                    <img src="../../assets/imgs/space_setting/contact_admin.svg" alt="">
+                </div>
+                <div class="setting_text">Contactez nous</div>
+              <ion-icon ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>                
+                <div class="line"></div>
+            </ion-row>
+            <ion-row class="setting_title">Images</ion-row>
+            <ion-row class="img_row">
+                <div class="first_pic" (click)="goToSpace(0)">
+                    <img src="{{favoris[0].pic}}" 
+                    alt="">
+                </div>
+                <ng-container *ngFor=" let item of favoris; let i = index">
+                <div class="other_pic" *ngIf="i%2!=0" >
+                    <div class="other_pic_one" (click)="goToSpace(i)" >
+                      <img src="{{item.pic}}" 
+                      alt="">
+                      <!-- src="../../assets/imgs/space_detail/whats-up.png"  -->
+                    </div>
+                    <div class="other_pic_two" *ngIf="i+1<favoris.length;" (click)="goToSpace(i+1)">
+                        <img src="{{favoris[i+1].pic}}"
+                        alt="">
+                    </div>
+                  </div>
+                </ng-container>
+                <div class="space"></div>
+              </ion-row>
+              <ion-row class="add_pic">
+                <div class="box">
+                    <img src="../../assets/imgs/space_setting/add_img.svg" alt="">
+                    <span>Tapé ici pour ajouter une 
+                        images</span>
+                </div>
+              </ion-row>
+          </div>
+        </ion-row>        
+  </ion-grid>
+
+</ion-content>

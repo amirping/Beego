@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 29 29">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: url(#linear-gradient);
+      }
+
+      .cls-2 {
+        fill: #fff;
+        stroke: #fff;
+        stroke-width: 0.2px;
+      }
+    </style>
+    <linearGradient id="linear-gradient" x2="0" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#00c2d7"/>
+      <stop offset="1" stop-color="#4ee1ca"/>
+    </linearGradient>
+  </defs>
+  <g id="Case_icon" data-name="Case icon" transform="translate(-5)">
+    <rect id="Shape" class="cls-1" width="29" height="29" rx="6" transform="translate(5)"/>
+    <g id="Securite" transform="translate(13 7)">
+      <path id="Path_1131" data-name="Path 1131" class="cls-2" d="M11.259,5.963V4.3A4.529,4.529,0,0,0,6.519,0,4.529,4.529,0,0,0,1.778,4.3V5.963A2.149,2.149,0,0,0,0,8.074v5.778A2.15,2.15,0,0,0,2.148,16h8.741a2.15,2.15,0,0,0,2.148-2.148V8.074a2.149,2.149,0,0,0-1.778-2.111ZM2.37,4.3A3.947,3.947,0,0,1,6.519.593a3.947,3.947,0,0,1,4.148,3.7v1.63H2.37Zm10.074,9.556a1.565,1.565,0,0,1-1.556,1.556H2.148A1.565,1.565,0,0,1,.593,13.852V8.074A1.565,1.565,0,0,1,2.148,6.519h8.741a1.565,1.565,0,0,1,1.556,1.556v5.778Zm0,0"/>
+      <path id="Path_1132" data-name="Path 1132" class="cls-2" d="M15.585,22.4A1.17,1.17,0,0,0,14.4,23.585v1.778a1.185,1.185,0,0,0,2.37,0V23.585A1.17,1.17,0,0,0,15.585,22.4Zm.593,2.963a.593.593,0,0,1-1.185,0V23.585a.593.593,0,0,1,1.185,0Zm0,0" transform="translate(-9.067 -14.104)"/>
+    </g>
+  </g>
+</svg>

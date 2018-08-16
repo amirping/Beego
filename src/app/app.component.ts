@@ -32,6 +32,9 @@ import {ContactUsConversatoinPage} from '../pages/contact-us-conversatoin/contac
 import {MyMessagesPage} from '../pages/my-messages/my-messages';
 import {PrincipalEventPage} from '../pages/principal-event/principal-event';
 
+//space
+import {SpaceSettingPage} from '../pages/space-setting/space-setting'
+
 import { UserProvider } from '../providers/user/user';
 
 
@@ -41,7 +44,7 @@ import { UserProvider } from '../providers/user/user';
 export class MyApp {
   // = ProfilPage
 
-  rootPage: any= SpaceDetailPage;
+  rootPage: any= SpaceSettingPage;
   constructor(
     platform: Platform,
     statusBar: StatusBar,

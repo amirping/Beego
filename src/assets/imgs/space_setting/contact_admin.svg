@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 29 29">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: url(#linear-gradient);
+      }
+
+      .cls-2 {
+        fill: #fff;
+      }
+    </style>
+    <linearGradient id="linear-gradient" x2="0" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#e35980"/>
+      <stop offset="1" stop-color="#805097"/>
+    </linearGradient>
+  </defs>
+  <g id="contact_admin" transform="translate(-5)">
+    <rect id="Shape" class="cls-1" width="29" height="29" rx="6" transform="translate(5)"/>
+    <g id="Contacter_nous" data-name="Contacter nous" transform="translate(10 8.8)">
+      <path id="Path_1130" data-name="Path 1130" class="cls-2" d="M18,.462h0V.387h0c0-.037,0-.075-.037-.075h0L17.888.238h0C17.85.238,17.85.2,17.813.2h-.187L.225,3.725A.329.329,0,0,0,0,3.988c0,.113.038.262.15.3L5.137,6.913,6,11.75H6v.113c0,.038,0,.038.038.075h0l.037.037h0c.037,0,.037.038.075.038h.112a.324.324,0,0,0,.225-.112L9.825,9.688l3.488,2.25a.225.225,0,0,0,.15.037h.113a.452.452,0,0,0,.188-.187L18,.537V.462ZM14.55,2.375,7.35,7.662,7.313,7.7h0v.075a.131.131,0,0,0-.038.075h0L6.45,10.513,5.738,6.875Zm-7.687,8.7.825-2.7L8.962,9.2l.375.225L8.1,10.25Zm8.738-9.9L5.438,6.388,1.2,4.138Zm-2.25,10.2-4.613-3-.712-.45L17.1,1.25Zm0,0" transform="translate(0 0)"/>
+    </g>
+  </g>
+</svg>
