@@ -33,7 +33,7 @@
       </div>
     </div>
     <div class="user-content animated" [class.fadeInLeft]="isMenuOpen">
-      <ion-list>
+      <ion-list class="top-user">
         <ion-item>
           <ion-avatar item-start>
             <img src="http://i.pravatar.cc/60">
@@ -115,17 +115,17 @@
           </ion-row>
           <ion-row>
             <ion-col class="beego-row-center padding-row">
-              <div class="catego-wrapper">
+              <div class="catego-wrapper" (click)="null">
                 <div>
                   <span>Bee Sensor</span>
                 </div>
               </div>
-              <div class="catego-wrapper">
+              <div class="catego-wrapper" (click)="null">
                 <div>
                   <span>Bee Database</span>
                 </div>
               </div>
-              <div class="catego-wrapper">
+              <div class="catego-wrapper" (click)="null">
                 <div>
                   <span>bee Buisness</span>
                 </div>
@@ -140,10 +140,10 @@
             <ion-list-header>
               Actualitées
             </ion-list-header>
-            <ion-item *ngFor="let item of collectionAct | slice:0:howMuch;let lst = last;">
+            <ion-item class="animated fadeInDown" *ngFor="let item of collectionAct | slice:0:howMuch;let lst = last;" [class.noborder]="lst">
               <div class="fogme" *ngIf="lst"></div>
               <ion-avatar item-start>
-                <img src="http://i.pravatar.cc/60">
+                <img src="{{item.pic}}">
               </ion-avatar>
               <p>
                 <b>{{item.user}}</b> a partager avec vous localisation , il est a
@@ -157,8 +157,14 @@
       <ion-row class="loading-btn-row">
         <ion-col>
           <div class="row-center">
-            <button class="half-rad-btn" ion-button small>voir tous</button>
+            <button class="half-rad-btn" ion-button small (click)="howMuch = collectionAct.length">voir tous</button>
           </div>
+        </ion-col>
+      </ion-row>
+      <ion-row class="bottom-row">
+        <ion-col class="row-style row-space-around">
+          <button ion-button small round>Feedback</button>
+          <button ion-button small round>Followers</button>
         </ion-col>
       </ion-row>
     </ion-grid>

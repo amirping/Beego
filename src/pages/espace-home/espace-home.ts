@@ -28,6 +28,10 @@ export class EspaceHomePage {
   userSelected = 1;
   spaceState = 0;
   collectionAct: Array<any> = [];
+  collectionSensor: Array<any> = [];
+  collectionDatabase: Array<any> = [];
+  collectionBuisness: Array<any> = [];
+
   howMuch = 4;
   @Output()
   menuSliding: EventEmitter<any> = new EventEmitter();
@@ -43,66 +47,75 @@ export class EspaceHomePage {
         user: "Mohamed ezdin",
         location: "Le Bon Coin",
         time: "50 sec",
-        pic: ""
+        pic: "http://i.pravatar.cc/60"
       },
       {
         id: 1,
         user: "Fathi el jazar",
         location: "Shity Place",
         time: "1 min",
-        pic: ""
+        pic: "http://i.pravatar.cc/60"
       },
       {
         id: 1,
         user: "Hmed gobiaa",
         location: "No where",
         time: "2 min",
-        pic: ""
+        pic: "http://i.pravatar.cc/60"
       },
       {
         id: 1,
         user: "yosri lahwel",
         location: "Sigma Cof",
         time: "3 min",
-        pic: ""
+        pic: "http://i.pravatar.cc/60"
       },
       {
         id: 1,
         user: "fedi el boti",
         location: "Sin Cof",
         time: "30 min",
-        pic: ""
+        pic: "http://i.pravatar.cc/60"
       },
       {
         id: 1,
         user: "folen zarga",
         location: "Elder Towen",
-        time: "",
-        pic: "1 h"
+        time: "1 h",
+        pic: "http://i.pravatar.cc/60"
       },
       {
         id: 1,
         user: "chabroba lwled",
         location: "Green Hill",
         time: "2 h",
-        pic: ""
+        pic: "http://i.pravatar.cc/60"
       },
       {
         id: 1,
         user: "folen ben folen",
         location: "Ospen",
         time: "2 h",
-        pic: ""
+        pic: "http://i.pravatar.cc/60"
       },
       {
         id: 1,
         user: "some name",
         location: "Shadow Sun",
         time: "1 day",
-        pic: ""
+        pic: "http://i.pravatar.cc/60"
       },
-      { id: 1, user: "ali ali", location: "Blue", time: "1 day", pic: "" }
+      {
+        id: 1,
+        user: "ali ali",
+        location: "Blue",
+        time: "1 day",
+        pic: "http://i.pravatar.cc/60"
+      }
     );
+    this.collectionBuisness.concat(this.collectionAct);
+    this.collectionSensor.concat(this.collectionAct);
+    this.collectionDatabase.concat(this.collectionAct);
   }
 
   ionViewDidLoad() {

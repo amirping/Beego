@@ -32,6 +32,14 @@
     width: 100%;
     height: 100%;
   }
+  /**
+   * fix l rb el ios
+   */
+  .content-ios {
+    .holder {
+      margin-top: -26px;
+    }
+  }
 }
 
 .ios .modal-fullscreen {

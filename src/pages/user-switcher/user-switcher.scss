@@ -1,4 +1,11 @@
 page-user-switcher {
+  .list-ios>.item-block:last-child,
+  .list-ios>.item-wrapper:last-child .item-block {
+    border-bottom: none;
+  }
+  .list-ios>.item-block:first-child {
+    border-top: none;
+  }
   font-family: "Raleway";
   ion-content {
     background: rgba(0, 0, 0, 0.5) !important;
@@ -20,7 +27,7 @@ page-user-switcher {
     flex-direction: column;
     padding-top: 30px;
     max-width: 360px;
-    min-width: 350px;
+    min-width: 315px;
     margin: auto;
     margin-bottom: auto;
     margin-bottom: 0;
