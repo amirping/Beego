@@ -1,4 +1,15 @@
 page-espace-home {
+  /***
+   * ios fix for header stacked with notif bar
+   */
+  .toolbar-ios {
+    padding-top: 15px;
+  }
+  .content-ios {
+    .scroll-content {
+      margin-top: 63px !important;
+    }
+  }
   font-family: "Raleway";
   .home-side-menu {
     position: absolute;
@@ -21,29 +32,11 @@ page-espace-home {
         position: absolute;
         width: 100vw;
         height: 100vh;
-        background: -moz-linear-gradient(
-          top,
-          rgba(229, 229, 229, 0) 0%,
-          rgba(57, 65, 102, 0.61) 19%,
-          rgba(57, 65, 102, 1) 30%,
-          rgba(57, 65, 102, 1) 100%
-        );
+        background: -moz-linear-gradient( top, rgba(229, 229, 229, 0) 0%, rgba(57, 65, 102, 0.61) 19%, rgba(57, 65, 102, 1) 30%, rgba(57, 65, 102, 1) 100%);
         /* FF3.6-15 */
-        background: -webkit-linear-gradient(
-          top,
-          rgba(229, 229, 229, 0) 0%,
-          rgba(57, 65, 102, 0.61) 19%,
-          rgba(57, 65, 102, 1) 30%,
-          rgba(57, 65, 102, 1) 100%
-        );
+        background: -webkit-linear-gradient( top, rgba(229, 229, 229, 0) 0%, rgba(57, 65, 102, 0.61) 19%, rgba(57, 65, 102, 1) 30%, rgba(57, 65, 102, 1) 100%);
         /* Chrome10-25,Safari5.1-6 */
-        background: linear-gradient(
-          to bottom,
-          rgba(229, 229, 229, 0) 0%,
-          rgba(57, 65, 102, 0.61) 19%,
-          rgba(57, 65, 102, 1) 30%,
-          rgba(57, 65, 102, 1) 100%
-        );
+        background: linear-gradient( to bottom, rgba(229, 229, 229, 0) 0%, rgba(57, 65, 102, 0.61) 19%, rgba(57, 65, 102, 1) 30%, rgba(57, 65, 102, 1) 100%);
         /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
         filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00e5e5e5', endColorstr='#394166', GradientType=0);
         /* IE6-9 */
@@ -170,8 +163,7 @@ page-espace-home {
     background: #394166;
   }
   .open-menu {
-    animation: slide-bck-right-esp 0.45s cubic-bezier(0.47, 0, 0.745, 0.715)
-      forwards;
+    animation: slide-bck-right-esp 0.45s cubic-bezier(0.47, 0, 0.745, 0.715) forwards;
   }
   .close-menu {
     animation: slide-off 0.45s cubic-bezier(0.47, 0, 0.745, 0.715) forwards;
@@ -247,7 +239,6 @@ page-espace-home {
   }
   .toolbar-title {
     color: #ffffff;
-
     font-size: 24px;
     font-weight: 500;
     padding-left: 17px;
@@ -262,8 +253,7 @@ page-espace-home {
     }
     .banner-col {
       padding: 0;
-      background: url("https://source.unsplash.com/1600x900/?bar,coffe") center
-        center no-repeat;
+      background: url("https://source.unsplash.com/1600x900/?bar,coffe") center center no-repeat;
       object-fit: contain;
       .padding-row {
         padding: 30px 0 45px 0;
@@ -300,8 +290,7 @@ page-espace-home {
             border: none;
           }
           ion-item {
-            margin: auto;
-            //margin-right: 10px;
+            margin: auto; //margin-right: 10px;
             border-bottom: 1px solid rgba(gray, 0.3);
             width: 85%;
             .fogme {
@@ -310,8 +299,7 @@ page-espace-home {
               left: 0;
               bottom: 7px;
               right: 0;
-              background: url(../../assets/imgs/espaceHome_img/mask-fog.svg) top
-                left no-repeat;
+              background: url(../../assets/imgs/espaceHome_img/mask-fog.svg) top left no-repeat;
               background-size: cover;
             }
             .item-inner {
@@ -363,8 +351,7 @@ page-espace-home {
   .motd {
     margin-left: 20px;
     margin-right: 20px;
-    background: white url("../../assets/imgs/homePage_img/2-layers.svg")
-      no-repeat; // not sure about it let's try it later
+    background: white url("../../assets/imgs/homePage_img/2-layers.svg") no-repeat; // not sure about it let's try it later
     background-size: 50px;
     background-position: 100% 30%;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.13);
