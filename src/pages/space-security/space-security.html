@@ -1,0 +1,82 @@
+<!--
+  Generated template for the SpaceSecurityPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-icon (click)="back()" ios="ios-arrow-round-back" md="ios-arrow-round-back"></ion-icon>
+  Sécurité
+
+  <ion-segment class="segment-block" [(ngModel)]="index">
+
+    <ion-segment-button class="segment-white" value="1">
+      Super admin 
+    </ion-segment-button>
+    <ion-segment-button class="segment-white" value="2">
+      Gerant
+    </ion-segment-button>
+  </ion-segment>
+
+</ion-header>
+
+
+<ion-content >
+  <div class="security_content" [ngSwitch]="index">
+    <!-- super admin -->
+    <ion-grid no-padding *ngSwitchCase="1">
+      <ion-row class="com_row">
+          Le  Lorem    Ipsum   est   simplement  du  faux  texte employé  dans  la  composition
+      </ion-row>
+      <ion-row class="form">
+        <ion-row><span>Ancien mot de passe :</span></ion-row>
+        <ion-row>
+          <input type="password" value="hot li theb" name="" id="" class="password">
+        </ion-row>
+        <ion-row><span>Ancien mot de passe :</span></ion-row>
+        <ion-row>
+            <input type="password" value="hot li theb" name="" id="" class="password">
+          </ion-row>
+        <ion-row><span>Confirmer votre mot de passe :</span></ion-row>
+        <ion-row>
+            <input type="password" value="hot li theb" name="" id="" class="password">
+          </ion-row>
+      </ion-row>
+      <ion-row class="btn_row">
+        <div class="btn_container">
+          <button class="submit_btn">Valider</button>
+          <button class="cancel_btn">Annuler</button>
+        </div>
+      </ion-row>
+    </ion-grid>
+
+
+    <!-- Gerant -->
+    <ion-grid no-padding *ngSwitchCase="2">
+      <ion-row class="com_row">
+          Le  gerant    Ipsum   est   simplement  du  faux  texte employé  dans  la  composition
+      </ion-row>
+      <ion-row class="form">
+        <ion-row><span>Ancien mot de passe :</span></ion-row>
+        <ion-row>
+          <input type="password" value="hot li theb" name="" id="" class="password">
+        </ion-row>
+        <ion-row><span>Ancien mot de passe :</span></ion-row>
+        <ion-row>
+            <input type="password" value="hot li theb" name="" id="" class="password">
+          </ion-row>
+        <ion-row><span>Confirmer votre mot de passe :</span></ion-row>
+        <ion-row>
+            <input type="password" value="hot li theb" name="" id="" class="password">
+          </ion-row>
+      </ion-row>
+      <ion-row class="btn_row">
+        <div class="btn_container">
+          <button class="submit_btn">Valider</button>
+          <button class="cancel_btn">Annuler</button>
+        </div>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+</ion-content>
