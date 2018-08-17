@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25.065 25.065">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #3f4a6e;
+      }
+
+      .cls-2 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <g id="Insta_icon" data-name="Insta icon" transform="translate(-228.432 -602.468)">
+    <g id="Insta" transform="translate(221.863 602.468)">
+      <path id="Tracé_804" data-name="Tracé 804" class="cls-1" d="M12.532,0A12.532,12.532,0,1,1,0,12.532,12.532,12.532,0,0,1,12.532,0Z" transform="translate(6.569)"/>
+      <g id="Groupe_677" data-name="Groupe 677">
+        <path id="Tracé_1577" data-name="Tracé 1577" class="cls-2" d="M9.159,0H3.886A3.891,3.891,0,0,0,0,3.886V9.159a3.891,3.891,0,0,0,3.886,3.886H9.159a3.891,3.891,0,0,0,3.886-3.886V3.886A3.891,3.891,0,0,0,9.159,0Zm2.574,9.159a2.574,2.574,0,0,1-2.574,2.574H3.886A2.574,2.574,0,0,1,1.312,9.159V3.886A2.574,2.574,0,0,1,3.886,1.312H9.159a2.574,2.574,0,0,1,2.574,2.574V9.159Z" transform="translate(12.574 5.878)"/>
+        <path id="Tracé_1578" data-name="Tracé 1578" class="cls-2" d="M136.374,133a3.374,3.374,0,1,0,3.374,3.374A3.378,3.378,0,0,0,136.374,133Zm0,5.436a2.062,2.062,0,1,1,2.062-2.062A2.062,2.062,0,0,1,136.374,138.436Z" transform="translate(-117.277 -123.973)"/>
+        <circle id="Ellipse_2571" data-name="Ellipse 2571" class="cls-2" cx="0.809" cy="0.809" r="0.809" transform="translate(21.669 8.244)"/>
+      </g>
+    </g>
+  </g>
+</svg>

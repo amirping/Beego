@@ -33,7 +33,8 @@ import {MyMessagesPage} from '../pages/my-messages/my-messages';
 import {PrincipalEventPage} from '../pages/principal-event/principal-event';
 
 //space
-import {SpaceSettingPage} from '../pages/space-setting/space-setting'
+import {SpaceSettingPage} from '../pages/space-setting/space-setting';
+import {SapceSetting2Page} from '../pages/sapce-setting2/sapce-setting2';
 
 import { UserProvider } from '../providers/user/user';
 
@@ -44,7 +45,7 @@ import { UserProvider } from '../providers/user/user';
 export class MyApp {
   // = ProfilPage
 
-  rootPage: any= SpaceSettingPage;
+  rootPage: any= SapceSetting2Page;
   constructor(
     platform: Platform,
     statusBar: StatusBar,

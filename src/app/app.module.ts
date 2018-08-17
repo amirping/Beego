@@ -47,7 +47,8 @@ import {ContactUsConversatoinPage} from '../pages/contact-us-conversatoin/contac
 import {MyMessagesPage} from '../pages/my-messages/my-messages';
 import {PrincipalEventPage} from '../pages/principal-event/principal-event';
 //space
-import {SpaceSettingPage} from '../pages/space-setting/space-setting'
+import {SpaceSettingPage} from '../pages/space-setting/space-setting';
+import {SapceSetting2Page} from '../pages/sapce-setting2/sapce-setting2';
 
 
 import { Ionic2RatingModule } from "ionic2-rating";
@@ -115,6 +116,7 @@ import { HttpClientModule } from "../../node_modules/@angular/common/http";
     MyMessagesPage,
     PrincipalEventPage,
     SpaceSettingPage,
+    SapceSetting2Page,
     
 
 
@@ -167,6 +169,7 @@ import { HttpClientModule } from "../../node_modules/@angular/common/http";
     PopupPage,
     EventPage,
     SpaceSettingPage,
+    SapceSetting2Page,
 
     UpdateProgramPage,
     DislikeListPage,

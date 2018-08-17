@@ -1,0 +1,202 @@
+page-sapce-setting2 {
+  ion-header {
+    height: 70px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+    border: 1px solid rgba(0, 0, 0, 0);
+    background-color: #353b5a;
+    display: flex;
+    justify-content: center;
+    color: #ffffff;
+    font-family: Raleway;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.19px;
+    padding-top: 26px;
+    ion-icon {
+      color: white;
+      left: 5%;
+      font-size: 35px;
+      font-size: 38px;
+      position: absolute;
+      top: 18px;
+    }
+  }
+  .content_color {
+    background-color: #383f60 !important;
+  }
+  .setting_row {
+    width: 100%;
+    height: 60px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding-top: 16px;
+    .setting_text {
+      width: 100%;
+      height: 100%;
+      padding-left: 20px;
+      color: #ffffff;
+      font-size: 16px;
+      letter-spacing: -0.32px;
+      line-height: 29px;
+      font-weight: 500;
+      font-family: Raleway;
+    }
+    ion-icon {
+      color: #7a82a5;
+      position: absolute;
+      right: 6%;
+      top: 25px;
+      transition: 1s;
+    }
+    .closeIcon1 {
+      transform: rotate(90deg);
+    }
+    .closeIcon2 {
+        transform: rotate(90deg);
+      }
+      .closeIcon3 {
+        transform: rotate(90deg);
+      }
+    .line {
+      height: 1px;
+      border: 0.5px solid #c8c7cc4a;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: calc( 100% - 20px);
+    }
+  }
+  .general_setting {
+    height: 0px;
+    background-color: #323b58;
+    display: block;
+    transition: all 1s;
+    overflow: hidden;
+    .nameAndNumber {
+      height: 30px;
+      border-radius: 15px;
+      background-color: #383f60;
+      width: 100%;
+      border: none;
+      color: #9eaacc;
+      font-size: 12px;
+      font-family: "Segoe UI";
+      font-weight: 400;
+      padding-left: 15px;
+    }
+    .description {
+      width: 100%;
+      height: 121px;
+      border-radius: 15px;
+      background-color: #383f60;
+      color: #9eaacc;
+      font-family: Raleway;
+      font-size: 12px;
+      font-weight: 400;
+      /* Text style for "Le  Lorem" */
+      font-family: "Segoe UI";
+      font-weight: 400;
+      padding-top: 10px;
+      padding-left: 15px;
+      border: none;
+    }
+  }
+  .showGeneralSetting {
+    display: flex !important;
+    height: 335px !important;
+  }
+
+
+  .Social_network {
+    width: 100%;
+    height: 0px;
+    display: block;
+    transition: all 1s;
+    background-color: #323b58;
+    overflow: hidden;
+    .sn_row{
+        width: 100%;
+        position: relative;
+        .sn_input {
+            width: calc( 100% - 60px);
+            height: 30px;
+            border-radius: 15px;
+            background-color: #383f60;
+            border: none;
+            color: #9eaacc;            
+            font-size: 12px;
+            font-weight: 400;
+            font-family: "Segoe UI";
+            padding-left: 48px;
+          }
+          .fb_bg{
+              background-image: url(../../assets/imgs/space_setting/fb.svg);
+              background-position: 3px 2px;
+              background-repeat: no-repeat;
+              background-size: 25px 26px;
+          }
+          .insta_bg{
+            background-image: url(../../assets/imgs/space_setting/Insta.svg);
+            background-position: 3px 2px;
+            background-repeat: no-repeat;
+            background-size: 25px 26px;
+        }
+          .redCercle{
+            width: 30px;
+            height: 30px;
+            border: 1px solid #f55657;
+            // background-color: #383f60;
+            border-radius: 50px;
+            position: absolute;
+            right: 16px;
+            top: 5px;
+            ion-icon{
+                font-size: 20px;
+                color: #f17374;
+                margin-left: 8px;
+                margin-top: 4px;
+            
+            }
+          }
+    }  
+    .as_add{
+        display: flex;
+        justify-content: center;
+        margin-top: 14px;
+        .blue_cercle{
+            width: 32px;
+            height: 32px;
+            border: 1px solid #1f9ed5;
+            // background-color: #383f60;
+            border-radius: 50px;
+            position: relative;
+            ion-icon{
+                color: #1f9ed5;
+                font-size: 22px;
+                position: absolute;
+                top: 4px;
+                left: 8px;
+            }
+        }
+    } 
+  }
+  .showSN{
+      display: flex;
+      height: 214px;
+  }
+  .title_margin{
+      margin-top: 9px !important;
+  }
+  .title {
+    width: 100%;
+    color: #ffffff;
+    font-family: Raleway;
+    font-size: 12px;
+    font-weight: 500;
+    margin-top: 14px;
+  }
+  .dark-row {
+    background-color: #323b58;
+  }
+}

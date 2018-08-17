@@ -1,5 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, Content } from 'ionic-angular';
+import {SapceSetting2Page} from '../sapce-setting2/sapce-setting2';
 
 /**
  * Generated class for the SpaceSettingPage page.
@@ -66,6 +67,9 @@ export class SpaceSettingPage {
         this.lasttop=58;
       }
     })
+  }
+  generalSetting(){
+    this.navCtrl.push(SapceSetting2Page);
   }
 
 }

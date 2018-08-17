@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25.065 25.065">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #3f4a6e;
+      }
+
+      .cls-2 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <g id="Facebook_btn" data-name="Facebook btn" transform="translate(-228.432 -602.468)">
+    <g id="facebook" transform="translate(221.863 602.468)">
+      <path id="Tracé_804" data-name="Tracé 804" class="cls-1" d="M12.532,0A12.532,12.532,0,1,1,0,12.532,12.532,12.532,0,0,1,12.532,0Z" transform="translate(6.569)"/>
+      <path id="Tracé_805" data-name="Tracé 805" class="cls-2" d="M113.8,74.933h1.615V72.547h-1.9v.009c-2.3.081-2.772,1.375-2.814,2.733h0V76.48h-1.567v2.336H110.7v6.263h2.361V78.816H115l.374-2.336h-2.307v-.72A.769.769,0,0,1,113.8,74.933Z" transform="translate(-93.177 -66.305)"/>
+    </g>
+  </g>
+</svg>
