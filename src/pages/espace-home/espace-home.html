@@ -115,17 +115,17 @@
           </ion-row>
           <ion-row>
             <ion-col class="beego-row-center padding-row">
-              <div class="catego-wrapper" (click)="null">
+              <div class="catego-wrapper" (click)="showingData = '1'" *ngIf="showingData == '0' || showingData == '1'">
                 <div>
                   <span>Bee Sensor</span>
                 </div>
               </div>
-              <div class="catego-wrapper" (click)="null">
+              <div class="catego-wrapper" (click)="showingData = '2'" *ngIf="showingData == '0' || showingData == '2'">
                 <div>
                   <span>Bee Database</span>
                 </div>
               </div>
-              <div class="catego-wrapper" (click)="null">
+              <div class="catego-wrapper" (click)="showingData = '3'" *ngIf="showingData == '0' || showingData == '3'">
                 <div>
                   <span>bee Buisness</span>
                 </div>
@@ -135,12 +135,60 @@
         </ion-col>
       </ion-row>
       <ion-row class="main-box">
-        <ion-col class="curved-col">
-          <ion-list>
+        <ion-col class="curved-col" [ngSwitch]="showingData">
+          <ion-list *ngSwitchCase="0">
             <ion-list-header>
               Actualitées
             </ion-list-header>
             <ion-item class="animated fadeInDown" *ngFor="let item of collectionAct | slice:0:howMuch;let lst = last;" [class.noborder]="lst">
+              <div class="fogme" *ngIf="lst"></div>
+              <ion-avatar item-start>
+                <img src="{{item.pic}}">
+              </ion-avatar>
+              <p>
+                <b>{{item.user}}</b> a partager avec vous localisation , il est a
+                <b>{{item.location}}</b>
+              </p>
+              <p>il y a {{item.time}}</p>
+            </ion-item>
+          </ion-list>
+          <ion-list *ngSwitchCase="1">
+            <ion-list-header>
+              Bee Sensor
+            </ion-list-header>
+            <ion-item class="animated fadeInDown" *ngFor="let item of collectionSensor | slice:0:howMuch;let lst = last;" [class.noborder]="lst">
+              <div class="fogme" *ngIf="lst"></div>
+              <ion-avatar item-start>
+                <img src="{{item.pic}}">
+              </ion-avatar>
+              <p>
+                <b>{{item.user}}</b> a partager avec vous localisation , il est a
+                <b>{{item.location}}</b>
+              </p>
+              <p>il y a {{item.time}}</p>
+            </ion-item>
+          </ion-list>
+          <ion-list *ngSwitchCase="2">
+            <ion-list-header>
+              Bee DataBase
+            </ion-list-header>
+            <ion-item class="animated fadeInDown" *ngFor="let item of collectionDatabase | slice:0:howMuch;let lst = last;" [class.noborder]="lst">
+              <div class="fogme" *ngIf="lst"></div>
+              <ion-avatar item-start>
+                <img src="{{item.pic}}">
+              </ion-avatar>
+              <p>
+                <b>{{item.user}}</b> a partager avec vous localisation , il est a
+                <b>{{item.location}}</b>
+              </p>
+              <p>il y a {{item.time}}</p>
+            </ion-item>
+          </ion-list>
+          <ion-list *ngSwitchCase="3">
+            <ion-list-header>
+              Bee Buisness
+            </ion-list-header>
+            <ion-item class="animated fadeInDown" *ngFor="let item of collectionBuisness | slice:0:howMuch;let lst = last;" [class.noborder]="lst">
               <div class="fogme" *ngIf="lst"></div>
               <ion-avatar item-start>
                 <img src="{{item.pic}}">

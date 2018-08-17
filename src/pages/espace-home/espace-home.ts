@@ -31,6 +31,13 @@ export class EspaceHomePage {
   collectionSensor: Array<any> = [];
   collectionDatabase: Array<any> = [];
   collectionBuisness: Array<any> = [];
+  /**
+   * 0 -> collectionAct // Default is 0
+   * 1 -> collectionSensor
+   * 2 -> collectionDatabase
+   * 3 -> collectionBuisness
+   */
+  showingData = "0";
 
   howMuch = 4;
   @Output()
@@ -113,9 +120,9 @@ export class EspaceHomePage {
         pic: "http://i.pravatar.cc/60"
       }
     );
-    this.collectionBuisness.concat(this.collectionAct);
-    this.collectionSensor.concat(this.collectionAct);
-    this.collectionDatabase.concat(this.collectionAct);
+    this.collectionBuisness = this.collectionAct;
+    this.collectionSensor = this.collectionAct;
+    this.collectionDatabase = this.collectionAct;
   }
 
   ionViewDidLoad() {
