@@ -17,11 +17,16 @@ export class SapceSetting2Page {
   arrow1 = false;
   generalSettingVar = false;
   colorVar1 = true;
-  colorVar2 = true;
-  colorVar3 = true;
+  
+  
 
   SNvar = false;
   arrow2 = false;
+  colorVar2 = true;
+
+  mpVar=false;
+  colorVar3 = true;
+  arrow3=false;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
@@ -30,10 +35,15 @@ export class SapceSetting2Page {
   }
   openGeneralSetting() {
     this.arrow1 = !this.arrow1;
+    // this.colorVar1 = true;
     this.generalSettingVar = !this.generalSettingVar;
     this.colorVar2 = !this.colorVar2;
     if (this.SNvar === false) {
       this.colorVar3 = !this.colorVar3;
+    }
+    else{
+      this.colorVar2 = !this.colorVar2;
+      this.colorVar1 = !this.colorVar1;
     }
   }
   openSocialNetwork() {
@@ -46,8 +56,13 @@ export class SapceSetting2Page {
     else{
       this.colorVar3 = !this.colorVar3;
     }
-
-    // this.colorVar3=!this.colorVar3;
+  }
+  openPaymentMethode(){
+    this.arrow3=!this.arrow3;
+    this.mpVar=!this.mpVar;
+    if(!(this.generalSettingVar)||(this.SNvar)){
+      this.colorVar3 = true;
+    }    
   }
 
   ionViewDidLoad() {

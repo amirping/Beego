@@ -93,9 +93,36 @@
                   </ion-row>
       </ion-grid>
     </ion-row>
-    <ion-row class="setting_row" [class.dark-row]="!colorVar3">
+    <ion-row class="setting_row" (click)="openPaymentMethode()" 
+     [class.dark-row]="!colorVar3">
       <div class="setting_text">Mode de paiement</div>
-      <ion-icon ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
+      <ion-icon [class.closeIcon3]="arrow3" 
+       ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
+    </ion-row>
+    <ion-row class="Payment_method animated fadeInDownBig" [class.showMP]="mpVar">
+      <ion-grid no-padding>
+        <ion-row class="payment_row" [class.dark-row]="colorVar3">
+          <div class="pay">
+              <img class="img1"
+              src="../../assets/imgs/space_detail/img1.svg" alt="">
+          </div>
+          <div class="pay">
+              <img class="img2"
+               src="../../assets/imgs/space_detail/img2.svg" alt="">
+          </div>
+          <div class="pay">
+              <img class="img3"
+               src="../../assets/imgs/space_detail/img3.svg" alt="">
+          </div>
+          <div class="pay">
+              <img class="img4"
+              src="../../assets/imgs/space_detail/img4.svg" alt="">
+          </div>
+        </ion-row>
+        <ion-row class="btn_row" [class.dark-row]="!colorVar3">
+          <button>Valider</button>
+        </ion-row>
+      </ion-grid>
     </ion-row>
   </ion-grid>
 

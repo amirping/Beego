@@ -196,7 +196,82 @@ page-sapce-setting2 {
     font-weight: 500;
     margin-top: 14px;
   }
+  .Payment_method{
+    height: 0px;
+    // display: block;
+    transition: all 1s;
+    overflow: hidden;
+    .payment_row{
+      padding-top: 8px;
+      padding-left: 10%;
+      padding-right: 10%;
+      width: 72%;
+      justify-content: space-around;
+      display: flex;
+      height: 62px;
+      width: 100%;
+      background-color: #383f60;
+      .pay{
+        width: 45px;
+        height: 45px;
+        border: 1px solid #e2e2e2;
+        border-radius: 50px;
+        position: relative;
+        .img1{
+          width: 27px;
+          position: absolute;
+          top: 9px;
+          left: 8px;
+        }
+        .img2{
+          width: 53px ;
+          top: 8px;
+          left: -6px;
+          position: absolute;
+          max-width: fit-content;
+        }
+        .img3{
+          width: 16px;
+          position: absolute;
+          left: 13px;
+          top: 2px;
+        }
+        .img4{
+          width: 61px;
+          max-width: fit-content;
+          position: absolute;
+          left: -5px;
+          top: 4px;
+        }
+      }
+    }
+    .btn_row{
+      height: 107px;
+      background-color: #383f60;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      padding-top: 30px;
+      button{
+        width: 264px;
+        height: 35px;
+        box-shadow: 0 0 10px rgba(31, 158, 213, 0.31);
+        border-radius: 17px;
+        border: 1px solid #1f9ed5;
+        background-color: #1f9ed5;
+        color: #ffffff;
+        font-family: Raleway;
+        font-size: 14px;
+        font-weight: 500;
+      }
+    }
+  }
+  .showMP{
+    display: flex;
+    height: 169px;
+}
+
   .dark-row {
-    background-color: #323b58;
+    background-color: #323b58 !important;
   }
 }
