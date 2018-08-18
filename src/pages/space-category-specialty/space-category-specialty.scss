@@ -1,0 +1,171 @@
+page-space-category-specialty {
+    ion-header{
+        height: 119px;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+        border: 1px solid rgba(0, 0, 0, 0);
+        background-color: #353b5a;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        color: #ffffff;
+        font-family: Raleway;
+        font-size: 16px;
+        font-weight: 500;
+        letter-spacing: 0.19px;
+        padding-top: 35px;
+        ion-icon {
+            color: white;
+            left: 5%;
+            font-size: 35px;
+            font-size: 38px;
+            position: absolute;
+            top: 27px;
+          }
+          .segment-block {
+            position: absolute;
+            bottom: 0;
+            .segment-white {
+                background-color: transparent !important;
+                border: none !important;
+                color: rgba(255, 255, 255, 0.4) !important;
+                font-family: Raleway;
+                font-size: 14px !important;
+                font-weight: 500;
+              }
+              .segment-activated {
+                font-size: 14px !important;
+                background-color: transparent !important;
+                border-bottom: 3px solid #f22876 !important;
+                font-family: Raleway;
+                font-weight: 500;
+                color: white !important;
+              }
+          }
+    }
+    .content-ios {     
+        background-color: #383f60;
+    }
+    .content-md {     
+        background-color: #383f60;
+    }
+    .title_row{
+        padding-left: 20px;
+        padding-top: 30px;
+        height: 64px;
+        width: 100;
+        color: #ffffff;
+        font-family: Raleway;
+        font-size: 16px;
+        font-weight: 500;
+    }
+    .category_row{
+        position: relative;
+        background-color: #323b58;
+        width: 100%;
+        padding-left: 20px;
+        padding-top: 21px;
+        input{
+            width: calc( 100% - 114px );
+            padding-left: 21px;
+            color: #ffffff;
+            font-size: 12px;
+            font-family: "Segoe UI";
+            font-weight: 400;
+            background-color: #383f60;
+            height: 30px;
+            border-radius: 15px;
+            border: none;
+        }
+        ion-icon{
+            color: #7a82a5;
+            position: absolute;
+            left: calc( 100% - 140px );
+            background-color: transparent;                 
+            position: absolute;
+            top: 27px;
+            font-size: 17px;       
+        }
+        .imgCercle{
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+            width: 30px;
+            height: 30px;
+            border-radius: 50px;
+            margin-left: 16px;
+            img{
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+                border-radius: 50px;
+            }
+        }
+        .redCercle{
+            width: 30px;
+            height: 30px;
+            border: 1px solid #f55657;
+            border-radius: 50px;
+            margin-left: 16px;
+            position: relative;
+            ion-icon{
+                font-size: 20px;
+                color: #f17374;
+                position: absolute;
+                top: 4px;
+                left: 8px;
+            }
+          }
+    }
+    .add_row{
+        background-color: #323b58;
+        height: 81px;
+        padding-top: 24px;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        .blue_cercle{
+            width: 32px;
+            height: 32px;
+            border: 1px solid #1f9ed5;
+            border-radius: 50px;
+            position: relative;
+            ion-icon{
+                color: #1f9ed5;
+                font-size: 22px;
+                position: absolute;
+                top: 4px;
+                left: 8px;
+            }
+        }
+    }
+    .btn_row{
+        width: 100%;
+        padding-top: 30px;
+        display: flex;
+        justify-content: center;
+        .btn_container{
+            width: 253px;
+            display: flex;
+            .submit_btn{
+                width: 160px;
+                height: 35px;
+                box-shadow: 0 0 10px rgba(31, 158, 213, 0.31);
+                border-radius: 17px;
+                border: 1px solid #1f9ed5;
+                background-color: #1f9ed5;
+                color: #ffffff;
+                font-family: Raleway;
+                font-size: 14px;
+                font-weight: 500;
+            }
+            .cancel_btn{
+                background-color: transparent;
+                color: #7a82a5;
+                font-family: Raleway;
+                font-size: 14px;
+                font-weight: 500;
+            }
+            .space{
+                width: 25px;
+            }
+        }
+    }
+}
