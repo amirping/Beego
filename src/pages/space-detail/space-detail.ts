@@ -56,7 +56,7 @@ export class SpaceDetailPage {
   testDate;
 
 
-
+  uid;
   dualValue2 = 30;
   listFollowers: AngularFireList<any>;
   notes = [];
@@ -116,6 +116,10 @@ export class SpaceDetailPage {
   dateDuJour;
   ouverte = "Fermée";
   horaireDuJour;
+  followers;
+  following="suivre";
+  abonné="Vous êtes maintenant abonné à nous"
+
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     private db: AngularFireDatabase,
@@ -125,10 +129,12 @@ export class SpaceDetailPage {
 
   ) {
     
+    console.log("following?",this.following)
     this.dateDuJour=new Date().toDateString().substring(0,3)
     this.horaireDuJour=new Date().toISOString().substring(11, 19);
     console.log("horaire",this.horaireDuJour)
 
+    this.uid = this.navParams.get('uid');
     
     console.log("la date d'aujourd'hui est",this.dateDuJour)
 
@@ -140,7 +146,15 @@ export class SpaceDetailPage {
       .snapshotChanges().map(changes => {
         return changes.map(c => ({ key: c.payload.key, ...c.payload.val() }))
       });
-
+      console.log("uid",this.uid,"idEspace",this.idEspace)
+    this.db.list(`spaceFollowers/${this.uid}/${this.idEspace}`).valueChanges().subscribe((user : any)=>{
+      console.log('usr',user)
+      if(user.length!=0){
+        this.following= "Ne pas suivre";
+        this.abonné="Vous êtes maintenant désabonné de nous "
+      }
+    })
+    
     this.db.object(`espace/${this.idEspace}`).valueChanges().subscribe((data: any) => {
       this.testDate = Date.now().toString()
       console.log("date",this.testDate)
@@ -296,7 +310,7 @@ export class SpaceDetailPage {
     console.log(this.listFollowers) */
     let alert = this.alertController.create({
       title: this.espaceName,
-      message: "Vous êtes maintenant abonner à nous",
+      message: this.abonné,
       buttons: [
         {
           text: "Ok"

@@ -52,7 +52,7 @@ export class HomePage {
     this.search = !this.search;
   }
   evenementListRef$: Observable<any[]>;
-  espacesListRef$: any;
+  espacesListRef$: any[];
   promotionListRef$: Observable<any[]>;
   suggestionListRef$: Observable<any[]>;
   connaissanceListRef$: Observable<any[]>;
@@ -75,6 +75,8 @@ export class HomePage {
   news = [] as any;
   stat;
   pageType;
+  following = false
+  uid;
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -85,6 +87,7 @@ export class HomePage {
      private http: HttpClient,
     private events: Events
   ) {
+    this.following = true
     this.pageType ="only10"
     
     
@@ -92,7 +95,14 @@ export class HomePage {
     this.spacesProvider.listSpecificTastes("only10",(data)=>{
       console.log("ahaya data",data)
       this.espacesListRef$= data.spaces
+      console.log("avant filter",this.espacesListRef$)
+      this.espacesListRef$= this.espacesListRef$.filter(d=>d.espaceName.includes("e"))
+      this.uid=data.uid
+      console.log("après filter",this.espacesListRef$)
+
     })
+    
+ 
     // don't
     this.menuSliding.emit(false);
     // this.tabBarElement = document.querySelector(".tabbar.show-tabbar");
@@ -293,7 +303,7 @@ export class HomePage {
         this.navCtrl.push(FriendProfilPage);
         break;
         case"space-detail": 
-        this.navCtrl.push(SpaceDetailPage,{cle : idEspace});
+        this.navCtrl.push(SpaceDetailPage,{cle : idEspace,uid:this.uid});
       default:
         break;
     }
