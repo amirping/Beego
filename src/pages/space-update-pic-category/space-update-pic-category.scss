@@ -1,0 +1,61 @@
+page-space-update-pic-category {
+    .blur{
+        filter: blur(2px);
+    }
+    .content-ios {     
+        background-color: transparent;
+    }
+    .content-md {     
+        background-color: transparent;
+    }
+    .pic_container{
+        width: 100%;
+        display: flex;
+        justify-content: center;        
+        margin-top: 115px;    
+        background-color: transparent;
+        height: 320px;
+        position: relative;
+        ion-icon{
+            position: absolute;
+            top: -16px;
+            right: 15px;
+            font-size: 40px;
+            color: white;        
+        }
+        .pic_place{            
+            width: 300px;
+            height: 300px;
+            border-radius: 15px;
+            background-color: transparent;
+            position: absolute;
+            bottom: 0;
+            display: flex;
+            justify-content: center;
+            .img_name{
+                position: absolute;
+                bottom: 14px;
+                width: 118px;
+                height: 37px;
+                border-radius: 10px;
+                background-color:rgba(255,255,255,0.5);
+                padding-top: 9px;
+                padding-left: 22px;
+                color: #ffffff;
+                font-family: Raleway;
+                font-size: 16px;
+                font-weight: 500;
+            }
+            img{
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+                border-radius: 15px;
+            box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.16);
+                
+            }
+        }
+    }
+   
+  
+}

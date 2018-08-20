@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #383f60;
+        stroke: #1f9ed5;
+      }
+
+      .cls-1, .cls-3, .cls-4 {
+        stroke-width: 0.5px;
+      }
+
+      .cls-2 {
+        fill: #e6e7e8;
+      }
+
+      .cls-3 {
+        fill: #1f9ed5;
+        stroke: #e6e7e8;
+      }
+
+      .cls-3, .cls-4 {
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-miterlimit: 10;
+      }
+
+      .cls-4, .cls-6 {
+        fill: none;
+      }
+
+      .cls-4 {
+        stroke: #fff;
+      }
+
+      .cls-5 {
+        stroke: none;
+      }
+    </style>
+  </defs>
+  <g id="add_img" data-name="add img" transform="translate(-277 -509.5)">
+    <g id="Ellipse_2607" data-name="Ellipse 2607" class="cls-1" transform="translate(277 509.5)">
+      <circle class="cls-5" cx="15" cy="15" r="15"/>
+      <circle class="cls-6" cx="15" cy="15" r="14.75"/>
+    </g>
+    <g id="Icon_images" data-name="Icon images" transform="translate(282.531 518.246)">
+      <g id="Groupe_526" data-name="Groupe 526" transform="translate(0)">
+        <g id="Groupe_525" data-name="Groupe 525">
+          <path id="Tracé_1122" data-name="Tracé 1122" class="cls-2" d="M15.024,0H4.339a1.485,1.485,0,0,0-1.5,1.5v.522l-1.705.452a1.508,1.508,0,0,0-.9.7A1.392,1.392,0,0,0,.093,4.281l2.088,7.761a1.508,1.508,0,0,0,.7.9,1.37,1.37,0,0,0,.731.209,1.428,1.428,0,0,0,.383-.035l6.787-1.81h4.246a1.508,1.508,0,0,0,1.5-1.5V1.5a1.485,1.485,0,0,0-1.5-1.5ZM3.817,12.529a.82.82,0,0,1-.7-.1.865.865,0,0,1-.418-.557L.615,4.107a.82.82,0,0,1,.1-.7.865.865,0,0,1,.557-.418l1.566-.418v7.2a1.508,1.508,0,0,0,1.5,1.5H8.481ZM15.929,9.815a.921.921,0,0,1-.9.9H4.339a.921.921,0,0,1-.9-.9V1.5a.921.921,0,0,1,.9-.9H15.024a.921.921,0,0,1,.9.9V5.708L14.5,4.281a.569.569,0,0,0-.835,0L10.256,7.657h0L8.55,5.951a.635.635,0,0,0-.835,0L6.253,7.413a.3.3,0,0,0,.418.418L8.133,6.369,9.838,8.074h0L8.62,9.293a.318.318,0,0,0,0,.418.261.261,0,0,0,.418,0L14.049,4.7l1.775,1.775a.122.122,0,0,0,.07.035V9.815Zm0,0" transform="translate(-0.036)"/>
+        </g>
+        <path id="Tracé_1123" data-name="Tracé 1123" class="cls-2" d="M15.132,23.144l-.278.278a.318.318,0,0,0,0,.418.261.261,0,0,0,.418,0l.313-.313a.318.318,0,0,0,0-.418.428.428,0,0,0-.452.035Zm0,0" transform="translate(-9.645 -15.035)"/>
+        <path id="Tracé_1124" data-name="Tracé 1124" class="cls-2" d="M16.193,6.6a1.5,1.5,0,1,0-1.5,1.5,1.508,1.508,0,0,0,1.5-1.5Zm-1.5.87a.9.9,0,1,1,.9-.9.9.9,0,0,1-.9.9Zm0,0" transform="translate(-8.619 -3.325)"/>
+      </g>
+      <circle id="Ellipse_2542" data-name="Ellipse 2542" class="cls-3" cx="2.541" cy="2.541" r="2.541" transform="translate(12.703 7.483)"/>
+      <g id="Groupe_527" data-name="Groupe 527" transform="translate(14.269 9.049)">
+        <line id="Ligne_64" data-name="Ligne 64" class="cls-4" x2="2.227" transform="translate(0 1.114)"/>
+        <line id="Ligne_65" data-name="Ligne 65" class="cls-4" y2="2.227" transform="translate(1.114)"/>
+      </g>
+    </g>
+  </g>
+</svg>

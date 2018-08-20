@@ -11,7 +11,7 @@
 
   <ion-segment class="segment-block" [(ngModel)]="index">
     <ion-segment-button class="segment-white" value="1">
-        Catégorie
+      Catégorie
     </ion-segment-button>
     <ion-segment-button class="segment-white" value="2">
       Spécialité
@@ -23,34 +23,123 @@
 </ion-header>
 
 
-<ion-content >
-  <ion-grid no-padding>
+<ion-content class="unblock-part" [ngSwitch]="index" [class.category-showOff]="showOffVar">
+  <!-- category -->
+  <ion-grid no-padding *ngSwitchCase="1" >
     <ion-row class="title_row">
-        Mes catégories :
+      Mes catégories :
     </ion-row>
-    <ion-row class="category_row" *ngFor="let item of category;">
+    <ion-row class="category_row animated pulse" 
+    *ngFor="let item of category;let i=index">
       <input type="text" value="{{item.name}}">
       <ion-icon ios="ios-arrow-down" md="ios-arrow-down"></ion-icon>
-      <div class="imgCercle">
-        <img  [src]="item.picUrl" alt="">
+      <div class="imgCercle" (click)="updatePic(i)" >
+        <img [src]="item.picUrl" alt="">
       </div>
-      <div class="redCercle">
-          <!-- [(ngModel)]="{{item.id}}"   -->
-          <ion-icon  ios="md-close" md="md-close"></ion-icon>
-        </div>
+      <div class="redCercle" (click)="DeleteCat(i)">
+        <ion-icon ios="md-close" md="md-close"></ion-icon>
+      </div>
+    </ion-row>
+    <ion-row class="category_row add_cat animated pulse" [class.show-add-cat]="showAddCatVar">
+      <input type="text" placeholder="Nom du catégorie" focus [(ngModel)]="NewCatName">
+      <ion-icon ios="ios-arrow-down" md="ios-arrow-down"></ion-icon>
+      <div class="imgCercle">
+        <img src="../../assets/imgs/space_setting/catAndSpe/add_img.svg" alt="">
+      </div>
+      <div class="redCercle" (click)="cancelAddCat()">
+        <ion-icon ios="md-close" md="md-close"></ion-icon>
+      </div>
     </ion-row>
     <ion-row class="add_row">
-        <div class="blue_cercle">
-            <ion-icon ios="md-add" md="md-add"></ion-icon>
+      <div class="blue_cercle" (click)="add_cat()">
+        <ion-icon ios="md-add" md="md-add"></ion-icon>
       </div>
     </ion-row>
     <ion-row class="btn_row">
       <div class="btn_container">
-        <button class="submit_btn">Valider</button>
+        <button class="submit_btn" (click)="addToCategory()">Valider</button>
         <div class="space"></div>
         <button class="cancel_btn">Annuler</button>
       </div>
     </ion-row>
   </ion-grid>
+
+  <!-- spécialité -->
+  <ion-grid no-padding *ngSwitchCase="2">
+    <ion-row class="title_row">
+      Mes spécialites :
+    </ion-row>
+    <ion-row class="category_row animated pulse" *ngFor="let item of specialty;let i=index">
+      <input type="text" value="{{item.name}}">
+      <ion-icon ios="ios-arrow-down" md="ios-arrow-down"></ion-icon>
+      <div class="imgCercle">
+        <img [src]="item.picUrl" alt="">
+      </div>
+      <div class="redCercle" (click)="DeleteSpe(i)">
+        <ion-icon ios="md-close" md="md-close"></ion-icon>
+      </div>
+    </ion-row>
+    <ion-row class="category_row add_cat animated pulse" focus [class.show-add-spe]="showAddSpecialtyVar">
+      <input type="text" placeholder="Nom du spésialité" [(ngModel)]="NewSpeName">
+      <ion-icon ios="ios-arrow-down" md="ios-arrow-down"></ion-icon>
+      <div class="imgCercle">
+        <img src="../../assets/imgs/space_setting/catAndSpe/add_img.svg" alt="">
+      </div>
+      <div class="redCercle" (click)="cancelAddspe()">
+        <ion-icon ios="md-close" md="md-close"></ion-icon>
+      </div>
+    </ion-row>
+    <ion-row class="add_row">
+      <div class="blue_cercle" (click)="add_spe()">
+        <ion-icon ios="md-add" md="md-add"></ion-icon>
+      </div>
+    </ion-row>
+    <ion-row class="btn_row">
+      <div class="btn_container">
+        <button class="submit_btn" (click)="addToSpesialty()">Valider</button>
+        <div class="space"></div>
+        <button class="cancel_btn">Annuler</button>
+      </div>
+    </ion-row>
+  </ion-grid>
+
+  <!-- plus d info -->
+  <ion-grid no-padding *ngSwitchCase="3">
+    <ion-row class="title_row">
+      Plus d'infos :
+    </ion-row>
+    <ion-row class="category_row animated pulse" *ngFor="let item of info;let i=index">
+      <input type="text" value="{{item.name}}">
+      <ion-icon ios="ios-arrow-down" md="ios-arrow-down"></ion-icon>
+      <div class="imgCercle">
+        <img [src]="item.picUrl" alt="">
+      </div>
+      <div class="redCercle" (click)="DeleteInfo(i)">
+        <ion-icon ios="md-close" md="md-close"></ion-icon>
+      </div>
+    </ion-row>
+    <ion-row class="category_row add_cat animated pulse" focus [class.show-add-info]="showAddInfoVar">
+      <input type="text" placeholder="Nom d'info" [(ngModel)]="NewInfoName">
+      <ion-icon ios="ios-arrow-down" md="ios-arrow-down"></ion-icon>
+      <div class="imgCercle">
+        <img src="../../assets/imgs/space_setting/catAndSpe/add_img.svg" alt="">
+      </div>
+      <div class="redCercle" (click)="cancelAddInfo()">
+        <ion-icon ios="md-close" md="md-close"></ion-icon>
+      </div>
+    </ion-row>
+    <ion-row class="add_row">
+      <div class="blue_cercle" (click)="add_info()">
+        <ion-icon ios="md-add" md="md-add"></ion-icon>
+      </div>
+    </ion-row>
+    <ion-row class="btn_row">
+      <div class="btn_container">
+        <button class="submit_btn" (click)="addToInfo()">Valider</button>
+        <div class="space"></div>
+        <button class="cancel_btn">Annuler</button>
+      </div>
+    </ion-row>
+  </ion-grid>  
 
 </ion-content>

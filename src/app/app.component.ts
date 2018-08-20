@@ -37,6 +37,7 @@ import {SpaceSettingPage} from '../pages/space-setting/space-setting';
 import {SapceSetting2Page} from '../pages/sapce-setting2/sapce-setting2';
 import {SpaceSecurityPage} from '../pages/space-security/space-security';
 import {SpaceCategorySpecialtyPage} from '../pages/space-category-specialty/space-category-specialty';
+import {SpaceUpdatePicCategoryPage} from '../pages/space-update-pic-category/space-update-pic-category';
 
 import { UserProvider } from '../providers/user/user';
 
