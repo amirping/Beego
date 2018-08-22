@@ -15,6 +15,7 @@ import { SpaceUpdatePicCategoryPage } from '../space-update-pic-category/space-u
   templateUrl: 'space-category-specialty.html',
 })
 export class SpaceCategorySpecialtyPage {
+  showNamesVar=false;
   pic;
   index = "1";
   showOffVar = false;
@@ -141,6 +142,12 @@ export class SpaceCategorySpecialtyPage {
 
   back() {
     this.navCtrl.pop();
+  }
+  showNamesFun(){
+    this.showNamesVar=true;
+  }
+  closeNamesFun(){
+    this.showNamesVar=false;
   }
   ionViewDidLoad() {
     console.log('ionViewDidLoad SpaceCategorySpecialtyPage');

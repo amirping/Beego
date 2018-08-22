@@ -32,7 +32,7 @@
     <ion-row class="category_row animated pulse" 
     *ngFor="let item of category;let i=index">
       <input type="text" value="{{item.name}}">
-      <ion-icon ios="ios-arrow-down" md="ios-arrow-down"></ion-icon>
+      <ion-icon (click)="showNamesFun()" ios="ios-arrow-down" md="ios-arrow-down"></ion-icon>
       <div class="imgCercle" (click)="updatePic(i,'cat')" >
         <img [src]="item.picUrl" alt="">
       </div>
@@ -42,7 +42,7 @@
     </ion-row>
     <ion-row class="category_row add_cat animated pulse" [class.show-add-cat]="showAddCatVar">
       <input type="text" placeholder="Nom du catégorie" focus [(ngModel)]="NewCatName">
-      <ion-icon ios="ios-arrow-down" md="ios-arrow-down"></ion-icon>
+      <ion-icon (click)="showNamesFun()" ios="ios-arrow-down" md="ios-arrow-down"></ion-icon>
       <div class="imgCercle">
         <img src="../../assets/imgs/space_setting/catAndSpe/add_img.svg" alt="">
       </div>
@@ -71,7 +71,7 @@
     </ion-row>
     <ion-row class="category_row animated pulse" *ngFor="let item of specialty;let i=index">
       <input type="text" value="{{item.name}}">
-      <ion-icon ios="ios-arrow-down" md="ios-arrow-down"></ion-icon>
+      <ion-icon (click)="showNamesFun()" ios="ios-arrow-down" md="ios-arrow-down"></ion-icon>
       <div class="imgCercle" (click)="updatePic(i,'spe')">
         <img [src]="item.picUrl" alt="">
       </div>
@@ -81,7 +81,7 @@
     </ion-row>
     <ion-row class="category_row add_cat animated pulse" focus [class.show-add-spe]="showAddSpecialtyVar">
       <input type="text" placeholder="Nom du spésialité" [(ngModel)]="NewSpeName">
-      <ion-icon ios="ios-arrow-down" md="ios-arrow-down"></ion-icon>
+      <ion-icon (click)="showNamesFun()" ios="ios-arrow-down" md="ios-arrow-down"></ion-icon>
       <div class="imgCercle">
         <img src="../../assets/imgs/space_setting/catAndSpe/add_img.svg" alt="">
       </div>
@@ -110,7 +110,7 @@
     </ion-row>
     <ion-row class="category_row animated pulse" *ngFor="let item of info;let i=index">
       <input type="text" value="{{item.name}}">
-      <ion-icon ios="ios-arrow-down" md="ios-arrow-down"></ion-icon>
+      <ion-icon (click)="showNamesFun()" ios="ios-arrow-down" md="ios-arrow-down"></ion-icon>
       <div class="imgCercle"  (click)="updatePic(i,'info')" >
         <img [src]="item.picUrl" alt="">
       </div>
@@ -120,7 +120,7 @@
     </ion-row>
     <ion-row class="category_row add_cat animated pulse" focus [class.show-add-info]="showAddInfoVar">
       <input type="text" placeholder="Nom d'info" [(ngModel)]="NewInfoName">
-      <ion-icon ios="ios-arrow-down" md="ios-arrow-down"></ion-icon>
+      <ion-icon (click)="showNamesFun()" ios="ios-arrow-down" md="ios-arrow-down"></ion-icon>
       <div class="imgCercle">
         <img src="../../assets/imgs/space_setting/catAndSpe/add_img.svg" alt="">
       </div>
@@ -139,7 +139,39 @@
         <div class="space"></div>
         <button class="cancel_btn">Annuler</button>
       </div>
+    </ion-row>    
+  </ion-grid> 
+  <div class="closeName animated fadeIn" [class.showNames]="showNamesVar" (click)="closeNamesFun()" ></div> 
+  <ion-grid class="category_space_name animated fadeInUp" [class.showNames]="showNamesVar" no-padding>
+    <ion-row class="search">
+        <input type="text" name="text_search" value="" placeholder="Recherche" 
+        class="text-search-listfollows"
+         id="text_search" [(ngModel)]="text_search">
+         
+         <button class="search-text-icon-listfollows" >
+          <img src="../../assets/imgs/Search-listfollows.png" alt=""
+           ></button>
+         <button class="clear-text" (click)="text_search=''">
+           <img class="cleaner-listfollows" 
+           src="../../assets/imgs/clean-listfollows.png" alt=""
+           *ngIf="text_search !=null && text_search.length>0" 
+            ></button>
     </ion-row>
-  </ion-grid>  
+    <ion-row class="names_row">
+      <ion-col col-6 class="names_col">
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+      </ion-col>
+      <div class="separation"></div>
+      <ion-col col-6 class="names_col">
+          <div>test</div>
+          <div>test</div>
+          <div>test</div>
+          <div>test</div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
 </ion-content>
