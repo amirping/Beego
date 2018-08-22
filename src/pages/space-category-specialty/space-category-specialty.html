@@ -33,7 +33,7 @@
     *ngFor="let item of category;let i=index">
       <input type="text" value="{{item.name}}">
       <ion-icon ios="ios-arrow-down" md="ios-arrow-down"></ion-icon>
-      <div class="imgCercle" (click)="updatePic(i)" >
+      <div class="imgCercle" (click)="updatePic(i,'cat')" >
         <img [src]="item.picUrl" alt="">
       </div>
       <div class="redCercle" (click)="DeleteCat(i)">
@@ -72,7 +72,7 @@
     <ion-row class="category_row animated pulse" *ngFor="let item of specialty;let i=index">
       <input type="text" value="{{item.name}}">
       <ion-icon ios="ios-arrow-down" md="ios-arrow-down"></ion-icon>
-      <div class="imgCercle">
+      <div class="imgCercle" (click)="updatePic(i,'spe')">
         <img [src]="item.picUrl" alt="">
       </div>
       <div class="redCercle" (click)="DeleteSpe(i)">
@@ -111,7 +111,7 @@
     <ion-row class="category_row animated pulse" *ngFor="let item of info;let i=index">
       <input type="text" value="{{item.name}}">
       <ion-icon ios="ios-arrow-down" md="ios-arrow-down"></ion-icon>
-      <div class="imgCercle">
+      <div class="imgCercle"  (click)="updatePic(i,'info')" >
         <img [src]="item.picUrl" alt="">
       </div>
       <div class="redCercle" (click)="DeleteInfo(i)">

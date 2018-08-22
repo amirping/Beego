@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams,ModalController, ViewController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController, ViewController } from 'ionic-angular';
 import { SpaceUpdatePicCategoryPage } from '../space-update-pic-category/space-update-pic-category';
 
 /**
@@ -14,121 +14,132 @@ import { SpaceUpdatePicCategoryPage } from '../space-update-pic-category/space-u
   selector: 'page-space-category-specialty',
   templateUrl: 'space-category-specialty.html',
 })
-export class SpaceCategorySpecialtyPage { 
-  pic; 
-  index="1";
-  showOffVar=false;
-  showAddCatVar=false;
-  showAddSpecialtyVar=false;
-  showAddInfoVar=false;
-  NewCatName='';
-  NewSpeName='';
-  NewInfoName='';
+export class SpaceCategorySpecialtyPage {
+  pic;
+  index = "1";
+  showOffVar = false;
+  showAddCatVar = false;
+  showAddSpecialtyVar = false;
+  showAddInfoVar = false;
+  NewCatName = '';
+  NewSpeName = '';
+  NewInfoName = '';
   category: Array<any> = [];
-  specialty:Array<any> = [];
-  info:Array<any> = [];
+  specialty: Array<any> = [];
+  info: Array<any> = [];
 
   constructor(public navCtrl: NavController, public navParams: NavParams
-    ,private modalCtrl : ModalController, private viewCtrl:ViewController) {
+    , private modalCtrl: ModalController, private viewCtrl: ViewController) {
     this.category.push({
-      id:1,
-      name: 'category 1',      
+      id: 1,
+      name: 'category 1',
       picUrl: '../../assets/imgs/photoDeProfil.png',
     },
-    
+
       {
-        id:2,
-        name: 'category 2',      
-      picUrl: '../../assets/imgs/space_detail/whats-up.png',
+        id: 2,
+        name: 'category 2',
+        picUrl: '../../assets/imgs/space_detail/whats-up.png',
       })
 
-      this.specialty.push({
-        id:1,
-        name: 'specialty1',      
-        picUrl: '../../assets/imgs/photoDeProfil.png',
-      })
+    this.specialty.push({
+      id: 1,
+      name: 'specialty1',
+      picUrl: '../../assets/imgs/photoDeProfil.png',
+    })
 
-      this.info.push({
-        id:1,
-        name: 'info 1',      
-        picUrl: '../../assets/imgs/photoDeProfil.png',
-      })
+    this.info.push({
+      id: 1,
+      name: 'info 1',
+      picUrl: '../../assets/imgs/photoDeProfil.png',
+    })
   }
-  DeleteCat(i){
-    this.category.splice(i,1);
+  DeleteCat(i) {
+    this.category.splice(i, 1);
   }
-  add_cat(){
-    this.showAddCatVar=true;
+  add_cat() {
+    this.showAddCatVar = true;
   }
-  cancelAddCat(){
-    this.showAddCatVar=false;
-    this.NewCatName="";
+  cancelAddCat() {
+    this.showAddCatVar = false;
+    this.NewCatName = "";
   }
-  addToCategory(){
+  addToCategory() {
     if (!this.NewCatName.trim()) return;
     this.category.push({
       //   add the id
       name: this.NewCatName,
       // add img url
-      picUrl:'../../assets/imgs/photoDeProfil.png'
+      picUrl: '../../assets/imgs/photoDeProfil.png'
     })
     this.NewCatName = '';
   }
   // specialty
-  DeleteSpe(j){
-    this.specialty.splice(j,1);
+  DeleteSpe(j) {
+    this.specialty.splice(j, 1);
   }
-  add_spe(){
-    this.showAddSpecialtyVar=true;
+  add_spe() {
+    this.showAddSpecialtyVar = true;
   }
-  cancelAddspe(){
-    this.showAddSpecialtyVar=false;
-    this.NewSpeName="";
+  cancelAddspe() {
+    this.showAddSpecialtyVar = false;
+    this.NewSpeName = "";
   }
-  addToSpesialty(){
+  addToSpesialty() {
     if (!this.NewSpeName.trim()) return;
     this.specialty.push({
       //   add the id
       name: this.NewSpeName,
       // add img url
-      picUrl:'../../assets/imgs/photoDeProfil.png'
+      picUrl: '../../assets/imgs/photoDeProfil.png'
     })
     this.NewSpeName = '';
   }
   // info
-  add_info(){
-    this.showAddInfoVar=true;
+  add_info() {
+    this.showAddInfoVar = true;
   }
-  cancelAddInfo(){
-    this.showAddInfoVar=false;
-    this.NewInfoName='';
+  cancelAddInfo() {
+    this.showAddInfoVar = false;
+    this.NewInfoName = '';
   }
-  DeleteInfo(j){
-    this.info.splice(j,1);
+  DeleteInfo(j) {
+    this.info.splice(j, 1);
   }
-  addToInfo(){
+  addToInfo() {
     if (!this.NewInfoName.trim()) return;
     this.info.push({
       //   add the id
       name: this.NewInfoName,
       // add img url
-      picUrl:'../../assets/imgs/photoDeProfil.png'
+      picUrl: '../../assets/imgs/photoDeProfil.png'
     })
     this.NewInfoName = '';
   }
-  
+
   // ...
-  updatePic(i){
-    this.pic=this.category[i].picUrl;
-    this.showOffVar=true;
-    const modal1= this.modalCtrl.create(SpaceUpdatePicCategoryPage,{img:this.pic},{enableBackdropDismiss:false} );
+  updatePic(i, type) {
+    if (type === 'cat') {
+      this.pic = this.category[i].picUrl;
+      console.log("cat");
+    }
+    if(type === 'spe'){
+      this.pic = this.specialty[i].picUrl;
+      console.log("spe");
+    }
+    if(type === 'info'){
+      this.pic = this.info[i].picUrl;
+      console.log("info");
+    }
+    this.showOffVar = true;
+    const modal1 = this.modalCtrl.create(SpaceUpdatePicCategoryPage, { img: this.pic }, { enableBackdropDismiss: false });
     modal1.present();
-    modal1.onDidDismiss(()=>{
-      this.showOffVar=false;
+    modal1.onDidDismiss(() => {
+      this.showOffVar = false;
     });
   }
 
-  back(){
+  back() {
     this.navCtrl.pop();
   }
   ionViewDidLoad() {

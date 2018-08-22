@@ -273,3 +273,42 @@ button {
   justify-content: center;
   align-items: center;
 }
+.action-sheets-groups-page {
+  .action-sheet-group {
+    background-color: transparent !important;
+  }
+  
+  .EditionIcon {
+    border-radius: 12px;
+    background-color: #3f4a6e;
+    color: #9eaacc;
+    font-family: Raleway;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.15px;
+    line-height: 24px;
+    border-bottom: white 0.5px solid !important;
+  }
+  .EditionIcon_delete{
+    border-radius: 12px;
+    background-color: #3f4a6e;
+    color: #ee4c4d;
+    font-family: "Segoe UI";
+    font-weight: 400;
+    font-size: 16px;
+    letter-spacing: 0.15px;
+    line-height: 24px;
+    border-bottom: white 0.5px solid !important;
+  }
+  .EditionIcon_cancel{
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+    border-radius: 12px;
+    background-color: #9eaacc;
+    color: #535353;
+    font-family: Raleway;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.15px;
+    line-height: 24px;
+  }
+}
