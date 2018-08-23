@@ -213,6 +213,8 @@ export class SpaceDetailPage {
       if (data.espaceLoisir)
         this.loisirArray = Object.keys(data.espaceLoisir)
           .map(i => data.espaceLoisir[i]);
+          this.nbreviews=data.nbreviews
+          this.moyenneRating=data.rating
       if (data.followers)
       this.nbFollowers = data.followers
       
@@ -220,8 +222,7 @@ export class SpaceDetailPage {
       this.reviews.forEach(
 
         item => {
-        this.nbreviews = 0;
-          this.moyenneRating = 0;
+       
           this.val1 = 0;
           this.val2 = 0;
           this.val3 = 0;
@@ -229,9 +230,9 @@ export class SpaceDetailPage {
           this.val5 = 0;
           item.forEach(element => {
 
-            this.nbreviews++;
+           
 
-            this.moyenneRating = this.moyenneRating + element.rating;
+           
 
 
             if (element.rating == 1)
@@ -268,7 +269,7 @@ export class SpaceDetailPage {
               }
             ]
           })
-          this.moyenneRating = Math.trunc(this.moyenneRating / this.nbreviews)
+         
 
         }
 

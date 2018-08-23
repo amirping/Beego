@@ -127,4 +127,24 @@ export class SpacesProvider {
       callBack(data)
     })
   }
+  getSpace(idEspace,callBack){
+    const idToken = this.userProvider.idToken
+    const params = new HttpParams().set('space',idEspace)
+    const headers = new HttpHeaders().set("authorization", "Bearer "+idToken)
+    this.http.get('http://localhost:5000/test-3cdd6/us-central1/beegoapi/getSpace' ,{headers,params})
+    .subscribe((data:any) =>{
+      console.log('hedhi espace w review user', data)
+      callBack(data)
+    })
+  }
+  getSpaces(callBack){
+    const idToken = this.userProvider.idToken
+   
+    const headers = new HttpHeaders().set("authorization", "Bearer "+idToken)
+    this.http.get('http://localhost:5000/test-3cdd6/us-central1/beegoapi/getSpaces' ,{headers})
+    .subscribe((data:any) =>{
+      console.log('hedhouma les information mtaa l espace', data)
+      callBack(data)
+    })
+  }
 }

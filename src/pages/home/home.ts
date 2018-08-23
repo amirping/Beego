@@ -87,6 +87,11 @@ export class HomePage {
      private http: HttpClient,
     private events: Events
   ) {
+    this.spacesProvider.getSpaces((data)=>{
+      console.log("ahaya ",data)
+     
+      
+    });
     this.following = true
     this.pageType ="only10"
     
@@ -101,6 +106,7 @@ export class HomePage {
       console.log("après filter",this.espacesListRef$)
 
     })
+
     
  
     // don't
@@ -427,5 +433,12 @@ export class HomePage {
   }
   navigateToMyTastes(){
     this.navCtrl.push(MyTastesPage)
+  }
+  testGetSpace(idEspace){
+    this.spacesProvider.getSpace(idEspace,(data)=>{
+      console.log("ahaya data",data)
+     
+      
+    })
   }
 }

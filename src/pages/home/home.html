@@ -210,7 +210,7 @@
             <span class="more" (click)="navigateTo('specialForYou')">Tout afficher</span>
           </div>
           <ion-slides class="slide-home" [slidesPerView]="2" [pager]="true" [spaceBetween]="10">
-            <ion-slide *ngFor="let item of espacesListRef$ " class="slider-specialement" (click)="navigateTo('space-detail',item.key)">
+            <ion-slide *ngFor="let item of espacesListRef$ " class="slider-specialement" (click)="testGetSpace(item.key)">
               <img src="{{item.espaceImage}}">
               <div class="content">
                 <div class="layer"></div>
