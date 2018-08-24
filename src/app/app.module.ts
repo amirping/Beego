@@ -58,6 +58,7 @@ import { Geolocation } from "@ionic-native/geolocation";
 import { MapProvider } from "../providers/map/map";
 import { EspaceHomePage } from "../pages/espace-home/espace-home";
 import { UserSwitcherPage } from "../pages/user-switcher/user-switcher";
+import { SpaceEventsPage } from "../pages/space-events/space-events";
 
 // import { CRS, latLng, LatLngBounds } from "leaflet";
 // import { YagaModule } from "@yaga/leaflet-ng2";
@@ -97,7 +98,8 @@ import { UserSwitcherPage } from "../pages/user-switcher/user-switcher";
     ToExplorePage,
     ExpolreCircularPage,
     EspaceHomePage,
-    UserSwitcherPage
+    UserSwitcherPage,
+    SpaceEventsPage
   ],
   imports: [
     BrowserModule,
@@ -146,7 +148,8 @@ import { UserSwitcherPage } from "../pages/user-switcher/user-switcher";
     ToExplorePage,
     ExpolreCircularPage,
     EspaceHomePage,
-    UserSwitcherPage
+    UserSwitcherPage,
+    SpaceEventsPage
   ],
   providers: [
     StatusBar,

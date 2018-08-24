@@ -7,6 +7,7 @@ import {
   ModalController
 } from "ionic-angular";
 import { UserSwitcherPage } from "../user-switcher/user-switcher";
+import { SpaceEventsPage } from "../space-events/space-events";
 
 /**
  * Generated class for the EspaceHomePage page.
@@ -176,5 +177,16 @@ export class EspaceHomePage {
       { cssClass: "modal-fullscreen" }
     );
     modal.present();
+  }
+  sendTo(page) {
+    switch (page) {
+      case "event": {
+        console.log("zzeeiii");
+        this.navCtrl.push(SpaceEventsPage);
+        break;
+      }
+      default:
+        break;
+    }
   }
 }

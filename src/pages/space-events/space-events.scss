@@ -1,0 +1,114 @@
+page-space-events {
+  .toolbar-background {
+    background: #383F60;
+  }
+  ion-navbar * {
+    color: white !important;
+  }
+  font-family: "Raleway";
+  ion-content {
+    background: #383F60;
+    ion-grid {
+      padding: 0;
+      background: #383F60;
+      min-height: 100%;
+      .date-Picker-holder {
+        min-height: 100px;
+      }
+      .date-with-content {
+        padding: 10px;
+        position: relative;
+        justify-content: center;
+        .content-title {
+          color: white;
+          font-size: 20px;
+          margin-bottom: 25px;
+        }
+        .card {
+          height: 266px;
+          max-width: 330px;
+          min-width: 300px;
+          width: auto;
+          border-radius: 15px;
+          position: relative;
+          overflow: hidden;
+          margin-left: auto;
+          margin-bottom: 20px;
+          box-shadow: 0px 0px 05px rgba(0, 0, 0, .65);
+          img,
+          .overlay {
+            position: absolute;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+          }
+          img {
+            object-fit: cover;
+          }
+          .overlay {
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 10px;
+            .top {
+              display: flex;
+              flex-direction: row;
+              justify-content: space-between;
+              .badge {
+                color: white;
+                background: #1F9ED5;
+                text-transform: uppercase;
+                font-size: 10px;
+                padding: 5px 10px 5px 10px;
+                border-radius: 5px;
+                box-shadow: 0px 3px 3px rgba(31, 158, 213, .35);
+              }
+              .menu {
+                padding-right: 10px;
+                ion-icon {
+                  margin: auto;
+                  color: white;
+                }
+              }
+            }
+            .bottom {
+              display: flex;
+              flex-direction: column;
+              justify-content: space-between;
+              .date {
+                color: white;
+                text-align: right;
+                font-size: 10px;
+              }
+              .title-location {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                background: rgba(255, 255, 255, .5);
+                box-shadow: 0px 0px 5px rgba(0, 0, 0, .16);
+                margin: 5px;
+                padding: 10px;
+                border-radius: 10px;
+                span:nth-child(1) {
+                  color: #333030;
+                  font-size: 18px;
+                  margin-bottom: 10px;
+                }
+                span:nth-child(2) {
+                  ion-icon {
+                    margin-right: 5px;
+                  }
+                  color: white;
+                  font-size: 10px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
