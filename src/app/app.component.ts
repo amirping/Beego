@@ -39,6 +39,7 @@ import {SpaceSecurityPage} from '../pages/space-security/space-security';
 import {SpaceCategorySpecialtyPage} from '../pages/space-category-specialty/space-category-specialty';
 import {SpaceUpdatePicCategoryPage} from '../pages/space-update-pic-category/space-update-pic-category';
 import {SchedulePage} from '../pages/schedule/schedule';
+import {SpaceContactUsPage} from '../pages/space-contact-us/space-contact-us';
 
 import { UserProvider } from '../providers/user/user';
 

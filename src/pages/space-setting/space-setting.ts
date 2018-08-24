@@ -4,6 +4,7 @@ import {SapceSetting2Page} from '../sapce-setting2/sapce-setting2';
 import { SpaceSecurityPage } from '../space-security/space-security';
 import { SpaceCategorySpecialtyPage } from '../space-category-specialty/space-category-specialty';
 import { SchedulePage } from '../schedule/schedule';
+import { SpaceContactUsPage } from '../space-contact-us/space-contact-us';
 
 /**
  * Generated class for the SpaceSettingPage page.
@@ -82,5 +83,8 @@ export class SpaceSettingPage {
   }
   schedule(){
     this.navCtrl.push(SchedulePage);
+  }
+  contactUs(){
+    this.navCtrl.push(SpaceContactUsPage);
   }
 }
