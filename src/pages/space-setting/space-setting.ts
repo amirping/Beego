@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, Content } from 'ionic-angular';
 import {SapceSetting2Page} from '../sapce-setting2/sapce-setting2';
 import { SpaceSecurityPage } from '../space-security/space-security';
 import { SpaceCategorySpecialtyPage } from '../space-category-specialty/space-category-specialty';
+import { SchedulePage } from '../schedule/schedule';
 
 /**
  * Generated class for the SpaceSettingPage page.
@@ -78,5 +79,8 @@ export class SpaceSettingPage {
   }
   categoryAndSpecialty(){
     this.navCtrl.push(SpaceCategorySpecialtyPage);
+  }
+  schedule(){
+    this.navCtrl.push(SchedulePage);
   }
 }

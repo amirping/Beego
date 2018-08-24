@@ -38,6 +38,7 @@ import {SapceSetting2Page} from '../pages/sapce-setting2/sapce-setting2';
 import {SpaceSecurityPage} from '../pages/space-security/space-security';
 import {SpaceCategorySpecialtyPage} from '../pages/space-category-specialty/space-category-specialty';
 import {SpaceUpdatePicCategoryPage} from '../pages/space-update-pic-category/space-update-pic-category';
+import {SchedulePage} from '../pages/schedule/schedule';
 
 import { UserProvider } from '../providers/user/user';
 
@@ -48,7 +49,7 @@ import { UserProvider } from '../providers/user/user';
 export class MyApp {
   // = ProfilPage
 
-  rootPage: any= SpaceCategorySpecialtyPage;
+  rootPage: any= SpaceSettingPage;
   constructor(
     platform: Platform,
     statusBar: StatusBar,
@@ -56,6 +57,7 @@ export class MyApp {
     public userProvider: UserProvider
   ) {
  
+
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.

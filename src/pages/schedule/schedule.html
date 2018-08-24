@@ -1,0 +1,62 @@
+<!--
+  Generated template for the SchedulePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-icon (click)="back()" ios="ios-arrow-round-back" md="ios-arrow-round-back"></ion-icon>
+  Horaire
+<span>Annuler</span>
+</ion-header>
+
+
+<ion-content >
+  <ion-grid no-padding>
+      <ion-row class="title_row">
+          Horaire
+        </ion-row>
+        <ion-row class="time">
+          <ion-col col-6 class="time_col">
+            <ion-row class="subtitle">De:</ion-row>
+            <ion-row>
+              <div class="bg_time">
+                  <ion-icon ios="md-time" md="md-time"></ion-icon>
+                  <ion-datetime displayFormat="HH:MM a"  [(ngModel)]="myDepartDate"></ion-datetime>
+              </div>
+            </ion-row>
+            <ion-row class="pick_days">
+                Seléctionner les jours :
+            </ion-row>
+          </ion-col>
+          <ion-col col-6 class="time_col">
+              <ion-row class="subtitle">A:</ion-row>
+              <ion-row>
+                <div class="bg_time">
+                    <ion-icon ios="md-time" md="md-time"></ion-icon>
+                    <ion-datetime displayFormat="HH:MM a"  [(ngModel)]="myfinishDate"></ion-datetime>
+                </div>
+              </ion-row>
+              <ion-row class="all_days pick_days">
+                  Tous les jours
+                  <ion-toggle  class="toggle_place toggle-md" (ionChange)="togglebtns()"
+                  checked="allbtns" ></ion-toggle>
+              </ion-row>
+            </ion-col>
+        </ion-row>
+        <ion-row class="days">
+          <button [class.btnTranformation]="btns[0]" (click)="btnTrans(0)" >Lun</button>
+          <button [class.btnTranformation]="btns[1]" (click)="btnTrans(1)" >Mar</button>
+          <button [class.btnTranformation]="btns[2]" (click)="btnTrans(2)">Mer</button>
+          <button [class.btnTranformation]="btns[3]" (click)="btnTrans(3)">Jeu</button>
+          <button [class.btnTranformation]="btns[4]" (click)="btnTrans(4)">Ven</button>
+          <button [class.btnTranformation]="btns[5]" (click)="btnTrans(5)">Sam</button>
+          <button [class.btnTranformation]="btns[6]" (click)="btnTrans(6)">Dim</button>
+        </ion-row>
+        <ion-row class="btn_row">
+          <button>Valider</button>
+        </ion-row>
+  </ion-grid>
+
+</ion-content>

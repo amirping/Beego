@@ -52,6 +52,7 @@ import {SapceSetting2Page} from '../pages/sapce-setting2/sapce-setting2';
 import {SpaceSecurityPage} from '../pages/space-security/space-security';
 import {SpaceCategorySpecialtyPage} from '../pages/space-category-specialty/space-category-specialty';
 import {SpaceUpdatePicCategoryPage} from '../pages/space-update-pic-category/space-update-pic-category';
+import {SchedulePage} from '../pages/schedule/schedule';
 
 
 import { Ionic2RatingModule } from "ionic2-rating";
@@ -123,6 +124,7 @@ import { HttpClientModule } from "../../node_modules/@angular/common/http";
     SpaceSecurityPage,   
     SpaceCategorySpecialtyPage, 
     SpaceUpdatePicCategoryPage,
+    SchedulePage,
     
 
 
@@ -179,6 +181,7 @@ import { HttpClientModule } from "../../node_modules/@angular/common/http";
     SpaceSecurityPage,
     SpaceCategorySpecialtyPage,
     SpaceUpdatePicCategoryPage,
+    SchedulePage,
 
     UpdateProgramPage,
     DislikeListPage,

@@ -1,0 +1,173 @@
+page-schedule {
+    ion-header{
+        height: 70px;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+        border: 1px solid rgba(0, 0, 0, 0);
+        background-color: #353b5a;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        color: #ffffff;
+        font-family: Raleway;
+        font-size: 16px;
+        font-weight: 500;
+        letter-spacing: 0.19px;
+        padding-top: 30px;
+        z-index: 1;
+        ion-icon {
+            color: white;
+            left: 5%;
+            font-size: 35px;
+            font-size: 38px;
+            position: absolute;
+            top: 22px;
+          }
+          span{
+            position: absolute;
+            right: 5%;
+            color: #9eaacc;
+            font-family: Raleway;
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 0.17px;
+            top: 32px;                      
+          }     
+    }
+    .content-ios {     
+        background-color: #383f60;
+    }
+    .content-md {     
+        background-color: #383f60;
+    }
+    .title_row{
+        padding-left: 20px;
+        padding-top: 30px;
+        height: 64px;
+        width: 100;
+        color: #ffffff;
+        font-family: Raleway;
+        font-size: 16px;
+        font-weight: 500;
+    }
+    .time{
+        width: 100%;
+        height: 154px;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.16);
+        background-color: #3f4a6e;
+        .time_col{
+            padding-left: 20px !important;
+            margin-top: 20px;
+        }
+        .subtitle{
+            color: #9eaacc;
+            font-family: Raleway;
+            font-size: 12px;
+            font-weight: 500; 
+        }
+        .bg_time{
+            margin-top: 10px;
+            width: 150px;
+            height: 30px;
+            border-radius: 15px;
+            background-color: #383f60;
+            position: relative;            
+            .datetime-text{                
+                    position: absolute;
+                    color: #ffffff;
+                    font-size: 12px;
+                    font-weight: 400;
+                    font-family: "Segoe UI";
+                    top: 8px;
+                    left: 49px;                
+            }
+            ion-icon{
+                color: #9eaacc;
+                font-size: 22px;
+                position: absolute;
+                top: 4px;
+                left: 12px;
+            }           
+        }
+        .pick_days{
+            margin-top: 38px;
+            color: #9eaacc;
+            font-family: Raleway;
+            font-size: 12px;
+            font-weight: 500;
+        }
+        .all_days{
+            color: #ffffff !important;
+        }
+        .toggle_place{
+            margin-top: -15px;
+            
+        }  
+        .toggle-icon::before{
+            background-color: #323b58;
+        }
+        .toggle-icon {
+            background-color: #323b58;
+        }
+        .toggle-md{
+            width: 33px;
+            height: 21px;
+        }
+        .toggle-inner {
+            width: 19px;
+            height: 19px;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.22);
+            background-color: #7a82a5;
+            margin-top: 3.5px;
+        }
+        .toggle-md.toggle-checked .toggle-inner {
+            -webkit-transform: translate3d(16px, 0, 0);
+            transform: translate3d(16px, 0, 0);
+            background-color: #f22876;
+        }
+        .toggle-md.toggle-checked .toggle-icon {
+            background-color: #323b58;
+        }                
+    }
+    .days{
+        width: calc( 100% - 26px );
+        margin-left: 13px;
+        height: 59px;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+        border-radius: 0 0 20px 20px;
+        background-color: #323b58;
+        display: flex;
+        justify-content: space-between;
+        padding: 13px 4%;
+        button{
+            width: 32px;
+            height: 33px;
+            background-color: #3f4a6e;
+            border-radius: 50px;
+            color: #ffffff;
+            font-family: Raleway;
+            font-size: 9px;
+            font-weight: 500;
+        }
+        .btnTranformation{
+            background-color: #f22876;
+        }
+    }
+    .btn_row{
+        margin-top: 100px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        button{
+            width: 264px;
+            height: 35px;
+            box-shadow: 0 0 10px rgba(31, 158, 213, 0.31);
+            border-radius: 17px;
+            border: 1px solid #1f9ed5;
+            background-color: #1f9ed5;
+            color: #ffffff;
+            font-family: Raleway;
+            font-size: 14px;
+            font-weight: 500;
+        }
+    }
+}
