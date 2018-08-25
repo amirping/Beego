@@ -19,7 +19,7 @@
 
 <ion-content >
   <ion-grid no-padding>
-    <ion-row class="message_row"  *ngFor="let item of listItems;let i=index"
+    <ion-row class="message_row"  *ngFor="let item of listItems;let i=index" (click)="conversation()"
      [class.unreadMess]="varMess" >
      <!-- if the message is read already the color of the row will be transparant -->
        <ion-col col-3 class="img_space">

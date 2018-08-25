@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { SpaceConversationPage } from '../space-conversation/space-conversation';
 
 /**
  * Generated class for the SpaceContactUsPage page.
@@ -35,6 +36,9 @@ export class SpaceContactUsPage {
   }
   back(){
     this.navCtrl.pop();
+  }
+  conversation(){
+    this.navCtrl.push(SpaceConversationPage);
   }
   ionViewDidLoad() {
     console.log('ionViewDidLoad SpaceContactUsPage');
