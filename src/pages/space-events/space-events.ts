@@ -35,10 +35,12 @@ export class SpaceEventsPage {
     startDayPos: 0,
     endDayPos: 0,
     daysLen: 0,
-    targetDate: moment()
+    targetDate: moment(),
+    selectedYear: moment().year()
   };
   now = moment();
   showingMonthes = false;
+  showCalendar = false;
   selectedDate: any = "";
   selectedDateIndex: any;
   dateData: Array<any> = [];
@@ -126,7 +128,7 @@ export class SpaceEventsPage {
    * @inputs : month from 0 -> 11 [-1 to keep the same month]
    * year : opt
    */
-  reCalc(month, year?) {
+  reCalc(month, ev, year?) {
     if (month != -1) {
       this.dateIn.targetDate.month(month);
       this.showingMonthes = !this.showingMonthes;
