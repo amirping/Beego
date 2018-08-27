@@ -39,31 +39,14 @@ export class SpaceEventsPage {
     selectedYear: moment().year()
   };
   now = moment();
-  showingMonthes = false;
+  // showingMonthes = false;
   showCalendar = false;
   selectedDate: any = "";
   selectedDateIndex: any;
   dateData: Array<any> = [];
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.DaysNbrCalc(this.dateIn.targetDate);
-    this.dateData.push(
-      {
-        id: 0,
-        type: "evenement",
-        img: "https://source.unsplash.com/1600x900/?bar,coffe",
-        date: "27 Dec,2017",
-        title: "Visual - the next level",
-        location: "Yuka lambout"
-      },
-      {
-        id: 1,
-        type: "evenement",
-        img: "https://source.unsplash.com/1600x900/?nature,camping",
-        date: "27 Dec,2017",
-        title: "Visual - the next level",
-        location: "Yuka lambout"
-      }
-    );
+     this.fetchData(this.now);
   }
 
   ionViewDidLoad() {
@@ -131,7 +114,7 @@ export class SpaceEventsPage {
   reCalc(month, ev, year?) {
     if (month != -1) {
       this.dateIn.targetDate.month(month);
-      this.showingMonthes = !this.showingMonthes;
+      // this.showingMonthes = !this.showingMonthes;
     }
     if (year) {
       this.dateIn.targetDate.year(year);
@@ -148,6 +131,55 @@ export class SpaceEventsPage {
       this.selectedDateIndex = i;
     } else {
       console.log("not this month days move it back to perv month or next ");
+    }
+    this.fetchData(this.selectedDate);
+  }
+  /**
+   * keep the needed line dude u know that
+   */
+  keepLineDays(startPos,endPos)
+  {
+    if(!this.selectedDateIndex || this.selectedDateIndex == -100){
+      // work on today
+      let day = this.dateIn.targetDate.date();
+      for(let v=startPos;v <endPos;v++){
+        if(this.dateIn.daysNbr[v] == day){
+          return true;
+        }
+      }
+      return false;
+    }
+    else{
+      // work on selected date
+      return (this.selectedDateIndex>=startPos && this.selectedDateIndex<=endPos)
+    }
+  }
+  /**
+   * fetch data from back basing on the date
+   */
+  fetchData(date){
+    if(date.date() == 27 ){
+      this.dateData.push(
+      {
+        id: 0,
+        type: "evenement",
+        img: "https://source.unsplash.com/1600x900/?bar,coffe",
+        date: "27 Dec,2017",
+        title: "Visual - the next level",
+        location: "Yuka lambout"
+      },
+      {
+        id: 1,
+        type: "evenement",
+        img: "https://source.unsplash.com/1600x900/?nature,camping",
+        date: "27 Dec,2017",
+        title: "Visual - the next level",
+        location: "Yuka lambout"
+      }
+    );
+    }
+    else{
+      this.dateData= [];
     }
   }
 }
