@@ -40,7 +40,8 @@ import {SpaceCategorySpecialtyPage} from '../pages/space-category-specialty/spac
 import {SpaceUpdatePicCategoryPage} from '../pages/space-update-pic-category/space-update-pic-category';
 import {SchedulePage} from '../pages/schedule/schedule';
 import {SpaceContactUsPage} from '../pages/space-contact-us/space-contact-us';
-import {SpaceConversationPage} from '../pages/space-conversation/space-conversation'
+import {SpaceConversationPage} from '../pages/space-conversation/space-conversation';
+import {SpaceHistoryPage} from '../pages/space-history/space-history';
 
 import { UserProvider } from '../providers/user/user';
 
@@ -51,7 +52,7 @@ import { UserProvider } from '../providers/user/user';
 export class MyApp {
   // = ProfilPage
 
-  rootPage: any= SpaceSettingPage;
+  rootPage: any= SpaceHistoryPage;
   constructor(
     platform: Platform,
     statusBar: StatusBar,
