@@ -40,7 +40,7 @@ export class SpaceUpdatePicCategoryPage {
       // title: 'Modify your album',
       cssClass: 'action-sheets-groups-page',
       buttons: [
-        {
+        {          
           text: 'Changer la photo',
           icon: 'btnGris',
           cssClass: 'EditionIcon',
@@ -51,6 +51,57 @@ export class SpaceUpdatePicCategoryPage {
         },
         {
           text: 'Prendre une photo',
+          cssClass: 'EditionIcon',          
+          handler: () => {
+
+          }
+        },
+        {
+          text: 'Supprimer',
+          role: 'destructive',
+          cssClass: 'EditionIcon_delete',           
+          handler: () => {
+            
+          }
+        },
+      
+        {
+          text: 'Annuler',
+          role: 'cancel',
+          cssClass: 'EditionIcon_cancel', 
+          handler: () => {
+            this.viewCtrl.dismiss();
+            console.log('Cancel clicked');
+            this.blurVar=false;
+          }
+        }
+      ]
+    });
+ 
+    actionSheet.present();
+  }
+
+
+  picActions2(){
+    this.blurVar=true;
+    this.presentActionSheet2();
+  }
+  presentActionSheet2() {
+    let actionSheet = this.actionSheetCtrl.create({
+      // title: 'Modify your album',
+      cssClass: 'action-sheets-groups-page',
+      buttons: [
+        {          
+          text: 'Définir comme photo de profil',
+          icon: 'btnGris',
+          cssClass: 'EditionIcon',
+          handler: () => {
+            this.dialogs.confirm("Si vous le supprimer   ... "
+            , "Voulez vous supprimer prenom ?", ['Supprimer','Annuler']);
+          }
+        },
+        {
+          text: 'Définir comme photo du couverture',
           cssClass: 'EditionIcon',          
           handler: () => {
 

@@ -9,7 +9,8 @@
 
 <ion-content padding [class.blur]="blurVar" >
   <div class="pic_container">
-      <ion-icon ios="ios-more" (click)="picActions()" md="ios-more"></ion-icon>
+      <ion-icon ios="ios-more" *ngIf="noname=='true'"  (click)="picActions()" md="ios-more"></ion-icon>
+      <ion-icon ios="ios-more" *ngIf="noname=='false'"  (click)="picActions2()" md="ios-more"></ion-icon>
       <div class="pic_place">
          <img src="{{img}}" alt="">
          <div class="img_name" *ngIf="noname=='true'" >
