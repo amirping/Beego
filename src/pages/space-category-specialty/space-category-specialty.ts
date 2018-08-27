@@ -133,7 +133,7 @@ export class SpaceCategorySpecialtyPage {
       console.log("info");
     }
     this.showOffVar = true;
-    const modal1 = this.modalCtrl.create(SpaceUpdatePicCategoryPage, { img: this.pic }, { enableBackdropDismiss: false });
+    const modal1 = this.modalCtrl.create(SpaceUpdatePicCategoryPage, { img: this.pic , noName:"true" }, { enableBackdropDismiss: false });
     modal1.present();
     modal1.onDidDismiss(() => {
       this.showOffVar = false;

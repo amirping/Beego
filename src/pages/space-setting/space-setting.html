@@ -10,7 +10,7 @@
 </ion-header>
 
 
-<ion-content >
+<ion-content [class.category-showOff]="showOffVar" >
   <ion-grid no-padding (scroll)="ons($event)">
       <ion-row class="photo-row">
           <ion-col >
@@ -88,18 +88,18 @@
             </ion-row>
             <ion-row class="setting_title">Images</ion-row>
             <ion-row class="img_row">
-                <div class="first_pic" (click)="goToSpace(0)">
+                <div class="first_pic" (click)="updatePic(favoris[0].pic)">
                     <img src="{{favoris[0].pic}}" 
                     alt="">
                 </div>
                 <ng-container *ngFor=" let item of favoris; let i = index">
                 <div class="other_pic" *ngIf="i%2!=0" >
-                    <div class="other_pic_one" (click)="goToSpace(i)" >
+                    <div class="other_pic_one" (click)="updatePic(item.pic)" >
                       <img src="{{item.pic}}" 
                       alt="">
                       <!-- src="../../assets/imgs/space_detail/whats-up.png"  -->
                     </div>
-                    <div class="other_pic_two" *ngIf="i+1<favoris.length;" (click)="goToSpace(i+1)">
+                    <div class="other_pic_two" *ngIf="i+1<favoris.length;" (click)="updatePic(favoris[i+1].pic)">
                         <img src="{{favoris[i+1].pic}}"
                         alt="">
                     </div>

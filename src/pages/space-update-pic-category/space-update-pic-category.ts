@@ -19,6 +19,7 @@ import { AlertController } from 'ionic-angular';
 export class SpaceUpdatePicCategoryPage {
   blurVar=false;
   img;
+  noname;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public actionSheetCtrl: ActionSheetController,
@@ -26,7 +27,8 @@ export class SpaceUpdatePicCategoryPage {
     private modalCtrl : ModalController,
     private alertCtrl: AlertController, private viewCtrl:ViewController) {
       this.img=navParams.get('img');
-      // console.log(this.img);
+      this.noname=navParams.get('noName');
+      // console.log(this.noname);
   }
 
   picActions(){

@@ -1,10 +1,11 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams, Content } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Content , ModalController, ViewController } from 'ionic-angular';
 import {SapceSetting2Page} from '../sapce-setting2/sapce-setting2';
 import { SpaceSecurityPage } from '../space-security/space-security';
 import { SpaceCategorySpecialtyPage } from '../space-category-specialty/space-category-specialty';
 import { SchedulePage } from '../schedule/schedule';
 import { SpaceContactUsPage } from '../space-contact-us/space-contact-us';
+import { SpaceUpdatePicCategoryPage } from '../space-update-pic-category/space-update-pic-category';
 
 /**
  * Generated class for the SpaceSettingPage page.
@@ -19,6 +20,9 @@ import { SpaceContactUsPage } from '../space-contact-us/space-contact-us';
   templateUrl: 'space-setting.html',
 })
 export class SpaceSettingPage {
+  noPM = "false";
+  showOffVar = false;
+  pic;
   @ViewChild (Content) content:Content;
   data: any = [];
   favoris: any = [
@@ -47,11 +51,12 @@ export class SpaceSettingPage {
       pic: "https://source.unsplash.com/900x900/?desko"
     }
   ];
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams
+    , private modalCtrl: ModalController, private viewCtrl: ViewController) {
     this.data = this.favoris;
   }
   lasttop=58;
-  showHeader=false;
+  showHeader=false;  
   ionViewDidLoad() {
     console.log('ionViewDidLoad SpaceSettingPage');
     this.content.ionScroll.subscribe(($event)=>{
@@ -86,5 +91,14 @@ export class SpaceSettingPage {
   }
   contactUs(){
     this.navCtrl.push(SpaceContactUsPage);
+  }
+  updatePic(urlPic){
+    this.pic=urlPic;
+    this.showOffVar = true;
+    const modal1 = this.modalCtrl.create(SpaceUpdatePicCategoryPage, { img: this.pic , noName: this.noPM  },{ enableBackdropDismiss: false });
+    modal1.present();
+    modal1.onDidDismiss(() => {
+      this.showOffVar = false;
+    });
   }
 }

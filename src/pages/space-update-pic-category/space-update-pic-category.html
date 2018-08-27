@@ -12,7 +12,7 @@
       <ion-icon ios="ios-more" (click)="picActions()" md="ios-more"></ion-icon>
       <div class="pic_place">
          <img src="{{img}}" alt="">
-         <div class="img_name">
+         <div class="img_name" *ngIf="noname=='true'" >
           Plat mixte
          </div>
       </div>
