@@ -42,7 +42,7 @@ export class SpaceDetailPage {
   espaceClimatisation: string;
   espaceAccesWifi: string;
   espaceReservation: string;
-  espaceMeilleureSpecialite: string;
+  espaceMeilleureSpecialite: any;
   espaceVue: string;
   espaceMatch: string;
   espaceMusique: string;
@@ -119,7 +119,7 @@ export class SpaceDetailPage {
   followers;
   following="suivre";
   abonné="Vous êtes maintenant abonné à nous"
-
+  lastName;
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     private db: AngularFireDatabase,
@@ -128,7 +128,9 @@ export class SpaceDetailPage {
     private spaceProvider : SpacesProvider
 
   ) {
-    
+    this.spaceProvider.getUser((data)=>{
+      this.lastName=data.user.lastName
+    })
     console.log("following?",this.following)
     this.dateDuJour=new Date().toDateString().substring(0,3)
     this.horaireDuJour=new Date().toISOString().substring(11, 19);
@@ -185,16 +187,22 @@ export class SpaceDetailPage {
       this.espaceAdresse = data.espaceAdresse
       this.espaceTelephone = data.espaceTelephone
       this.espaceDescription = data.espaceDescription
-      this.espaceMeilleureSpecialite = data.espaceMeilleureSpecialite
+      this.spaceProvider.getSpecialite(this.idEspace,(details)=>{
+        this.espaceMeilleureSpecialite= details.specialite.specialiteName
+      })
+      
       this.varOpCol = true;
         this.varClCol = true;
-      if(data.jourDeTravail)
-      this.horaire= data.jourDeTravail
-      if(data.horaireOuverture)
+     
+
+
+     
+      
       this.horaireOuverture=data.horaireOuverture
-      if(data.horaireFermeture)
+      
       this.horaireFermeture=data.horaireFermeture
       if(data.jourDeTravail){
+        this.horaire= data.jourDeTravail
       this.horaire.forEach(element => {
         
         console.log(element)
@@ -294,7 +302,7 @@ export class SpaceDetailPage {
   goToOpinions(espaceNom) {
     // this.navCtrl.push(SpaceDetailOpinionsPage);
     // this.disabled=true;
-    const modal1 = this.modalCtrl.create(SpaceDetailOpinionsPage, { nom: espaceNom, cle: this.idEspace });
+    const modal1 = this.modalCtrl.create(SpaceDetailOpinionsPage, { nom: espaceNom, cle: this.idEspace,lastName:this.lastName });
     console.log(espaceNom)
     modal1.present();
     modal1.onDidDismiss(() => {

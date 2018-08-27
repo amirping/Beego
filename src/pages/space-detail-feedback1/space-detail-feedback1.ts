@@ -20,16 +20,18 @@ export class SpaceDetailFeedback1Page {
   idEspace;
   // ratingg;
   nom : string;
+  lastName;
   constructor(public navCtrl: NavController, public navParams: NavParams
     ,private modalCtrl : ModalController , private viewCtrl:ViewController) {
       this.nom = this.navParams.get('nom');
+      this.lastName = this.navParams.get('lastName')
       this.idEspace = this.navParams.get('cle')
       console.log("cle espace feedback1",this.idEspace)
   }
 
  
   goToFeefback2(){
-    const modal2= this.modalCtrl.create(SpaceDetailFeedback2Page, {ratingg:this.rating, nom: this.nom,cle : this.idEspace } );
+    const modal2= this.modalCtrl.create(SpaceDetailFeedback2Page, {ratingg:this.rating, nom: this.nom,cle : this.idEspace,lastName:this.lastName } );
     modal2.present();
     this.viewCtrl.dismiss();
     // console.log(this.rating);

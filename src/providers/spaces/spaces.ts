@@ -131,7 +131,7 @@ export class SpacesProvider {
     const idToken = this.userProvider.idToken
     const params = new HttpParams().set('space',idEspace)
     const headers = new HttpHeaders().set("authorization", "Bearer "+idToken)
-    this.http.get('http://localhost:5000/test-3cdd6/us-central1/beegoapi/getSpace' ,{headers,params})
+    this.http.get('http://localhost:5000/test-3cdd6/us-central1/beegoapi/getspace' ,{headers,params})
     .subscribe((data:any) =>{
       console.log('hedhi espace w review user', data)
       callBack(data)
@@ -141,9 +141,48 @@ export class SpacesProvider {
     const idToken = this.userProvider.idToken
    
     const headers = new HttpHeaders().set("authorization", "Bearer "+idToken)
-    this.http.get('http://localhost:5000/test-3cdd6/us-central1/beegoapi/getSpaces' ,{headers})
+    this.http.get('http://localhost:5000/test-3cdd6/us-central1/beegoapi/getspaces' ,{headers})
     .subscribe((data:any) =>{
       console.log('hedhouma les information mtaa l espace', data)
+      callBack(data)
+    })
+  }
+  getUser(callBack){
+    const idToken = this.userProvider.idToken
+   
+    const headers = new HttpHeaders().set("authorization", "Bearer "+idToken)
+    this.http.get('http://localhost:5000/test-3cdd6/us-central1/beegoapi/getUser' ,{headers})
+    .subscribe((data:any) =>{
+      console.log('hedhouma les information mtaa l user', data)
+      callBack(data)
+    })
+  }
+  contactSpace(idEspace,message){
+    const idToken = this.userProvider.idToken
+    const params = new HttpParams().set('space',idEspace).set('msg',message)
+    const headers = new HttpHeaders().set("authorization", "Bearer "+idToken)
+    this.http.post('http://localhost:5000/test-3cdd6/us-central1/beegoapi/contactspace', params ,{headers})
+    .subscribe(data=> {
+      console.log(data)
+    })
+  }
+  getSuggestedSpaces(callBack){
+    const idToken = this.userProvider.idToken
+    
+    const headers = new HttpHeaders().set("authorization", "Bearer "+idToken)
+    this.http.get('http://localhost:5000/test-3cdd6/us-central1/beegoapi/getsuggestedspaces' ,{headers})
+    .subscribe(data=> {
+      console.log(data)
+      callBack(data)
+    })
+  }
+  getSpecialite(idEspace,callBack){
+    const idToken = this.userProvider.idToken
+    const params = new HttpParams().set("space",idEspace)
+    const headers = new HttpHeaders().set("authorization", "Bearer "+idToken)
+    this.http.get('http://localhost:5000/test-3cdd6/us-central1/beegoapi/getspecialite' ,{headers,params})
+    .subscribe(data=> {
+      console.log(data)
       callBack(data)
     })
   }

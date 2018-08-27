@@ -22,11 +22,13 @@ export class SpaceDetailFeedback2Page {
   nom : string;
   listReviews : AngularFireList<any>;
   idEspace;
+  lastName;
    date = new Date();
   constructor(public navCtrl: NavController, public navParams: NavParams
   ,private modalCtrl : ModalController , private viewCtrl:ViewController,
    private db : AngularFireDatabase, private spaceProvider: SpacesProvider) {
     this.r=navParams.get('ratingg');
+    this.lastName=this.navParams.get('lastName')
     this.nom = this.navParams.get('nom');
     this.idEspace = this.navParams.get('cle')
     console.log("cle espace feedback 2",this.idEspace)

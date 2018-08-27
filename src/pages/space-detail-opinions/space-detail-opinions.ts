@@ -30,6 +30,7 @@ export class SpaceDetailOpinionsPage {
   otherOpen = false;
   nom;
   idEspace;
+  lastName;
   back() {
     this.events.publish('dropblur', false);
     this.viewCtrl.dismiss();
@@ -40,6 +41,7 @@ export class SpaceDetailOpinionsPage {
     public navParams: NavParams, private viewCtrl: ViewController,
     private events: Events, private db: AngularFireDatabase) {
     this.nom = this.navParams.get('nom')
+    this.lastName =this.navParams.get('lastName')
     this.idEspace = this.navParams.get('cle');
     console.log("cle espace opinions", this.idEspace)
     this.reviews = this.db.list(`reviews/${this.idEspace}`)
@@ -52,7 +54,7 @@ export class SpaceDetailOpinionsPage {
 
   goToFeefback1() {
     this.otherOpen = true;
-    const modal1 = this.modalCtrl.create(SpaceDetailFeedback1Page, { nom: this.nom, cle: this.idEspace });
+    const modal1 = this.modalCtrl.create(SpaceDetailFeedback1Page, { nom: this.nom, cle: this.idEspace,lastName:this.lastName });
     modal1.present();
     this.viewCtrl.dismiss({ 'otherOpen': this.otherOpen });
     modal1.onDidDismiss((data) => {

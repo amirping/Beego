@@ -77,6 +77,9 @@ export class HomePage {
   pageType;
   following = false
   uid;
+  firstName;
+  lastName;
+  mail;
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -87,6 +90,13 @@ export class HomePage {
      private http: HttpClient,
     private events: Events
   ) {
+    this.spacesProvider.getUser((data)=>{
+      this.firstName=data.user.firstName;
+      this.lastName=data.user.lastName;
+      this.mail=data.user.mail;
+     
+      
+    });
     this.spacesProvider.getSpaces((data)=>{
       console.log("ahaya ",data)
      
