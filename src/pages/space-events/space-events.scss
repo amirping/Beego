@@ -5,8 +5,15 @@ page-space-events {
   .toolbar-background {
     background: #353b5a;
   }
-  .center-img{
-    margin:auto;
+  .center-img {
+    margin: auto;
+    margin-bottom: 10px;
+  }
+  .theFab {
+    height: 56px;
+  }
+  .fabBTn {
+    margin-left: calc( 50% - 28px);
   }
   ion-navbar * {
     color: white !important;
@@ -36,12 +43,11 @@ page-space-events {
       background: #383f60;
       min-height: 100%;
       height: auto;
-
       .date-Picker-holder {
         margin: 0;
         min-height: 130px;
         height: auto;
-
+        background: #353b5a;
         ion-column {
           width: 100%;
         }
@@ -55,8 +61,7 @@ page-space-events {
         .calendar {
           font-family: "Raleway";
           position: absolute;
-          min-width: 300px;
-          max-width: 360px;
+          min-width: 300px; // max-width: 360px;
           width: 100%;
           height: auto;
           display: flex;
@@ -71,7 +76,8 @@ page-space-events {
             display: flex;
             flex-direction: row;
             justify-content: space-between;
-            color: white;
+            color: white; // large screen fix
+            max-width: 100%;
             h4 {
               margin: 0;
               padding: 10px;
@@ -85,7 +91,10 @@ page-space-events {
             flex-wrap: nowrap;
             padding: 5px;
             cursor: pointer;
-            overflow-x: scroll;
+            overflow-x: scroll; // large screen fix
+            max-width: 360px;
+            width: 100%;
+            margin: auto;
             div {
               margin: auto;
               color: #797d92;
@@ -113,7 +122,10 @@ page-space-events {
             flex-direction: row;
             padding-top: 10px;
             cursor: pointer;
-            justify-content: space-around;
+            justify-content: space-around; // large screen fix
+            max-width: 360px;
+            width: 100%;
+            margin: auto;
             div {
               margin: auto;
               color: rgba(255, 255, 255, 34%);
@@ -122,14 +134,14 @@ page-space-events {
               text-align: center;
               font-size: 12px;
               user-select: none;
-              padding-top:5px;
+              padding-top: 5px;
             }
             .active {
               color: white;
             }
-            .selected{
+            .selected {
               background: #fc577c;
-              border-radius:15px 15px 0px 0px;
+              border-radius: 15px 15px 0px 0px;
             }
           }
           .daysNbr {
@@ -140,7 +152,10 @@ page-space-events {
             font-size: 14px;
             font-weight: bold;
             min-height: 40px !important;
-            height: auto;
+            height: auto; // large screen fix
+            max-width: 360px;
+            width: 100%;
+            margin: auto;
             .thisMonthDays {
               color: rgba(255, 255, 255, 1) !important;
             }
@@ -150,8 +165,8 @@ page-space-events {
             .selected {
               background: #fc577c;
             }
-            .closedCalendarSelected{
-              border-radius: 0px  0px 15px 15px !important;
+            .closedCalendarSelected {
+              border-radius: 0px 0px 15px 15px !important;
             }
             div {
               margin: auto;
@@ -171,6 +186,7 @@ page-space-events {
         padding: 10px;
         position: relative;
         justify-content: center;
+        flex-grow: 1;
         .content-title {
           color: white;
           font-size: 20px;
@@ -258,6 +274,17 @@ page-space-events {
                 }
               }
             }
+          }
+        }
+        .no-content {
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-end;
+          p {
+            color: #C9C9C9;
+            font-size: 14px;
+            margin-top: 0;
+            margin-bottom: 3px;
           }
         }
       }

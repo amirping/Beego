@@ -46,7 +46,7 @@ export class SpaceEventsPage {
   dateData: Array<any> = [];
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.DaysNbrCalc(this.dateIn.targetDate);
-     this.fetchData(this.now);
+    this.fetchData(this.now);
   }
 
   ionViewDidLoad() {
@@ -137,49 +137,49 @@ export class SpaceEventsPage {
   /**
    * keep the needed line dude u know that
    */
-  keepLineDays(startPos,endPos)
-  {
-    if(!this.selectedDateIndex || this.selectedDateIndex == -100){
+  keepLineDays(startPos, endPos) {
+    if (!this.selectedDateIndex || this.selectedDateIndex == -100) {
       // work on today
       let day = this.dateIn.targetDate.date();
-      for(let v=startPos;v <endPos;v++){
-        if(this.dateIn.daysNbr[v] == day){
+      for (let v = startPos; v < endPos; v++) {
+        if (this.dateIn.daysNbr[v] == day) {
           return true;
         }
       }
       return false;
-    }
-    else{
+    } else {
       // work on selected date
-      return (this.selectedDateIndex>=startPos && this.selectedDateIndex<=endPos)
+      console.log(this.selectedDateIndex + " - " + startPos + " - " + endPos);
+      return (
+        this.selectedDateIndex >= startPos && this.selectedDateIndex <= endPos
+      );
     }
   }
   /**
    * fetch data from back basing on the date
    */
-  fetchData(date){
-    if(date.date() == 27 ){
+  fetchData(date) {
+    if (date.date() == 27) {
       this.dateData.push(
-      {
-        id: 0,
-        type: "evenement",
-        img: "https://source.unsplash.com/1600x900/?bar,coffe",
-        date: "27 Dec,2017",
-        title: "Visual - the next level",
-        location: "Yuka lambout"
-      },
-      {
-        id: 1,
-        type: "evenement",
-        img: "https://source.unsplash.com/1600x900/?nature,camping",
-        date: "27 Dec,2017",
-        title: "Visual - the next level",
-        location: "Yuka lambout"
-      }
-    );
-    }
-    else{
-      this.dateData= [];
+        {
+          id: 0,
+          type: "evenement",
+          img: "https://source.unsplash.com/1600x900/?bar,coffe",
+          date: "27 Dec,2017",
+          title: "Visual - the next level",
+          location: "Yuka lambout"
+        },
+        {
+          id: 1,
+          type: "evenement",
+          img: "https://source.unsplash.com/1600x900/?nature,camping",
+          date: "27 Dec,2017",
+          title: "Visual - the next level",
+          location: "Yuka lambout"
+        }
+      );
+    } else {
+      this.dateData = [];
     }
   }
 }

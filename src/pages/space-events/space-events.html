@@ -22,43 +22,51 @@
         <!-- Calnedar code  -->
         <div class="calendar animated fadeInUp" [class.calendar-show]="showCalendar">
           <div class="top" [class.hide]="showCalendar" (click)="showCalendar = !showCalendar">
-            <h4>{{dateIn.monthes[dateIn.targetDate.month()]}} <ion-icon name="arrow-down"></ion-icon></h4>
+            <h4>{{dateIn.monthes[dateIn.targetDate.month()]}}
+              <ion-icon name="arrow-down"></ion-icon>
+            </h4>
           </div>
           <div class="monthes" [class.hide]="!showCalendar">
             <div [class.active]="i == dateIn.targetDate.month()" *ngFor="let m of dateIn.monthes;let i=index" (click)="reCalc(i,ev)">{{m}}</div>
           </div>
           <div class="days">
-            <div *ngFor="let d of dateIn.days;let dayName=index" [class.selected]="!showCalendar && ((selectedDate && (selectedDate.day()-1) == dayName))">{{d}}</div>
+            <div *ngFor="let d of dateIn.days;let dayName=index" [class.selected]="!showCalendar && ((selectedDate && ((selectedDate.day()-1) == dayName))||(selectedDate.day()==0 && dayName==6))">{{d}}</div>
           </div>
           <div class="daysNbr animated fadeInDown" [class.hide]="!showCalendar  && !keepLineDays(0,6)">
-            <div (click)="selectDate(d,i)" [class.closedCalendarSelected]="i == selectedDateIndex && !showCalendar"  [class.selected]="i == selectedDateIndex" [class.today]="d == now.date() && dateIn.targetDate.month() == now.month() && dateIn.targetDate.year() == now.year()"
+            <div (click)="selectDate(d,i)" [class.closedCalendarSelected]="i == selectedDateIndex && !showCalendar" [class.selected]="i == selectedDateIndex"
+              [class.today]="d == now.date() && dateIn.targetDate.month() == now.month() && dateIn.targetDate.year() == now.year()"
               [class.thisMonthDays]="i >= dateIn.startDayPos && i <= dateIn.endDayPos" *ngFor="let d of dateIn.daysNbr|slice:0:7;let i =index">{{d}}</div>
           </div>
-          <div class="daysNbr animated fadeInDown" [class.hide]="!showCalendar  && !keepLineDays(6,13)">
-            <div (click)="selectDate(d,i+7)" [class.closedCalendarSelected]="i+7 == selectedDateIndex && !showCalendar" [class.selected]="i+7 == selectedDateIndex" [class.today]="d == now.date() && dateIn.targetDate.month() == now.month() && dateIn.targetDate.year() == now.year()"
+          <div class="daysNbr animated fadeInDown" [class.hide]="!showCalendar  && !keepLineDays(7,14)">
+            <div (click)="selectDate(d,i+7)" [class.closedCalendarSelected]="i+7 == selectedDateIndex && !showCalendar" [class.selected]="i+7 == selectedDateIndex"
+              [class.today]="d == now.date() && dateIn.targetDate.month() == now.month() && dateIn.targetDate.year() == now.year()"
               [class.thisMonthDays]="i+7 >= dateIn.startDayPos && i <= dateIn.endDayPos" *ngFor="let d of dateIn.daysNbr|slice:7:14;let i =index">{{d}}</div>
           </div>
-          <div class="daysNbr animated fadeInDown" [class.hide]="!showCalendar  && !keepLineDays(13,20)">
-            <div (click)="selectDate(d,i+14)" [class.closedCalendarSelected]="i+14 == selectedDateIndex && !showCalendar" [class.selected]="i+14 == selectedDateIndex" [class.today]="d == now.date() && dateIn.targetDate.month() == now.month() && dateIn.targetDate.year() == now.year()"
+          <div class="daysNbr animated fadeInDown" [class.hide]="!showCalendar  && !keepLineDays(15,22)">
+            <div (click)="selectDate(d,i+14)" [class.closedCalendarSelected]="i+14 == selectedDateIndex && !showCalendar" [class.selected]="i+14 == selectedDateIndex"
+              [class.today]="d == now.date() && dateIn.targetDate.month() == now.month() && dateIn.targetDate.year() == now.year()"
               [class.thisMonthDays]="i+14 >= dateIn.startDayPos && i <= dateIn.endDayPos " *ngFor="let d of dateIn.daysNbr|slice:14:21;let i =index">{{d}}</div>
           </div>
-          <div class="daysNbr animated fadeInDown" [class.hide]="!showCalendar  && !keepLineDays(20,26)">
-            <div (click)="selectDate(d,i+21)" [class.closedCalendarSelected]="i+21 == selectedDateIndex && !showCalendar" [class.selected]="i+21 == selectedDateIndex" [class.today]="d == now.date() && dateIn.targetDate.month() == now.month() && dateIn.targetDate.year() == now.year()"
+          <div class="daysNbr animated fadeInDown" [class.hide]="!showCalendar  && !keepLineDays(23,30)">
+            <div (click)="selectDate(d,i+21)" [class.closedCalendarSelected]="i+21 == selectedDateIndex && !showCalendar" [class.selected]="i+21 == selectedDateIndex"
+              [class.today]="d == now.date() && dateIn.targetDate.month() == now.month() && dateIn.targetDate.year() == now.year()"
               [class.thisMonthDays]="i+21 >= dateIn.startDayPos && i <= dateIn.endDayPos " *ngFor="let d of dateIn.daysNbr|slice:21:28;let i =index">{{d}}</div>
           </div>
-          <div class="daysNbr animated fadeInDown" [class.hide]="!showCalendar  && !keepLineDays(26,33)">
-            <div (click)="selectDate(d,i+28)" [class.closedCalendarSelected]="i+28 == selectedDateIndex && !showCalendar" [class.selected]="i+28 == selectedDateIndex" [class.today]="d == now.date() && dateIn.targetDate.month() == now.month() && dateIn.targetDate.year() == now.year()"
+          <div class="daysNbr animated fadeInDown" [class.hide]="!showCalendar  && !keepLineDays(31,38)">
+            <div (click)="selectDate(d,i+28)" [class.closedCalendarSelected]="i+28 == selectedDateIndex && !showCalendar" [class.selected]="i+28 == selectedDateIndex"
+              [class.today]="d == now.date() && dateIn.targetDate.month() == now.month() && dateIn.targetDate.year() == now.year()"
               [class.thisMonthDays]="i+28 < dateIn.endDayPos" *ngFor="let d of dateIn.daysNbr|slice:28:35;let i =index">{{d}}</div>
           </div>
-          <div class="daysNbr animated fadeInDown" [class.hide]="!showCalendar  && !keepLineDays(33,dateIn.daysNbr.length-1)" *ngIf="dateIn.daysNbr.length > 35">
-            <div (click)="selectDate(d,i+35)" [class.closedCalendarSelected]="i+35 == selectedDateIndex && !showCalendar" [class.selected]="i+35 == selectedDateIndex" [class.today]="d == now.date() && dateIn.targetDate.month() == now.month() && dateIn.targetDate.year() == now.year()"
+          <div class="daysNbr animated fadeInDown" [class.hide]="!showCalendar  && !keepLineDays(39,dateIn.daysNbr.length-1)" *ngIf="dateIn.daysNbr.length > 35">
+            <div (click)="selectDate(d,i+35)" [class.closedCalendarSelected]="i+35 == selectedDateIndex && !showCalendar" [class.selected]="i+35 == selectedDateIndex"
+              [class.today]="d == now.date() && dateIn.targetDate.month() == now.month() && dateIn.targetDate.year() == now.year()"
               [class.thisMonthDays]="i+35 < dateIn.endDayPos " *ngFor="let d of dateIn.daysNbr|slice:35;let i =index">{{d}}</div>
           </div>
         </div>
       </ion-column>
     </ion-row>
     <ion-row class="date-with-content">
-      <ion-column *ngIf="dateData && dateData.length > 0; else elseTemplate">
+      <ion-column *ngIf="dateData && dateData.length > 0">
         <h3 class="content-title">A venir</h3>
         <div class="card" *ngFor="let item of dateData">
           <img [src]="item.img" alt="">
@@ -82,17 +90,19 @@
           </div>
         </div>
       </ion-column>
-      <ion-column>
-      <ng-template #elseTemplate>
-          <img src="../../assets/imgs/space-events/no-events.svg" alt="" class="center-img">
-          <p color="light">Vous n'avez pas de programme ,</p>
-          <p color="light">Creer un avec une simple click</p>
-        </ng-template>
-        <ion-fab>
-            <button ion-fab color="primary">
-              <ion-icon name="add"></ion-icon>
-            </button>
-          </ion-fab>
+      <ion-column class="no-content" *ngIf="!dateData || dateData.length == 0">
+        <img src="../../assets/imgs/space-events/no-events.svg" alt="" class="center-img">
+        <p color="light">Vous n'avez pas de programme ,</p>
+        <p color="light">Creer un avec une simple click</p>
+      </ion-column>
+    </ion-row>
+    <ion-row>
+      <ion-column class="theFab">
+        <ion-fab class="fabBTn">
+          <button ion-fab color="primary" small>
+            <ion-icon name="add"></ion-icon>
+          </button>
+        </ion-fab>
       </ion-column>
     </ion-row>
   </ion-grid>
