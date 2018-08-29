@@ -369,18 +369,17 @@
             <span class="more">Tout afficher</span>
           </div>
           <div class="row row-scroller notYou">
-            <div class="proximite-card" *ngFor="let item of proximiteListRef$ |
-        async">
-              <img src="http://lorempixel.com/400/200/sports" alt="">
-              <h2>{{item.placeName}}</h2>
+            <div class="proximite-card" *ngFor="let item of proximiteListRef$">
+              <img src="{{item.espaceImage}}" alt="">
+              <h2>{{item.espaceName}}</h2>
               <div class="row-style row-space-between">
                 <span class="location">
                   <ion-icon name="pin"></ion-icon>
-                  {{item.placeLocation}}
+                  {{item.espacePlace}}
                 </span>
                 <span class="distance">
                   <ion-icon name="paper-plane"></ion-icon>
-                  {{item.placeDistance}} KM
+                  {{item.dist}} KM
                 </span>
               </div>
             </div>

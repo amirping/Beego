@@ -102,6 +102,11 @@ export class HomePage {
      
       
     });
+    this.spacesProvider.getNearestSpaces(10,(data)=>{
+      console.log("ahawma ",data)
+      this.proximiteListRef$= data.spaces
+      
+    });
     this.following = true
     this.pageType ="only10"
     
@@ -153,7 +158,7 @@ export class HomePage {
       });*/
 
     /* Liste des proximités */
-    this.proximiteListRef$ = spacesProvider.listProximite();
+   
 
     /* Liste des proximités */
     this.invitationListRef$ = this.database

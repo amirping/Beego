@@ -186,4 +186,15 @@ export class SpacesProvider {
       callBack(data)
     })
   }
+  getNearestSpaces(dist ,callBack){
+    const idToken = this.userProvider.idToken
+    const params = new HttpParams().set("distance",dist).set("distance",dist)
+    const headers = new HttpHeaders().set("authorization", "Bearer "+idToken)
+    this.http.get('http://localhost:5000/test-3cdd6/us-central1/beegoapi/getnearestspaces' ,{headers,params})
+    .subscribe(data=> {
+      console.log("hedhouma les espaces à proximité de 5 km",data)
+      callBack(data)
+    })
+  }
+  
 }
