@@ -42,6 +42,8 @@ import {SchedulePage} from '../pages/schedule/schedule';
 import {SpaceContactUsPage} from '../pages/space-contact-us/space-contact-us';
 import {SpaceConversationPage} from '../pages/space-conversation/space-conversation';
 import {SpaceHistoryPage} from '../pages/space-history/space-history';
+import {SpaceListFollowersPage} from '../pages/space-list-followers/space-list-followers';
+import {SpaceReportPopupPage} from '../pages/space-report-popup/space-report-popup';
 
 import { UserProvider } from '../providers/user/user';
 
@@ -52,7 +54,7 @@ import { UserProvider } from '../providers/user/user';
 export class MyApp {
   // = ProfilPage
 
-  rootPage: any= SpaceHistoryPage;
+  rootPage: any= SpaceListFollowersPage;
   constructor(
     platform: Platform,
     statusBar: StatusBar,

@@ -1,0 +1,95 @@
+<!--
+  Generated template for the SpaceListFollowersPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <span>
+    Liste de followers
+  </span>
+  <ion-icon class="back" (click)="back()" ios="ios-arrow-round-back" md="ios-arrow-round-back"></ion-icon>
+  <div class="bgImg">
+    <img src="../../assets/imgs/space_detail/whats-up.png" alt=""></div>
+  <ion-segment class="segment-block" [(ngModel)]="index">
+    <ion-segment-button class="segment-white" value="1">
+      Followers
+    </ion-segment-button>
+    <ion-segment-button class="segment-white" value="2">
+      Suggestion
+    </ion-segment-button>
+
+  </ion-segment>
+
+</ion-header>
+
+
+<ion-content [ngSwitch]="index">
+  <ion-grid no-padding class="grid_padding" *ngSwitchCase="1" [class.blur]="blurVar" >
+    <ion-row class="search">
+      <input type="text" name="text_search" value="" placeholder="Recherche" class="text-search-listfollows" id="text_search"
+        [(ngModel)]="text_search">
+
+      <button class="search-text-icon-listfollows">
+        <img src="../../assets/imgs/Search-listfollows.png" alt=""></button>
+      <button class="clear-text" (click)="text_search=''">
+        <img class="cleaner-listfollows" src="../../assets/imgs/clean-listfollows.png" alt="" *ngIf="text_search !=null && text_search.length>0"></button>
+    </ion-row>
+    <ion-row  class="list_row " *ngFor="let item of listFollows;let i=index" 
+    (swiperight)="openItem($event,'-1')" (swipeleft)="openItem($event,i)" [class.swiped]="indexSwipe == i">
+      <div class="imgBg imgBgSwipe" [class.lineBG]="i%2" >
+        <div class="imgBg_cercle">
+          <img [src]="item.picUrl" alt="">
+        </div>
+      </div>
+      <div class="info_contain info-swipe" [class.lineBG]="i%2" >
+        <div class="name">
+          {{item.name}}
+        </div>
+        <div class="place">
+          {{item.place}}
+        </div>
+        <ion-icon ios="md-more" md="md-more" (click)="moveInfo($event,i)" ></ion-icon>
+      </div>
+      <div class="hidden_btns">
+        <div class="redCircle cercle" (click)="deleteFollower()" >
+          <ion-icon ios="ios-trash-outline" md="ios-trash-outline"></ion-icon>
+        </div>
+        <div class="yellowCircle cercle" (click)="ReportFollower(i)" >
+          <ion-icon ios="ios-warning-outline" md="ios-warning-outline"></ion-icon>
+        </div>
+      </div>
+      <div class="separator"></div>
+    </ion-row>
+  </ion-grid>
+  <ion-grid no-padding class="grid_padding" *ngSwitchCase="2" >
+    <ion-row class="search">
+      <input type="text" name="text_search" value="" placeholder="Recherche" class="text-search-listfollows" id="text_search"
+        [(ngModel)]="text_search">
+
+      <button class="search-text-icon-listfollows">
+        <img src="../../assets/imgs/Search-listfollows.png" alt=""></button>
+      <button class="clear-text" (click)="text_search=''">
+        <img class="cleaner-listfollows" src="../../assets/imgs/clean-listfollows.png" alt="" *ngIf="text_search !=null && text_search.length>0"></button>
+    </ion-row>    
+    <ion-row  class="list_row " *ngFor="let item of listsuggestion;let i=index">
+      <div class="imgBg" [class.lineBG]="i%2" >
+        <div class="imgBg_cercle">
+          <img [src]="item.picUrl" alt="">
+        </div>
+      </div>
+      <div class="info_contain info-swipe" [class.lineBG]="i%2" >
+        <div class="name">
+          {{item.name}}
+        </div>
+        <div class="place">
+          {{item.place}}
+        </div>
+        <ion-icon ios="md-person-add" class="add_icon" md="md-person-add"></ion-icon>
+      </div>
+    
+      <div class="separator"></div>
+    </ion-row>
+  </ion-grid>
+</ion-content>

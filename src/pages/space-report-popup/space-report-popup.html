@@ -1,0 +1,38 @@
+<!--
+  Generated template for the SpaceReportPopupPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+
+
+<ion-content >
+  <div class="space_popup_container">
+    <div class="space_popup">
+      <ion-grid no-padding>
+        <ion-row class="icon_row">
+            <img class="iconssize"
+            src="../../assets/imgs/friend-follow/iconpopup.svg" alt="">
+        </ion-row>
+        <ion-row class="popup_title">
+            Voulez vous signaler&nbsp; <div class="name"> {{name}}</div>&nbsp; ?
+        </ion-row>
+        <ion-row class="popup_text_place">
+          <textarea name="" id="" class="popup_text"></textarea>
+        </ion-row>
+        <ion-row class="btns_row">
+          <div class="separate"></div>
+          <div class="vertical_separate"></div>
+          <ion-col class="btns_col" col-6>
+              <button (click)="cancel()" >Annuler</button>
+            </ion-col>
+            <ion-col class="btns_col" col-6>
+              <button class="report_btn">Signaler</button>
+            </ion-col>
+        </ion-row>        
+      </ion-grid>
+    </div>
+  </div>
+
+</ion-content>

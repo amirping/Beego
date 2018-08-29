@@ -1,0 +1,251 @@
+page-space-list-followers {
+    ion-header {
+        height: 119px;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+        border: 1px solid rgba(0, 0, 0, 0);
+        background-color: #353b5a;
+        display: flex;
+        justify-content: center;
+        span {
+          color: #ffffff;
+          font-family: Raleway;
+          font-size: 16px;
+          font-weight: 500;
+          letter-spacing: 0.19px;
+          margin-top: 33px;
+        }
+        .back {
+          position: absolute;
+          left: 5%;
+          top: 22px;
+          color: white;
+          font-size: 41px;
+        }
+        .bgImg{
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+            width: 30px;
+            height: 30px;
+            position: absolute;
+            top: 26px;
+            right: 5%;
+            border-radius: 50px;
+            img{
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+                border-radius: 50px;
+            }
+        }
+        .segment-block {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            .segment-white {
+                background-color: transparent !important;
+                border: none !important;
+                color: rgba(255, 255, 255, 0.4) !important;
+                font-family: Raleway;
+                font-size: 14px !important;
+                font-weight: 500;
+              }
+              .segment-activated {
+                font-size: 14px !important;
+                background-color: transparent !important;
+                border-bottom: 3px solid #f22876 !important;
+                font-family: Raleway;
+                font-weight: 500;
+                color: white !important;
+              }
+          }
+      }
+      .content-ios {
+        background-color: #383f60;
+      }
+      .content-md {
+        background-color: #383f60;
+      }
+      .grid_padding{
+          padding-top: 25px !important;
+          .search{
+            position: relative;
+            margin-left: 21px;
+            width: calc( 100% - 42px );
+            padding-bottom: 17px;
+        }
+        .text-search-listfollows{
+            border-radius: 5px;
+            width: 100%;
+            border:none;
+            height: 34px;
+            background-color: #343b58;
+            padding-left: 26px;
+            color: #c9c9c9;
+            font-family: Raleway;
+            font-size: 14px;
+            font-weight: 400;
+            letter-spacing: -0.15px;
+        }
+        .text-search-listfollows::placeholder {
+            color: #c9c9c9;
+            font-family: "Segoe UI";
+            font-weight: 400;
+            }
+            .search-text-icon-listfollows{
+                position: absolute;
+                background-color: transparent;
+                top: 9px;
+            }
+            .search-text-icon-listfollows:active{
+                position: absolute;
+                background-color: transparent;
+                top: 10px;
+                
+            }
+            .clear-text{
+                position: absolute;
+                background-color: transparent;
+                top: 9px;
+                right: 11px;
+            }
+           
+            .list_row{
+                width: 100%;
+                height: 70px;
+                background-color: #343b58;
+                display: flex;
+                position: relative;
+                .imgBg{
+                    z-index: 2;
+                    width: 76px;
+                    height: 100%;
+                    padding-left: 27px !important;
+                    background-color: #343b58;
+                    transition: all 1s;                    
+                }               
+                .imgBg_cercle{
+                    margin-top: 15px;
+                    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+                    border-radius: 50px;
+                    width: 40px;
+                    height: 40px;
+                    background-color: transparent;
+                    img{
+                        height: 100%;
+                        width: 100%;
+                        object-fit: cover;
+                        border-radius: 50px;
+                    }
+                }
+               
+                .info_contain{
+                    transition: all 1s;
+                    position: absolute;
+                    left: 76px;
+                    height: 100%;
+                    width: calc( 100% - 67px );
+                    padding-left: 2px;
+                    z-index: 1;
+                    background-color: #343b58;
+                    .name{
+                        margin-top: 18px;
+                        color: #ffffff;
+                        font-size: 14px;
+                        letter-spacing: -0.2px;
+                        line-height: 22px;
+                        font-family: "Segoe UI";
+                        font-weight: 400;
+                        text-transform: capitalize;
+                    }
+                    .place{
+                        color: #7a82a5;
+                        font-size: 10px;
+                        letter-spacing: -0.14px;
+                        line-height: 22px;
+                        font-family: "Segoe UI";
+                        font-weight: 400;
+                        margin-top: -6px;  
+                        text-transform: capitalize;                 
+                    }
+                    ion-icon{
+                        position: absolute;
+                        right: 39px;
+                        top: 21px;
+                        font-size: 28px;
+                        color: #9eaacc;
+                    }
+                    .add_icon{
+                        font-size: 24px;
+                    }
+                }
+                .separator{
+                    height: 1px;
+                    width: calc( 100% - 40px );
+                    position: absolute;
+                    bottom: 0;
+                    left: 20px;
+                    border: 0.5px solid #95989a;
+                    z-index: 4;
+                }
+                .hidden_btns{
+                    position: absolute;
+                    height: 100%;
+                    width: 39%;
+                    right: 0;
+                    background-color: #2e344e;
+                    z-index: 0;
+                    display: flex;
+                    justify-content: center;
+                    padding-top: 20px;
+                    .cercle{
+                        width: 30px;
+                        height: 30px;
+                        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+                        position: relative;
+                    }
+                    .redCircle{                       
+                        background-color: #e63f40;
+                        border-radius: 50px;   
+                        ion-icon{
+                            color: white;
+                            font-size: 21px;
+                            position: absolute;
+                            top: 5px;
+                            left: 8px;
+                        }                     
+                    }
+                    .yellowCircle{                                                
+                        background-color: #dfb43c;
+                        border-radius: 50px;
+                        margin-left: 8%;
+                        ion-icon{
+                            color: white;
+                            position: absolute;
+                            font-size: 21px;
+                            top: 4px;
+                            left: 6.5px;
+                        }
+                    }
+                }
+            }
+      }
+      .swiped {
+        .info-swipe{
+            margin-left: -37% !important;
+            border-radius: 0 12px 12px 0;
+            box-shadow: 3px 0 10px rgba(0, 0, 0, 0.32);
+            transition: all 1s;
+            padding-left: 20% !important;
+        }                
+        .imgBgSwipe{
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16) !important;
+            border-radius: 10px 0 0 10px !important;
+            // background-color: #383f60 !important;
+        }
+    }
+    .lineBG{
+        background-color: #383f60 !important;
+    }
+    .blur{
+        filter: blur(3px);
+    }
+}

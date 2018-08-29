@@ -56,6 +56,8 @@ import {SchedulePage} from '../pages/schedule/schedule';
 import {SpaceContactUsPage} from '../pages/space-contact-us/space-contact-us';
 import {SpaceConversationPage} from '../pages/space-conversation/space-conversation';
 import {SpaceHistoryPage} from '../pages/space-history/space-history';
+import {SpaceListFollowersPage} from '../pages/space-list-followers/space-list-followers';
+import {SpaceReportPopupPage} from '../pages/space-report-popup/space-report-popup';
 
 
 import { Ionic2RatingModule } from "ionic2-rating";
@@ -131,6 +133,8 @@ import { HttpClientModule } from "../../node_modules/@angular/common/http";
     SpaceContactUsPage,
     SpaceConversationPage,
     SpaceHistoryPage,
+    SpaceListFollowersPage,
+    SpaceReportPopupPage,
     
 
 
@@ -191,6 +195,8 @@ import { HttpClientModule } from "../../node_modules/@angular/common/http";
     SpaceContactUsPage,
     SpaceConversationPage,
     SpaceHistoryPage,
+    SpaceListFollowersPage,
+    SpaceReportPopupPage,
 
     UpdateProgramPage,
     DislikeListPage,
