@@ -138,17 +138,25 @@ export class SpaceEventsPage {
    * keep the needed line dude u know that
    */
   keepLineDays(startPos, endPos) {
-    if (!this.selectedDateIndex || this.selectedDateIndex == -100) {
+    if (
+      !this.selectedDateIndex ||
+      this.selectedDateIndex == -100 ||
+      !this.selectedDate
+    ) {
       // work on today
+      console.log("its today work ");
+
       let day = this.dateIn.targetDate.date();
       for (let v = startPos; v < endPos; v++) {
         if (this.dateIn.daysNbr[v] == day) {
+          console.log("we keep " + startPos + "  - " + endPos);
           return true;
         }
       }
       return false;
     } else {
       // work on selected date
+      console.log("its selected date work ");
       console.log(this.selectedDateIndex + " - " + startPos + " - " + endPos);
       return (
         this.selectedDateIndex >= startPos && this.selectedDateIndex <= endPos

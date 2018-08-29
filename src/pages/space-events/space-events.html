@@ -30,36 +30,37 @@
             <div [class.active]="i == dateIn.targetDate.month()" *ngFor="let m of dateIn.monthes;let i=index" (click)="reCalc(i,ev)">{{m}}</div>
           </div>
           <div class="days">
-            <div *ngFor="let d of dateIn.days;let dayName=index" [class.selected]="!showCalendar && ((selectedDate && ((selectedDate.day()-1) == dayName))||(selectedDate.day()==0 && dayName==6))">{{d}}</div>
+            <div *ngFor="let d of dateIn.days;let dayName=index" [class.selected]="!showCalendar && ((selectedDate && ((selectedDate.day()-1) == dayName)))">{{d}}</div>
           </div>
           <div class="daysNbr animated fadeInDown" [class.hide]="!showCalendar  && !keepLineDays(0,6)">
-            <div (click)="selectDate(d,i)" [class.closedCalendarSelected]="i == selectedDateIndex && !showCalendar" [class.selected]="i == selectedDateIndex"
-              [class.today]="d == now.date() && dateIn.targetDate.month() == now.month() && dateIn.targetDate.year() == now.year()"
+            <div (click)="selectDate(d,i)" [class.closedCalendarSelected]="i == selectedDateIndex && !showCalendar"
+              [class.selected]="i == selectedDateIndex" [class.today]="d == now.date() && dateIn.targetDate.month() == now.month() && dateIn.targetDate.year() == now.year()"
               [class.thisMonthDays]="i >= dateIn.startDayPos && i <= dateIn.endDayPos" *ngFor="let d of dateIn.daysNbr|slice:0:7;let i =index">{{d}}</div>
           </div>
-          <div class="daysNbr animated fadeInDown" [class.hide]="!showCalendar  && !keepLineDays(7,14)">
-            <div (click)="selectDate(d,i+7)" [class.closedCalendarSelected]="i+7 == selectedDateIndex && !showCalendar" [class.selected]="i+7 == selectedDateIndex"
-              [class.today]="d == now.date() && dateIn.targetDate.month() == now.month() && dateIn.targetDate.year() == now.year()"
+          <div class="daysNbr animated fadeInDown" [class.hide]="!showCalendar  && !keepLineDays(7,13)">
+            <div (click)="selectDate(d,i+7)" [class.closedCalendarSelected]="i+7 == selectedDateIndex && !showCalendar"
+              [class.selected]="i+7 == selectedDateIndex" [class.today]="d == now.date() && dateIn.targetDate.month() == now.month() && dateIn.targetDate.year() == now.year()"
               [class.thisMonthDays]="i+7 >= dateIn.startDayPos && i <= dateIn.endDayPos" *ngFor="let d of dateIn.daysNbr|slice:7:14;let i =index">{{d}}</div>
           </div>
-          <div class="daysNbr animated fadeInDown" [class.hide]="!showCalendar  && !keepLineDays(15,22)">
-            <div (click)="selectDate(d,i+14)" [class.closedCalendarSelected]="i+14 == selectedDateIndex && !showCalendar" [class.selected]="i+14 == selectedDateIndex"
-              [class.today]="d == now.date() && dateIn.targetDate.month() == now.month() && dateIn.targetDate.year() == now.year()"
+          <div class="daysNbr animated fadeInDown" [class.hide]="!showCalendar  && !keepLineDays(14,20)">
+            <div (click)="selectDate(d,i+14)" [class.closedCalendarSelected]="i+14 == selectedDateIndex && !showCalendar"
+              [class.selected]="i+14 == selectedDateIndex" [class.today]="d == now.date() && dateIn.targetDate.month() == now.month() && dateIn.targetDate.year() == now.year()"
               [class.thisMonthDays]="i+14 >= dateIn.startDayPos && i <= dateIn.endDayPos " *ngFor="let d of dateIn.daysNbr|slice:14:21;let i =index">{{d}}</div>
           </div>
-          <div class="daysNbr animated fadeInDown" [class.hide]="!showCalendar  && !keepLineDays(23,30)">
-            <div (click)="selectDate(d,i+21)" [class.closedCalendarSelected]="i+21 == selectedDateIndex && !showCalendar" [class.selected]="i+21 == selectedDateIndex"
-              [class.today]="d == now.date() && dateIn.targetDate.month() == now.month() && dateIn.targetDate.year() == now.year()"
+          <div class="daysNbr animated fadeInDown" [class.hide]="!showCalendar  && !keepLineDays(21,27)">
+            <div (click)="selectDate(d,i+21)" [class.closedCalendarSelected]="i+21 == selectedDateIndex && !showCalendar"
+              [class.selected]="i+21 == selectedDateIndex" [class.today]="d == now.date() && dateIn.targetDate.month() == now.month() && dateIn.targetDate.year() == now.year()"
               [class.thisMonthDays]="i+21 >= dateIn.startDayPos && i <= dateIn.endDayPos " *ngFor="let d of dateIn.daysNbr|slice:21:28;let i =index">{{d}}</div>
           </div>
-          <div class="daysNbr animated fadeInDown" [class.hide]="!showCalendar  && !keepLineDays(31,38)">
-            <div (click)="selectDate(d,i+28)" [class.closedCalendarSelected]="i+28 == selectedDateIndex && !showCalendar" [class.selected]="i+28 == selectedDateIndex"
-              [class.today]="d == now.date() && dateIn.targetDate.month() == now.month() && dateIn.targetDate.year() == now.year()"
+          <div class="daysNbr animated fadeInDown" [class.hide]="!showCalendar  && !keepLineDays(28,34)">
+            <div (click)="selectDate(d,i+28)" [class.closedCalendarSelected]="i+28 == selectedDateIndex && !showCalendar"
+              [class.selected]="i+28 == selectedDateIndex" [class.today]="d == now.date() && dateIn.targetDate.month() == now.month() && dateIn.targetDate.year() == now.year()"
               [class.thisMonthDays]="i+28 < dateIn.endDayPos" *ngFor="let d of dateIn.daysNbr|slice:28:35;let i =index">{{d}}</div>
           </div>
-          <div class="daysNbr animated fadeInDown" [class.hide]="!showCalendar  && !keepLineDays(39,dateIn.daysNbr.length-1)" *ngIf="dateIn.daysNbr.length > 35">
-            <div (click)="selectDate(d,i+35)" [class.closedCalendarSelected]="i+35 == selectedDateIndex && !showCalendar" [class.selected]="i+35 == selectedDateIndex"
-              [class.today]="d == now.date() && dateIn.targetDate.month() == now.month() && dateIn.targetDate.year() == now.year()"
+          <div class="daysNbr animated fadeInDown" [class.hide]="!showCalendar  && !keepLineDays(35,dateIn.daysNbr.length-1)"
+            *ngIf="dateIn.daysNbr.length > 35">
+            <div (click)="selectDate(d,i+35)" [class.closedCalendarSelected]="i+35 == selectedDateIndex && !showCalendar"
+              [class.selected]="i+35 == selectedDateIndex" [class.today]="d == now.date() && dateIn.targetDate.month() == now.month() && dateIn.targetDate.year() == now.year()"
               [class.thisMonthDays]="i+35 < dateIn.endDayPos " *ngFor="let d of dateIn.daysNbr|slice:35;let i =index">{{d}}</div>
           </div>
         </div>
@@ -84,7 +85,8 @@
               <div class="title-location">
                 <span>Visual - The next round level</span>
                 <span>
-                  <ion-icon name="pin"></ion-icon>some where ya benzi</span>
+                  <ion-icon name="pin"></ion-icon>some where ya benzi
+                </span>
               </div>
             </div>
           </div>
