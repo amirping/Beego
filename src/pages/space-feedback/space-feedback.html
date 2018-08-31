@@ -1,0 +1,127 @@
+<!--
+  Generated template for the SpaceFeedbackPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <span>
+    Feedback
+  </span>
+  <ion-icon class="back" (click)="back()" ios="ios-arrow-round-back" md="ios-arrow-round-back"></ion-icon>
+  <div class="bgImg">
+    <img src="../../assets/imgs/space_detail/whats-up.png" alt=""></div>
+
+
+</ion-header>
+
+
+<ion-content [class.blur]="blurVar">
+  <ion-grid no-padding [class.blurGride]="grideVar">
+    <ion-row class="title_row">
+      Feedback
+    </ion-row>
+    <ion-row class="list_row " *ngFor="let item of list;let i=index" (swiperight)="openItem($event,'-1')" (swipeleft)="openItem($event,i)"
+      [class.swiped]="indexSwipe == i">
+      <div class="imgBg imgBgSwipe">
+        <div class="imgBg_cercle">
+          <img [src]="item.picUrl" alt="">
+        </div>
+        <div class="time">
+          17 Dec 2017
+        </div>
+      </div>
+      <div class="comment_container info-swipe" >
+        <div class="name">
+          {{item.name}} {{item.lastName}}
+        </div>
+        <div class="comment">
+          {{item.comment}}
+        </div>
+        <div class="nbcomment" (click)="openComments(i)">
+          {{item.commentNbr}} commentaires
+        </div>
+        <div class="rating-ex">
+          <rating [(ngModel)]="item.rating" emptyStarIconName="star-outline" halfStarIconName="star-half" starIconName="star"
+            nullable="false" (ngModelChange)="null">
+          </rating>
+        </div>
+        <ion-icon ios="md-heart" class="heart" md="md-heart"></ion-icon>
+        <ion-icon ios="md-more" class="more" md="md-more" (click)="moveInfo($event,i)"></ion-icon>
+      </div>
+      <div class="hidden_btn">
+        <div class="btn_bg reply" (click)="reply(i)">
+        </div>
+        <div class="btn_bg delete">
+          <ion-icon ios="ios-trash-outline" md="ios-trash-outline"></ion-icon>
+        </div>
+      </div>
+    </ion-row>
+  </ion-grid>
+  <div class="show_comment animated fadeInUp " [class.hiden-comment]="hiddenVar" >
+    <ion-grid no-padding>
+      <ion-row class="title_row">
+        Répondez au commentaire
+        <img src="../../assets/imgs/replyy.svg" alt="">
+      </ion-row>
+      <ion-row class="comment_row">
+        <div class="imgBg">
+          <div class="imgBg_cercle">
+            <img [src]="com.picUrl" alt="">
+          </div>
+          <div class="time">
+            17 Dec 2017
+          </div>
+        </div>
+        <div class="comment_container ">
+          <div class="name">
+            {{com.name}} {{com.lastName}}
+          </div>
+          <div class="comment">
+            {{com.comment}}
+          </div>
+          <div class="nbcomment">
+            {{com.commentNbr}}
+            commentaires
+          </div>
+          <div class="rating-ex">
+            <rating emptyStarIconName="star-outline" halfStarIconName="star-half" starIconName="star" nullable="false"
+              (ngModelChange)="null">
+            </rating>
+          </div>
+          <ion-icon ios="md-heart" class="heart" md="md-heart"></ion-icon>
+        </div>
+      </ion-row>
+      <ion-row class="reply_row animated fadeInDown" *ngFor="let item of comReply;">
+        <div class="img_time_bg">
+          <div class="img_bg">
+            <img src="../../assets/imgs/space_detail/whats-up.png" alt="">
+          </div>
+          <div class="time">
+            17 Dec 2017
+          </div>
+        </div>
+        <div class="comment_container ">
+          <div class="name">
+            Whats'up coffée
+          </div>
+          <div class="comment">
+            {{item.comment}}            
+          </div>
+          <ion-icon ios="md-heart" class="heart" md="md-heart"></ion-icon>
+        </div>
+      </ion-row>
+      <ion-row class="write_com_row">
+        <div class="img_bg">
+          <img src="../../assets/imgs/space_detail/whats-up.png" alt="">
+        </div>
+        <input type="text" placeholder="Répondez ..." [(ngModel)]="text_send" class="write">
+        <ion-icon (click)="sendMsg()" *ngIf="text_send !=null && text_send.length>0"
+         class="sent_btn" ios="md-send" md="md-send"></ion-icon>
+      </ion-row>
+    </ion-grid>
+  </div>
+  <div class="close_comment animated fadeIn" (click)="closeCom()" [class.close-close]="hiddenVar"  ></div>
+
+</ion-content>

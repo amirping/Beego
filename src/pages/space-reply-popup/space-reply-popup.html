@@ -1,0 +1,41 @@
+<!--
+  Generated template for the SpaceReplyPopupPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+
+
+<ion-content >
+  <div class="caontainer_popup">
+    <ion-grid no-padding class="gride_size">
+      <ion-row class="img_row">
+          <div class="bee-image_bg">
+              <div class="bee-hexagon_bg">
+                  <div class="bee-image">
+                      <div class="bee-hexagon">
+                          <img class="bee-img-size"
+                          src="../../assets/imgs/space_detail/whats-up.png" alt="">
+                        </div>
+                  </div>
+              </div>
+          </div>
+      </ion-row>
+      <ion-row class="popup_title">
+          Rependre a la commentaire du
+          <div class="name">{{name}} {{lastName}}</div> 
+      </ion-row>
+      <ion-row class="reply">
+          Rependre
+      </ion-row>
+      <ion-row class="reply_row">
+        <textarea name="" id="" class="reply_place"></textarea>
+      </ion-row>
+      <ion-row class="btn_row">
+        <button (click)="submit()" >Valider</button>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+</ion-content>
