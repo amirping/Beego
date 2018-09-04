@@ -1,0 +1,99 @@
+@import url("https://fonts.googleapis.com/css?family=Raleway");
+
+page-bee-sensor {
+  font-family: "Raleway";
+
+  ion-header {
+    background: #353B5A;
+
+    ion-title {
+      .toolbar-title {
+        font-size: 16px;
+        color: white;
+        font-weight: 400;
+      }
+    }
+
+    .toolbar-background {
+      background: #353B5A;
+    }
+
+    .headerBtn {
+      font-size: 12px;
+      color: rgba($color: #FFFFFF, $alpha: .42)
+    }
+
+    .uniteZone {
+      background: url(../../assets/imgs/beeSensor_img/rect.svg) no-repeat;
+      background-position: 50% 90%;
+      background-size: 30%;
+      padding-bottom: 30px;
+
+      .row-scroller {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        overflow-x: scroll;
+        padding-bottom: 10px;
+
+        .timebtn {
+          background: transparent;
+          color: rgba($color: #FFFFFF, $alpha: .3);
+          margin-left: 10px;
+          margin-right: 10px;
+          font-size: 14px;
+        }
+
+        .activeTimeBtn {
+          color: #FFFFFF;
+        }
+      }
+    }
+  }
+
+  /**
+   * ios fix
+   */
+  .header-ios {
+    box-shadow: 0px 3px 3px rgba(0, 0, 0, .16);
+  }
+
+  .chartSelector {
+    background: #343B58;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    scroll-behavior: smooth;
+    scrollbar-base-color: transparent;
+    overflow-x: scroll;
+    padding-left: 5px;
+
+    button {
+      box-shadow: 0px 3px 3px rgba(0, 0, 0, .16);
+      background: #3F4A6E;
+      font-size: 12px;
+    }
+  }
+
+  .chartsHolder {
+    background: #383F60;
+    padding: 5px;
+    min-height: 100%;
+
+    .chartPlace {
+      height: 235px;
+    }
+  }
+
+  ngx-charts-chart {
+    text {
+      fill: white !important;
+    }
+
+    ngx-charts-bar {
+      outline: 5px red solid;
+    }
+  }
+}

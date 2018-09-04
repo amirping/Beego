@@ -1,3 +1,4 @@
+import { BeeSensorPage } from "./../pages/bee-sensor/bee-sensor";
 import { EspaceHomePage } from "./../pages/espace-home/espace-home";
 import { MyTastesPage } from "./../pages/my-tastes/my-tastes";
 import { Component } from "@angular/core";
@@ -29,7 +30,7 @@ import { ToExplorePage } from "../pages/to-explore/to-explore";
   templateUrl: "app.html"
 })
 export class MyApp {
-  rootPage: any = EspaceHomePage;
+  rootPage: any = BeeSensorPage;
   constructor(
     platform: Platform,
     statusBar: StatusBar,

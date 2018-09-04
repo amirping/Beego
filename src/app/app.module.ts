@@ -1,3 +1,4 @@
+import { BeeSensorPage } from "./../pages/bee-sensor/bee-sensor";
 import { ExpolreCircularPage } from "./../pages/expolre-circular/expolre-circular";
 import { MyTastesPage } from "./../pages/my-tastes/my-tastes";
 import { HeadlinesPage } from "./../pages/headlines/headlines";
@@ -11,6 +12,7 @@ import { IonicApp, IonicErrorHandler, IonicModule } from "ionic-angular";
 import { SplashScreen } from "@ionic-native/splash-screen";
 import { StatusBar } from "@ionic-native/status-bar";
 import { Dialogs } from "@ionic-native/dialogs";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 import { MyApp } from "./app.component";
 import { FIREBASE_CREDENTIALS } from "./firebase.credentials";
@@ -59,6 +61,7 @@ import { MapProvider } from "../providers/map/map";
 import { EspaceHomePage } from "../pages/espace-home/espace-home";
 import { UserSwitcherPage } from "../pages/user-switcher/user-switcher";
 import { SpaceEventsPage } from "../pages/space-events/space-events";
+import { NgxChartsModule } from "@swimlane/ngx-charts";
 
 // import { CRS, latLng, LatLngBounds } from "leaflet";
 // import { YagaModule } from "@yaga/leaflet-ng2";
@@ -99,7 +102,8 @@ import { SpaceEventsPage } from "../pages/space-events/space-events";
     ExpolreCircularPage,
     EspaceHomePage,
     UserSwitcherPage,
-    SpaceEventsPage
+    SpaceEventsPage,
+    BeeSensorPage
   ],
   imports: [
     BrowserModule,
@@ -110,10 +114,10 @@ import { SpaceEventsPage } from "../pages/space-events/space-events";
     AngularFireDatabaseModule,
     // AngularFireStorageModule,
     Ionic2RatingModule,
-
     IonicSwipeAllModule,
-
-    HttpClientModule
+    HttpClientModule,
+    NgxChartsModule,
+    BrowserAnimationsModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -149,7 +153,8 @@ import { SpaceEventsPage } from "../pages/space-events/space-events";
     ExpolreCircularPage,
     EspaceHomePage,
     UserSwitcherPage,
-    SpaceEventsPage
+    SpaceEventsPage,
+    BeeSensorPage
   ],
   providers: [
     StatusBar,
