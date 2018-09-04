@@ -258,25 +258,31 @@ page-space-feedback {
   .show_comment {
     display: none;
     width: 100%;
-    max-height: 388px;
+    min-height: 388px;
     border-radius: 23px 23px 0 0;
     background-color: #323b58;
     position: fixed;
-    overflow-y: scroll;
-    bottom: 0;
+    top: calc( 100vh - 388px );
+    .grid{
+      overflow-y: scroll !important;
+      height: 388px !important;
+      display: -webkit-box !important;  
+    }
     .title_row{
       color: #ffffff;
       font-family: Raleway;
       font-size: 18px;
       font-weight: 500;
       width: 100%;
-      display: flex;
+      display: flex; 
       justify-content: center;
+      position: relative;
       img{
         height: 59px;
         width: 66px;
         position: absolute;
-        top: 10px;    
+        top: -11px;    
+        left: 42%;
       }
     }
     .comment_row{
@@ -399,6 +405,7 @@ page-space-feedback {
       height: 83px;
       .img_time_bg{
         margin-top: 7px;
+        position: relative;
         .time {
           color: #8e8e93;
           font-family: Raleway;
