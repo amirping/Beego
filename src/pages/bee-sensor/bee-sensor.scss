@@ -75,25 +75,55 @@ page-bee-sensor {
       background: #3F4A6E;
       font-size: 12px;
     }
+
+    .activatedBtn {
+      background: #F22876;
+    }
   }
 
   .chartsHolder {
     background: #383F60;
     padding: 5px;
     min-height: 100%;
+    padding-top: 30px;
 
     .chartPlace {
-      height: 235px;
+      height: 240px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      padding-bottom: 25px;
+
+      .chartTitle {
+        display: inline;
+        padding-left: 10px;
+        padding-bottom: 10px;
+        text-transform: capitalize;
+
+        span:nth-of-type(1) {
+          font-size: 16px;
+          color: white;
+          padding-right: 10px;
+        }
+
+        span:nth-of-type(2) {
+          font-size: 16px;
+          color: #C3C8DB
+        }
+      }
+
+      .chartZone {
+        position: relative;
+        height: 182px;
+      }
     }
   }
 
   ngx-charts-chart {
     text {
       fill: white !important;
-    }
-
-    ngx-charts-bar {
-      outline: 5px red solid;
+      font-size: 8px !important;
     }
   }
 }

@@ -25,18 +25,39 @@
 
 <ion-content>
   <div class="chartSelector">
-    <button ion-button round small>All</button>
-    <button ion-button round small>Bee Guest</button>
-    <button ion-button round small>Bee Trafic</button>
-    <button ion-button round small>Bee Sensor</button>
+    <button ion-button round small [class.activatedBtn]='selectedChartsCat == "all"' (click)="selectedChartsCat='all'">All</button>
+    <button ion-button round small [class.activatedBtn]='selectedChartsCat == "guest"' (click)='selectedChartsCat="guest"'>Bee
+      Guest</button>
+    <button ion-button round small [class.activatedBtn]='selectedChartsCat == "traffic"' (click)="selectedChartsCat='traffic'">Bee
+      Traffic</button>
+    <button ion-button round small [class.activatedBtn]='selectedChartsCat == "sensor"' (click)="selectedChartsCat='sensor'">Bee
+      Sensor</button>
 
   </div>
   <div class="chartsHolder">
-    <div class="chartPlace">
-      <ngx-charts-bar-vertical [view]="" [scheme]="charts[0].colorScheme" [results]="charts[0].data" [gradient]="chartConfig.gradient"
-        [xAxis]="chartConfig.showXAxis" [yAxis]="chartConfig.showYAxis" [legend]="chartConfig.showLegend"
-        [showXAxisLabel]="chartConfig.showXAxisLabel" [barPadding]="2000" [showGridLines]="false" [showYAxisLabel]="chartConfig.showYAxisLabel">
-      </ngx-charts-bar-vertical>
+    <div class="chartPlace" [hidden]="!(selectedChartsCat == 'all' || selectedChartsCat=='guest')">
+      <div class="chartTitle">
+        <span>Bee Guest :</span>
+        <span>{{charts[0].name}}</span>
+      </div>
+      <div class="chartZone">
+        <ngx-charts-bar-vertical [view]="" [scheme]="charts[0].colorScheme" [results]="charts[0].data" [gradient]="chartConfig.gradient"
+          [xAxis]="chartConfig.showXAxis" [yAxis]="chartConfig.showYAxis" [legend]="chartConfig.showLegend"
+          [showXAxisLabel]="chartConfig.showXAxisLabel" [barPadding]="0" [showGridLines]="false" [showYAxisLabel]="chartConfig.showYAxisLabel">
+        </ngx-charts-bar-vertical>
+      </div>
+    </div>
+    <div class="chartPlace" [hidden]="!(selectedChartsCat == 'all' || selectedChartsCat=='guest')">
+      <div class="chartTitle">
+        <span>Bee Traffic :</span>
+        <span>{{charts[1].name}}</span>
+      </div>
+      <div class="chartZone">
+        <ngx-charts-bar-vertical [view]="" [scheme]="charts[1].colorScheme" [results]="charts[1].data" [gradient]="chartConfig.gradient"
+          [xAxis]="chartConfig.showXAxis" [yAxis]="chartConfig.showYAxis" [legend]="chartConfig.showLegend"
+          [showXAxisLabel]="chartConfig.showXAxisLabel" [barPadding]="0" [showGridLines]="false" [showYAxisLabel]="chartConfig.showYAxisLabel">
+        </ngx-charts-bar-vertical>
+      </div>
     </div>
   </div>
 
