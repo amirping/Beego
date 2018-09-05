@@ -1,5 +1,5 @@
-import { Component } from "@angular/core";
-import { IonicPage, NavController, NavParams } from "ionic-angular";
+import { Component, ViewChild } from "@angular/core";
+import { IonicPage, NavController, NavParams, Content } from "ionic-angular";
 
 import { AngularFireDatabase } from "angularfire2/database";
 import { SpaceDetailPage } from "../../pages/space-detail/space-detail";
@@ -20,6 +20,9 @@ import { SpaceDetailPage } from "../../pages/space-detail/space-detail";
 })
 export class SpecialForYouPage {
   data: any = [];
+  showHeader=false; 
+  lasttop=58;
+  @ViewChild (Content) content:Content;
 
   constructor(
     public navCtrl: NavController, 
@@ -44,23 +47,40 @@ export class SpecialForYouPage {
 
   ionViewDidLoad() {
     console.log("ionViewDidLoad SpecialForYouPage");
+    this.content.ionScroll.subscribe(($event)=>{
+      // console.log($event);
+      if($event.scrollTop > this.lasttop){
+        this.showHeader=true;
+        // console.log("test", this.showHeader);
+      }
+      else{
+        this.showHeader=false;
+        // console.log(this.showHeader);
+      }
+      if($event.scrollTop>58){
+        this.lasttop=$event.scrollTop;
+      }
+      else{
+        this.lasttop=58;
+      }
+    })
   }
 
-  ShoworNot(item, text){
+  // ShoworNot(item, text){
 
     
    
-    if((!item.espaceName.toLocaleLowerCase()
-    .includes(text.toLocaleLowerCase()))
-    &&
-    (!item.espaceSpecialite.toLocaleLowerCase()
-    .includes(text.toLocaleLowerCase())))
+  //   if((!item.espaceName.toLocaleLowerCase()
+  //   .includes(text.toLocaleLowerCase()))
+  //   &&
+  //   (!item.espaceSpecialite.toLocaleLowerCase()
+  //   .includes(text.toLocaleLowerCase())))
     
-    return false
+  //   return false
     
     
-    return true;
-  }
+  //   return true;
+  // }
   navigateToSpaceDetail(idEspace)
   {
     this.navCtrl.push(SpaceDetailPage,{cle : idEspace});

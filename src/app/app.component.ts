@@ -31,6 +31,7 @@ import {ContactUsPage} from '../pages/contact-us/contact-us';
 import {ContactUsConversatoinPage} from '../pages/contact-us-conversatoin/contact-us-conversatoin';
 import {MyMessagesPage} from '../pages/my-messages/my-messages';
 import {PrincipalEventPage} from '../pages/principal-event/principal-event';
+import {SpecialForYouPage} from '../pages/special-for-you/special-for-you';
 
 //space
 import {SpaceSettingPage} from '../pages/space-setting/space-setting';
@@ -56,7 +57,7 @@ import { UserProvider } from '../providers/user/user';
 export class MyApp {
   // = ProfilPage
 
-  rootPage: any= SpaceFeedbackPage;
+  rootPage: any=SpecialForYouPage;
   constructor(
     platform: Platform,
     statusBar: StatusBar,

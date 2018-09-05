@@ -1,9 +1,60 @@
 page-special-for-you {
+  .scroll-content {
+    margin-top: 0px !important;
+  }
+
+  .add-btn {
+    position: fixed;
+    bottom: 3%;
+    right: 2%;
+  }
+
+  ion-header {
+    height: 62px;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.16);
+    border: 1px solid rgba(0, 0, 0, 0);
+    background-image: linear-gradient(97deg, #fb4b7d 0%, #fe757b 100%);
+    display: flex;
+    justify-content: center;
+    color: #ffffff;
+    font-family: Raleway;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 0.22px;
+    padding-top: 26px;
+    z-index: 0;
+
+    ion-icon {
+      color: white;
+      right: 5%;
+      font-size: 26px;
+      position: absolute;
+      top: 24px;
+    }
+  }
+
+  .scrollHeader {
+    z-index: 10 !important;
+  }
+
   .our-grid {
     margin: 0px;
     padding: 0px;
     min-height: 100%;
   }
+
+  .title {
+    color: #3c3c3c;
+    font-family: Raleway;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 0.22px;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
   .searchWrapper {
     top: 15px;
     left: 10px;
@@ -12,6 +63,7 @@ page-special-for-you {
     flex-direction: row;
     position: absolute;
   }
+
   .newIcon {
     z-index: 999;
     color: white;
@@ -19,6 +71,7 @@ page-special-for-you {
     right: calc(8% + 30px);
     top: calc(50% - 8px);
   }
+
   .search {
     padding: 0px;
     min-height: 0px;
@@ -27,6 +80,7 @@ page-special-for-you {
     margin: auto;
     z-index: 999;
   }
+
   .search .searchbar-input {
     background: rgba($color: #000000, $alpha: 0.5);
     color: white !important;
@@ -37,16 +91,19 @@ page-special-for-you {
     padding-right: 56px;
     border-radius: 5px;
   }
+
   .search .searchbar-input::placeholder {
     color: white;
     opacity: 1;
   }
+
   .for-search {
     position: absolute;
     top: 15px;
     left: 10px;
     right: 10px;
   }
+
   .text-search {
     background-color: rgba(0, 0, 0, .4);
     border-radius: 5px;
@@ -58,41 +115,49 @@ page-special-for-you {
     text-align: center;
     font-family: "Raleway";
   }
+
   .text-search::placeholder {
     color: white;
     font-size: 13px;
     opacity: 1;
   }
+
   .search-text-icon {
     position: absolute;
     background-color: transparent;
     top: 5px;
   }
+
   .search-text-icon:active {
     position: absolute;
     background-color: transparent;
     top: 6px;
   }
+
   .clear-text {
     position: absolute;
     background-color: transparent;
     top: 6px;
     right: 6px;
   }
+
   .top {
     height: 233px;
+
     img {
       object-fit: cover;
       height: 100%;
       width: 100%;
     }
   }
+
   .bottom {
     border-radius: 20px 20px 0px 0px;
     margin-top: -25px;
     background: white;
     flex-grow: 1;
     padding: 5px;
+
     .result {
       position: absolute;
       top: -25px;
@@ -100,19 +165,24 @@ page-special-for-you {
       color: white;
       font-weight: 700;
     }
+
     p {
       margin: 0px;
       font-size: 14px;
-      color: grey;
-      padding: 15px 21px 15px 21px;
+      color: #8e8e93;
+      padding: 10px 21px 15px 21px;
       text-align: center;
+      font-family: Raleway;
+      font-weight: 500;
     }
+
     /* The Masonry Container */
     .masonry {
       margin: auto; //max-width: 768px;
       column-gap: auto;
       justify-content: center
     }
+
     /* The Masonry Brick */
     .item {
       position: relative;
@@ -121,11 +191,13 @@ page-special-for-you {
       border-radius: 10px;
       overflow: hidden;
       box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+
       img {
         height: auto;
         width: 100%;
         object-fit: cover;
       }
+
       .data {
         position: absolute;
         bottom: 5px;
@@ -135,6 +207,7 @@ page-special-for-you {
         border-radius: 15px;
         background-color: rgba($color: #535353, $alpha: 0.63);
         padding: 5px 11px 5px 11px;
+
         .name {
           color: #ffffff;
           font-family: "Raleway";
@@ -143,6 +216,7 @@ page-special-for-you {
           letter-spacing: 0.22px;
           margin: 0px;
         }
+
         .location {
           color: #ffffff;
           font-family: "Raleway";
@@ -152,25 +226,30 @@ page-special-for-you {
         }
       }
     }
+
     /* Masonry on large screens */
     @media only screen and (min-width: 1024px) {
       .masonry {
         column-count: 4;
       }
     }
+
     /* Masonry on medium-sized screens */
     @media only screen and (max-width: 1023px) and (min-width: 768px) {
       .masonry {
         column-count: 3;
       }
     }
+
     /* Masonry on small screens */
     @media only screen and (max-width: 767px) and (min-width: 300px) {
       .masonry {
         column-count: 2;
       }
     }
+
     .grid-viewr {
+
       // display: flex;
       // flex-direction: row;
       // flex-wrap: wrap;
@@ -179,6 +258,7 @@ page-special-for-you {
         max-width: 163px;
         height: auto;
         border-radius: 15px;
+
         img {
           height: auto;
           width: 100%;
