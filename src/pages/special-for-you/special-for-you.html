@@ -39,8 +39,7 @@
 
           
             <ng-container *ngFor="let item of data ">
-                <!-- *ngIf="ShoworNot(item,searchText) " -->
-                <div class="item"  (click)="navigateToSpaceDetail(item.key)">
+                <div class="item" *ngIf="ShoworNot(item,searchText) "  (click)="navigateToSpaceDetail(item.key)">
             <img src="https://source.unsplash.com/600x1080/?drink" alt="">
             <div class="data">
               <span class="name">

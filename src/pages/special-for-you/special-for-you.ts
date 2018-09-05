@@ -66,21 +66,21 @@ export class SpecialForYouPage {
     })
   }
 
-  // ShoworNot(item, text){
+  ShoworNot(item, text){
 
     
    
-  //   if((!item.espaceName.toLocaleLowerCase()
-  //   .includes(text.toLocaleLowerCase()))
-  //   &&
-  //   (!item.espaceSpecialite.toLocaleLowerCase()
-  //   .includes(text.toLocaleLowerCase())))
+    if((!item.espaceName.toLocaleLowerCase()
+    .includes(text.toLocaleLowerCase()))
+    &&
+    (!item.espaceSpecialite.toLocaleLowerCase()
+    .includes(text.toLocaleLowerCase())))
     
-  //   return false
+    return false
     
     
-  //   return true;
-  // }
+    return true;
+  }
   navigateToSpaceDetail(idEspace)
   {
     this.navCtrl.push(SpaceDetailPage,{cle : idEspace});
