@@ -1,0 +1,180 @@
+page-space-notification {
+
+  // .content-ios{     
+  // }
+  // .content-md{       
+  // }
+  .space_notif-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    justify-content: center;
+    display: flex;
+    position: relative;
+
+    .notif {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      max-width: 375px;
+      height: 408px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.16);
+      border-radius: 30px 30px 0 0;
+      background-color: #383f60;
+
+      .profil_img {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+
+        .bee-hexagon_bg {
+          clip-path: url(#hexagonPath);
+          background-repeat: no-repeat;
+          background-position: -3px -15px;
+          background-color: #383f60;
+          height: 100%;
+        }
+
+        .bee-image_bg {
+          height: 120px;
+          width: 120px;
+          position: absolute;
+          top: -45px;
+          transform: scale(1.06);
+          margin: auto;
+        }
+
+        .bee-hexagon {
+          clip-path: url(#hexagonPath);
+          background-repeat: no-repeat;
+          background-position: -3px -15px;
+          background-color: transparent;
+          height: 100%;
+        }
+
+        .bee-image {
+          height: 120px;
+          width: 120px;
+          transform: scale(0.84);
+        }
+
+        .bee-img-size {
+          object-fit: cover;
+          width: 100%;
+          height: 100%;
+        }
+
+        .setting {
+          position: absolute;
+          right: 33px;
+          top: 26px;
+          color: #7a82a5;
+          font-size: 25px;
+        }
+      }
+    }
+
+    .notification_title {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      position: relative;
+      margin-top: 92px;
+
+      .titlesbox {
+        padding: 7px 39px;
+        color: #ffffff;
+        font-family: Raleway;
+        font-size: 14px;
+        font-weight: 500;
+        width: 163px;
+        height: 34px;
+        border-radius: 17px;
+        border: 0.5px solid #7a82a5;
+      }
+
+      .line {
+        width: calc((100% - 163px) / 2);
+        height: 1px;
+        border: 0.5px solid #7a82a5;
+        position: absolute;
+        top: 16px;
+      }
+
+      .left_line {
+        left: 0;
+      }
+
+      .right_line {
+        right: 0;
+      }
+    }
+
+    .notification_list {
+      width: 100%;
+      position: relative;
+      margin-top: 9px;
+
+      .item_height {
+        min-height: 92px;
+        background-color: #383f60 !important;
+      }
+
+      .list-ios-notification {
+        width: 100%;
+        overflow-y: scroll;
+        max-height: 250px;
+      }
+
+      .theNotification {
+        /* Text style for "a partager" */
+        color: #95989a;
+        font-family: Raleway;
+        font-size: 12px;
+        font-weight: 400;
+        line-height:1.4;
+      }
+
+      span {
+        /* Text style for "Med limaym" */
+        color: #ffffff;
+        font-family: "Segoe UI";
+        font-weight: 400;
+      }
+
+      ion-avatar {
+        img {
+          width: 50px;
+          height: 50px;
+          margin: 8px 7px 8px 0px !important;
+        }
+      }
+
+      .item-ios ion-avatar[item-left],
+      .item-ios ion-thumbnail[item-left],
+      .item-ios ion-avatar[item-start],
+      .item-ios ion-thumbnail[item-start] {
+        margin: 8px 7px 8px 0px !important;
+      }
+
+      .time {
+        color: #a8a9aa;
+        font-family: Lato;
+        font-size: 10px;
+        font-weight: 400;
+        position: absolute;
+        right: 36px;
+        bottom: 13px;
+      }
+
+      .line {
+        width: calc(100% - 32px);
+        height: 1px;
+        border: 0.5px solid #e1e1e1;
+        position: absolute;
+        left: 16px;
+        bottom: 0;
+      }
+    }
+  }
+}

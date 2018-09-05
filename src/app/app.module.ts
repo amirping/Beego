@@ -60,6 +60,7 @@ import {SpaceListFollowersPage} from '../pages/space-list-followers/space-list-f
 import {SpaceReportPopupPage} from '../pages/space-report-popup/space-report-popup';
 import {SpaceFeedbackPage} from '../pages/space-feedback/space-feedback';
 import {SpaceReplyPopupPage} from '../pages/space-reply-popup/space-reply-popup';
+import {SpaceNotificationPage} from '../pages/space-notification/space-notification';
 
 
 import { Ionic2RatingModule } from "ionic2-rating";
@@ -139,6 +140,7 @@ import { HttpClientModule } from "../../node_modules/@angular/common/http";
     SpaceReportPopupPage,
     SpaceFeedbackPage,
     SpaceReplyPopupPage,
+    SpaceNotificationPage,
     
     
 
@@ -204,6 +206,7 @@ import { HttpClientModule } from "../../node_modules/@angular/common/http";
     SpaceReportPopupPage,
     SpaceFeedbackPage,
     SpaceReplyPopupPage,
+    SpaceNotificationPage,
 
     UpdateProgramPage,
     DislikeListPage,
