@@ -3,7 +3,8 @@ import {
   IonicPage,
   NavController,
   NavParams,
-  LoadingController
+  LoadingController,
+  Platform
 } from "ionic-angular";
 import { NgxChartsModule } from "@swimlane/ngx-charts";
 
@@ -40,7 +41,8 @@ export class BeeSensorPage {
     gradient: true,
     showLegend: false,
     showXAxisLabel: false,
-    showYAxisLabel: false
+    showYAxisLabel: false,
+    padding: 0
   };
   selectedChartsCat = "all";
   charts = [
@@ -117,7 +119,8 @@ export class BeeSensorPage {
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    private _loadingCtrl: LoadingController
+    private _loadingCtrl: LoadingController,
+    public plt: Platform
   ) {
     this.showLoader();
   }
@@ -146,11 +149,23 @@ export class BeeSensorPage {
       let sizeSide = (100 - percent) / 2;
       this.clipingConfig.sizeSide = sizeSide;
       // applay on bars
-      for (let index = 0; index < bars.length; index++) {
-        bars[index].style.clipPath =
-          "inset(0 " + sizeSide + "% 0 " + sizeSide + "%)";
-        bars[index].style.webkitClipPath =
-          "inset(0 " + sizeSide + "% 0 " + sizeSide + "%)";
+      // expect on ios , we have a bug with cliping
+      if (!this.plt.is("ios")) {
+        for (let index = 0; index < bars.length; index++) {
+          bars[index].style.clipPath =
+            "inset(0 " + sizeSide + "% 0 " + sizeSide + "%)";
+          /**
+           * we need a fix for iOS , the idea is to add the cliped size as padding
+           */
+          // bars[index].style.webkitClipPath =
+          //   "inset(0 " + sizeSide + "% 0 " + sizeSide + "%)";
+        }
+      }
+
+      if (this.plt.is("ios")) {
+        console.log("Ios hack for the bar width");
+        this.chartConfig.padding = barWidth;
+        console.log(this.chartConfig);
       }
       this.clipingConfig.pros = false;
       console.log(this.clipingConfig);
