@@ -87,7 +87,7 @@ export class HomePage {
     private userpovider: UserProvider,
     public menuCtrl: MenuController,
     private spacesProvider: SpacesProvider,
-     private http: HttpClient,
+    private http: HttpClient,
     private events: Events
   ) {
     this.spacesProvider.getUser((data)=>{
@@ -107,6 +107,11 @@ export class HomePage {
       this.proximiteListRef$= data.spaces
       
     });
+    this.spacesProvider.getInvitations((data)=>{
+      console.log("ahawma les invitations ",data)
+      this.invitationListRef$= data.invitations     
+
+    });
     this.following = true
     this.pageType ="only10"
     
@@ -115,10 +120,7 @@ export class HomePage {
     this.spacesProvider.listSpecificTastes("only10",(data)=>{
       console.log("ahaya data",data)
       this.espacesListRef$= data.spaces
-      console.log("avant filter",this.espacesListRef$)
-      this.espacesListRef$= this.espacesListRef$.filter(d=>d.espaceName.includes("e"))
-      this.uid=data.uid
-      console.log("après filter",this.espacesListRef$)
+     
 
     })
 
@@ -161,9 +163,7 @@ export class HomePage {
    
 
     /* Liste des proximités */
-    this.invitationListRef$ = this.database
-      .list("invitation")
-      .valueChanges(); /*map(changes => {
+ /*map(changes => {
         return changes.map( c => ({key : c.payload.key,...c.payload.val()}))
       });*/
 

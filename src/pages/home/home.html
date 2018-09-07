@@ -369,7 +369,7 @@
             <span class="more">Tout afficher</span>
           </div>
           <div class="row row-scroller notYou">
-            <div class="proximite-card" *ngFor="let item of proximiteListRef$">
+            <div class="proximite-card" *ngFor="let item of proximiteListRef$" (click)="navigateTo('space-detail',item.id)">
               <img src="{{item.espaceImage}}" alt="">
               <h2>{{item.espaceName}}</h2>
               <div class="row-style row-space-between">
@@ -379,7 +379,7 @@
                 </span>
                 <span class="distance">
                   <ion-icon name="paper-plane"></ion-icon>
-                  {{item.dist}} KM
+                  {{item.dist |number }} KM
                 </span>
               </div>
             </div>
@@ -421,18 +421,17 @@
             <span class="more">Tout afficher</span>
           </div>
           <div class="row row-scroller notYou">
-            <div class="invit-card" *ngFor="let item of invitationListRef$ |
-          async">
+            <div class="invit-card" *ngFor="let item of invitationListRef$ ">
               <div class="row notYou">
                 <img src="http://i.pravatar.cc/60" alt="">
                 <div class="col mx-auto">
-                  <h2>{{item.invitationTo}} !</h2>
-                  <span class="date">Samedi 17 Dec - 6:00 PM</span>
+                  <h2>{{item.username}} !</h2>
+                  <span class="date">{{item.date}}</span>
                 </div>
               </div>
               <p>
-                <strong>{{item.invitationFrom}}</strong> vous invite a
-                <strong>{{item.invitationTo}}</strong>
+                <strong>{{item.username}}</strong> vous invite a
+                <strong>{{item.spaceName}}</strong>
               </p>
               <div class="row buttons row-space-around">
                 <button ion-button clear small icon-start color="secondary">

@@ -196,5 +196,15 @@ export class SpacesProvider {
       callBack(data)
     })
   }
+  getInvitations(callBack){
+    const idToken = this.userProvider.idToken
+   
+    const headers = new HttpHeaders().set("authorization", "Bearer "+idToken)
+    this.http.get('http://localhost:5000/test-3cdd6/us-central1/beegoapi/getinvitations' ,{headers})
+    .subscribe(data=> {
+      console.log("hedhouma les invitations",data)
+      callBack(data)
+    })
+  }
   
 }
