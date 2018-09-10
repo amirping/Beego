@@ -35,9 +35,9 @@
 
   </div>
   <div class="chartsHolder">
-    <div class="chartPlace" [hidden]="!(selectedChartsCat == 'all' || selectedChartsCat=='guest')">
+    <div class="chartPlace" [hidden]="!(selectedChartsCat == 'all' || selectedChartsCat==charts[0].type)">
       <div class="chartTitle">
-        <span>Bee Guest :</span>
+        <span>Bee {{charts[0].type}} :</span>
         <span>{{charts[0].name}}</span>
       </div>
       <div class="chartZone">
@@ -48,9 +48,9 @@
         </ngx-charts-bar-vertical>
       </div>
     </div>
-    <div class="chartPlace" [hidden]="!(selectedChartsCat == 'all' || selectedChartsCat=='guest')">
+    <div class="chartPlace" [hidden]="!(selectedChartsCat == 'all' || selectedChartsCat==charts[1].type)">
       <div class="chartTitle">
-        <span>Bee Traffic :</span>
+        <span>Bee {{charts[1].type}} :</span>
         <span>{{charts[1].name}}</span>
       </div>
       <div class="chartZone">
@@ -59,6 +59,20 @@
           [showXAxisLabel]="chartConfig.showXAxisLabel" [barPadding]="chartConfig.padding" [showGridLines]="false"
           [showYAxisLabel]="chartConfig.showYAxisLabel">
         </ngx-charts-bar-vertical>
+      </div>
+    </div>
+    <div class="chartPlace" [hidden]="!(selectedChartsCat == 'all' || selectedChartsCat==charts[1].type)">
+      <div class="chartTitle">
+        <span>répartition des visiteurs :</span>
+        <span>no no</span>
+      </div>
+      <div class="chartZone">
+        <ngx-charts-pie-chart class="chart-container" [view]="" [scheme]="charts[2].colorScheme" [results]="charts[2].data"
+          [animations]="true" [legend]="showLegend" [legendTitle]="legendTitle" [explodeSlices]="explodeSlices"
+          [labels]="showLabels" [doughnut]="doughnut" [arcWidth]="arcWidth" (legendLabelClick)="onLegendLabelClick($event)"
+          [gradient]="gradient" [tooltipDisabled]="tooltipDisabled" [tooltipText]="pieTooltipText" (dblclick)="dblclick($event)"
+          (select)="select($event)">
+        </ngx-charts-pie-chart>
       </div>
     </div>
   </div>

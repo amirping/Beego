@@ -81,7 +81,7 @@ export class BeeSensorPage {
       }
     },
     {
-      id: 0,
+      id: 1,
       name: "evolution des passants",
       type: "traffic",
       data: [
@@ -112,6 +112,32 @@ export class BeeSensorPage {
       ],
       colorScheme: {
         domain: ["#FEC180"]
+      }
+    },
+    {
+      id: 2,
+      name: "Répartition des visiteurs",
+      type: "traffic",
+      data: [
+        {
+          name: "Zahrouni",
+          value: 30
+        },
+        {
+          name: "menzah 5",
+          value: 35
+        },
+        {
+          name: "gafsa",
+          value: 25
+        },
+        {
+          name: "Sidi bouzid",
+          value: 10
+        }
+      ],
+      colorScheme: {
+        domain: ["#FEC180", "#FEFF00", "#00FF55", "#665588"]
       }
     }
   ];
