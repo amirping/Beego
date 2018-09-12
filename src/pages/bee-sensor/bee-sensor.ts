@@ -139,6 +139,172 @@ export class BeeSensorPage {
       colorScheme: {
         domain: ["#FEC180", "#FEFF00", "#00FF55", "#665588"]
       }
+    },
+    {
+      id: 3,
+      name: "Evolution des satisfaction",
+      type: "smile",
+      data: [
+        {
+          name: "Lun",
+          value: 70
+        },
+        {
+          name: "Mar",
+          value: 70
+        },
+        {
+          name: "Mer",
+          value: 55
+        },
+        {
+          name: "Jeu",
+          value: 66
+        },
+        {
+          name: "Sam",
+          value: 90
+        },
+        {
+          name: "Dim",
+          value: 30
+        }
+      ],
+      colorScheme: {
+        domain: ["#d81b60"]
+      }
+    },
+    {
+      id: 4,
+      name: "comparaison visieurs / passants",
+      type: "rapport",
+      dataBar: [
+        {
+          name: "Lun",
+          series: [
+            {
+              name: "Visiteurs",
+              value: 2063
+            },
+            {
+              name: "Passants",
+              value: 3695
+            }
+          ]
+        },
+        {
+          name: "Mar",
+          series: [
+            {
+              name: "Visiteurs",
+              value: 2063
+            },
+            {
+              name: "Passants",
+              value: 3695
+            }
+          ]
+        },
+        {
+          name: "Mer",
+          series: [
+            {
+              name: "Visiteurs",
+              value: 2063
+            },
+            {
+              name: "Passants",
+              value: 3695
+            }
+          ]
+        },
+        {
+          name: "Jeu",
+          series: [
+            {
+              name: "Visiteurs",
+              value: 2063
+            },
+            {
+              name: "Passants",
+              value: 3695
+            }
+          ]
+        },
+        {
+          name: "Ven",
+          series: [
+            {
+              name: "Visiteurs",
+              value: 2063
+            },
+            {
+              name: "Passants",
+              value: 3695
+            }
+          ]
+        },
+        {
+          name: "Sam",
+          series: [
+            {
+              name: "Visiteurs",
+              value: 2063
+            },
+            {
+              name: "Passants",
+              value: 3695
+            }
+          ]
+        },
+        {
+          name: "Dim",
+          series: [
+            {
+              name: "Visiteurs",
+              value: 2063
+            },
+            {
+              name: "Passants",
+              value: 3695
+            }
+          ]
+        }
+      ],
+      dataLine: [
+        {
+          name: "Satisfaction",
+          series: [
+            {
+              name: "Lun",
+              value: 70
+            },
+            {
+              name: "Mar",
+              value: 70
+            },
+            {
+              name: "Mer",
+              value: 55
+            },
+            {
+              name: "Jeu",
+              value: 66
+            },
+            {
+              name: "Sam",
+              value: 90
+            },
+            {
+              name: "Dim",
+              value: 30
+            }
+          ]
+        }
+      ],
+      colorScheme: {
+        domain: ["#d81b60"]
+      }
     }
   ];
   loading: any;

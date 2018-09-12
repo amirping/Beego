@@ -32,6 +32,9 @@
       Traffic</button>
     <button ion-button round small [class.activatedBtn]='selectedChartsCat == "sensor"' (click)="selectedChartsCat='sensor'">Bee
       Sensor</button>
+    <button ion-button round small [class.activatedBtn]='selectedChartsCat == "smile"' (click)="selectedChartsCat='smile'">Bee
+      Smile
+    </button>
 
   </div>
   <div class="chartsHolder">
@@ -48,6 +51,19 @@
         </ngx-charts-bar-vertical>
       </div>
     </div>
+    <div class="chartPlace" [hidden]="!(selectedChartsCat == 'all' || selectedChartsCat==charts[3].type)">
+      <div class="chartTitle">
+        <span>Bee {{charts[3].type}} :</span>
+        <span>{{charts[3].name}}</span>
+      </div>
+      <div class="chartZone">
+        <ngx-charts-bar-vertical [view]="" [scheme]="charts[3].colorScheme" [results]="charts[3].data" [gradient]="chartConfig.gradient"
+          [xAxis]="chartConfig.showXAxis" [yAxis]="chartConfig.showYAxis" [legend]="chartConfig.showLegend"
+          [showXAxisLabel]="chartConfig.showXAxisLabel" [yScaleMax]="100" [barPadding]="chartConfig.padding"
+          [showGridLines]="false" [showYAxisLabel]="chartConfig.showYAxisLabel">
+        </ngx-charts-bar-vertical>
+      </div>
+    </div>
     <div class="chartPlace" [hidden]="!(selectedChartsCat == 'all' || selectedChartsCat==charts[1].type)">
       <div class="chartTitle">
         <span>Bee {{charts[1].type}} :</span>
@@ -61,18 +77,37 @@
         </ngx-charts-bar-vertical>
       </div>
     </div>
-    <div class="chartPlace" [hidden]="!(selectedChartsCat == 'all' || selectedChartsCat==charts[1].type)">
+    <div class="chartPlace" [hidden]="!(selectedChartsCat == 'all' || selectedChartsCat==charts[4].type)">
+      <div class="chartTitle">
+        <span>Bee {{charts[4].type}} :</span>
+        <span>{{charts[4].name}}</span>
+      </div>
+      <div class="chartZone">
+        <!-- we need some attention here to create combo chart -->
+        <combo-chart-component [view]="" [scheme]="charts[4].scheme" [colorSchemeLine]="charts[4].scheme" [results]="charts[4].dataBar"
+          [animations]="true" [lineChart]="charts[4].dataLine" [gradient]="true" [xAxis]="false" [yAxis]="false"
+          [legend]="chartConfig.showLegend" [showXAxisLabel]="false" [showYAxisLabel]="false" [showRightYAxisLabel]="false"
+          [xAxisLabel]="false" [yAxisLabel]="false" [yAxisLabelRight]="false">
+        </combo-chart-component>
+      </div>
+    </div>
+    <div class="chartPlace" [hidden]="!(selectedChartsCat == 'all' || selectedChartsCat==charts[2].type)">
       <div class="chartTitle">
         <span>répartition des visiteurs :</span>
         <span>no no</span>
       </div>
-      <div class="chartZone">
-        <ngx-charts-pie-chart class="chart-container" [view]="" [scheme]="charts[2].colorScheme" [results]="charts[2].data"
-          [animations]="true" [legend]="showLegend" [legendTitle]="legendTitle" [explodeSlices]="explodeSlices"
-          [labels]="showLabels" [doughnut]="doughnut" [arcWidth]="arcWidth" (legendLabelClick)="onLegendLabelClick($event)"
-          [gradient]="gradient" [tooltipDisabled]="tooltipDisabled" [tooltipText]="pieTooltipText" (dblclick)="dblclick($event)"
-          (select)="select($event)">
-        </ngx-charts-pie-chart>
+      <div class="chartZone horizontal-label-zone">
+        <div class="labelZone">
+          <div class="label" *ngFor="let item of charts[2].data;let i = index">
+            <div class="color" [ngStyle]="{'background':charts[2].colorScheme.domain[i]}"></div>
+            <div class="text">{{item.name}}</div>
+          </div>
+        </div>
+        <div>
+          <ngx-charts-pie-chart class="chart-container" [view]="" [scheme]="charts[2].colorScheme" [results]="charts[2].data"
+            [animations]="true" [legend]="false" [arcWidth]="0.40" [doughnut]="true" [arcWidth]="arcWidth" [gradient]="false">
+          </ngx-charts-pie-chart>
+        </div>
       </div>
     </div>
   </div>
