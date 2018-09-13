@@ -7,7 +7,11 @@ import {
   Platform
 } from "ionic-angular";
 import { NgxChartsModule } from "@swimlane/ngx-charts";
-
+/**
+ * zone of test
+ */
+import * as shape from "d3-shape";
+import { ComboChartComponent } from "../../components/combo-chart/combo-chart";
 /**
  * Generated class for the BeeSensorPage page.
  *
@@ -21,6 +25,152 @@ import { NgxChartsModule } from "@swimlane/ngx-charts";
   templateUrl: "bee-sensor.html"
 })
 export class BeeSensorPage {
+  /**
+   * some options for the combo
+   */
+  // options
+  showXAxis = true;
+  showYAxis = true;
+  gradient = false;
+  showLegend = true;
+  legendTitle = "Legend";
+  showXAxisLabel = true;
+  tooltipDisabled = false;
+  xAxisLabel = "Country";
+  showYAxisLabel = true;
+  yAxisLabel = "GDP Per Capita";
+  showGridLines = true;
+  innerPadding = "10%";
+  barPadding = 8;
+  groupPadding = 16;
+  roundDomains = false;
+  maxRadius = 10;
+  minRadius = 3;
+  showSeriesOnHover = true;
+  roundEdges: boolean = true;
+  animations: boolean = true;
+  xScaleMin: any;
+  xScaleMax: any;
+  yScaleMin: number;
+  yScaleMax: number;
+  showDataLabel = false;
+  // Combo Chart
+  barChart: any[] = [
+    {
+      name: "USA",
+      value: 50000
+    },
+    {
+      name: "United Kingdom",
+      value: 30000
+    },
+    {
+      name: "France",
+      value: 10000
+    },
+    {
+      name: "Japan",
+      value: 5000
+    },
+    {
+      name: "China",
+      value: 500
+    }
+  ];
+  lineChartSeries: any[] = [
+    {
+      name: "Tablets",
+      series: [
+        {
+          name: "USA",
+          value: 50
+        },
+        {
+          value: 80,
+          name: "United Kingdom"
+        },
+        {
+          value: 85,
+          name: "France"
+        },
+        {
+          value: 90,
+          name: "Japan"
+        },
+        {
+          value: 100,
+          name: "China"
+        }
+      ]
+    },
+    {
+      name: "Cell Phones",
+      series: [
+        {
+          value: 10,
+          name: "USA"
+        },
+        {
+          value: 20,
+          name: "United Kingdom"
+        },
+        {
+          value: 30,
+          name: "France"
+        },
+        {
+          value: 40,
+          name: "Japan"
+        },
+        {
+          value: 10,
+          name: "China"
+        }
+      ]
+    },
+    {
+      name: "Computers",
+      series: [
+        {
+          value: 2,
+          name: "USA"
+        },
+        {
+          value: 4,
+          name: "United Kingdom"
+        },
+        {
+          value: 20,
+          name: "France"
+        },
+        {
+          value: 30,
+          name: "Japan"
+        },
+        {
+          value: 35,
+          name: "China"
+        }
+      ]
+    }
+  ];
+  lineChartScheme = {
+    name: "coolthree",
+    selectable: true,
+    group: "Ordinal",
+    domain: ["#01579b", "#7aa3e5", "#a8385d", "#00bfa5"]
+  };
+  comboBarScheme = {
+    name: "singleLightBlue",
+    selectable: true,
+    group: "Ordinal",
+    domain: ["#01579b"]
+  };
+  showRightYAxisLabel: boolean = true;
+  yAxisLabelRight: string = "Utilization";
+  /**
+   * end
+   */
   timeUnite = [
     { name: "semaine", val: 0 },
     { name: "aujourd'hui", val: 1 },
@@ -363,5 +513,23 @@ export class BeeSensorPage {
       console.log(this.clipingConfig);
       this.hideloader();
     }
+  }
+  /**
+   * testting zone
+   */
+  yLeftAxisScale(min, max) {
+    return { min: `${min}`, max: `${max}` };
+  }
+
+  yRightAxisScale(min, max) {
+    return { min: `${min}`, max: `${max}` };
+  }
+
+  yLeftTickFormat(data) {
+    return `${data.toLocaleString()}`;
+  }
+
+  yRightTickFormat(data) {
+    return `${data}%`;
   }
 }

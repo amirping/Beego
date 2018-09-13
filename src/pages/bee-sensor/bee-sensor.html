@@ -84,10 +84,13 @@
       </div>
       <div class="chartZone">
         <!-- we need some attention here to create combo chart -->
-        <combo-chart-component [view]="" [scheme]="charts[4].scheme" [colorSchemeLine]="charts[4].scheme" [results]="charts[4].dataBar"
-          [animations]="true" [lineChart]="charts[4].dataLine" [gradient]="true" [xAxis]="false" [yAxis]="false"
-          [legend]="chartConfig.showLegend" [showXAxisLabel]="false" [showYAxisLabel]="false" [showRightYAxisLabel]="false"
-          [xAxisLabel]="false" [yAxisLabel]="false" [yAxisLabelRight]="false">
+        <combo-chart-component class="chart-container" [view]="" [scheme]="comboBarScheme" [colorSchemeLine]="lineChartScheme"
+          [results]="barChart" [animations]="animations" [lineChart]="lineChartSeries" [tooltipDisabled]="tooltipDisabled"
+          [yAxisTickFormatting]="yLeftTickFormat" [yLeftAxisScaleFactor]="yLeftAxisScale" [yRightAxisScaleFactor]="yRightAxisScale"
+          [yRightAxisTickFormatting]="yRightTickFormat" [gradient]="gradient" [xAxis]="showXAxis" [yAxis]="showYAxis"
+          [legend]="showLegend" [legendTitle]="legendTitle" [showGridLines]="showGridLines" [showXAxisLabel]="showXAxisLabel"
+          [showYAxisLabel]="showYAxisLabel" [showRightYAxisLabel]="showYAxisLabel" [xAxisLabel]="xAxisLabel"
+          [yAxisLabel]="yAxisLabel" [yAxisLabelRight]="yAxisLabelRight" (select)="onSelect($event)">
         </combo-chart-component>
       </div>
     </div>
