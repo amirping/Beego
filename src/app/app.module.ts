@@ -62,7 +62,7 @@ import { EspaceHomePage } from "../pages/espace-home/espace-home";
 import { UserSwitcherPage } from "../pages/user-switcher/user-switcher";
 import { SpaceEventsPage } from "../pages/space-events/space-events";
 import { NgxChartsModule } from "@swimlane/ngx-charts";
-
+import { Ng2GoogleChartsModule } from "ng2-google-charts";
 // import { CRS, latLng, LatLngBounds } from "leaflet";
 // import { YagaModule } from "@yaga/leaflet-ng2";
 @NgModule({
@@ -117,7 +117,8 @@ import { NgxChartsModule } from "@swimlane/ngx-charts";
     IonicSwipeAllModule,
     HttpClientModule,
     NgxChartsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    Ng2GoogleChartsModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

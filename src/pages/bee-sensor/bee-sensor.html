@@ -83,15 +83,7 @@
         <span>{{charts[4].name}}</span>
       </div>
       <div class="chartZone">
-        <!-- we need some attention here to create combo chart -->
-        <combo-chart-component class="chart-container" [view]="" [scheme]="comboBarScheme" [colorSchemeLine]="lineChartScheme"
-          [results]="barChart" [animations]="animations" [lineChart]="lineChartSeries" [tooltipDisabled]="tooltipDisabled"
-          [yAxisTickFormatting]="yLeftTickFormat" [yLeftAxisScaleFactor]="yLeftAxisScale" [yRightAxisScaleFactor]="yRightAxisScale"
-          [yRightAxisTickFormatting]="yRightTickFormat" [gradient]="gradient" [xAxis]="showXAxis" [yAxis]="showYAxis"
-          [legend]="showLegend" [legendTitle]="legendTitle" [showGridLines]="showGridLines" [showXAxisLabel]="showXAxisLabel"
-          [showYAxisLabel]="showYAxisLabel" [showRightYAxisLabel]="showYAxisLabel" [xAxisLabel]="xAxisLabel"
-          [yAxisLabel]="yAxisLabel" [yAxisLabelRight]="yAxisLabelRight" (select)="onSelect($event)">
-        </combo-chart-component>
+        <google-chart [data]="charts[4].data"></google-chart>
       </div>
     </div>
     <div class="chartPlace" [hidden]="!(selectedChartsCat == 'all' || selectedChartsCat==charts[2].type)">
@@ -111,6 +103,18 @@
             [animations]="true" [legend]="false" [arcWidth]="0.40" [doughnut]="true" [arcWidth]="arcWidth" [gradient]="false">
           </ngx-charts-pie-chart>
         </div>
+      </div>
+    </div>
+    <div class="chartPlace" [hidden]="!(selectedChartsCat==charts[5].type)">
+      <div class="chartTitle">
+        <span>Bee {{charts[5].type}} :</span>
+        <span>{{charts[5].name}}</span>
+      </div>
+      <div class="chartZone">
+        <ngx-charts-line-chart [view]="" [scheme]="charts[5].colorScheme" [results]="charts[5].data" [gradient]="chartConfig.gradient"
+          [xAxis]="chartConfig.showXAxis" [yAxis]="chartConfig.showYAxis" [legend]="chartConfig.showLegend"
+          [showXAxisLabel]="chartConfig.showXAxisLabel" [showGridLines]="false" [showYAxisLabel]="chartConfig.showYAxisLabel">
+        </ngx-charts-line-chart>
       </div>
     </div>
   </div>
