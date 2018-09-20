@@ -1,0 +1,50 @@
+<!--
+  Generated template for the PdcPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <span>
+    Politique de confidentialité
+  </span>
+  <ion-icon class="back" (click)="back()"
+   ios="ios-arrow-round-back" md="ios-arrow-round-back" ></ion-icon>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-grid no-padding>
+    <ion-row class="photo_row"></ion-row>
+    <ion-row class="info_row">
+      <ion-row class="title_row">
+          Condition d'utilisation
+          <ion-icon ios="ios-arrow-down" md="ios-arrow-down" (click)="showDescription()" 
+          [class.closeIcon1]="descriptionVar"></ion-icon>
+      </ion-row>
+      <ion-row class="description" [class.show-description]="descriptionVar">
+          beego est une plateforme innovante de mise en relation entre les consommateurs et les propriétaires des espaces commerciaux (boutiques, restaurants, salon de thé, centre commerciaux…etc).
+
+          Une base de données incontournable  riche en renseignement sur les espaces commerciaux situés au niveau du Grand Tunis, beego vous aide à faire le bon choix des endroits à visiter et vous évite les mauvaises surprises : restaurant plein à craquer, espace commercial en rénovation…. Etc.
+          
+          Beego vous permet de choisir le meilleur endroit pour vous garantir une sortie réussi !
+          
+          Grace au partage d’avis et d’expériences d’une communauté de confiance, vous êtes en mesure de vous y référer pour faire le bon choix. 
+          
+          Ne prenez plus le risque de visiter un mauvais endroit et de rater votre sortie ! Fiez-vous à beego !
+          <div class="whitediv" [class.hide-whitediv]="descriptionVar" ></div>
+      </ion-row>
+      <ion-row class="title_row">
+        Cookie policy
+        <ion-icon ios="ios-arrow-down" md="ios-arrow-down" ></ion-icon>
+      </ion-row>
+      <ion-row class="title_row">
+          Politique de confidentialité
+          <ion-icon ios="ios-arrow-down" md="ios-arrow-down" ></ion-icon>
+        </ion-row>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

@@ -1,0 +1,60 @@
+page-space-eye {
+    ion-header {
+        height: 70px;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+        border: 1px solid rgba(0, 0, 0, 0);
+        background-color: #353b5a;
+        display: flex;
+        justify-content: center;
+        span {
+          color: #ffffff;
+          font-family: Raleway;
+          font-size: 16px;
+          font-weight: 500;
+          letter-spacing: 0.19px;
+          margin-top: 33px;
+        }
+        .back {
+          position: absolute;
+          left: 5%;
+          top: 22px;
+          color: white;
+          font-size: 41px;
+        }
+        .bgImg{
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+            width: 30px;
+            height: 30px;
+            position: absolute;
+            top: 26px;
+            right: 5%;
+            border-radius: 50px;
+            img{
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+                border-radius: 50px;
+            }
+        }
+      }
+      .content-ios {
+        background-color: #383f60;
+      }
+      .content-md {
+        background-color: #383f60;
+      }
+      .grid_padding{
+          margin-top: 28px !important;
+      }
+      .camera_row{
+          padding-left: 5.33% !important;
+          .camera_num{
+            color: #ffffff;
+            font-family: Raleway;
+            font-size: 18px;
+            font-weight: 500;
+            font-family: "Segoe UI";
+            font-weight: 400;
+          }
+      }
+}

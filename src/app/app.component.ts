@@ -32,6 +32,8 @@ import {ContactUsConversatoinPage} from '../pages/contact-us-conversatoin/contac
 import {MyMessagesPage} from '../pages/my-messages/my-messages';
 import {PrincipalEventPage} from '../pages/principal-event/principal-event';
 import {SpecialForYouPage} from '../pages/special-for-you/special-for-you';
+import {AboutPage} from '../pages/about/about';
+import {PdcPage} from '../pages/pdc/pdc';
 
 //space
 import {SpaceSettingPage} from '../pages/space-setting/space-setting';
@@ -48,6 +50,7 @@ import {SpaceReportPopupPage} from '../pages/space-report-popup/space-report-pop
 import {SpaceFeedbackPage} from '../pages/space-feedback/space-feedback';
 import {SpaceReplyPopupPage} from '../pages/space-reply-popup/space-reply-popup';
 import {SpaceNotificationPage} from '../pages/space-notification/space-notification';
+import {SpaceEyePage} from '../pages/space-eye/space-eye';
 
 import { UserProvider } from '../providers/user/user';
 
@@ -58,7 +61,7 @@ import { UserProvider } from '../providers/user/user';
 export class MyApp {
   // = ProfilPage
 
-  rootPage: any=SpaceNotificationPage;
+  rootPage: any=PdcPage;
   constructor(
     platform: Platform,
     statusBar: StatusBar,

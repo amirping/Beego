@@ -1,0 +1,110 @@
+page-about {
+  ion-header {
+    height: 70px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+    border: 1px solid rgba(0, 0, 0, 0);
+    background-image: linear-gradient(96deg, #fb4b7d 0%, #fe757b 100%);
+    display: flex;
+    justify-content: center;
+
+    span {
+      color: #ffffff;
+      font-family: Raleway;
+      font-size: 16px;
+      font-weight: 500;
+      letter-spacing: 0.19px;
+      margin-top: 33px;
+    }
+
+    .back {
+      position: absolute;
+      left: 5%;
+      top: 22px;
+      color: white;
+      font-size: 41px;
+    }
+
+    .bgImg {
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+      width: 30px;
+      height: 30px;
+      position: absolute;
+      top: 26px;
+      right: 5%;
+      border-radius: 50px;
+
+      img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        border-radius: 50px;
+      }
+    }
+  }
+
+  .content-ios {
+    background-color: white;
+  }
+
+  .content-md {
+    background-color: white;
+  }
+
+  .video-part {
+    width: 100%;
+    height: 252px;
+    background-color: #3b5998;
+    display: flex;
+    justify-content: center;
+    .bg_btn{
+        width: 53px;
+        height: 53px;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+        background-color: #ffffff;
+        border-radius: 50px;
+        margin-top: 80px;
+        background-image: url(../../assets/imgs/videoBtn.svg);
+        background-repeat: no-repeat;
+        background-position: 20px center;
+        background-size: 17px 19px;
+    }
+  }
+
+  .position-info {
+    margin-top: -48px;
+    padding: 0 !important;
+    width: 100%;
+    //   height: calc(100vh - 322px);
+    border-radius: 30px 30px 0 0;
+    background-color: #ffffff;
+
+    .info-part {
+      width: 100%;
+      height: calc(100vh - 322px);
+      border-radius: 30px 30px 0 0;
+      background-color: #ffffff;
+    }
+
+    .about_title {
+      margin-top: 25px;
+      color: #5c6877;
+      font-family: Raleway;
+      font-size: 18px;
+      font-weight: 500;
+      padding-left: 20px;
+      background-color: #fff;
+    }
+
+    .para_row {
+      color: #8e8e93;
+      font-size: 12px;
+      letter-spacing: 0.14px;
+      font-family: "Segoe UI";
+      font-weight: 400;
+      padding-left: 20px;
+      padding-right: 36px;
+      margin-top: 40px;
+      padding-bottom: 10px;
+    }
+  }
+}

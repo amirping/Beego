@@ -9,6 +9,7 @@ import { IonicApp, IonicErrorHandler, IonicModule } from "ionic-angular";
 import { SplashScreen } from "@ionic-native/splash-screen";
 import { StatusBar } from "@ionic-native/status-bar";
 import { Dialogs } from "@ionic-native/dialogs";
+import { VideoPlayer } from '@ionic-native/video-player';
 //import { EmojiPickerModule } from '@ionic-tools/emoji-picker';
 
 import { MyApp } from "./app.component";
@@ -46,6 +47,8 @@ import {ContactUsPage} from '../pages/contact-us/contact-us';
 import {ContactUsConversatoinPage} from '../pages/contact-us-conversatoin/contact-us-conversatoin';
 import {MyMessagesPage} from '../pages/my-messages/my-messages';
 import {PrincipalEventPage} from '../pages/principal-event/principal-event';
+import {AboutPage} from '../pages/about/about';
+import {PdcPage} from '../pages/pdc/pdc';
 //space
 import {SpaceSettingPage} from '../pages/space-setting/space-setting';
 import {SapceSetting2Page} from '../pages/sapce-setting2/sapce-setting2';
@@ -61,6 +64,8 @@ import {SpaceReportPopupPage} from '../pages/space-report-popup/space-report-pop
 import {SpaceFeedbackPage} from '../pages/space-feedback/space-feedback';
 import {SpaceReplyPopupPage} from '../pages/space-reply-popup/space-reply-popup';
 import {SpaceNotificationPage} from '../pages/space-notification/space-notification';
+import {SpaceEyePage} from '../pages/space-eye/space-eye';
+
 
 
 import { Ionic2RatingModule } from "ionic2-rating";
@@ -141,6 +146,9 @@ import { HttpClientModule } from "../../node_modules/@angular/common/http";
     SpaceFeedbackPage,
     SpaceReplyPopupPage,
     SpaceNotificationPage,
+    SpaceEyePage,
+    AboutPage,
+    PdcPage,
     
     
 
@@ -207,6 +215,10 @@ import { HttpClientModule } from "../../node_modules/@angular/common/http";
     SpaceFeedbackPage,
     SpaceReplyPopupPage,
     SpaceNotificationPage,
+    SpaceEyePage,
+    AboutPage,
+    PdcPage,
+    
 
     UpdateProgramPage,
     DislikeListPage,
@@ -236,6 +248,7 @@ import { HttpClientModule } from "../../node_modules/@angular/common/http";
     Dialogs,
     UserProvider,
     SearchRadioPipe,
+    VideoPlayer,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     SpacesProvider
   ],
