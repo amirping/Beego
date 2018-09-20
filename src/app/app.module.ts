@@ -10,6 +10,10 @@ import { SplashScreen } from "@ionic-native/splash-screen";
 import { StatusBar } from "@ionic-native/status-bar";
 import { Dialogs } from "@ionic-native/dialogs";
 import { VideoPlayer } from '@ionic-native/video-player';
+import {VgCoreModule} from 'videogular2/core';
+import {VgControlsModule} from 'videogular2/controls';
+import {VgOverlayPlayModule} from 'videogular2/overlay-play';
+import {VgBufferingModule} from 'videogular2/buffering';
 //import { EmojiPickerModule } from '@ionic-tools/emoji-picker';
 
 import { MyApp } from "./app.component";
@@ -174,6 +178,10 @@ import { HttpClientModule } from "../../node_modules/@angular/common/http";
    // IonicSwipeAllModule,
 
     HttpClientModule,
+    VgCoreModule,
+    VgControlsModule,
+    VgOverlayPlayModule,
+    VgBufferingModule
 
   ],
   bootstrap: [IonicApp],

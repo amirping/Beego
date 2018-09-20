@@ -61,7 +61,7 @@ import { UserProvider } from '../providers/user/user';
 export class MyApp {
   // = ProfilPage
 
-  rootPage: any=PdcPage;
+  rootPage: any=AboutPage;
   constructor(
     platform: Platform,
     statusBar: StatusBar,
