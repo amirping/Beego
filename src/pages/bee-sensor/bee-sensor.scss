@@ -36,6 +36,36 @@ page-bee-sensor {
         overflow-x: scroll;
         padding-bottom: 10px;
 
+        .active {
+          background: #FB4B7D;
+
+          .month {
+            color: #FFFFFF;
+          }
+        }
+
+        .datePlace {
+          max-width: 39px;
+          min-width: 39px;
+          border-radius: 14px;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-around;
+          height: 57px;
+
+          .month {
+            font-size: 12px;
+            color: rgba($color: #FFFFFF, $alpha: .34);
+            text-align: center
+          }
+
+          .date {
+            font-size: 14px;
+            color: #FFFFFF;
+            text-align: center
+          }
+        }
+
         .timebtn {
           background: transparent;
           color: rgba($color: #FFFFFF, $alpha: .3);

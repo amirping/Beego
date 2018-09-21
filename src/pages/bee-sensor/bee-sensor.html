@@ -19,6 +19,24 @@
       <button [class.activeTimeBtn]="timeu.val == selectedTimeUnite" class="timebtn" (click)="selectedTimeUnite = timeu.val"
         clear small *ngFor="let timeu of timeUnite">{{timeu.name}}</button>
     </div>
+    <div class="row-scroller" nowrap *ngIf="selectedTimeUnite == '0'">
+      <div class="datePlace" (click)="DateUtils.selectedWeek = i" [class.active]="DateUtils.selectedWeek == i" *ngFor="let week of allWeeks;let i = index">
+        <div class="month">
+          {{week.format('MMM')}}
+        </div>
+        <div class="date">
+          {{week.format('DD')}}
+        </div>
+      </div>
+
+    </div>
+    <div class="row-scroller" nowrap *ngIf="selectedTimeUnite == '4'">
+      <div class="datePlace" (click)="DateUtils.selectedMonth = i" [class.active]="DateUtils.selectedMonth == i" *ngFor="let month of allMonthes;let i = index">
+        <div class="date">
+          {{month.format('MMM')}}
+        </div>
+      </div>
+    </div>
   </div>
 </ion-header>
 

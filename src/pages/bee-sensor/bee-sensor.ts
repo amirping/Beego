@@ -7,6 +7,7 @@ import {
   Platform
 } from "ionic-angular";
 import { NgxChartsModule } from "@swimlane/ngx-charts";
+import * as moment from "moment";
 /**
  * Generated class for the BeeSensorPage page.
  *
@@ -25,9 +26,17 @@ export class BeeSensorPage {
     { name: "aujourd'hui", val: 1 },
     { name: "jour", val: 2 },
     { name: "hier", val: 3 },
-    { name: "mois", val: 4 },
-    { name: "annee", val: 5 }
+    { name: "mois", val: 4 }
   ];
+  DateUtils = {
+    selectedWeek: -1,
+    selectedDay: -1,
+    selectedMonth: -1
+  };
+
+  allWeeks: Array<any> = [];
+  allMonthes: Array<any> = [];
+
   selectedTimeUnite = 1;
   timeUnitOpen = false;
   clipingConfig = {
@@ -367,6 +376,16 @@ export class BeeSensorPage {
     public plt: Platform
   ) {
     this.showLoader();
+    let initDate = moment();
+    initDate.startOf("year");
+    let weeksNumber = initDate.isoWeeksInYear();
+    for (let index = 0; index <= weeksNumber; index++) {
+      let day = 1 + 7 * index;
+      this.allWeeks[index] = moment().dayOfYear(day);
+    }
+    for (let index = 0; index < 12; index++) {
+      this.allMonthes[index] = moment().month(index);
+    }
   }
 
   ionViewDidLoad() {
