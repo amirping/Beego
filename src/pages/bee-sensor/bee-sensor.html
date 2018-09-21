@@ -113,8 +113,32 @@
       <div class="chartZone">
         <ngx-charts-line-chart [view]="" [scheme]="charts[5].colorScheme" [results]="charts[5].data" [gradient]="chartConfig.gradient"
           [xAxis]="chartConfig.showXAxis" [yAxis]="chartConfig.showYAxis" [legend]="chartConfig.showLegend"
-          [showXAxisLabel]="chartConfig.showXAxisLabel" [showGridLines]="false" [showYAxisLabel]="chartConfig.showYAxisLabel">
+          [roundDomains]="true" [showXAxisLabel]="chartConfig.showXAxisLabel" [showGridLines]="false" [showYAxisLabel]="chartConfig.showYAxisLabel">
         </ngx-charts-line-chart>
+      </div>
+    </div>
+    <div class="chartPlace" [hidden]="!(selectedChartsCat==charts[6].type)">
+      <div class="chartTitle">
+        <span>Bee {{charts[6].type}} :</span>
+        <span>{{charts[6].name}}</span>
+      </div>
+      <div class="chartZone vertical-label-zone">
+        <!-- <div class="labelZone labelZone-End">
+          <div class="label" *ngFor="let item of charts[6].data;let i = index">
+            <div class="color" [ngStyle]="{'background':charts[6].colorScheme.domain[i]}"></div>
+            <div class="text">{{item.name}}</div>
+          </div>
+        </div>
+        <div class="dumy-wrapper"> -->
+        <ngx-charts-line-chart [view]="" [scheme]="charts[6].colorScheme" [results]="charts[6].data" [gradient]="chartConfig.gradient"
+          [xAxis]="chartConfig.showXAxis" [yAxis]="chartConfig.showYAxis" [legend]="chartConfig.showLegend" [autoScale]="true"
+          [roundDomains]="true" [showXAxisLabel]="chartConfig.showXAxisLabel" [yAxisTickFormatting]="timeAxeY"
+          [showGridLines]="false" [showYAxisLabel]="chartConfig.showYAxisLabel">
+          <ng-template #tooltipTemplate let-model="model">
+            <p>{{model.name}}: {{timeAxeY(model.value)}}</p>
+          </ng-template>
+        </ngx-charts-line-chart>
+        <!-- </div> -->
       </div>
     </div>
   </div>

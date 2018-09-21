@@ -229,52 +229,133 @@ export class BeeSensorPage {
       type: "guest",
       data: [
         {
-          name: "5h",
-          value: 20
-        },
-        {
-          name: "7h",
-          value: 70
-        },
-        {
-          name: "9h",
-          value: 55
-        },
-        {
-          name: "11h",
-          value: 66
-        },
-        {
-          name: "13h",
-          value: 30
-        },
-        {
-          name: "15h",
-          value: 30
-        },
-        {
-          name: "17h",
-          value: 30
-        },
-        {
-          name: "19h",
-          value: 30
-        },
-        {
-          name: "21h",
-          value: 30
-        },
-        {
-          name: "23h",
-          value: 30
-        },
-        {
-          name: "01h",
-          value: 30
+          name: "Visiteurs Number",
+          series: [
+            {
+              name: "5h",
+              value: 4
+            },
+            {
+              name: "7h",
+              value: 70
+            },
+            {
+              name: "9h",
+              value: 55
+            },
+            {
+              name: "11h",
+              value: 66
+            },
+            {
+              name: "13h",
+              value: 30
+            },
+            {
+              name: "15h",
+              value: 30
+            },
+            {
+              name: "17h",
+              value: 100
+            },
+            {
+              name: "19h",
+              value: 30
+            },
+            {
+              name: "21h",
+              value: 30
+            },
+            {
+              name: "23h",
+              value: 30
+            },
+            {
+              name: "01h",
+              value: 30
+            }
+          ]
         }
       ],
       colorScheme: {
-        domain: ["#FB4B7D"]
+        domain: ["#148BB3"]
+      }
+    },
+    {
+      id: 6,
+      name: "Evolution du premier et derniere visiteur par jour",
+      type: "guest",
+      data: [
+        {
+          name: "entree",
+          series: [
+            {
+              name: "Lun",
+              value: 6.3
+            },
+            {
+              name: "Mar",
+              value: 6.33
+            },
+            {
+              name: "Mer",
+              value: 6.45
+            },
+            {
+              name: "Jeu",
+              value: 6.22
+            },
+            {
+              name: "Ven",
+              value: 6.15
+            },
+            {
+              name: "Sam",
+              value: 7.0
+            },
+            {
+              name: "Dim",
+              value: 9.3
+            }
+          ]
+        },
+        {
+          name: "sortie",
+          series: [
+            {
+              name: "Lun",
+              value: 24.33
+            },
+            {
+              name: "Mar",
+              value: 24.0
+            },
+            {
+              name: "Mer",
+              value: 25.33
+            },
+            {
+              name: "Jeu",
+              value: 25.15
+            },
+            {
+              name: "Ven",
+              value: 25.4
+            },
+            {
+              name: "Sam",
+              value: 26.33
+            },
+            {
+              name: "Dim",
+              value: 24.33
+            }
+          ]
+        }
+      ],
+      colorScheme: {
+        domain: ["#41CC6B", "#E24344"]
       }
     }
   ];
@@ -335,22 +416,30 @@ export class BeeSensorPage {
       this.hideloader();
     }
   }
-  /**
-   * testting zone
-   */
-  yLeftAxisScale(min, max) {
-    return { min: `${min}`, max: `${max}` };
-  }
+  timeAxeY(val) {
+    let tr = val + "";
+    let gg = tr.split(".");
+    // case one number front add  0
+    if (gg[0].length == 1) {
+      gg[0] = "0" + gg[0];
+    }
+    // case after 23
 
-  yRightAxisScale(min, max) {
-    return { min: `${min}`, max: `${max}` };
-  }
+    let m = parseInt(gg[0]);
+    if (m > 23) {
+      let z = m - 24;
+      gg[0] = "0" + z;
+    }
 
-  yLeftTickFormat(data) {
-    return `${data.toLocaleString()}`;
-  }
-
-  yRightTickFormat(data) {
-    return `${data}%`;
+    let str = gg[0] + ":";
+    if (gg[1]) {
+      if (gg[1].length == 1) {
+        gg[1] += "0";
+      }
+      str = str + gg[1];
+    } else {
+      str = str + "00";
+    }
+    return str;
   }
 }

@@ -1,13 +1,9 @@
-import { NgModule } from '@angular/core';
-import { SearchBarComponent } from './search-bar/search-bar';
-import { ComboChartComponent } from './combo-chart/combo-chart';
+import { NgModule } from "@angular/core";
+import { SearchBarComponent } from "./search-bar/search-bar";
+
 @NgModule({
-	declarations: [SearchBarComponent,
-    SearchBarComponent,
-    ComboChartComponent],
-	imports: [],
-	exports: [SearchBarComponent,
-    SearchBarComponent,
-    ComboChartComponent]
+  declarations: [SearchBarComponent, SearchBarComponent],
+  imports: [],
+  exports: [SearchBarComponent, SearchBarComponent]
 })
 export class ComponentsModule {}
