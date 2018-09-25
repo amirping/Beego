@@ -63,6 +63,7 @@ import { UserSwitcherPage } from "../pages/user-switcher/user-switcher";
 import { SpaceEventsPage } from "../pages/space-events/space-events";
 import { NgxChartsModule } from "@swimlane/ngx-charts";
 import { Ng2GoogleChartsModule } from "ng2-google-charts";
+import { SpaceEventAndPromotionPage } from "../pages/space-event-and-promotion/space-event-and-promotion";
 // import { CRS, latLng, LatLngBounds } from "leaflet";
 // import { YagaModule } from "@yaga/leaflet-ng2";
 @NgModule({
@@ -103,7 +104,8 @@ import { Ng2GoogleChartsModule } from "ng2-google-charts";
     EspaceHomePage,
     UserSwitcherPage,
     SpaceEventsPage,
-    BeeSensorPage
+    BeeSensorPage,
+    SpaceEventAndPromotionPage
   ],
   imports: [
     BrowserModule,
@@ -155,7 +157,8 @@ import { Ng2GoogleChartsModule } from "ng2-google-charts";
     EspaceHomePage,
     UserSwitcherPage,
     SpaceEventsPage,
-    BeeSensorPage
+    BeeSensorPage,
+    SpaceEventAndPromotionPage
   ],
   providers: [
     StatusBar,

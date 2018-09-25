@@ -1,0 +1,121 @@
+<!--
+  Generated template for the SpaceEventAndPromotionPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Bee Business</ion-title>
+  </ion-navbar>
+  <ion-toolbar>
+    <!-- <ion-title>Bee Business</ion-title> -->
+    <ion-segment [(ngModel)]="page">
+      <ion-segment-button value="event">
+        Event
+      </ion-segment-button>
+      <ion-segment-button value="promotion">
+        Promotion
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <div class="main-content" [ngSwitch]="page">
+    <div *ngSwitchCase="'event'">
+      &nbsp;
+      <ion-card>
+        <ion-card-header>
+          cree un programme
+        </ion-card-header>
+        <ion-card-content>
+          <div class="input-row">
+            <div class="label">Titre</div>
+            <div class="input-holder">
+              <input class="input" type="text" placeholder="titre de l'evenement">
+            </div>
+          </div>
+          <div class="input-row-multi">
+            <div class="input-row">
+              <div class="label">Date</div>
+              <div class="input-holder">
+                <input class="input" type="text" placeholder="23, Dec 2017">
+              </div>
+            </div>
+            <div class="input-row">
+              <div class="label">Heure</div>
+              <div class="input-holder">
+                <input class="input" type="text" placeholder="10 pm">
+              </div>
+            </div>
+            <div class="input-row no-marge">
+              <div class="label">&nbsp;</div>
+              <div class="icon-place">
+                <ion-icon name="add-circle" color="secondary"></ion-icon>
+              </div>
+            </div>
+          </div>
+          <div class="input-row-multi">
+            <div class="input-row">
+              <div class="label">Date fin</div>
+              <div class="input-holder">
+                <input class="input" type="text" placeholder="23, Dec 2017">
+              </div>
+            </div>
+            <div class="input-row">
+              <div class="label">Heure fin</div>
+              <div class="input-holder">
+                <input class="input" type="text" placeholder="10 pm">
+              </div>
+            </div>
+            <div class="input-row no-marge">
+              <div class="label">&nbsp;</div>
+              <div class="icon-place">
+                <ion-icon name="add-circle" color="secondary"></ion-icon>
+              </div>
+            </div>
+          </div>
+          <div class="input-row-multi">
+            <div class="input-row">
+              <div class="label">Lieu</div>
+              <div class="input-holder">
+                <input class="input" type="text" placeholder="What's up coffe">
+              </div>
+            </div>
+            <div class="input-row">
+              <div class="label">Acces</div>
+              <div class="input-holder">
+                <input class="input" type="text" placeholder="Gratuit">
+              </div>
+            </div>
+          </div>
+          <div class="input-row">
+            <div class="note">
+              <div class="title">
+                <div class="label">
+                  Description
+                </div>
+                <ion-icon name="information-circle" class="icon">
+                </ion-icon>
+              </div>
+              <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. In soluta, vero optio voluptatibus dolorem,
+                perspiciatis eos impedit
+                cumque, consequatur dolores aliquid laboriosam! Blanditiis a consequatur, alias qui exercitationem
+                quasi accusamus!
+              </p>
+            </div>
+          </div>
+
+        </ion-card-content>
+      </ion-card>
+    </div>
+
+    <div *ngSwitchCase="'promotion'">
+      promotion work
+    </div>
+  </div>
+</ion-content>

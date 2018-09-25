@@ -1,0 +1,165 @@
+page-space-event-and-promotion {
+  font-family: "Raleway";
+
+  ion-header {
+    background: #353B5A;
+
+    ion-title {
+      .toolbar-title {
+        font-size: 16px;
+        color: white;
+        font-weight: 400;
+      }
+    }
+
+    .toolbar-background {
+      background: #353B5A;
+    }
+
+    /**
+   * ios fix
+   */
+    .header-ios {
+      box-shadow: 0px 3px 3px rgba(0, 0, 0, .16);
+    }
+  }
+
+  ion-content {
+    min-height: 100%;
+
+    .main-content {
+      background: #383F60;
+      min-height: 100%;
+
+      ion-card {
+        background: #394166;
+        border-radius: 15px;
+        box-shadow: 0px 0px 5px rgba(0, 0, 0, .65);
+
+        ion-card-header {
+          color: white;
+          border-bottom: 1px solid rgba($color: #485280, $alpha: .5);
+          padding-top: 10px;
+          padding-bottom: 10px;
+          font-size: 16px;
+        }
+
+        ion-card-content {
+          padding-top: 15px;
+
+          .input-row-multi {
+            display: flex;
+            position: relative;
+            flex-direction: row !important;
+
+            .no-marge {
+              margin: 0 !important;
+            }
+
+            .input-row {
+              flex-grow: 1;
+              margin-right: 10px;
+
+              .icon-place {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                height: 100%;
+
+                ion-icon {
+                  font-size: 31px;
+                }
+              }
+            }
+          }
+
+          .input-row {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 10px;
+            margin-top: 10px;
+            max-width: 100%;
+
+            .label {
+              text-align: left;
+              color: white;
+              font-size: 12px;
+              margin-bottom: 5px;
+            }
+
+            .label-holder {
+              display: flex;
+              flex-direction: row;
+              width: 100%;
+
+              .label {
+                text-align: left;
+                color: white;
+                font-size: 12px;
+                margin-bottom: 5px;
+                flex-grow: 1;
+              }
+            }
+
+            .input-holder {
+              display: flex;
+              flex-direction: row;
+              width: 100%;
+              max-width: 100%;
+
+
+              .time-input {
+                width: 83px;
+              }
+
+              .date-input {
+                width: 140px;
+              }
+
+              .input {
+                flex-grow: 1;
+              }
+            }
+
+            .input {
+              border-radius: 15px;
+              background: #323B58;
+              color: #9EAACC;
+              font-size: 12px;
+              border: none;
+              padding: 5px;
+              padding-left: 10px;
+              width: 100%
+            }
+
+            .note {
+              .title {
+                width: 100%;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                margin-bottom: 10px;
+
+                .label {
+                  font-size: 14px;
+                  color: white;
+                }
+
+                .icon {
+                  font-size: 11px;
+                  color: rgba($color: #7A82A5, $alpha: .8)
+                }
+              }
+
+              p {
+                color: #9EAACC;
+                font-size: 11px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+}

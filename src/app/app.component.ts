@@ -25,12 +25,13 @@ import { SpaceDetailPage } from "../pages/space-detail/space-detail";
 
 import { UserProvider } from "../providers/user/user";
 import { ToExplorePage } from "../pages/to-explore/to-explore";
+import { SpaceEventAndPromotionPage } from "../pages/space-event-and-promotion/space-event-and-promotion";
 
 @Component({
   templateUrl: "app.html"
 })
 export class MyApp {
-  rootPage: any = BeeSensorPage;
+  rootPage: any = SpaceEventAndPromotionPage;
   constructor(
     platform: Platform,
     statusBar: StatusBar,
