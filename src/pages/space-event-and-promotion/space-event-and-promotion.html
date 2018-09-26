@@ -25,7 +25,7 @@
 
 <ion-content>
   <div class="main-content" [ngSwitch]="page">
-    <div *ngSwitchCase="'event'">
+    <div *ngSwitchCase="'event'" class="animated slideInLeft">
       &nbsp;
       <ion-card>
         <ion-card-header>
@@ -35,20 +35,26 @@
           <div class="input-row">
             <div class="label">Titre</div>
             <div class="input-holder">
-              <input class="input" type="text" placeholder="titre de l'evenement">
+              <input class="input" type="text" [(ngModel)]="event.titre" placeholder="titre de l'evenement">
             </div>
           </div>
           <div class="input-row-multi">
             <div class="input-row">
               <div class="label">Date</div>
               <div class="input-holder">
-                <input class="input" type="text" placeholder="23, Dec 2017">
+                <ion-datetime class="input input-with-icon" displayFormat="DD,MMM YYYY" [(ngModel)]="event.date"></ion-datetime>
+                <div class="input-icon-holder">
+                  <img src="../../assets/imgs/event_promotion_mg/date.svg" alt="">
+                </div>
               </div>
             </div>
             <div class="input-row">
               <div class="label">Heure</div>
               <div class="input-holder">
-                <input class="input" type="text" placeholder="10 pm">
+                <ion-datetime class="input input-with-icon" pickFormat="HH mm" displayFormat="hh:mm A" [(ngModel)]="event.time"></ion-datetime>
+                <div class="input-icon-holder">
+                  <img src="../../assets/imgs/event_promotion_mg/clock.svg" alt="">
+                </div>
               </div>
             </div>
             <div class="input-row no-marge">
@@ -62,19 +68,27 @@
             <div class="input-row">
               <div class="label">Date fin</div>
               <div class="input-holder">
-                <input class="input" type="text" placeholder="23, Dec 2017">
+                <ion-datetime class="input input-with-icon" displayFormat="DD,MMM YYYY" [(ngModel)]="event.dateEnd"></ion-datetime>
+                <div class="input-icon-holder">
+                  <img src="../../assets/imgs/event_promotion_mg/date.svg" alt="">
+                </div>
+                <!-- <input class="input" type="text" placeholder="23, Dec 2017"> -->
               </div>
             </div>
             <div class="input-row">
               <div class="label">Heure fin</div>
               <div class="input-holder">
-                <input class="input" type="text" placeholder="10 pm">
+                <ion-datetime class="input input-with-icon" pickFormat="HH mm" displayFormat="hh:mm A" [(ngModel)]="event.timeEnd"></ion-datetime>
+                <div class="input-icon-holder">
+                  <img src="../../assets/imgs/event_promotion_mg/clock.svg" alt="">
+                </div>
               </div>
             </div>
             <div class="input-row no-marge">
               <div class="label">&nbsp;</div>
               <div class="icon-place">
-                <ion-icon name="add-circle" color="secondary"></ion-icon>
+                <ion-icon name="close-circle" color="primary"></ion-icon>
+
               </div>
             </div>
           </div>
@@ -82,13 +96,13 @@
             <div class="input-row">
               <div class="label">Lieu</div>
               <div class="input-holder">
-                <input class="input" type="text" placeholder="What's up coffe">
+                <input class="input" type="text" [(ngModel)]="event.place" placeholder="What's up coffe">
               </div>
             </div>
             <div class="input-row">
               <div class="label">Acces</div>
               <div class="input-holder">
-                <input class="input" type="text" placeholder="Gratuit">
+                <input class="input" type="text" [(ngModel)]="event.access" placeholder="Gratuit">
               </div>
             </div>
           </div>
@@ -112,10 +126,176 @@
 
         </ion-card-content>
       </ion-card>
+      <div class="beego-row-center">
+        <div class="image-placeHolder">
+          <p>Tapez ici pour selectionner une image de couverture</p>
+        </div>
+      </div>
+      <div class="row-scroller">
+        <div class="image-placeHolder">
+          <p>Tapez ici pour ajouter vos images</p>
+        </div>
+        <img *ngFor="let pic of event.pic" class="pic" [src]="pic" alt="">
+      </div>
+      <div class="beego-row-center">
+        <button ion-button round small color="primary">Valider</button>
+        <button ion-button round small color="secondary">voir en tant que visiteur</button>
+
+      </div>
     </div>
 
-    <div *ngSwitchCase="'promotion'">
-      promotion work
+    <div *ngSwitchCase="'promotion'" class="animated slideInRight">
+      &nbsp;
+      <ion-card>
+        <ion-card-header>
+          Promotion
+        </ion-card-header>
+        <ion-card-content class="no-side-padding">
+          <div class="input-row">
+            <div class="label">Titre</div>
+            <div class="input-holder">
+              <input class="input" type="text" [(ngModel)]="promotion.titre" placeholder="titre de l'evenement">
+            </div>
+          </div>
+          <div class="input-row-multi">
+            <div class="input-row">
+              <div class="label">Date</div>
+              <div class="input-holder">
+                <ion-datetime class="input input-with-icon" displayFormat="DD,MMM YYYY" [(ngModel)]="promotion.date"></ion-datetime>
+                <div class="input-icon-holder">
+                  <img src="../../assets/imgs/event_promotion_mg/date.svg" alt="">
+                </div>
+              </div>
+            </div>
+            <div class="input-row">
+              <div class="label">Heure</div>
+              <div class="input-holder">
+                <ion-datetime class="input input-with-icon" pickFormat="HH mm" displayFormat="hh:mm A" [(ngModel)]="promotion.time"></ion-datetime>
+                <div class="input-icon-holder">
+                  <img src="../../assets/imgs/event_promotion_mg/clock.svg" alt="">
+                </div>
+              </div>
+            </div>
+            <div class="input-row no-marge">
+              <div class="label">&nbsp;</div>
+              <div class="icon-place">
+                <ion-icon name="add-circle" color="secondary"></ion-icon>
+              </div>
+            </div>
+          </div>
+          <div class="input-row-multi">
+            <div class="input-row">
+              <div class="label">Date fin</div>
+              <div class="input-holder">
+                <ion-datetime class="input input-with-icon" displayFormat="DD,MMM YYYY" [(ngModel)]="promotion.dateEnd"></ion-datetime>
+                <div class="input-icon-holder">
+                  <img src="../../assets/imgs/event_promotion_mg/date.svg" alt="">
+                </div>
+                <!-- <input class="input" type="text" placeholder="23, Dec 2017"> -->
+              </div>
+            </div>
+            <div class="input-row">
+              <div class="label">Heure fin</div>
+              <div class="input-holder">
+                <ion-datetime class="input input-with-icon" pickFormat="HH mm" displayFormat="hh:mm A" [(ngModel)]="promotion.timeEnd"></ion-datetime>
+                <div class="input-icon-holder">
+                  <img src="../../assets/imgs/event_promotion_mg/clock.svg" alt="">
+                </div>
+              </div>
+            </div>
+            <div class="input-row no-marge">
+              <div class="label">&nbsp;</div>
+              <div class="icon-place">
+                <ion-icon name="close-circle" color="primary"></ion-icon>
+              </div>
+            </div>
+          </div>
+          <div class="input-row-multi">
+            <div class="input-row">
+              <div class="label">Lieu</div>
+              <div class="input-holder">
+                <input class="input" type="text" placeholder="What's up coffe">
+              </div>
+            </div>
+            <div class="input-row">
+              <div class="label">Invité</div>
+              <div class="input-holder">
+                <span class="toggle-label">Filtre</span>
+                <ion-toggle [(ngModel)]="promotion.filtre"></ion-toggle>
+              </div>
+            </div>
+          </div>
+          <div class="dark-row" *ngIf="promotion.filtre">
+            <div class="input-row">
+              <div class="label">Age</div>
+              <div class="value-preview">
+                <div class="values">
+                  Entre {{promotion.filtreAge.lower}} - {{promotion.filtreAge.upper}} ans
+                </div>
+              </div>
+              <div class="input-holder lighteer">
+                <ion-range [(ngModel)]="promotion.filtreAge" min="10" max="80" dualKnobs="true" color="primary" pin="true"></ion-range>
+              </div>
+            </div>
+            <div class="input-row-multi">
+              <div class="input-row">
+                <div class="label">Sexe</div>
+
+                <div class="input-holder many-holder">
+                  <span class="toggle-label">Homme</span>
+                  <ion-toggle [(ngModel)]="promotion.filtreSexe.m"></ion-toggle>
+                </div>
+                <div class="input-holder many-holder">
+                  <span class="toggle-label">Femme</span>
+                  <ion-toggle [(ngModel)]="promotion.filtreSexe.f"></ion-toggle>
+                </div>
+
+              </div>
+              <div class="input-row">
+                <div class="label">Ville</div>
+                <div class="input-holder">
+                  <ion-select [(ngModel)]="promotion.filtreLoc" selectedText="{{promotion.filtreLoc}}">
+                    <ion-option *ngFor="let loc of promotion.filtreLocLst" [value]="loc.val">{{loc.name}}</ion-option>
+                  </ion-select>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="input-row">
+            <div class="note">
+              <div class="title">
+                <div class="label">
+                  Description
+                </div>
+                <ion-icon name="information-circle" class="icon">
+                </ion-icon>
+              </div>
+              <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. In soluta, vero optio voluptatibus dolorem,
+                perspiciatis eos impedit
+                cumque, consequatur dolores aliquid laboriosam! Blanditiis a consequatur, alias qui exercitationem
+                quasi accusamus!
+              </p>
+            </div>
+          </div>
+        </ion-card-content>
+      </ion-card>
+      <div class="beego-row-center">
+        <div class="image-placeHolder">
+          <p>Tapez ici pour selectionner une image de couverture</p>
+        </div>
+      </div>
+      <div class="row-scroller">
+        <div class="image-placeHolder">
+          <p>Tapez ici pour ajouter vos images</p>
+        </div>
+        <img *ngFor="let pic of promotion.pic" class="pic" [src]="pic" alt="">
+      </div>
+      <div class="beego-row-center">
+        <button ion-button color="primary">Valider</button>
+        <button ion-button color="secondary">voir en tant que visiteur</button>
+
+      </div>
     </div>
   </div>
 </ion-content>
